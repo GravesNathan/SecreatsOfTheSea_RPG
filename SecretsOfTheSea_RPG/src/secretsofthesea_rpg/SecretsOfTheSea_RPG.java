@@ -95,7 +95,7 @@ public class SecretsOfTheSea_RPG {
                 
         String statusInfo = statusOne.toString();
         System.out.println(statusInfo);
-        //End sample Class Set & Print
+        //End CurrentStatus Class Set & Print
     }
     
 }

@@ -84,15 +84,15 @@ public class CurrentStatus implements Serializable{
 
     @Override
     public String toString() {
-        return "CurrentStatus{" + '}';
+        return "CurrentStatus{" + "CurrentLocation=" + CurrentLocation + ", StatuesCount=" + StatuesCount + ", LifeStatus=" + LifeStatus + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.CurrentLocation);
-        hash = 97 * hash + Objects.hashCode(this.StatuesCount);
-        hash = 97 * hash + Objects.hashCode(this.LifeStatus);
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.CurrentLocation);
+        hash = 23 * hash + Objects.hashCode(this.StatuesCount);
+        hash = 23 * hash + Objects.hashCode(this.LifeStatus);
         return hash;
     }
 
@@ -117,6 +117,4 @@ public class CurrentStatus implements Serializable{
         return true;
     }
 
-    
-    
 }
