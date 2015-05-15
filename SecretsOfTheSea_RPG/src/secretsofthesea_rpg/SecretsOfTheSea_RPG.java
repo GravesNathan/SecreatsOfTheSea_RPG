@@ -8,6 +8,7 @@ package secretsofthesea_rpg;
 import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
+import byui.cit260.secretsOfTheSea.model.Player;
 
 /**
  *
@@ -20,14 +21,14 @@ public class SecretsOfTheSea_RPG {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Map playerOne = new Map();
+        Map mapOne = new Map();
+   
+        mapOne.setDifficulty("Easy Challenge");
+        mapOne.setXMax("5");
+        mapOne.setYMax("10");
         
-        playerOne.setDifficulty("Easy Challenge");
-        playerOne.setXMax("5");
-        playerOne.setYMax("10");
-        
-        String playerInfo = playerOne.toString();
-        System.out.println(playerInfo);
+        String mapInfo = mapOne.toString();
+        System.out.println(mapInfo);
         
         
         LocationDetails locationOne = new LocationDetails();
@@ -45,6 +46,15 @@ public class SecretsOfTheSea_RPG {
         
         String locationAztec = locationOne.toString();
         System.out.println(locationAztec);
+        
+        Player playerOne = new Player();
+        
+        playerOne.setName("Nathan the Amazing");
+        playerOne.setApproachChoice(1);
+        
+        String playerInfo = playerOne.toString();
+        System.out.println(playerInfo);
+        
     }
     
 }
