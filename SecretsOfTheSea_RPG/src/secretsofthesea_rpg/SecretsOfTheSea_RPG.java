@@ -10,6 +10,7 @@ import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import byui.cit260.secretsOfTheSea.model.Player;
+import byui.cit260.secretsOfTheSea.model.Societies;
 
 /**
  *
@@ -97,6 +98,20 @@ public class SecretsOfTheSea_RPG {
         System.out.println(playerInfo);
         //End Player Class Set & Print
 
+        //Societies Class Set & Print
+        Societies societyOne = new Societies();
+        
+        societyOne.setName("Aztecs");
+        societyOne.setDescription("The Aztec Society is the oldest society found");
+        societyOne.setTrustLevel(0);
+        societyOne.setPositiveApproach("Bribery");
+        societyOne.setNeutralApproach("Diplomacy");
+        societyOne.setNegativeApproach("Intimidation");
+                
+        String societyInfo = societyOne.toString();
+        System.out.println(societyInfo);
+        //End Societies Class Set & Print
+        
     }
     
 }
