@@ -7,6 +7,7 @@ package secretsofthesea_rpg;
 
 import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.CurrentStatus;
+import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import byui.cit260.secretsOfTheSea.model.Player;
 
@@ -20,6 +21,17 @@ public class SecretsOfTheSea_RPG {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //Sample Class Set & Print
+        /*Sample samepleOne = new Sample();
+        *
+        *sampleOne.setAttribute("Value");
+        *sampleOne.setIntAttribute(1);
+        *
+        *String sampleInfo = sampleOne.toString();
+        *System.out.println(sampleInfo);
+        */
+        //End sample Class Set & Print
+        
         //Map Class Set & Print
         Map mapOne = new Map();
    
@@ -58,6 +70,32 @@ public class SecretsOfTheSea_RPG {
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
         //End Player Class Set & Print
+        
+        //ExplorableAreas Class Set & Print
+        ExplorableAreas areaOne = new ExplorableAreas();
+        
+        areaOne.setDescription("Beach Front");
+        areaOne.setHasStatue(1);
+        areaOne.setResource1("Food");
+        areaOne.setResource2("Water");
+        areaOne.setResource1Quantity(3);
+        areaOne.setResource2Quantity(5);
+        areaOne.setTravelDistance(14);
+        
+        String areaInfo = areaOne.toString();
+        System.out.println(areaInfo);
+        //End ExplorableAreas Class Set & Print
+        
+        //CurrentStatus Class Set & Print
+        CurrentStatus statusOne = new CurrentStatus();
+        
+        statusOne.setCurrentLocation("Aztec Society");
+        statusOne.setStatuesCount("Zero");
+        statusOne.setLifeStatus("Alive and well");
+                
+        String statusInfo = statusOne.toString();
+        System.out.println(statusInfo);
+        //End sample Class Set & Print
     }
     
 }
