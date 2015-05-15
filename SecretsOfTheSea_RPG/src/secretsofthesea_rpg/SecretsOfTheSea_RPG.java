@@ -5,6 +5,8 @@
  */
 package secretsofthesea_rpg;
 
+import byui.cit260.secretsOfTheSea.model.Map;
+
 /**
  *
  * @author SDababneh
