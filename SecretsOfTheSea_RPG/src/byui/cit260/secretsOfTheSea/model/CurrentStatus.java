@@ -21,6 +21,9 @@ public class CurrentStatus implements Serializable{
     private String StatuesCount;    
     private String LifeStatus;
 
+    public CurrentStatus() {
+    }
+
     /**
      * Get the value of CurrentLocation
      *
