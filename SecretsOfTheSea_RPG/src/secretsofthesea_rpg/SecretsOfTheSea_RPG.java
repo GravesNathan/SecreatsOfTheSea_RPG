@@ -6,6 +6,8 @@
 package secretsofthesea_rpg;
 
 import byui.cit260.secretsOfTheSea.model.Map;
+import byui.cit260.secretsOfTheSea.model.CurrentStatus;
+import byui.cit260.secretsOfTheSea.model.LocationDetails;
 
 /**
  *
@@ -26,6 +28,23 @@ public class SecretsOfTheSea_RPG {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
+        
+        LocationDetails locationOne = new LocationDetails();
+        
+        locationOne.setFoodLevel(4);
+        locationOne.setWaterLevel(3);
+        locationOne.setFuelLevel(2);
+        locationOne.setMunitionsLevel(1);
+        locationOne.setCoinLevel(1);
+        locationOne.setArtifactsLevel(2);
+        locationOne.setGemsLevel(3);
+        locationOne.setStatue(1);
+        locationOne.setXCoordinate(2);
+        locationOne.setYCoordinate(7);
+        
+        String locationAztec = locationOne.toString();
+        System.out.println(locationAztec);
     }
     
 }
