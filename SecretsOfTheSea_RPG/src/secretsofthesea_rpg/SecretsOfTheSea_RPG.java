@@ -11,6 +11,7 @@ import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import byui.cit260.secretsOfTheSea.model.Player;
 import byui.cit260.secretsOfTheSea.model.Societies;
+import byui.cit260.secretsOfTheSea.model.SocietyNPCs;
 
 /**
  *
@@ -102,7 +103,7 @@ public class SecretsOfTheSea_RPG {
         Societies societyOne = new Societies();
         
         societyOne.setName("Aztecs");
-        societyOne.setDescription("The Aztec Society is the oldest society found");
+        societyOne.setDescription("The Aztec Society is the oldest society found.");
         societyOne.setTrustLevel(0);
         societyOne.setPositiveApproach("Bribery");
         societyOne.setNeutralApproach("Diplomacy");
@@ -111,6 +112,19 @@ public class SecretsOfTheSea_RPG {
         String societyInfo = societyOne.toString();
         System.out.println(societyInfo);
         //End Societies Class Set & Print
+
+        //SocietyNPCs Class Set & Print
+        SocietyNPCs societyOneNPC = new SocietyNPCs();
+        
+        societyOneNPC.setLeaderName("Achcauhtli");
+        societyOneNPC.setLeaderDescription("Achcauhtli stands 6 feet tall but is very thin and fit.  He shows no emotion on his face.");
+        societyOneNPC.setLeaderTrustLevel(0);
+        societyOneNPC.setLeaderTrustLevelTarget(4);
+                
+        String societyNPCInfo = societyOneNPC.toString();
+        System.out.println(societyNPCInfo);
+        //End SocietyNPCs Class Set & Print
+        
         
     }
     
