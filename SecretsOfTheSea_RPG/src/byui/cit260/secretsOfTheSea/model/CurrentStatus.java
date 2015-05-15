@@ -18,7 +18,7 @@ public class CurrentStatus implements Serializable{
     //LifeStatus
     
     private String CurrentLocation;
-    private String StatuesCount;    
+    private int StatuesCount;    
     private String LifeStatus;
 
     public CurrentStatus() {
@@ -49,7 +49,7 @@ public class CurrentStatus implements Serializable{
      *
      * @return the value of StatuesCount
      */
-    public String getStatuesCount() {
+    public int getStatuesCount() {
         return StatuesCount;
     }
 
@@ -58,7 +58,7 @@ public class CurrentStatus implements Serializable{
      *
      * @param StatuesCount new value of StatuesCount
      */
-    public void setStatuesCount(String StatuesCount) {
+    public void setStatuesCount(int StatuesCount) {
         this.StatuesCount = StatuesCount;
     }
 
