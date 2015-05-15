@@ -38,8 +38,8 @@ public class SecretsOfTheSea_RPG {
         Map mapOne = new Map();
    
         mapOne.setDifficulty("Easy Challenge");
-        mapOne.setXMax("5");
-        mapOne.setYMax("10");
+        mapOne.setXMax(5);
+        mapOne.setYMax(10);
         
         String mapInfo = mapOne.toString();
         System.out.println(mapInfo);

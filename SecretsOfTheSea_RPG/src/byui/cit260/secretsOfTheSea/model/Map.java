@@ -15,8 +15,8 @@ import java.util.Objects;
 public class Map implements Serializable{
     
     //class instance variables
-    private String XMax;
-    private String YMax;
+    private int XMax;
+    private int YMax;
     private String Difficulty;
 
     public Map() {
@@ -29,7 +29,7 @@ public class Map implements Serializable{
      *
      * @return the value of XMax
      */
-    public String getXMax() {
+    public int getXMax() {
         return XMax;
     }
 
@@ -38,7 +38,7 @@ public class Map implements Serializable{
      *
      * @param XMax new value of XMax
      */
-    public void setXMax(String XMax) {
+    public void setXMax(int XMax) {
         this.XMax = XMax;
     }
 
@@ -49,7 +49,7 @@ public class Map implements Serializable{
      *
      * @return the value of YMax
      */
-    public String getYMax() {
+    public int getYMax() {
         return YMax;
     }
 
@@ -58,7 +58,7 @@ public class Map implements Serializable{
      *
      * @param YMax new value of YMax
      */
-    public void setYMax(String YMax) {
+    public void setYMax(int YMax) {
         this.YMax = YMax;
     }
 
