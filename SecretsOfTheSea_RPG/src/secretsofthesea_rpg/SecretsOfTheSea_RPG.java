@@ -20,7 +20,7 @@ public class SecretsOfTheSea_RPG {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //Map Class Set & Print
         Map mapOne = new Map();
    
         mapOne.setDifficulty("Easy Challenge");
@@ -29,8 +29,9 @@ public class SecretsOfTheSea_RPG {
         
         String mapInfo = mapOne.toString();
         System.out.println(mapInfo);
+        //End Map Class Set & Print
         
-        
+        //LocationDetails Class Set & Print
         LocationDetails locationOne = new LocationDetails();
         
         locationOne.setFoodLevel(4);
@@ -46,7 +47,9 @@ public class SecretsOfTheSea_RPG {
         
         String locationAztec = locationOne.toString();
         System.out.println(locationAztec);
+        //End LocationDetails Class Set & Print
         
+        //Player Class Set & Print
         Player playerOne = new Player();
         
         playerOne.setName("Nathan the Amazing");
@@ -54,7 +57,7 @@ public class SecretsOfTheSea_RPG {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
-        
+        //End Player Class Set & Print
     }
     
 }
