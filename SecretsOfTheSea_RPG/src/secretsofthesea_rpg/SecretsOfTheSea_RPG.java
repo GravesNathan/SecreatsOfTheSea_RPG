@@ -43,7 +43,33 @@ public class SecretsOfTheSea_RPG {
         System.out.println(mapInfo);
         //End Map Class Set & Print
         
-        //LocationDetails Class Set & Print
+        //CurrentStatus Class Set & Print
+        CurrentStatus statusOne = new CurrentStatus();
+        
+        statusOne.setCurrentLocation("Aztec Society [Beach Front]");
+        statusOne.setStatuesCount("Zero");
+        statusOne.setLifeStatus("Alive and well");
+                
+        String statusInfo = statusOne.toString();
+        System.out.println(statusInfo);
+        //End CurrentStatus Class Set & Print
+        
+        //ExplorableAreas Class Set & Print
+        ExplorableAreas areaOne = new ExplorableAreas();
+        
+        areaOne.setDescription("Beach Front");
+        areaOne.setHasStatue(1);
+        areaOne.setResource1("Food");
+        areaOne.setResource2("Water");
+        areaOne.setResource1Quantity(3);
+        areaOne.setResource2Quantity(5);
+        areaOne.setTravelDistance(14);
+        
+        String areaInfo = areaOne.toString();
+        System.out.println(areaInfo);
+        //End ExplorableAreas Class Set & Print
+        
+       //LocationDetails Class Set & Print
         LocationDetails locationOne = new LocationDetails();
         
         locationOne.setFoodLevel(4);
@@ -70,32 +96,7 @@ public class SecretsOfTheSea_RPG {
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
         //End Player Class Set & Print
-        
-        //ExplorableAreas Class Set & Print
-        ExplorableAreas areaOne = new ExplorableAreas();
-        
-        areaOne.setDescription("Beach Front");
-        areaOne.setHasStatue(1);
-        areaOne.setResource1("Food");
-        areaOne.setResource2("Water");
-        areaOne.setResource1Quantity(3);
-        areaOne.setResource2Quantity(5);
-        areaOne.setTravelDistance(14);
-        
-        String areaInfo = areaOne.toString();
-        System.out.println(areaInfo);
-        //End ExplorableAreas Class Set & Print
-        
-        //CurrentStatus Class Set & Print
-        CurrentStatus statusOne = new CurrentStatus();
-        
-        statusOne.setCurrentLocation("Aztec Society");
-        statusOne.setStatuesCount("Zero");
-        statusOne.setLifeStatus("Alive and well");
-                
-        String statusInfo = statusOne.toString();
-        System.out.println(statusInfo);
-        //End CurrentStatus Class Set & Print
+
     }
     
 }
