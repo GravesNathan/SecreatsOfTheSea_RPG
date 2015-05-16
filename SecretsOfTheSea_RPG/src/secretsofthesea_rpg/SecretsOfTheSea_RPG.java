@@ -5,13 +5,17 @@
  */
 package secretsofthesea_rpg;
 
+import byui.cit260.secretsOfTheSea.model.Cargo;
 import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import byui.cit260.secretsOfTheSea.model.Player;
+import byui.cit260.secretsOfTheSea.model.SelectedShip;
+import byui.cit260.secretsOfTheSea.model.Ships;
 import byui.cit260.secretsOfTheSea.model.Societies;
 import byui.cit260.secretsOfTheSea.model.SocietyNPCs;
+import byui.cit260.secretsOfTheSea.model.Storage;
 
 /**
  *
@@ -126,6 +130,68 @@ public class SecretsOfTheSea_RPG {
         //End SocietyNPCs Class Set & Print
         
         
+        //Ships Class Set & Print
+        Ships ship1 = new Ships();
+        
+        ship1.setName("Tank");
+        ship1.setDescription("Most powerful ship with high intimication stat");
+        ship1.setCargoCapSize(7);
+        ship1.setMorale(5);
+        ship1.setSpeed(3);
+        ship1.setDefense(10);
+        ship1.setDeceit(2);
+        ship1.setDiplomacy(3);
+        ship1.setIntimidation(10);
+        ship1.setBribery(4);
+        
+        String ship1Info = ship1.toString();
+        System.out.println(ship1Info);
+        
+        //SelectedShip Set & Print
+        SelectedShip selectedShip = new SelectedShip();
+        
+        selectedShip.setName("Tank!!!");
+        selectedShip.setDescription("You chose a Tank!");
+        selectedShip.setCargoCapSize(70);
+        selectedShip.setMorale(50);
+        selectedShip.setSpeed(30);
+        selectedShip.setDefense(100);
+        selectedShip.setDeceit(20);
+        selectedShip.setDiplomacy(30);
+        selectedShip.setIntimidation(100);
+        selectedShip.setBribery(40);
+        selectedShip.setShipHealth(200);
+        
+        String selectedShipInfo = selectedShip.toString();
+        System.out.println(selectedShipInfo);
+        
+        //Storage Set & Print
+        Storage storage = new Storage();
+        
+        storage.setFood(1);
+        storage.setWater(2);
+        storage.setFuel(3);
+        storage.setMunitions(4);
+        storage.setCoin(5);
+        storage.setArtifacts(6);
+        storage.setGems(7);
+        
+        String storageInfo = storage.toString();
+        System.out.println(storageInfo);
+        
+        //Cargo Set & Print
+        Cargo cargo = new Cargo();
+        
+        cargo.setFood(3);
+        cargo.setWater(4);
+        cargo.setFuel(7);
+        cargo.setMunitions(8);
+        cargo.setCoin(2);
+        cargo.setArtifacts(2);
+        cargo.setGems(2);
+        
+        String cargoInfo = cargo.toString();
+        System.out.println(cargoInfo);
     }
     
 }
