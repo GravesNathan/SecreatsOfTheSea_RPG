@@ -78,13 +78,13 @@ public class SecretsOfTheSea_RPG {
        //LocationDetails Class Set & Print
         LocationDetails locationOne = new LocationDetails();
         
-        locationOne.setFoodLevel(4);
-        locationOne.setWaterLevel(3);
-        locationOne.setFuelLevel(2);
-        locationOne.setMunitionsLevel(1);
-        locationOne.setCoinLevel(1);
-        locationOne.setArtifactsLevel(2);
-        locationOne.setGemsLevel(3);
+        locationOne.setFood(4);
+        locationOne.setWater(3);
+        locationOne.setFuel(2);
+        locationOne.setMunitions(1);
+        locationOne.setCoin(1);
+        locationOne.setArtifacts(2);
+        locationOne.setGems(3);
         locationOne.setStatue(1);
         locationOne.setXCoordinate(2);
         locationOne.setYCoordinate(7);
@@ -108,7 +108,6 @@ public class SecretsOfTheSea_RPG {
         
         societyOne.setName("Aztecs");
         societyOne.setDescription("The Aztec Society is the oldest society found.");
-        societyOne.setTrustLevel(0);
         societyOne.setPositiveApproach("Bribery");
         societyOne.setNeutralApproach("Diplomacy");
         societyOne.setNegativeApproach("Intimidation");

@@ -16,7 +16,6 @@ public class Societies implements Serializable{
     
     private String Name;
     private String Description;
-    private int TrustLevel;
     private String PositiveApproach;
     private String NeutralApproach;
     private String NegativeApproach;
@@ -38,14 +37,6 @@ public class Societies implements Serializable{
 
     public void setDescription(String Description) {
         this.Description = Description;
-    }
-
-    public int getTrustLevel() {
-        return TrustLevel;
-    }
-
-    public void setTrustLevel(int TrustLevel) {
-        this.TrustLevel = TrustLevel;
     }
 
     public String getPositiveApproach() {
@@ -74,7 +65,7 @@ public class Societies implements Serializable{
 
     @Override
     public String toString() {
-        return "Societies{" + "Name=" + Name + ", Description=" + Description + ", TrustLevel=" + TrustLevel + ", PositiveApproach=" + PositiveApproach + ", NeutralApproach=" + NeutralApproach + ", NegativeApproach=" + NegativeApproach + '}';
+        return "Societies{" + "Name=" + Name + ", Description=" + Description + ", PositiveApproach=" + PositiveApproach + ", NeutralApproach=" + NeutralApproach + ", NegativeApproach=" + NegativeApproach + '}';
     }
 
     @Override
@@ -82,7 +73,6 @@ public class Societies implements Serializable{
         int hash = 5;
         hash = 17 * hash + Objects.hashCode(this.Name);
         hash = 17 * hash + Objects.hashCode(this.Description);
-        hash = 17 * hash + this.TrustLevel;
         hash = 17 * hash + Objects.hashCode(this.PositiveApproach);
         hash = 17 * hash + Objects.hashCode(this.NeutralApproach);
         hash = 17 * hash + Objects.hashCode(this.NegativeApproach);
@@ -102,9 +92,6 @@ public class Societies implements Serializable{
             return false;
         }
         if (!Objects.equals(this.Description, other.Description)) {
-            return false;
-        }
-        if (this.TrustLevel != other.TrustLevel) {
             return false;
         }
         if (!Objects.equals(this.PositiveApproach, other.PositiveApproach)) {

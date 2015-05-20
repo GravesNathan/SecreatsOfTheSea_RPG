@@ -11,75 +11,12 @@ import java.io.Serializable;
  *
  * @author SDababneh
  */
-public class LocationDetails implements Serializable{
-    private int FoodLevel;
-    private int WaterLevel;
-    private int FuelLevel;
-    private int MunitionsLevel;
-    private int CoinLevel;
-    private int ArtifactsLevel;
-    private int GemsLevel;
+public class LocationDetails extends Storage implements Serializable{
     private int Statue;
     private int XCoordinate;
     private int YCoordinate;
 
     public LocationDetails() {
-    }
-  
-    public int getFoodLevel() {
-        return FoodLevel;
-    }
-
-    public void setFoodLevel(int FoodLevel) {
-        this.FoodLevel = FoodLevel;
-    }
-
-    public int getWaterLevel() {
-        return WaterLevel;
-    }
-
-    public void setWaterLevel(int WaterLevel) {
-        this.WaterLevel = WaterLevel;
-    }
-
-    public int getFuelLevel() {
-        return FuelLevel;
-    }
-
-    public void setFuelLevel(int FuelLevel) {
-        this.FuelLevel = FuelLevel;
-    }
-
-    public int getMunitionsLevel() {
-        return MunitionsLevel;
-    }
-
-    public void setMunitionsLevel(int MunitionsLevel) {
-        this.MunitionsLevel = MunitionsLevel;
-    }
-
-    public int getCoinLevel() {
-        return CoinLevel;
-    }
-
-    public void setCoinLevel(int CoinLevel) {
-        this.CoinLevel = CoinLevel;
-    }
-
-    public int getArtifactsLevel() {
-        return ArtifactsLevel;
-    }
-
-    public void setArtifactsLevel(int ArtifactsLevel) {
-        this.ArtifactsLevel = ArtifactsLevel;
-    }
-
-    public int getGemsLevel() {
-        return GemsLevel;
-    }
-
-    public void setGemsLevel(int GemsLevel) {
-        this.GemsLevel = GemsLevel;
     }
 
     public int getStatue() {
@@ -108,19 +45,19 @@ public class LocationDetails implements Serializable{
 
     @Override
     public String toString() {
-        return "LocationDetails{" + "FoodLevel=" + FoodLevel + ", WaterLevel=" + WaterLevel + ", FuelLevel=" + FuelLevel + ", MunitionsLevel=" + MunitionsLevel + ", CoinLevel=" + CoinLevel + ", ArtifactsLevel=" + ArtifactsLevel + ", GemsLevel=" + GemsLevel + ", Statue=" + Statue + ", XCoordinate=" + XCoordinate + ", YCoordinate=" + YCoordinate + '}';
+        return "LocationDetails{" + "food=" + food + ", water=" + water + ", fuel=" + fuel + ", munitions=" + munitions + ", coin=" + coin + ", artifacts=" + artifacts + ", gems=" + gems + ", Statue=" + Statue + ", XCoordinate=" + XCoordinate + ", YCoordinate=" + YCoordinate + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + this.FoodLevel;
-        hash = 29 * hash + this.WaterLevel;
-        hash = 29 * hash + this.FuelLevel;
-        hash = 29 * hash + this.MunitionsLevel;
-        hash = 29 * hash + this.CoinLevel;
-        hash = 29 * hash + this.ArtifactsLevel;
-        hash = 29 * hash + this.GemsLevel;
+        hash = 29 * hash + this.food;
+        hash = 29 * hash + this.water;
+        hash = 29 * hash + this.fuel;
+        hash = 29 * hash + this.munitions;
+        hash = 29 * hash + this.coin;
+        hash = 29 * hash + this.artifacts;
+        hash = 29 * hash + this.gems;
         hash = 29 * hash + this.Statue;
         hash = 29 * hash + this.XCoordinate;
         hash = 29 * hash + this.YCoordinate;
@@ -136,25 +73,25 @@ public class LocationDetails implements Serializable{
             return false;
         }
         final LocationDetails other = (LocationDetails) obj;
-        if (this.FoodLevel != other.FoodLevel) {
+        if (this.food != other.food) {
             return false;
         }
-        if (this.WaterLevel != other.WaterLevel) {
+        if (this.water != other.water) {
             return false;
         }
-        if (this.FuelLevel != other.FuelLevel) {
+        if (this.fuel != other.fuel) {
             return false;
         }
-        if (this.MunitionsLevel != other.MunitionsLevel) {
+        if (this.munitions != other.munitions) {
             return false;
         }
-        if (this.CoinLevel != other.CoinLevel) {
+        if (this.coin != other.coin) {
             return false;
         }
-        if (this.ArtifactsLevel != other.ArtifactsLevel) {
+        if (this.artifacts != other.artifacts) {
             return false;
         }
-        if (this.GemsLevel != other.GemsLevel) {
+        if (this.gems != other.gems) {
             return false;
         }
         if (this.Statue != other.Statue) {
