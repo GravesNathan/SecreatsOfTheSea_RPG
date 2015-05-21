@@ -55,6 +55,7 @@ public class SecretsOfTheSea_RPG {
         statusOne.setCurrentLocation("Aztec Society [Beach Front]");
         statusOne.setStatuesCount(1);
         statusOne.setLifeStatus("Alive and well");
+        statusOne.setGameDifficulty("Normal");
                 
         String statusInfo = statusOne.toString();
         System.out.println(statusInfo);
