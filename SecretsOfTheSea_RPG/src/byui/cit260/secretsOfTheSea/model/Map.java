@@ -17,7 +17,7 @@ public class Map implements Serializable{
     //class instance variables
     private int XMax;
     private int YMax;
-    private String Difficulty;
+    private char Difficulty;
 
     public Map() {
     }
@@ -69,7 +69,7 @@ public class Map implements Serializable{
      *
      * @return the value of Difficulty
      */
-    public String getDifficulty() {
+    public char getDifficulty() {
         return Difficulty;
     }
 
@@ -78,7 +78,7 @@ public class Map implements Serializable{
      *
      * @param Difficulty new value of Difficulty
      */
-    public void setDifficulty(String Difficulty) {
+    public void setDifficulty(char Difficulty) {
         this.Difficulty = Difficulty;
     }
 

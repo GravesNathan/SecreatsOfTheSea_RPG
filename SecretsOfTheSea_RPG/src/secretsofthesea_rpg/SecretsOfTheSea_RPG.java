@@ -5,6 +5,7 @@
  */
 package secretsofthesea_rpg;
 
+import byui.cit260.secretsOfTheSea.control.GameDifficultyControl;
 import byui.cit260.secretsOfTheSea.model.Cargo;
 import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.CurrentStatus;
@@ -41,9 +42,9 @@ public class SecretsOfTheSea_RPG {
         //Map Class Set & Print
         Map mapOne = new Map();
    
-        mapOne.setDifficulty("Easy Challenge");
-        mapOne.setXMax(5);
-        mapOne.setYMax(10);
+        mapOne.setDifficulty('h');
+        mapOne.setXMax(4);
+        mapOne.setYMax(4);
         
         String mapInfo = mapOne.toString();
         System.out.println(mapInfo);
@@ -56,6 +57,7 @@ public class SecretsOfTheSea_RPG {
         statusOne.setStatuesCount(1);
         statusOne.setLifeStatus("Alive and well");
         statusOne.setGameDifficulty("Normal");
+        statusOne.setStatusMessage("Default Message");
                 
         String statusInfo = statusOne.toString();
         System.out.println(statusInfo);
@@ -192,6 +194,13 @@ public class SecretsOfTheSea_RPG {
         
         String cargoInfo = cargo.toString();
         System.out.println(cargoInfo);
+        
+        GameDifficultyControl difficultyCon1 = new GameDifficultyControl();
+        //difficultyCon1.calcMapSize( mapOne.getDifficulty(), mapOne.getXMax(), mapOne.getYMax() );
+        difficultyCon1.calcMapSize( mapOne, statusOne );
+        mapInfo = mapOne.toString();
+        System.out.println(mapInfo + " " + statusOne.getStatusMessage());
+        
     }
     
 }

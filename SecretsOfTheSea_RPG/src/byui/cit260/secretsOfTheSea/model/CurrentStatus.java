@@ -21,6 +21,7 @@ public class CurrentStatus implements Serializable{
     private int StatuesCount;    
     private String LifeStatus;
     private String gameDifficulty;
+    private String statusMessage;
     
     public CurrentStatus() {
     }
@@ -91,12 +92,20 @@ public class CurrentStatus implements Serializable{
         this.gameDifficulty = gameDifficulty;
     }
 
+    public String getStatusMessage() {
+        return statusMessage;
+    }
+
+    public void setStatusMessage(String statusMessage) {
+        this.statusMessage = statusMessage;
+    }
+
     
     
     @Override
     public String toString() {
         return "CurrentStatus{" + "CurrentLocation=" + CurrentLocation + ", StatuesCount=" + StatuesCount + ", LifeStatus=" + LifeStatus 
-                + ", GameDifficulty=" + gameDifficulty + '}';
+                + ", GameDifficulty=" + gameDifficulty + "statusMessage = " + statusMessage + '}';
     }
 
     @Override
@@ -106,6 +115,7 @@ public class CurrentStatus implements Serializable{
         hash = 23 * hash + Objects.hashCode(this.StatuesCount);
         hash = 23 * hash + Objects.hashCode(this.LifeStatus);
         hash = 23 * hash + Objects.hashCode(this.gameDifficulty);
+        hash = 23 * hash + Objects.hashCode(this.statusMessage);
         return hash;
     }
 
@@ -128,6 +138,9 @@ public class CurrentStatus implements Serializable{
             return false;
         }
         if (!Objects.equals(this.gameDifficulty, other.gameDifficulty)) {
+            return false;
+        }
+        if (!Objects.equals(this.statusMessage, other.statusMessage)) {
             return false;
         }
         return true;
