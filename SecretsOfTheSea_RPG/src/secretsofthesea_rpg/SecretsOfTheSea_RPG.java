@@ -43,8 +43,8 @@ public class SecretsOfTheSea_RPG {
         Map mapOne = new Map();
    
         mapOne.setDifficulty('h');
-        mapOne.setXMax(4);
-        mapOne.setYMax(4);
+        mapOne.setxMax(4);
+        mapOne.setyMax(4);
         
         String mapInfo = mapOne.toString();
         System.out.println(mapInfo);
@@ -77,23 +77,148 @@ public class SecretsOfTheSea_RPG {
         String areaInfo = areaOne.toString();
         System.out.println(areaInfo);
         //End ExplorableAreas Class Set & Print
-        
-       //LocationDetails Class Set & Print
+       
+        /**************************************/ 
+        //LocationDetails Class Set & Print
+        /*************************************/
+        /*  Location One Setup */
         LocationDetails locationOne = new LocationDetails();
         
-        locationOne.setFood(4);
-        locationOne.setWater(3);
+        locationOne.setFood(2);
+        locationOne.setWater(2);
         locationOne.setFuel(2);
-        locationOne.setMunitions(1);
-        locationOne.setCoin(1);
-        locationOne.setArtifacts(2);
-        locationOne.setGems(3);
-        locationOne.setStatue(1);
+        locationOne.setMunitions(2);
+        locationOne.setCoin(2);
+        locationOne.setArtifacts(3);
+        locationOne.setGems(2);
+        locationOne.setStatue(2);
         locationOne.setXCoordinate(2);
-        locationOne.setYCoordinate(7);
+        locationOne.setYCoordinate(2);
         
-        String locationAztec = locationOne.toString();
-        System.out.println(locationAztec);
+        String locationOneInfo = locationOne.toString();
+        System.out.println(locationOneInfo);
+        /*  End of Location One ********/
+        /*  Location Two Setup */
+        LocationDetails locationTwo = new LocationDetails();
+        
+        locationTwo.setFood(2);
+        locationTwo.setWater(2);
+        locationTwo.setFuel(2);
+        locationTwo.setMunitions(2);
+        locationTwo.setCoin(2);
+        locationTwo.setArtifacts(3);
+        locationTwo.setGems(2);
+        locationTwo.setStatue(2);
+        locationTwo.setXCoordinate(2);
+        locationTwo.setYCoordinate(2);
+        
+        String locationTwoInfo = locationTwo.toString();
+        System.out.println(locationTwoInfo);
+        /*  End of Location Two ********/
+        /*  Location Three  Setup */
+        LocationDetails locationThree = new LocationDetails();
+        
+        locationThree.setFood(2);
+        locationThree.setWater(2);
+        locationThree.setFuel(2);
+        locationThree.setMunitions(2);
+        locationThree.setCoin(2);
+        locationThree.setArtifacts(3);
+        locationThree.setGems(2);
+        locationThree.setStatue(2);
+        locationThree.setXCoordinate(2);
+        locationThree.setYCoordinate(2);
+        
+        String locationThreeInfo = locationThree.toString();
+        System.out.println(locationThreeInfo);
+        /*  End of Location Three ********/
+        /*  Location Four Setup */
+        LocationDetails locationFour = new LocationDetails();
+        
+        locationFour.setFood(2);
+        locationFour.setWater(2);
+        locationFour.setFuel(2);
+        locationFour.setMunitions(2);
+        locationFour.setCoin(2);
+        locationFour.setArtifacts(3);
+        locationFour.setGems(2);
+        locationFour.setStatue(2);
+        locationFour.setXCoordinate(2);
+        locationFour.setYCoordinate(2);
+        
+        String locationFourInfo = locationFour.toString();
+        System.out.println(locationFourInfo);
+        /*  End of LocationFour  ********/
+        /*  Location Five Setup */
+        LocationDetails locationFive = new LocationDetails();
+        
+        locationFive.setFood(2);
+        locationFive.setWater(2);
+        locationFive.setFuel(2);
+        locationFive.setMunitions(2);
+        locationFive.setCoin(2);
+        locationFive.setArtifacts(3);
+        locationFive.setGems(2);
+        locationFive.setStatue(2);
+        locationFive.setXCoordinate(2);
+        locationFive.setYCoordinate(2);
+        
+        String locationFiveInfo = locationFive.toString();
+        System.out.println(locationFiveInfo);
+        /*  End of LocationFive  ********/
+        /*  Location Six Setup */
+        LocationDetails locationSix = new LocationDetails();
+        
+        locationSix.setFood(2);
+        locationSix.setWater(2);
+        locationSix.setFuel(2);
+        locationSix.setMunitions(2);
+        locationSix.setCoin(2);
+        locationSix.setArtifacts(3);
+        locationSix.setGems(2);
+        locationSix.setStatue(2);
+        locationSix.setXCoordinate(2);
+        locationSix.setYCoordinate(2);
+        
+        String locationSixInfo = locationSix.toString();
+        System.out.println(locationSixInfo);
+        /*  End of LocationSix  ********/
+        /*  Location Seven Setup */
+        LocationDetails locationSeven = new LocationDetails();
+        
+        locationSeven.setFood(2);
+        locationSeven.setWater(2);
+        locationSeven.setFuel(2);
+        locationSeven.setMunitions(2);
+        locationSeven.setCoin(2);
+        locationSeven.setArtifacts(3);
+        locationSeven.setGems(2);
+        locationSeven.setStatue(2);
+        locationSeven.setXCoordinate(2);
+        locationSeven.setYCoordinate(2);
+        
+        String locationSevenInfo = locationSeven.toString();
+        System.out.println(locationSevenInfo);
+        /*  End of LocationSeven  ********/
+        /*  Location Eight Setup */
+        LocationDetails locationEight = new LocationDetails();
+        
+        locationEight.setFood(2);
+        locationEight.setWater(2);
+        locationEight.setFuel(2);
+        locationEight.setMunitions(2);
+        locationEight.setCoin(2);
+        locationEight.setArtifacts(3);
+        locationEight.setGems(2);
+        locationEight.setStatue(2);
+        locationEight.setXCoordinate(2);
+        locationEight.setYCoordinate(2);
+        
+        String locationEightInfo = locationEight.toString();
+        System.out.println(locationEightInfo);
+        /*  End of LocationEight  ********/
+        
+        
         //End LocationDetails Class Set & Print
         
         //Player Class Set & Print
@@ -196,11 +321,11 @@ public class SecretsOfTheSea_RPG {
         System.out.println(cargoInfo);
         
         GameDifficultyControl difficultyCon1 = new GameDifficultyControl();
-        //difficultyCon1.calcMapSize( mapOne.getDifficulty(), mapOne.getXMax(), mapOne.getYMax() );
+        //difficultyCon1.calcMapSize( mapOne.getDifficulty(), mapOne.getxMax(), mapOne.getyMax() );
         difficultyCon1.calcMapSize( mapOne, statusOne );
         mapInfo = mapOne.toString();
         System.out.println(mapInfo + " " + statusOne.getStatusMessage());
-        
+            
     }
     
 }

@@ -31,8 +31,8 @@ public class GameDifficultyControlTest {
         //Map mapOne = null;
         Map mapOne = new Map();   
         mapOne.setDifficulty('H');
-        mapOne.setXMax(4);
-        mapOne.setYMax(4);
+        mapOne.setxMax(4);
+        mapOne.setyMax(4);
         
         //CurrentStatus statusOne = null;
         CurrentStatus statusOne = new CurrentStatus();
@@ -47,8 +47,8 @@ public class GameDifficultyControlTest {
         System.out.println("calcMapSize Case h");
         //Map mapOne = null;   
         mapOne.setDifficulty('h');
-        mapOne.setXMax(4);
-        mapOne.setYMax(4);
+        mapOne.setxMax(4);
+        mapOne.setyMax(4);
         
         //CurrentStatus statusOne = null;
         statusOne.setStatusMessage("Default Message");
@@ -61,8 +61,8 @@ public class GameDifficultyControlTest {
         System.out.println("calcMapSize Case N");
         //Map mapOne = null;   
         mapOne.setDifficulty('N');
-        mapOne.setXMax(4);
-        mapOne.setYMax(4);
+        mapOne.setxMax(4);
+        mapOne.setyMax(4);
         
         //CurrentStatus statusOne = null;
         statusOne.setStatusMessage("Default Message");
@@ -75,8 +75,8 @@ public class GameDifficultyControlTest {
         System.out.println("calcMapSize Case n");
         //Map mapOne = null;  
         mapOne.setDifficulty('n');
-        mapOne.setXMax(4);
-        mapOne.setYMax(4);
+        mapOne.setxMax(4);
+        mapOne.setyMax(4);
         
         //CurrentStatus statusOne = null;
         statusOne.setStatusMessage("Default Message");
@@ -89,8 +89,8 @@ public class GameDifficultyControlTest {
         System.out.println("calcMapSize Case E");
         //Map mapOne = null;  
         mapOne.setDifficulty('E');
-        mapOne.setXMax(4);
-        mapOne.setYMax(4);
+        mapOne.setxMax(4);
+        mapOne.setyMax(4);
         
         //CurrentStatus statusOne = null;
         statusOne.setStatusMessage("Default Message");
@@ -103,8 +103,8 @@ public class GameDifficultyControlTest {
         System.out.println("calcMapSize Case e");
         //Map mapOne = null;  
         mapOne.setDifficulty('e');
-        mapOne.setXMax(4);
-        mapOne.setYMax(4);
+        mapOne.setxMax(4);
+        mapOne.setyMax(4);
         
         //CurrentStatus statusOne = null;
         statusOne.setStatusMessage("Default Message");
@@ -117,8 +117,8 @@ public class GameDifficultyControlTest {
         System.out.println("calcMapSize Case bad char type");
         //Map mapOne = null;  
         mapOne.setDifficulty('a');
-        mapOne.setXMax(4);
-        mapOne.setYMax(4);
+        mapOne.setxMax(4);
+        mapOne.setyMax(4);
         
         //CurrentStatus statusOne = null;
         statusOne.setStatusMessage("Default Message");
@@ -131,8 +131,8 @@ public class GameDifficultyControlTest {
         System.out.println("calcMapSize Case bad char type");
         //Map mapOne = null;  
         mapOne.setDifficulty('1');
-        mapOne.setXMax(4);
-        mapOne.setYMax(4);
+        mapOne.setxMax(4);
+        mapOne.setyMax(4);
         
         //CurrentStatus statusOne = null;
         statusOne.setStatusMessage("Default Message");

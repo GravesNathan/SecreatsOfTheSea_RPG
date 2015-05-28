@@ -15,8 +15,8 @@ import java.util.Objects;
 public class Map implements Serializable{
     
     //class instance variables
-    private int XMax;
-    private int YMax;
+    private int xMax;
+    private int yMax;
     private char Difficulty;
 
     public Map() {
@@ -25,41 +25,41 @@ public class Map implements Serializable{
     
     
     /**
-     * Get the value of XMax
+     * Get the value of xMax
      *
-     * @return the value of XMax
+     * @return the value of xMax
      */
-    public int getXMax() {
-        return XMax;
+    public int getxMax() {
+        return xMax;
     }
 
     /**
-     * Set the value of XMax
+     * Set the value of xMax
      *
-     * @param XMax new value of XMax
+     * @param xMax new value of xMax
      */
-    public void setXMax(int XMax) {
-        this.XMax = XMax;
+    public void setxMax(int xMax) {
+        this.xMax = xMax;
     }
 
 
 
     /**
-     * Get the value of YMax
+     * Get the value of yMax
      *
-     * @return the value of YMax
+     * @return the value of yMax
      */
-    public int getYMax() {
-        return YMax;
+    public int getyMax() {
+        return yMax;
     }
 
     /**
-     * Set the value of YMax
+     * Set the value of yMax
      *
-     * @param YMax new value of YMax
+     * @param yMax new value of yMax
      */
-    public void setYMax(int YMax) {
-        this.YMax = YMax;
+    public void setyMax(int yMax) {
+        this.yMax = yMax;
     }
 
 
@@ -84,14 +84,14 @@ public class Map implements Serializable{
 
     @Override
     public String toString() {
-        return "Map{" + "XMax=" + XMax + ", YMax=" + YMax + ", Difficulty=" + Difficulty + '}';
+        return "Map{" + "xMax=" + xMax + ", yMax=" + yMax + ", Difficulty=" + Difficulty + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 11 * hash + Objects.hashCode(this.XMax);
-        hash = 11 * hash + Objects.hashCode(this.YMax);
+        hash = 11 * hash + Objects.hashCode(this.xMax);
+        hash = 11 * hash + Objects.hashCode(this.yMax);
         hash = 11 * hash + Objects.hashCode(this.Difficulty);
         return hash;
     }
@@ -105,10 +105,10 @@ public class Map implements Serializable{
             return false;
         }
         final Map other = (Map) obj;
-        if (!Objects.equals(this.XMax, other.XMax)) {
+        if (!Objects.equals(this.xMax, other.xMax)) {
             return false;
         }
-        if (!Objects.equals(this.YMax, other.YMax)) {
+        if (!Objects.equals(this.yMax, other.yMax)) {
             return false;
         }
         if (!Objects.equals(this.Difficulty, other.Difficulty)) {
