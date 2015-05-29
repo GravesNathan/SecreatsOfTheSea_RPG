@@ -16,7 +16,7 @@ import java.util.Random;
  */
 public class GameDifficultyControl {
     
-    public void calcMapSize ( Map mapOne, CurrentStatus statusOne ){
+    public void calcMapSize ( Map mapOne, CurrentStatus status ){
         char difficulty = mapOne.getDifficulty();
         int xMax = mapOne.getxMax();
         int yMax = mapOne.getyMax();
@@ -36,14 +36,20 @@ public class GameDifficultyControl {
             return;
         }
         else{
-            statusOne.setStatusMessage("Invalid Entry. Please input an E, N, or H.");
+            status.setStatusMessage("Invalid Entry. Please input an E, N, or H.");
             return;
         }
     }
-  /*  
-    public void populateMap( Map myMap){
+  
+    public void populateMap( Map myMap, LocationDetails locationOne, LocationDetails locationTwo, 
+            LocationDetails locationThree, LocationDetails locationFour,
+                LocationDetails locationFive, LocationDetails locationSix, 
+                LocationDetails locationSeven, LocationDetails locationEight, CurrentStatus status){
         int xMax = myMap.getxMax();
         int yMax = myMap.getyMax();
+        if ( (xMax != 4 && xMax != 8 && xMax != 12) || (yMax != 4 && yMax != 8 && yMax != 12) )
+            status.setStatusMessage("Error Populating Map. Contact programmers");
+        else {
         int tempX;
         int tempY;
         Random xRand = new Random();
@@ -52,48 +58,47 @@ public class GameDifficultyControl {
         //Creates an array of size xMax, each of which holds an array of size Ymax.  it may help to think of arrays as list
         //The main list is broken into xMax categories.  The categories have yMax items each
         for (int i=0; i<8; i++){
-            tempX = nextInt(xMax);
-            tempY = nextInt(yMax);
+            tempX = xRand.nextInt(xMax);
+            tempY = yRand.nextInt(yMax);
             if (mapGrid[tempX][tempY] == 0) {
                 mapGrid[tempX][tempY] = 1;
-		switch {
-                    case (i ==0) {
-                        setlocationOne.xCoordinate = tempX;
-                        setlocationOne.yCoordinate = tempY
+		switch (i) {
+                    case 1: {
+                        locationOne.setXCoordinate(tempX);
+                        locationOne.setYCoordinate(tempY);
                     }
-                    case (i ==1) {
-                        setIsland1.xCoordinate = tempX
-                        setIsland1.yCoordinate = tempY
+                    case 2: {
+                        locationTwo.setXCoordinate(tempX);
+                        locationTwo.setYCoordinate(tempY);
                     }
-                    case (i ==2) {
-			setIsland2.xCoordinate = tempX
-			setIsland2.yCoordinate = tempY
+                    case 3: {
+                        locationThree.setXCoordinate(tempX);
+                        locationThree.setYCoordinate(tempY);
                     }
-                    case (i ==3) {
-			setIsland3.xCoordinate = tempX
-			setIsland3.yCoordinate = tempY
+                    case 4: {
+                        locationFour.setXCoordinate(tempX);
+                        locationFour.setYCoordinate(tempY);
                     }
-                    case (i ==4) {
-			setIsland4.xCoordinate = tempX
-			setIsland4.yCoordinate = tempY
+                    case 5: {
+                        locationFive.setXCoordinate(tempX);
+                        locationFive.setYCoordinate(tempY);
                     }
-                    case (i ==5) {
-			setIsland5.xCoordinate = tempX
-			setIsland5.yCoordinate = tempY
+                    case 6: {
+                        locationSix.setXCoordinate(tempX);
+                        locationSix.setYCoordinate(tempY);
                     }
-                    case (i ==6) {
-			setIsland6.xCoordinate = tempX
-			setIsland6.yCoordinate = tempY
+                    case 7: {
+                        locationSeven.setXCoordinate(tempX);
+                        locationSeven.setYCoordinate(tempY);
                     }
-                    case (i ==7) {
-			setIsland7.xCoordinate = tempX
-			setIsland7.yCoordinate = tempY
+                    case 8: {
+                        locationEight.setXCoordinate(tempX);
+                        locationEight.setYCoordinate(tempY);
                     }
                 }
             }
             else i--;
         }
-    Return void
+        }
     }
-    */
 }

@@ -51,15 +51,15 @@ public class SecretsOfTheSea_RPG {
         //End Map Class Set & Print
         
         //CurrentStatus Class Set & Print
-        CurrentStatus statusOne = new CurrentStatus();
+        CurrentStatus status = new CurrentStatus();
         
-        statusOne.setCurrentLocation("Aztec Society [Beach Front]");
-        statusOne.setStatuesCount(1);
-        statusOne.setLifeStatus("Alive and well");
-        statusOne.setGameDifficulty("Normal");
-        statusOne.setStatusMessage("Default Message");
+        status.setCurrentLocation("Aztec Society [Beach Front]");
+        status.setStatuesCount(1);
+        status.setLifeStatus("Alive and well");
+        status.setGameDifficulty("Normal");
+        status.setStatusMessage("Default Message");
                 
-        String statusInfo = statusOne.toString();
+        String statusInfo = status.toString();
         System.out.println(statusInfo);
         //End CurrentStatus Class Set & Print
         
@@ -320,12 +320,20 @@ public class SecretsOfTheSea_RPG {
         String cargoInfo = cargo.toString();
         System.out.println(cargoInfo);
         
+        //calcMapSize check
         GameDifficultyControl difficultyCon1 = new GameDifficultyControl();
-        //difficultyCon1.calcMapSize( mapOne.getDifficulty(), mapOne.getxMax(), mapOne.getyMax() );
-        difficultyCon1.calcMapSize( mapOne, statusOne );
+        difficultyCon1.calcMapSize( mapOne, status );
         mapInfo = mapOne.toString();
-        System.out.println(mapInfo + " " + statusOne.getStatusMessage());
-            
+        System.out.println(mapInfo + " " + status.getStatusMessage());
+        
+        
+        //populateMap check
+        difficultyCon1.populateMap( mapOne, locationOne, locationTwo, locationThree, locationFour,
+                locationFive, locationSix, locationSeven, locationEight, status);
+        String allLocationInfo = locationOne.toString() + "\n" + locationTwo.toString() + "\n" 
+                + locationThree.toString() + "\n" + locationFour.toString() + "\n" + locationFive.toString()
+                + "\n" + locationSix.toString() + "\n" + locationSeven.toString() + "\n" + locationEight.toString();
+        System.out.println(allLocationInfo);
     }
     
 }
