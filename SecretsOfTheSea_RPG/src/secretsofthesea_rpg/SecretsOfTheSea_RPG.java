@@ -338,8 +338,8 @@ public class SecretsOfTheSea_RPG {
         System.out.println(allLocationInfo);
 
         //compareTrustLevels check
-        TrustTrialControl TrustCon1 = new TrustTrialControl();
-        TrustCon1.compareTrustLevels( societyOneNPC, status );
+        TrustTrialControl TrustNPC1 = new TrustTrialControl();
+        TrustNPC1.compareTrustLevels( societyOneNPC, status );
         societyNPCInfo = societyOneNPC.toString();
         System.out.println(societyNPCInfo + " " + status.getStatusMessage());
         
