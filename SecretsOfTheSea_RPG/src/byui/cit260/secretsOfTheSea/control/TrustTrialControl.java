@@ -18,7 +18,7 @@ public class TrustTrialControl {
             int leaderTrustLevelTarget = societyOneNPC.getLeaderTrustLevelTarget();
             int leaderTrustLevel = societyOneNPC.getLeaderTrustLevel();
             String leaderName = societyOneNPC.getLeaderName();
-            System.out.println("Leader current trust level= " + leaderTrustLevel);
+//            System.out.println("Leader current trust level= " + leaderTrustLevel);
             if (leaderTrustLevel <= 0) {
                 status.setLifeStatus ("Game Over.  " + leaderName + " has thrown you in prison for life.");
                 System.out.println("Trust is zero");
@@ -27,12 +27,12 @@ public class TrustTrialControl {
             else if (leaderTrustLevel < leaderTrustLevelTarget){
                     societyOneNPC.setLeaderTrustStatus("Untrusted");
                     status.setLifeStatus ("Alive and well");
-                    System.out.println("Trust is 1-3");
+//                    System.out.println("Trust is 1-3");
             }
             else if (leaderTrustLevel >= leaderTrustLevelTarget){
                     societyOneNPC.setLeaderTrustStatus("Trusted"); 
                     status.setLifeStatus ("Alive and well");
-                    System.out.println("Trust is matched");
+//                    System.out.println("Trust is matched");
             }
             else {
                     status.setLifeStatus ("Invalid entry, please try again.");
