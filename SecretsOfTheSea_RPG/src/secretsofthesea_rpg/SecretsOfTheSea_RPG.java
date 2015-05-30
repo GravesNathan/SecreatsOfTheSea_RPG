@@ -6,6 +6,7 @@
 package secretsofthesea_rpg;
 
 import byui.cit260.secretsOfTheSea.control.GameDifficultyControl;
+import byui.cit260.secretsOfTheSea.control.TrustTrialControl;
 import byui.cit260.secretsOfTheSea.model.Cargo;
 import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.CurrentStatus;
@@ -251,6 +252,7 @@ public class SecretsOfTheSea_RPG {
         societyOneNPC.setLeaderDescription("Achcauhtli stands 6 feet tall but is very thin and fit.  He shows no emotion on his face.");
         societyOneNPC.setLeaderTrustLevel(0);
         societyOneNPC.setLeaderTrustLevelTarget(4);
+        societyOneNPC.setLeaderTrustStatus("Untrusted");
                 
         String societyNPCInfo = societyOneNPC.toString();
         System.out.println(societyNPCInfo);
@@ -334,6 +336,13 @@ public class SecretsOfTheSea_RPG {
                 + locationThree.toString() + "\n" + locationFour.toString() + "\n" + locationFive.toString()
                 + "\n" + locationSix.toString() + "\n" + locationSeven.toString() + "\n" + locationEight.toString();
         System.out.println(allLocationInfo);
+
+        //compareTrustLevels check
+        TrustTrialControl TrustCon1 = new TrustTrialControl();
+        TrustCon1.compareTrustLevels( societyOneNPC, status );
+        societyNPCInfo = societyOneNPC.toString();
+        System.out.println(mapInfo + " " + status.getStatusMessage());
+        
     }
     
 }
