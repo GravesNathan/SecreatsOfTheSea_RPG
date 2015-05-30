@@ -249,7 +249,7 @@ public class SecretsOfTheSea_RPG {
         SocietyNPCs societyOneNPC = new SocietyNPCs();
         
         societyOneNPC.setLeaderName("Achcauhtli");
-        societyOneNPC.setLeaderDescription("Achcauhtli stands 6 feet tall but is very thin and fit.  He shows no emotion on his face.");
+        societyOneNPC.setLeaderDescription("Achcauhtli stands 6 feet tall, is very thin and fit.  He shows no emotion on his face.");
         societyOneNPC.setLeaderTrustLevel(0);
         societyOneNPC.setLeaderTrustLevelTarget(4);
         societyOneNPC.setLeaderTrustStatus("Untrusted");
@@ -342,7 +342,8 @@ public class SecretsOfTheSea_RPG {
         TrustNPC1.compareTrustLevels( societyOneNPC, status );
         societyNPCInfo = societyOneNPC.toString();
         System.out.println(societyNPCInfo + " " + status.getStatusMessage());
-        
+        statusInfo = status.toString();
+        System.out.println(statusInfo);
     }
     
 }
