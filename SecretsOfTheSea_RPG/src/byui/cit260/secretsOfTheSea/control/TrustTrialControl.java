@@ -18,7 +18,7 @@ public class TrustTrialControl {
             int leaderTrustLevelTarget = societyOneNPC.getLeaderTrustLevelTarget();
             int leaderTrustLevel = societyOneNPC.getLeaderTrustLevel();
             String leaderName = societyOneNPC.getLeaderName();
-            if (leaderTrustLevel == 0) {
+            if (leaderTrustLevel <= 0) {
                 status.setLifeStatus ("Game Over.  " + leaderName + " They have thrown you in prison for life.");
                 return;
             }
