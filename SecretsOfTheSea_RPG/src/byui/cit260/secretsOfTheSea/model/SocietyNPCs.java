@@ -18,6 +18,7 @@ public class SocietyNPCs implements Serializable{
     private String LeaderDescription;
     private int LeaderTrustLevel;
     private int LeaderTrustLevelTarget;
+    private String LeaderTrustStatus;
 
     public SocietyNPCs() {
     }
@@ -53,10 +54,18 @@ public class SocietyNPCs implements Serializable{
     public void setLeaderTrustLevelTarget(int LeaderTrustLevelTarget) {
         this.LeaderTrustLevelTarget = LeaderTrustLevelTarget;
     }
+    
+    public String getLeaderTrustStatus() {
+        return LeaderName;
+    }
+
+    public void setLeaderTrustStatus(String LeaderTrustStatus) {
+        this.LeaderTrustStatus = LeaderTrustStatus;
+    }
 
     @Override
     public String toString() {
-        return "SocietyNPCs{" + "LeaderName=" + LeaderName + ", LeaderDescription=" + LeaderDescription + ", LeaderTrustLevel=" + LeaderTrustLevel + ", LeaderTrustLevelTarget=" + LeaderTrustLevelTarget + '}';
+        return "SocietyNPCs{" + "LeaderName=" + LeaderName + ", LeaderDescription=" + LeaderDescription + ", LeaderTrustLevel=" + LeaderTrustLevel + ", LeaderTrustLevelTarget=" + LeaderTrustLevelTarget + ", LeaderTrustStatus=" + LeaderTrustStatus + '}';
     }
 
     @Override
@@ -66,6 +75,8 @@ public class SocietyNPCs implements Serializable{
         hash = 17 * hash + Objects.hashCode(this.LeaderDescription);
         hash = 17 * hash + this.LeaderTrustLevel;
         hash = 17 * hash + this.LeaderTrustLevelTarget;
+        hash = 17 * hash + Objects.hashCode(this.LeaderTrustStatus);
+        
         return hash;
     }
 
@@ -88,6 +99,9 @@ public class SocietyNPCs implements Serializable{
             return false;
         }
         if (this.LeaderTrustLevelTarget != other.LeaderTrustLevelTarget) {
+            return false;
+        }
+        if (!Objects.equals(this.LeaderTrustStatus, other.LeaderTrustStatus)) {
             return false;
         }
         return true;
