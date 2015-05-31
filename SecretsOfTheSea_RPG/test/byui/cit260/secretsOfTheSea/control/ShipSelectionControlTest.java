@@ -146,6 +146,7 @@ public class ShipSelectionControlTest {
         playerChoice = '4';
         instance.assignShip(playerChoice, ship, selectedShip, status);
         System.out.println(selectedShip);
+        System.out.println(status.getStatusMessage());
     }
     
 }
