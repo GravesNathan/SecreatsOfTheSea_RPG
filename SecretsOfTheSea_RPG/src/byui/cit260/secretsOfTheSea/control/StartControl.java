@@ -213,6 +213,8 @@ public class StartControl {
         
         playerOne.setName("Nathan the Amazing");
         playerOne.setApproachChoice(1);
+        playerOne.setHelp("Replace this string with the actual help menu to display.");
+        playerOne.setPlayerChoice('1');
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
@@ -246,36 +248,88 @@ public class StartControl {
         
         
         //Ships Class Set & Print
-        Ships ship1 = new Ships();
+        //Ship choices add or subtract from base stats set further below.
+        Ships[] ship = new Ships[4];//Initialize an array of 4 ship objects
+        for (int i=0; i<4; i++)
+            ship[i] = new Ships();
         
-        ship1.setName("Tank");
-        ship1.setDescription("Most powerful ship with high intimication stat");
-        ship1.setCargoCapSize(7);
-        ship1.setMorale(5);
-        ship1.setSpeed(3);
-        ship1.setDefense(10);
-        ship1.setDeceit(2);
-        ship1.setDiplomacy(3);
-        ship1.setIntimidation(10);
-        ship1.setBribery(4);
+        //ship0
+        ship[0].setName("Submersible");
+        ship[0].setDescription("Sneak in, deceive leaders, slide away");
+        ship[0].setCargoCapSize(-1);
+        ship[0].setMorale(0);
+        ship[0].setSpeed(0);
+        ship[0].setDefense(1);
+        ship[0].setDeceit(1);
+        ship[0].setDiplomacy(1);
+        ship[0].setIntimidation(0);
+        ship[0].setBribery(0);
         
-        String ship1Info = ship1.toString();
+        String ship0Info = ship[0].toString();
+        System.out.println(ship0Info);
+        
+        //ship1
+        ship[1].setName("Ironclad");
+        ship[1].setDescription("Highest Intimidation and defense of the game");
+        ship[1].setCargoCapSize(0);
+        ship[1].setMorale(0);
+        ship[1].setSpeed(-1);
+        ship[1].setDefense(1);
+        ship[1].setDeceit(-1);
+        ship[1].setDiplomacy(0);
+        ship[1].setIntimidation(1);
+        ship[1].setBribery(0);
+        
+        String ship1Info = ship[1].toString();
         System.out.println(ship1Info);
+        
+        //ship2
+        ship[2].setName("Galley");
+        ship[2].setDescription("Higher Supplies, better trade opportunities");
+        ship[2].setCargoCapSize(1);
+        ship[2].setMorale(-1);
+        ship[2].setSpeed(0);
+        ship[2].setDefense(-1);
+        ship[2].setDeceit(0);
+        ship[2].setDiplomacy(0);
+        ship[2].setIntimidation(-1);
+        ship[2].setBribery(1);
+        
+        String ship2Info = ship[2].toString();
+        System.out.println(ship2Info);
+        
+        //ship3
+        
+        ship[3].setName("Clipper");
+        ship[3].setDescription("Speed across the open sea, you'll with any race with this ship.");
+        ship[3].setCargoCapSize(0);
+        ship[3].setMorale(1);
+        ship[3].setSpeed(1);
+        ship[3].setDefense(-1);
+        ship[3].setDeceit(0);
+        ship[3].setDiplomacy(1);
+        ship[3].setIntimidation(0);
+        ship[3].setBribery(-1);
+        
+        String ship3Info = ship[3].toString();
+        System.out.println(ship3Info);
+        
         
         //SelectedShip Set & Print
         SelectedShip selectedShip = new SelectedShip();
-        
-        selectedShip.setName("Tank!!!");
-        selectedShip.setDescription("You chose a Tank!");
-        selectedShip.setCargoCapSize(70);
-        selectedShip.setMorale(50);
-        selectedShip.setSpeed(30);
-        selectedShip.setDefense(100);
-        selectedShip.setDeceit(20);
-        selectedShip.setDiplomacy(30);
-        selectedShip.setIntimidation(100);
-        selectedShip.setBribery(40);
-        selectedShip.setShipHealth(200);
+        //Set the Default stats here, selected ship stats are adjusted + and - based
+        //on the player's choice.  This is the base for all ships.
+        selectedShip.setName("baseStats");
+        selectedShip.setDescription("Ship not Chosen yet");
+        selectedShip.setCargoCapSize(5);
+        selectedShip.setMorale(5);
+        selectedShip.setSpeed(5);
+        selectedShip.setDefense(5);
+        selectedShip.setDeceit(5);
+        selectedShip.setDiplomacy(5);
+        selectedShip.setIntimidation(5);
+        selectedShip.setBribery(5);
+        selectedShip.setShipHealth(5);
         
         String selectedShipInfo = selectedShip.toString();
         System.out.println(selectedShipInfo);
@@ -330,5 +384,12 @@ public class StartControl {
         System.out.println(societyNPCInfo + " " + status.getStatusMessage());
         statusInfo = status.toString();
         System.out.println(statusInfo);
+        
+        //Check SelectedShip
+        playerOne.setPlayerChoice('0');
+        ShipSelectionControl chooseShip = new ShipSelectionControl();
+        chooseShip.assignShip(playerOne.getPlayerChoice(), ship, selectedShip, status);
+        selectedShipInfo = selectedShip.toString();
+        System.out.println(selectedShipInfo + "\n" + status.getStatusMessage());
     }
 }

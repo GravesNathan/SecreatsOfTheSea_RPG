@@ -16,12 +16,12 @@ public class Player implements Serializable{
     // class instance variables
     private String name;
     private int approachChoice;
-
+    private String help;
+    private char playerChoice;
+    
     public Player() {
     }
 
-    
-    
     public String getName() {
         return name;
     }
@@ -38,9 +38,27 @@ public class Player implements Serializable{
         this.approachChoice = approachChoice;
     }
 
+    public char getPlayerChoice() {
+        return playerChoice;
+    }
+
+    public void setPlayerChoice(char playerChoice) {
+        this.playerChoice = playerChoice;
+    }
+
+    public String getHelp() {
+        return help;
+    }
+
+    public void setHelp(String help) {
+        this.help = help;
+    }
+
+    
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", approachChoice=" + approachChoice + '}';
+        return "Player{" + "name=" + name + ", approachChoice=" + approachChoice + ", playerChoice =" 
+                + playerChoice + "\n help=\n" + help + '}';
     }
 
     @Override
@@ -48,6 +66,8 @@ public class Player implements Serializable{
         int hash = 7;
         hash = 97 * hash + Objects.hashCode(this.name);
         hash = 97 * hash + this.approachChoice;
+        hash = 97 * hash + this.playerChoice;
+        hash = 97 * hash + Objects.hashCode(this.help);
         return hash;
     }
 
@@ -64,6 +84,12 @@ public class Player implements Serializable{
             return false;
         }
         if (this.approachChoice != other.approachChoice) {
+            return false;
+        }
+        if (this.playerChoice != other.playerChoice) {
+            return false;
+        }
+        if (!Objects.equals(this.help, other.help)) {
             return false;
         }
         return true;

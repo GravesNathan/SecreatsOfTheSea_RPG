@@ -5,20 +5,7 @@
  */
 package secretsofthesea_rpg;
 
-import byui.cit260.secretsOfTheSea.control.GameDifficultyControl;
 import byui.cit260.secretsOfTheSea.control.StartControl;
-import byui.cit260.secretsOfTheSea.control.TrustTrialControl;
-import byui.cit260.secretsOfTheSea.model.Cargo;
-import byui.cit260.secretsOfTheSea.model.Map;
-import byui.cit260.secretsOfTheSea.model.CurrentStatus;
-import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
-import byui.cit260.secretsOfTheSea.model.LocationDetails;
-import byui.cit260.secretsOfTheSea.model.Player;
-import byui.cit260.secretsOfTheSea.model.SelectedShip;
-import byui.cit260.secretsOfTheSea.model.Ships;
-import byui.cit260.secretsOfTheSea.model.Societies;
-import byui.cit260.secretsOfTheSea.model.SocietyNPCs;
-import byui.cit260.secretsOfTheSea.model.Storage;
 
 /**
  *
