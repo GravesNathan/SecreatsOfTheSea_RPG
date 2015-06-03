@@ -21,7 +21,7 @@ public class TrustTrialControl {
 //            System.out.println("Leader current trust level= " + leaderTrustLevel);
             if (leaderTrustLevel <= 0) {
                 status.setLifeStatus ("Game Over.  " + leaderName + " has thrown you in prison for life.");
-                System.out.println("Trust is zero");
+                //System.out.println("Trust is zero");
                 return;
             }
             else if (leaderTrustLevel < leaderTrustLevelTarget){

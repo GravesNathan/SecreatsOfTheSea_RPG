@@ -11,4 +11,31 @@ package byui.cit260.secretsOfTheSea.control;
  */
 public class GameMenuControl {
     
+    public void boardShip(){
+        
+    }
+    
+    public void dockShip(){
+        
+    }
+    
+    public void launchShip(){
+        
+    }
+    
+    public void calcShipHealth(){
+        
+    }
+    
+    public void calcShipRepair(){
+        
+    }
+    
+    public void exploreLocation(){
+        
+    }
+    
+    public void moveLocation(){
+        
+    }
 }

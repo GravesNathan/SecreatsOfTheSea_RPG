@@ -5,7 +5,8 @@
  */
 package secretsofthesea_rpg;
 
-import byui.cit260.secretsOfTheSea.control.StartControl;
+//import byui.cit260.secretsOfTheSea.control.StartControl;
+import byui.cit260.secretsOfTheSea.view.StartProgramView;
 
 /**
  *
@@ -28,8 +29,11 @@ public class SecretsOfTheSea_RPG {
         */
         //End sample Class Set & Print
         
-        StartControl startup = new StartControl();
-        startup.initializeGame();
+        //StartControl startup = new StartControl();
+        //startup.initializeGame();
+        
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.startProgram();
         
     }
     
