@@ -70,9 +70,26 @@ public class StartProgramView {
     }
     
     public void startMenuInput(){
-        String input = null;
+        char input;
+        Scanner reader = new Scanner(System.in);
+        input = reader.next().charAt(0);
+        while(!((input == 'g') || (input == 'G') || (input == 'h') || (input == 'H') || (input == 'l') || (input == 'L') || (input == 'q') || (input == 'Q'))){
+        System.out.println(input + " is an invalid entry. Please select an option below:"
+            + "\nHotkey - Description"
+            + "\nG - Start Game"
+            + "\nH - Get Help"
+            + "\nL - Load Game"
+            + "\nQ - Quit Game");
+            input = reader.next().charAt(0);
+    }
+        //do-while and while loops, continue if condition is true. Exit when false.
+    }
+}
+    
+/******** String Compare with compareTo  ************
+      public void startMenuInput(){
+        String input;
         Scanner keyboard = new Scanner(System.in);
-
     do {
         input = keyboard.nextLine();
         input = input.trim();
@@ -83,7 +100,8 @@ public class StartProgramView {
             + "\nL - Load Game"
             + "\nQ - Quit Game"
             + "\ninput = " + input);
-    }while(!( (input == "g") || (input == "G") || (input == "h") || (input == "H") || (input == "l") || (input == "L") || (input == "q") || (input == "Q") ) );
+    }while(!((input.compareTo("g"))==0));// || (input == 'G') || (input == 'h') || (input == 'H') || (input == 'l') || (input == 'L') || (input == 'q') || (input == 'Q') ) );
         //do-while and while loops, continue if condition is true. Exit when false.
+    // 0 is false so if 0 == 0 then it's true and ! again turns it false.
     }
-}
+*/
