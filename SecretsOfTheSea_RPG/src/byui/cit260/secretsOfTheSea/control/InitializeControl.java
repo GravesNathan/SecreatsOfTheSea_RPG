@@ -23,7 +23,7 @@ import byui.cit260.secretsOfTheSea.model.Storage;
  *
  * @author Nathan
  */
-public class StartControl {
+public class InitializeControl {
     
     public void initializeGame(){
         //Map Class Set & Print

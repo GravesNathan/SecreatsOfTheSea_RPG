@@ -5,7 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
-import byui.cit260.secretsOfTheSea.control.StartControl;
+import byui.cit260.secretsOfTheSea.control.InitializeControl;
 import java.util.Scanner;
 
 /**
@@ -21,7 +21,7 @@ public class StartProgramView {
     public void startProgram(){
         char mainInput;
         this.displayBanner();
-        StartControl initialize = new StartControl();
+        InitializeControl initialize = new InitializeControl();
         initialize.initializeGame();
         this.startupInput();
         this.startMenuDisplay();
