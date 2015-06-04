@@ -19,12 +19,14 @@ public class StartProgramView {
     }    
         
     public void startProgram(){
+        char mainInput;
         this.displayBanner();
         StartControl initialize = new StartControl();
         initialize.initializeGame();
         this.startupInput();
         this.startMenuDisplay();
-        this.startMenuInput();
+        mainInput = this.startMenuInput();
+        startMenuChoice(mainInput);
     }
 
     public void displayBanner (){
@@ -69,21 +71,43 @@ public class StartProgramView {
                 + "\n");
     }
     
-    public void startMenuInput(){
+    public char startMenuInput(){
         char input;
         Scanner reader = new Scanner(System.in);
-        input = reader.next().charAt(0);
-        while(!((input == 'g') || (input == 'G') || (input == 'h') || (input == 'H') || (input == 'l') || (input == 'L') || (input == 'q') || (input == 'Q'))){
+        input = Character.toUpperCase(reader.next().charAt(0));
+        while(!((input == 'G') || (input == 'H') || (input == 'L') || (input == 'Q'))){
         System.out.println(input + " is an invalid entry. Please select an option below:"
             + "\nHotkey - Description"
             + "\nG - Start Game"
             + "\nH - Get Help"
             + "\nL - Load Game"
             + "\nQ - Quit Game");
-            input = reader.next().charAt(0);
-    }
+            input = Character.toUpperCase(reader.next().charAt(0));
+        }
+        return input;
         //do-while and while loops, continue if condition is true. Exit when false.
     }
+    
+    public void startMenuChoice(char userChoice){
+        MainMenuView mMView = new MainMenuView();
+        switch (userChoice) {
+            case 'G':
+                mMView.startNewGame();
+                break;
+            case 'H':
+                mMView.openHelp();
+                break;
+            case 'L':
+                mMView.loadGame();
+                break;
+            case 'Q':
+                mMView.quitGame();
+                break;
+            default:
+                System.out.println("\n Invalid Selection *** Try again");
+        }
+    }
+    
 }
     
 /******** String Compare with compareTo  ************

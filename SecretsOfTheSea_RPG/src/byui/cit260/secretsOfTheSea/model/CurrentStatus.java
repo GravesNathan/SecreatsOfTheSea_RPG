@@ -17,7 +17,8 @@ public class CurrentStatus implements Serializable{
     //StatuesCount
     //LifeStatus
     
-    private String CurrentLocation;
+    private int currentX;
+    private int currentY;
     private int StatuesCount;    
     private String LifeStatus;
     private String gameDifficulty;
@@ -26,26 +27,23 @@ public class CurrentStatus implements Serializable{
     public CurrentStatus() {
     }
 
-    /**
-     * Get the value of CurrentLocation
-     *
-     * @return the value of CurrentLocation
-     */
-    public String getCurrentLocation() {
-        return CurrentLocation;
+    public int getCurrentX() {
+        return currentX;
     }
 
-    /**
-     * Set the value of CurrentLocation
-     *
-     * @param CurrentLocation new value of CurrentLocation
-     */
-    public void setCurrentLocation(String CurrentLocation) {
-        this.CurrentLocation = CurrentLocation;
+    public void setCurrentX(int currentX) {
+        this.currentX = currentX;
     }
 
+    public int getCurrentY() {
+        return currentY;
+    }
+
+    public void setCurrentY(int currentY) {
+        this.currentY = currentY;
+    }
+   
     
-
     /**
      * Get the value of StatuesCount
      *
@@ -104,18 +102,19 @@ public class CurrentStatus implements Serializable{
     
     @Override
     public String toString() {
-        return "CurrentStatus{" + "CurrentLocation=" + CurrentLocation + ", StatuesCount=" + StatuesCount + ", LifeStatus=" + LifeStatus 
+        return "CurrentStatus{" + " currentX = "+ currentX + ", currentY" + currentY + ", StatuesCount= " + StatuesCount + ", LifeStatus=" + LifeStatus 
                 + ", GameDifficulty=" + gameDifficulty + "statusMessage = " + statusMessage + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.CurrentLocation);
         hash = 23 * hash + Objects.hashCode(this.StatuesCount);
         hash = 23 * hash + Objects.hashCode(this.LifeStatus);
         hash = 23 * hash + Objects.hashCode(this.gameDifficulty);
         hash = 23 * hash + Objects.hashCode(this.statusMessage);
+        hash = 23 * hash + Objects.hashCode(this.currentX);
+        hash = 23 * hash + Objects.hashCode(this.currentY);
         return hash;
     }
 
@@ -128,9 +127,6 @@ public class CurrentStatus implements Serializable{
             return false;
         }
         final CurrentStatus other = (CurrentStatus) obj;
-        if (!Objects.equals(this.CurrentLocation, other.CurrentLocation)) {
-            return false;
-        }
         if (!Objects.equals(this.StatuesCount, other.StatuesCount)) {
             return false;
         }
@@ -141,6 +137,12 @@ public class CurrentStatus implements Serializable{
             return false;
         }
         if (!Objects.equals(this.statusMessage, other.statusMessage)) {
+            return false;
+        }
+        if (!Objects.equals(this.currentX, other.currentX)) {
+            return false;
+        }
+        if (!Objects.equals(this.currentY, other.currentY)) {
             return false;
         }
         return true;

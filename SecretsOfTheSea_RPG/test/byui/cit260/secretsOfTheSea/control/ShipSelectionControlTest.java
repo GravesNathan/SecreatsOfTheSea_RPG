@@ -110,7 +110,8 @@ public class ShipSelectionControlTest {
         //CurrentStatus Class Set & Print
         CurrentStatus status = new CurrentStatus();
         
-        status.setCurrentLocation("Aztec Society [Beach Front]");
+        status.setCurrentX(1);
+        status.setCurrentY(1);
         status.setStatuesCount(1);
         status.setLifeStatus("Alive and well");
         status.setGameDifficulty("Normal");

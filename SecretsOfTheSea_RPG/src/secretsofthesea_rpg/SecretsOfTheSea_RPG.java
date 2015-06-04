@@ -35,6 +35,7 @@ public class SecretsOfTheSea_RPG {
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.startProgram();
         
+        
     }
     
 }

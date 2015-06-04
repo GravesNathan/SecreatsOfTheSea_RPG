@@ -15,7 +15,8 @@ public class LocationDetails extends Storage implements Serializable{
     private int Statue;
     private int XCoordinate;
     private int YCoordinate;
-
+    private float distance;
+    
     public LocationDetails() {
     }
 
@@ -43,24 +44,28 @@ public class LocationDetails extends Storage implements Serializable{
         this.YCoordinate = YCoordinate;
     }
 
+    public float getDistance() {
+        return distance;
+    }
+
+    public void setDistance(long distance) {
+        this.distance = distance;
+    }
+
+    
     @Override
     public String toString() {
-        return "LocationDetails{" + "food=" + food + ", water=" + water + ", fuel=" + fuel + ", munitions=" + munitions + ", coin=" + coin + ", artifacts=" + artifacts + ", gems=" + gems + ", Statue=" + Statue + ", XCoordinate=" + XCoordinate + ", YCoordinate=" + YCoordinate + '}';
+        return "LocationDetails{" + ", Statue=" + Statue + ", XCoordinate=" + XCoordinate + ", YCoordinate="
+                + YCoordinate + ", distance = " + distance + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + this.food;
-        hash = 29 * hash + this.water;
-        hash = 29 * hash + this.fuel;
-        hash = 29 * hash + this.munitions;
-        hash = 29 * hash + this.coin;
-        hash = 29 * hash + this.artifacts;
-        hash = 29 * hash + this.gems;
         hash = 29 * hash + this.Statue;
         hash = 29 * hash + this.XCoordinate;
         hash = 29 * hash + this.YCoordinate;
+        hash = (int) (29 * hash + this.distance);//That's what netbeans suggested for the long...
         return hash;
     }
 
@@ -73,27 +78,6 @@ public class LocationDetails extends Storage implements Serializable{
             return false;
         }
         final LocationDetails other = (LocationDetails) obj;
-        if (this.food != other.food) {
-            return false;
-        }
-        if (this.water != other.water) {
-            return false;
-        }
-        if (this.fuel != other.fuel) {
-            return false;
-        }
-        if (this.munitions != other.munitions) {
-            return false;
-        }
-        if (this.coin != other.coin) {
-            return false;
-        }
-        if (this.artifacts != other.artifacts) {
-            return false;
-        }
-        if (this.gems != other.gems) {
-            return false;
-        }
         if (this.Statue != other.Statue) {
             return false;
         }
@@ -101,6 +85,9 @@ public class LocationDetails extends Storage implements Serializable{
             return false;
         }
         if (this.YCoordinate != other.YCoordinate) {
+            return false;
+        }
+        if (this.distance != other.distance){
             return false;
         }
         return true;
