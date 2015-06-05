@@ -92,7 +92,7 @@ public class StartProgramView {
         MainMenuView mMView = new MainMenuView();
         switch (userChoice) {
             case 'G':
-                mMView.startNewGame();
+                mMView.newGame();
                 break;
             case 'H':
                 mMView.openHelp();

@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class Player implements Serializable{
     // class instance variables
-    private static String name;
+    private String name;
     private int approachChoice;
     private String help;
     private char playerChoice;
@@ -22,7 +22,7 @@ public class Player implements Serializable{
     public Player() {
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
@@ -55,13 +55,13 @@ public class Player implements Serializable{
     }
 
     
-    @Override
+    //@Override
     public String toString() {
         return "Player{" + "name=" + name + ", approachChoice=" + approachChoice + ", playerChoice =" 
                 + playerChoice + "\n help=\n" + help + '}';
     }
 
-    @Override
+    //@Override
     public int hashCode() {
         int hash = 7;
         hash = 97 * hash + Objects.hashCode(this.name);
@@ -71,7 +71,7 @@ public class Player implements Serializable{
         return hash;
     }
 
-    @Override
+    //@Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;

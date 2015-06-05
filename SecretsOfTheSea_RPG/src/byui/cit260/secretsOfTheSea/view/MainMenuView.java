@@ -5,7 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
-import byui.cit260.secretsOfTheSea.control.StartGameControl;
+import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.model.Player;
 import java.util.Scanner;
 
@@ -15,23 +15,25 @@ import java.util.Scanner;
  */
 public class MainMenuView {
     
-    public void startNewGame(){
-        //Player playerName = new Player();
-        this.nameInput();
-        //this.chooseDifficulty();
-        //this.selectShip();
-        System.out.println("Welcome " + Player.getName() + ", let's begin your adventures in Secrets of the Sea.");
-    }
+    //brandon notes
+    //start here
+    //initialize here and it's accessible throughout class.
+   NewGameControl recordName = null; //again why are we creating the memory later in line 30 instead of here?
     
-    public void nameInput(){
+    //combined two new game functions to get this single one.
+    public void newGame(){
         String userName;
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Greetings, Captain to the port-city of Rexburg, how shall we address you?");
+        System.out.println("Greetings Captain, welcome to the port-city of Rexburg, how shall we address you?");
         userName = keyboard.nextLine();
         userName = userName.trim();
-        StartGameControl recordName = new StartGameControl();
+        recordName = new NewGameControl();//...construcotr...?
         recordName.setPlayerName(userName); //passing input from view to control layer
-        
+        System.out.println("Welcome " + recordName.getPlayer1Name() +
+                ", let's begin your adventures in Secrets of the Sea.");
+
+        //this.chooseDifficulty();
+        //this.selectShip();
     }
     
     public void chooseDifficulty(){
