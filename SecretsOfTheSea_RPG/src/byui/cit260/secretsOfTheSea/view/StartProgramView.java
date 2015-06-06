@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class StartProgramView {
     
     public StartProgramView(){
-        //Why do we have this???????
+        
     }    
         
     public void startProgram(){
@@ -26,7 +26,7 @@ public class StartProgramView {
         this.startupInput();
         this.startMenuDisplay();
         mainInput = this.startMenuInput();
-        startMenuChoice(mainInput);
+        this.startMenuChoice(mainInput);
     }
 
     public void displayBanner (){

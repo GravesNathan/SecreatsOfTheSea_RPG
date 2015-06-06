@@ -38,7 +38,7 @@ public class GameDifficultyControlTest {
         CurrentStatus status = new CurrentStatus();
         status.setStatusMessage("Default Message");
         
-        GameDifficultyControl instance = new GameDifficultyControl();
+        MapControl instance = new MapControl();
         instance.calcMapSize(mapOne, status);
         
         /******************/
@@ -191,7 +191,7 @@ public class GameDifficultyControlTest {
         locationEight.setYCoordinate(2);
         /*  End of LocationEight  ********/
         
-        GameDifficultyControl instance = new GameDifficultyControl();
+        MapControl instance = new MapControl();
         instance.populateMap(mapOne, locationOne, locationTwo, locationThree, locationFour, locationFive, locationSix, locationSeven, locationEight, status);
 
         System.out.println("calcMapSize Case xMax=8, yMax=8");  

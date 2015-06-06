@@ -5,7 +5,9 @@
  */
 package byui.cit260.secretsOfTheSea.control;
 
+import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.Player;
+import byui.cit260.secretsOfTheSea.model.SelectedShip;
 
 /**
  *
@@ -15,13 +17,17 @@ public class NewGameControl {
     
     private Player player1 = null;//Initializeing here allows it's use throughout class refering to the same object for get and set
     //private String tempUserName = null;  He lost me on the whole tempUserName thing.  Have some grasp of constructors, but not completely.
-    
+
+    private MapControl createMap = null;
+    private ShipSelectionControl assignPlayerShip = null; 
     //these are called constructors.  
-    public NewGameControl(){
+    public NewGameControl(String tempNameControl, char tempDifficulty, int tempShipChoice){
         //pass username from MainMenuView to here
         //and assign to tempUser
         //Why?  Is he trying to initiate the whole class right here to save running time by less calls?
-        
+        player1 = new Player( tempNameControl );
+        createMap = new MapControl (tempDifficulty );
+        assignPlayerShip = new ShipSelectionControl(tempShipChoice);
     }
     /*My thoughts on the constructor.  When you create a new object
     ClassName ObjectName = null; does not actually give it a place in memory, only creates
@@ -41,12 +47,12 @@ public class NewGameControl {
     This would elimate the need for the setPlayerName control.
     */
 
-    public void setPlayerName(String userName){ 
+    //public void setPlayerName(String userName){ 
         //init player with String player name from view
         //pass temp username to player
-        player1 = new Player();//Why separate instead of all up top?
-        player1.setName(userName);//accepts value from view then pushes to the model layer
-        }
+        //player1 = new Player( userName );//Why separate instead of all up top?
+        //player1.setName(userName);//accepts value from view then pushes to the model layer
+     //   }
     
     public String getPlayer1Name(){
         return player1.getName();

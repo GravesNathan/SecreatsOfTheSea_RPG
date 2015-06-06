@@ -70,7 +70,7 @@ public class InitializeControl {
         //LocationDetails Class Set & Print
         /*************************************/
         /*  Location One Setup */
-        LocationDetails locationOne = new LocationDetails();
+/*        LocationDetails locationOne = new LocationDetails();
         
         locationOne.setFood(2);
         locationOne.setWater(2);
@@ -87,7 +87,7 @@ public class InitializeControl {
         //System.out.println(locationOneInfo);
         /*  End of Location One ********/
         /*  Location Two Setup */
-        LocationDetails locationTwo = new LocationDetails();
+/*        LocationDetails locationTwo = new LocationDetails();
         
         locationTwo.setFood(2);
         locationTwo.setWater(2);
@@ -104,7 +104,7 @@ public class InitializeControl {
         //System.out.println(locationTwoInfo);
         /*  End of Location Two ********/
         /*  Location Three  Setup */
-        LocationDetails locationThree = new LocationDetails();
+/*        LocationDetails locationThree = new LocationDetails();
         
         locationThree.setFood(2);
         locationThree.setWater(2);
@@ -121,7 +121,7 @@ public class InitializeControl {
         //System.out.println(locationThreeInfo);
         /*  End of Location Three ********/
         /*  Location Four Setup */
-        LocationDetails locationFour = new LocationDetails();
+ /*       LocationDetails locationFour = new LocationDetails();
         
         locationFour.setFood(2);
         locationFour.setWater(2);
@@ -138,7 +138,7 @@ public class InitializeControl {
         //System.out.println(locationFourInfo);
         /*  End of LocationFour  ********/
         /*  Location Five Setup */
-        LocationDetails locationFive = new LocationDetails();
+ /*       LocationDetails locationFive = new LocationDetails();
         
         locationFive.setFood(2);
         locationFive.setWater(2);
@@ -155,7 +155,7 @@ public class InitializeControl {
         //System.out.println(locationFiveInfo);
         /*  End of LocationFive  ********/
         /*  Location Six Setup */
-        LocationDetails locationSix = new LocationDetails();
+ /*       LocationDetails locationSix = new LocationDetails();
         
         locationSix.setFood(2);
         locationSix.setWater(2);
@@ -172,7 +172,7 @@ public class InitializeControl {
         //System.out.println(locationSixInfo);
         /*  End of LocationSix  ********/
         /*  Location Seven Setup */
-        LocationDetails locationSeven = new LocationDetails();
+/*        LocationDetails locationSeven = new LocationDetails();
         
         locationSeven.setFood(2);
         locationSeven.setWater(2);
@@ -189,7 +189,7 @@ public class InitializeControl {
         //System.out.println(locationSevenInfo);
         /*  End of LocationSeven  ********/
         /*  Location Eight Setup */
-        LocationDetails locationEight = new LocationDetails();
+/*        LocationDetails locationEight = new LocationDetails();
         
         locationEight.setFood(2);
         locationEight.setWater(2);
@@ -210,14 +210,14 @@ public class InitializeControl {
         //End LocationDetails Class Set & Print
         
         //Player Class Set & Print
-        Player playerOne = new Player();
+        //Player playerOne = new Player();
         
-        playerOne.setName("Nathan the Amazing");
-        playerOne.setApproachChoice(1);
-        playerOne.setHelp("Replace this string with the actual help menu to display.");
-        playerOne.setPlayerChoice('1');
+        //playerOne.setName("Nathan the Amazing");
+        //playerOne.setApproachChoice(1);
+        //playerOne.setHelp("Replace this string with the actual help menu to display.");
+        //playerOne.setPlayerChoice('1');
         
-        String playerInfo = playerOne.toString();
+        //String playerInfo = playerOne.toString();
         //System.out.println(playerInfo);
         //End Player Class Set & Print
 
@@ -250,89 +250,9 @@ public class InitializeControl {
         
         //Ships Class Set & Print
         //Ship choices add or subtract from base stats set further below.
-        Ships[] ship = new Ships[4];//Initialize an array of 4 ship objects
-        for (int i=0; i<4; i++)
-            ship[i] = new Ships();
+
         
-        //ship0
-        ship[0].setName("Submersible");
-        ship[0].setDescription("Sneak in, deceive leaders, slide away");
-        ship[0].setCargoCapSize(-1);
-        ship[0].setMorale(0);
-        ship[0].setSpeed(0);
-        ship[0].setDefense(1);
-        ship[0].setDeceit(1);
-        ship[0].setDiplomacy(1);
-        ship[0].setIntimidation(0);
-        ship[0].setBribery(0);
-        
-        String ship0Info = ship[0].toString();
-        //System.out.println(ship0Info);
-        
-        //ship1
-        ship[1].setName("Ironclad");
-        ship[1].setDescription("Highest Intimidation and defense of the game");
-        ship[1].setCargoCapSize(0);
-        ship[1].setMorale(0);
-        ship[1].setSpeed(-1);
-        ship[1].setDefense(1);
-        ship[1].setDeceit(-1);
-        ship[1].setDiplomacy(0);
-        ship[1].setIntimidation(1);
-        ship[1].setBribery(0);
-        
-        String ship1Info = ship[1].toString();
-        //System.out.println(ship1Info);
-        
-        //ship2
-        ship[2].setName("Galley");
-        ship[2].setDescription("Higher Supplies, better trade opportunities");
-        ship[2].setCargoCapSize(1);
-        ship[2].setMorale(-1);
-        ship[2].setSpeed(0);
-        ship[2].setDefense(-1);
-        ship[2].setDeceit(0);
-        ship[2].setDiplomacy(0);
-        ship[2].setIntimidation(-1);
-        ship[2].setBribery(1);
-        
-        String ship2Info = ship[2].toString();
-        //System.out.println(ship2Info);
-        
-        //ship3
-        
-        ship[3].setName("Clipper");
-        ship[3].setDescription("Speed across the open sea, you'll with any race with this ship.");
-        ship[3].setCargoCapSize(0);
-        ship[3].setMorale(1);
-        ship[3].setSpeed(1);
-        ship[3].setDefense(-1);
-        ship[3].setDeceit(0);
-        ship[3].setDiplomacy(1);
-        ship[3].setIntimidation(0);
-        ship[3].setBribery(-1);
-        
-        String ship3Info = ship[3].toString();
-        //System.out.println(ship3Info);
-        
-        
-        //SelectedShip Set & Print
-        SelectedShip selectedShip = new SelectedShip();
-        //Set the Default stats here, selected ship stats are adjusted + and - based
-        //on the player's choice.  This is the base for all ships.
-        selectedShip.setName("baseStats");
-        selectedShip.setDescription("Ship not Chosen yet");
-        selectedShip.setCargoCapSize(5);
-        selectedShip.setMorale(5);
-        selectedShip.setSpeed(5);
-        selectedShip.setDefense(5);
-        selectedShip.setDeceit(5);
-        selectedShip.setDiplomacy(5);
-        selectedShip.setIntimidation(5);
-        selectedShip.setBribery(5);
-        selectedShip.setShipHealth(5);
-        
-        String selectedShipInfo = selectedShip.toString();
+ /*       String selectedShipInfo = selectedShip.toString();
         //System.out.println(selectedShipInfo);
         
         //Storage Set & Print
@@ -364,18 +284,18 @@ public class InitializeControl {
         //System.out.println(cargoInfo);
         
         //calcMapSize check
-        GameDifficultyControl difficultyCon1 = new GameDifficultyControl();
-        difficultyCon1.calcMapSize( mapOne, status );
-        mapInfo = mapOne.toString();
-        //System.out.println(mapInfo + " " + status.getStatusMessage());
+        //MapControl difficultyCon1 = new MapControl();
+        //difficultyCon1.calcMapSize( mapOne);
+        //mapInfo = mapOne.toString();
+        //System.out.println(mapInfo);
         
         
         //populateMap check
-        difficultyCon1.populateMap( mapOne, locationOne, locationTwo, locationThree, locationFour,
-                locationFive, locationSix, locationSeven, locationEight, status);
-        String allLocationInfo = locationOne.toString() + "\n" + locationTwo.toString() + "\n" 
-                + locationThree.toString() + "\n" + locationFour.toString() + "\n" + locationFive.toString()
-                + "\n" + locationSix.toString() + "\n" + locationSeven.toString() + "\n" + locationEight.toString();
+        //difficultyCon1.populateMap( mapOne, locationOne, locationTwo, locationThree, locationFour,
+         //       locationFive, locationSix, locationSeven, locationEight, status);
+        //String allLocationInfo = locationOne.toString() + "\n" + locationTwo.toString() + "\n" 
+        //        + locationThree.toString() + "\n" + locationFour.toString() + "\n" + locationFive.toString()
+          //      + "\n" + locationSix.toString() + "\n" + locationSeven.toString() + "\n" + locationEight.toString();
         //System.out.println(allLocationInfo);
 
         //compareTrustLevels check
@@ -387,10 +307,12 @@ public class InitializeControl {
         //System.out.println(statusInfo);
         
         //Check SelectedShip
-        playerOne.setPlayerChoice('0');
-        ShipSelectionControl chooseShip = new ShipSelectionControl();
-        chooseShip.assignShip(playerOne.getPlayerChoice(), ship, selectedShip, status);
-        selectedShipInfo = selectedShip.toString();
+        //playerOne.setPlayerChoice('0');
+        //ShipSelectionControl chooseShip = new ShipSelectionControl();
+        //chooseShip.assignShip(player.getPlayerChoice(), ship, selectedShip, status);
+        //selectedShipInfo = selectedShip.toString();
         //System.out.println(selectedShipInfo + "\n" + status.getStatusMessage());
+         */
     }
+         
 }

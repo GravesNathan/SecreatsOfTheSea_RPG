@@ -15,7 +15,8 @@ import java.util.Objects;
  */
 public class SelectedShip extends Ships implements Serializable{
     private int shipHealth;
-
+    private int shipChoice;
+    
     public SelectedShip() {
     }
 
@@ -27,10 +28,24 @@ public class SelectedShip extends Ships implements Serializable{
         this.shipHealth = shipHealth;
     }
 
+    public int getShipChoice() {
+        return shipChoice;
+    }
+
+    public void setShipChoice(int shipChoice) {
+        this.shipChoice = shipChoice;
+    }
+
+    
+    
     @Override
     public String toString() {
-        return "SelectedShip{" + "shipHealth=" + shipHealth + ", name=" + name + ", description=" + description + ", cargoCapSize=" + cargoCapSize + ", morale=" + morale + ", speed=" + speed + ", defense=" + defense + ", deceit=" + deceit + ", diplomacy=" + diplomacy + ", intimidation=" + intimidation + ", bribery=" + bribery + '}';
-    }
+        return "SelectedShip{" + "shipHealth=" + shipHealth + ", name=" + name 
+                + ", description=" + description + ", cargoCapSize=" + cargoCapSize
+                + ", morale=" + morale + ", speed=" + speed + ", defense=" + defense 
+                + ", deceit=" + deceit + ", diplomacy=" + diplomacy + ", intimidation=" 
+                + intimidation + ", bribery=" + bribery + ", shipChoice =" + shipChoice + '}';
+            }
 
     @Override
     public int hashCode() {
@@ -46,6 +61,7 @@ public class SelectedShip extends Ships implements Serializable{
         hash = 97 * hash + this.diplomacy;
         hash = 97 * hash + this.intimidation;
         hash = 97 * hash + this.bribery;
+        hash = 97 * hash + this.shipChoice;
         return hash;
     }
 
@@ -89,6 +105,9 @@ public class SelectedShip extends Ships implements Serializable{
             return false;
         }
         if (this.bribery != other.bribery) {
+            return false;
+        }
+        if (this.shipChoice != other.shipChoice) {
             return false;
         }
         return true;

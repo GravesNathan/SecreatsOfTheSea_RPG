@@ -19,7 +19,8 @@ public class Player implements Serializable{
     private String help;
     private char playerChoice;
     
-    public Player() {
+    public Player(String tempName) {
+        this.setName(tempName);
     }
 
     public String getName() {

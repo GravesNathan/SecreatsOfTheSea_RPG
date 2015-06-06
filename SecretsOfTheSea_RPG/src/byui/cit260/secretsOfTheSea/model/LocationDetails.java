@@ -53,13 +53,13 @@ public class LocationDetails extends Storage implements Serializable{
     }
 
     
-    @Override
+    //@Override
     public String toString() {
         return "LocationDetails{" + ", Statue=" + Statue + ", XCoordinate=" + XCoordinate + ", YCoordinate="
                 + YCoordinate + ", distance = " + distance + '}';
     }
 
-    @Override
+    //@Override
     public int hashCode() {
         int hash = 7;
         hash = 29 * hash + this.Statue;
@@ -69,7 +69,7 @@ public class LocationDetails extends Storage implements Serializable{
         return hash;
     }
 
-    @Override
+    //@Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
