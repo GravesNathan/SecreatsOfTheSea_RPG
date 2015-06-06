@@ -23,6 +23,7 @@ public class Ships implements Serializable{
     protected int diplomacy;
     protected int intimidation;
     protected int bribery;
+    protected int health;
 
     public Ships() {
     }
@@ -107,9 +108,22 @@ public class Ships implements Serializable{
         this.bribery = bribery;
     }
 
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    
+    
     @Override
     public String toString() {
-        return "Ships{" + "name=" + name + ", description=" + description + ", cargoCapSize=" + cargoCapSize + ", morale=" + morale + ", speed=" + speed + ", defense=" + defense + ", deceit=" + deceit + ", diplomacy=" + diplomacy + ", intimidation=" + intimidation + ", bribery=" + bribery + '}';
+        return "Ships{" + "name=" + name + ", description=" + description + ", cargoCapSize=" 
+                + cargoCapSize + ", morale=" + morale + ", speed=" + speed + ", defense=" 
+                + defense + ", deceit=" + deceit + ", diplomacy=" + diplomacy + ", intimidation=" 
+                + intimidation + ", bribery=" + bribery + ", health= " + health +'}';
     }
 
     @Override
@@ -125,6 +139,7 @@ public class Ships implements Serializable{
         hash = 89 * hash + this.diplomacy;
         hash = 89 * hash + this.intimidation;
         hash = 89 * hash + this.bribery;
+        hash = 89 * hash + this.health;
         return hash;
     }
 
@@ -165,6 +180,9 @@ public class Ships implements Serializable{
             return false;
         }
         if (this.bribery != other.bribery) {
+            return false;
+        }
+        if (this.health != other.health) {
             return false;
         }
         return true;

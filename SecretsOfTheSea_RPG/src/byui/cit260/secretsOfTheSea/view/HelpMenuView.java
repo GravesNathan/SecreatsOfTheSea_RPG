@@ -60,8 +60,7 @@ public class HelpMenuView {
                 this.quitMenu();
                 break;
             default:
-
-        System.out.println(helpMenuChoice + " is an invalid entry. Please select an option below:"
+                System.out.println(helpMenuChoice + " is an invalid entry. Please select an option below:"
                 + "\nHotkey - Description"
                 + "\n G - What is the Goal of the Game?"
                 + "\n H - Health Explained"

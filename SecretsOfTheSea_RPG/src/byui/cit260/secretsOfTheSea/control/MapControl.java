@@ -76,6 +76,21 @@ public class MapControl {
             else i--;
         }
     }
+    
+    public String getUserDifficulty(){
+        char nameDifficulty = mapOne.getDifficulty();
+        switch (nameDifficulty) {
+            case 'E':
+                return "Easy";
+            case 'N': 
+                return "Normal";
+            case 'H':
+                return "Hard";
+            default: 
+                return ("Invalid Input");
+        }
+}
+    
 }
             /*
             if (mapGrid[tempX][tempY] == 0) {

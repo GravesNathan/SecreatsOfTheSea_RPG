@@ -5,7 +5,9 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
+import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 import byui.cit260.secretsOfTheSea.model.Player;
 import java.util.Scanner;
 
@@ -19,6 +21,10 @@ public class MainMenuView {
     //start here
     //initialize here and it's accessible throughout class.
    NewGameControl newUserSettings = null; //again why are we creating the memory later in line 30 instead of here?
+   MapControl mainMap = null; 
+   ShipSelectionControl userShip = null; 
+//   MapControl createMap = null;
+   ShipSelectionControl assignPlayerShip = null; 
     
     //combined two new game functions to get this single one.
     public void newGame(){
@@ -28,26 +34,42 @@ public class MainMenuView {
         System.out.println("Greetings Captain, welcome to the port-city of Rexburg, how shall we address you?");
         userName = nameReader.nextLine();
         userName = userName.trim();
-        //Select Difficulty
+        
+        //Choose difficulty
+        char difficultyLevel;
+        do{
         System.out.println("Please select your difficulty.  "
                 + "\nE = Easy"
                 + "\nN = Normal"
                 + "\nH = Hard");
-        
         Scanner difficultyReader = new Scanner(System.in);
-        char difficultyLevel;
         difficultyLevel = Character.toUpperCase(difficultyReader.next().charAt(0));
+        if (!((difficultyLevel == 'E') || (difficultyLevel == 'N') || (difficultyLevel == 'H')))
+            System.out.println("Invalid Input.");
+         }while(!((difficultyLevel == 'E') || (difficultyLevel == 'N') || (difficultyLevel == 'H')));
+        mainMap = new MapControl (difficultyLevel);
+        
         
         //Choose Ship
-        System.out.println("Please select your ship with with options 0 through 3");
-        int shipChoice;
+        char charShipChoice = '8';
+        int shipChoice = -1;
+        ShipSelectionControl tempShips = new ShipSelectionControl(8);
+        
+        do{
+        System.out.println("\n Please select your ship with with options 0 through 3"
+                + tempShips.toString());
         Scanner shipReader = new Scanner(System.in);
-        char charShipChoice = '0';
         charShipChoice = shipReader.next().charAt(0);
         shipChoice = Character.getNumericValue(charShipChoice);
-        newUserSettings = new NewGameControl(userName, difficultyLevel, shipChoice); //...construcotr...?
-        System.out.println("Welcome " + newUserSettings.getPlayer1Name() +
-                ", let's begin your adventures in Secrets of the Sea.");
+        if (!((shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3)))
+            System.out.println("Invalid Input.");
+        }while(!( (shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3) ));
+        assignPlayerShip = new ShipSelectionControl(shipChoice);
+        
+        newUserSettings = new NewGameControl(userName); //...construcotr...?
+        System.out.println("Welcome " + newUserSettings.getPlayerName() +
+                ", let's begin your " + mainMap.getUserDifficulty() + " adventures in Secrets of the Sea."
+                + "\n Prepare to board your " + assignPlayerShip.getUserShip() +  " and set sails on the open seas.");
     }
     
     //public void chooseDifficulty(){

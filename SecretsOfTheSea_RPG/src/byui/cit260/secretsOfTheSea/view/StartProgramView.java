@@ -25,8 +25,8 @@ public class StartProgramView {
         initialize.initializeGame();
         this.startupInput();
         this.startMenuDisplay();
-        mainInput = this.startMenuInput();
-        this.startMenuChoice(mainInput);
+        //mainInput = this.startMenuInput();
+        //this.startMenuChoice(mainInput);
     }
 
     public void displayBanner (){
@@ -64,6 +64,7 @@ public class StartProgramView {
     }
     
     public void startMenuDisplay(){
+        char mainInput;
         System.out.println("Please select an option below"
                 + "\nHotkey - Description"
                 + "\nG - Start Game"
@@ -71,7 +72,8 @@ public class StartProgramView {
                 + "\nL - Load Game"
                 + "\nQ - Quit Game"
                 + "\n");
-//        this.startMenuInput();
+        mainInput = this.startMenuInput();
+        this.startMenuChoice(mainInput);
     }
     
     public char startMenuInput(){

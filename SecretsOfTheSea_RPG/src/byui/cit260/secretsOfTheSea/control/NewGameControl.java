@@ -18,16 +18,14 @@ public class NewGameControl {
     private Player player1 = null;//Initializeing here allows it's use throughout class refering to the same object for get and set
     //private String tempUserName = null;  He lost me on the whole tempUserName thing.  Have some grasp of constructors, but not completely.
 
-    private MapControl createMap = null;
-    private ShipSelectionControl assignPlayerShip = null; 
+
     //these are called constructors.  
-    public NewGameControl(String tempNameControl, char tempDifficulty, int tempShipChoice){
+    public NewGameControl(String tempNameControl){
         //pass username from MainMenuView to here
         //and assign to tempUser
         //Why?  Is he trying to initiate the whole class right here to save running time by less calls?
         player1 = new Player( tempNameControl );
-        createMap = new MapControl (tempDifficulty );
-        assignPlayerShip = new ShipSelectionControl(tempShipChoice);
+
     }
     /*My thoughts on the constructor.  When you create a new object
     ClassName ObjectName = null; does not actually give it a place in memory, only creates
@@ -54,7 +52,7 @@ public class NewGameControl {
         //player1.setName(userName);//accepts value from view then pushes to the model layer
      //   }
     
-    public String getPlayer1Name(){
+    public String getPlayerName(){
         return player1.getName();
     }
     

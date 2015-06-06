@@ -17,11 +17,12 @@ public class ShipSelectionControl {
     
     private SelectedShip selectedShip = null;
     private Ships[] ship = null;
+    int baseStats = 5;
             
     public ShipSelectionControl(int tempShipChoice){
     
         this.createShips();
-        this.assignShip(tempShipChoice, selectedShip, ship);
+        this.assignShip(tempShipChoice, selectedShip);
         selectedShip.setShipChoice(tempShipChoice);
     }
     
@@ -98,33 +99,66 @@ public class ShipSelectionControl {
         //on the player's choice.  This is the base for all ships.
         selectedShip.setName("baseStats");
         selectedShip.setDescription("Ship not Chosen yet");
-        selectedShip.setCargoCapSize(5);
-        selectedShip.setMorale(5);
-        selectedShip.setSpeed(5);
-        selectedShip.setDefense(5);
-        selectedShip.setDeceit(5);
-        selectedShip.setDiplomacy(5);
-        selectedShip.setIntimidation(5);
-        selectedShip.setBribery(5);
-        selectedShip.setShipHealth(5);
+        selectedShip.setCargoCapSize(baseStats);
+        selectedShip.setMorale(baseStats);
+        selectedShip.setSpeed(baseStats);
+        selectedShip.setDefense(baseStats);
+        selectedShip.setDeceit(baseStats);
+        selectedShip.setDiplomacy(baseStats);
+        selectedShip.setIntimidation(baseStats);
+        selectedShip.setBribery(baseStats);
+        selectedShip.setShipHealth(baseStats);
     }
     
-    public void assignShip(int tempShipChoice1, SelectedShip selectedShip, Ships[] ship1){
+    public void assignShip(int tempShipChoice1, SelectedShip selectedShip){
         for (int i=0; i<4; i++){
             if ( i == tempShipChoice1){
-                selectedShip.setName(ship1[i].getName() );
-                selectedShip.setDescription(ship1[i].getDescription());
-                selectedShip.setCargoCapSize(5 + ship1[i].getCargoCapSize());
-                selectedShip.setMorale(5 + ship1[i].getMorale());
-                selectedShip.setSpeed(5 + ship1[i].getSpeed());
-                selectedShip.setDefense(5 + ship1[i].getDefense());
-                selectedShip.setDeceit(5 + ship1[i].getDeceit());
-                selectedShip.setDiplomacy(5 + ship1[i].getDiplomacy());
-                selectedShip.setIntimidation(5 + ship1[i].getIntimidation());
-                selectedShip.setBribery(5 + ship1[i].getBribery());
-                selectedShip.setShipHealth(5);
+                selectedShip.setName(ship[i].getName() );
+                selectedShip.setDescription(ship[i].getDescription());
+                selectedShip.setCargoCapSize(ship[i].getCargoCapSize());
+                selectedShip.setMorale(ship[i].getMorale());
+                selectedShip.setSpeed(ship[i].getSpeed());
+                selectedShip.setDefense(ship[i].getDefense());
+                selectedShip.setDeceit(ship[i].getDeceit());
+                selectedShip.setDiplomacy( ship[i].getDiplomacy());
+                selectedShip.setIntimidation(ship[i].getIntimidation());
+                selectedShip.setBribery(ship[i].getBribery());
+                selectedShip.setShipHealth(ship[i].getHealth());
                 return;
             }
         }
+    }
+    
+    @Override
+    public String toString() {
+        String shipsPrint = "\n";
+        for (int i=0; i<4; i++){
+                ship[i].setCargoCapSize(baseStats + ship[i].getCargoCapSize());
+                ship[i].setMorale(baseStats + ship[i].getMorale());
+                ship[i].setSpeed(baseStats + ship[i].getSpeed());
+                ship[i].setDefense(baseStats + ship[i].getDefense());
+                ship[i].setDeceit(baseStats + ship[i].getDeceit());
+                ship[i].setDiplomacy(baseStats + ship[i].getDiplomacy());
+                ship[i].setIntimidation(baseStats + ship[i].getIntimidation());
+                ship[i].setBribery(baseStats + ship[i].getBribery());
+                ship[i].setHealth(baseStats + ship[i].getHealth());
+                
+            shipsPrint += ("\n\nPress " + i + " to select this ship:"
+                    + "\nname= " + ship[i].getName()
+                    + "\ndescription= " + ship[i].getDescription() 
+                    + "\nMax Cargo= " + ship[i].getCargoCapSize() 
+                    + ", morale= " + ship[i].getMorale()
+                    + ", speed= " + ship[i].getSpeed()
+                    + ", defense " + ship[i].getDefense()
+                    + "\ndeceit= " + ship[i].getDeceit()
+                    + ", Diplomacy= " + ship[i].getDiplomacy()
+                    + ", intimidation= " + ship[i].getIntimidation()
+                    + ", bribery " + ship[i].getBribery());
+        }
+        return shipsPrint;
+    }
+    
+    public String getUserShip(){
+        return selectedShip.getName();
     }
 }
