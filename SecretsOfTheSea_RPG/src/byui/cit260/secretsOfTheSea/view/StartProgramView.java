@@ -30,28 +30,30 @@ public class StartProgramView {
     }
 
     public void displayBanner (){
-        System.out.println("\n\n*********************************************");
+        System.out.println("\n\n *********************************************");
         System.out.println("\n        Secrets of the Sea");
-        System.out.println("The Best Treasure hunting game ever!");
-        System.out.println("\n**********************************************");
+        System.out.println(" The Best Treasure hunting game ever!");
+        System.out.println("\n **********************************************");
         
         System.out.println(""
-                + "\nSecrets of the Sea is a text-based role playing adventure. In this game, you will be taking on the"
-                + "\nrole as captain of a ship. You will navigate 7 ports and 22 excavation sites as you seek to acquire 8"
-                + "\nhighly valuable statues. On each token there is a piece of an ancient inscription, and when all 8 are "
-                + "\nput together a secret code is unlocked."
-                + "\n\nAs time has gone on, the statues have changed from history to possible myths. Some believe in"
-                + "\ntheir ability to unlock hidden treasure, while others think it is nothing by a made up story."
-                + "\nLeverage your crew & ship to gain access to the ports where you can then explore the sites."
-                + "\nUpon gaining equipment and other necessities, voyages will be chosen to not only find these hidden statues, "
-                + "\nbut to survive the now tumultuous atmosphere of the world."
-                + "\n\nAs you travel you will encounter different societies, each will respond differently to your approach"
+                + "\n Secrets of the Sea is a text-based role playing adventure. In this game, you will be taking on the"
+                + "\n role as captain of a ship. You will navigate 7 ports and 22 excavation sites as you seek to acquire 8"
+                + "\n highly valuable statues. On each token there is a piece of an ancient inscription, and when all 8 are "
+                + "\n put together a secret code is unlocked."
+                + "\n\n As time has gone on, the statues have changed from history to possible myths. Some believe in"
+                + "\n their ability to unlock hidden treasure, while others think it is nothing by a made up story."
+                + "\n Leverage your crew & ship to gain access to the ports where you can then explore the sites."
+                + "\n Upon gaining equipment and other necessities, voyages will be chosen to not only find these hidden statues, "
+                + "\n but to survive the now tumultuous atmosphere of the world."
+                + "\n\n As you travel you will encounter different societies, each will respond differently to your approach"
                 + "\n(Diplomacy, Intimidation, Bribery, Deceit)"
-                + "\nAfter picking a crew/ship and packing a ship, you will as captain, lead your team on an adventure of a lifetime."
-                + "\nThose who preserve and work together are likely to unlock the mysteries awaiting on both sea and land."
+                + "\n"
+                + "\n After picking a crew/ship and packing a ship, you will as captain, lead your team on an adventure of a lifetime."
+                + "\n Those who preserve and work together are likely to unlock the mysteries awaiting on both sea and land."
                 + "\n");
         
-        System.out.println("\n Hope you have a fun time.");
+        System.out.println("\n Hope you have a fun time."
+        + "\n" );
     }
     
     public void startupInput(){
@@ -65,10 +67,11 @@ public class StartProgramView {
         System.out.println("Please select an option below"
                 + "\nHotkey - Description"
                 + "\nG - Start Game"
-                + "\nH - Get Help"
+                + "\nH - Help Menu"
                 + "\nL - Load Game"
                 + "\nQ - Quit Game"
                 + "\n");
+//        this.startMenuInput();
     }
     
     public char startMenuInput(){

@@ -63,6 +63,10 @@ public class MainMenuView {
     
     public void openHelp(){
         System.out.println("openHelp fucntion called");
+            //load Help Menu into view
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayMenu();
+        
     }
     
     public void loadGame(){
