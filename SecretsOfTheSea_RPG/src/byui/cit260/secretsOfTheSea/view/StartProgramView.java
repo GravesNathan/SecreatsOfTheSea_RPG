@@ -59,7 +59,7 @@ public class StartProgramView {
     public void startupInput(){
         String input1 = null;
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Press Enter to Proceed.");
+        System.out.println("Press ENTER to Proceed.");
         input1 = keyboard.nextLine();
     }
     

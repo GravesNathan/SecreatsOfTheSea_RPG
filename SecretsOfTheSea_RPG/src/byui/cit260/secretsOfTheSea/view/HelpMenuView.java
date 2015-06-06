@@ -163,7 +163,7 @@ public class HelpMenuView {
         public void returnHelpMenu(){
         String input1 = null;
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Press Enter to Proceed.");
+        System.out.println("Press ENTER to Proceed.");
         input1 = keyboard.nextLine();
         this.displayMenu();
     }
