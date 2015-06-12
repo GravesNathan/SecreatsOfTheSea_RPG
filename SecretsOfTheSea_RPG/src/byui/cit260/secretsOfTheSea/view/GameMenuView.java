@@ -75,7 +75,7 @@ public class GameMenuView {
     }
     
     public void nextAction(char choice){
-        switch (choice) {
+/*        switch (choice) {
             case 'S':
 		this.saveGame();
 		break;
@@ -95,6 +95,23 @@ public class GameMenuView {
             case 'V':
 		this.tempStatusView();
 		break;
+            default:
+                System.out.println("Invalid choice");
         } 
+Commented temporarily to fulfil the if else if ladder requirement*/
+        if (choice == 'S')
+            this.saveGame();
+            else if (choice == 'H'){
+                HelpMenuView helpMenu = new HelpMenuView();
+                helpMenu.displayMenu();
+            }
+                else if (choice == 'Q')
+                    this.quitGame();
+                    else if (choice == 'C')
+                        this.closeMenu();
+                        else if (choice == 'I')
+                            this.tempInvStub();
+                            else if (choice == 'V')
+                                this.tempStatusView();
     }
 }

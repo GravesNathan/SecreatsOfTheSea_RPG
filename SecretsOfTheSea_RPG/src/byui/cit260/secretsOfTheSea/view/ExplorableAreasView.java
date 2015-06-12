@@ -48,7 +48,7 @@ public class ExplorableAreasView {
         while(!valid){
             choice = Character.toUpperCase(keyboard.next().charAt(0));
             if ( !( choice == 'E' || choice == 'M' || choice =='B' || choice == 'W' || 
-                    choice=='X' || choice=='V' || choice == 'G' )){
+                    choice=='X' || choice == 'I' || choice=='V' || choice == 'G' )){
                 System.out.println( "Invalid entry\n" + menu );
             }
             break;
@@ -73,6 +73,10 @@ public class ExplorableAreasView {
         System.out.println("workOnShipControl method called");
     }
     
+    public void exchangeViewStub(){
+        System.out.println("exchangeViewStub called");
+    }
+    
     public void tempInvStub(){
         System.out.println("holder for future inventory view");
     }
@@ -95,6 +99,9 @@ public class ExplorableAreasView {
             case 'W':
 		this.workOnShipControl();
 		break;
+            case 'X':
+                this.exchangeViewStub();
+                break;
             case 'I':
 		this.tempInvStub();
 		break;
@@ -104,6 +111,8 @@ public class ExplorableAreasView {
             case 'G':
 		GameMenuView gameMenu = new GameMenuView();
 		break;
+            default:
+                System.out.println("Invalid choice");
         } 
     }
     
