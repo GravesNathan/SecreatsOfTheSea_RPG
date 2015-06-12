@@ -70,6 +70,8 @@ public class MainMenuView {
         System.out.println("Welcome " + newUserSettings.getPlayerName() +
                 ", let's begin your " + mainMap.getUserDifficulty() + " adventures in Secrets of the Sea."
                 + "\n Prepare to board your " + assignPlayerShip.getUserShip() +  " and set sails on the open seas.");
+        
+        ExplorableAreasView beginExplore = new ExplorableAreasView();
     }
     
     //public void chooseDifficulty(){
