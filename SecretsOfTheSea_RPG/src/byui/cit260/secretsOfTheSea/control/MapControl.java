@@ -72,8 +72,9 @@ public class MapControl {
             if (mapGrid[tempX][tempY] == 0) {
                 location[i].setXCoordinate(tempX);
                 location[i].setYCoordinate(tempY);
+                ExplorableAreasControl setupAreas = new ExplorableAreasControl(i);
             }
-            else i--;
+            else i--; //offset increment when the island ends up stacked on another island.
         }
     }
     
