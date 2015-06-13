@@ -24,9 +24,10 @@ public class StartProgramView {
         InitializeControl initialize = new InitializeControl();
         initialize.initializeGame();
         this.startupInput();
-        this.startMenuDisplay();
-        //mainInput = this.startMenuInput();
-        //this.startMenuChoice(mainInput);
+        do {//Followed this week's paturn to make this continue when help is the option.  Stops otherwise.
+            mainInput = this.startMenuDisplay();
+        }while (!((mainInput == 'G') || (mainInput == 'L') || (mainInput == 'Q')));
+
     }
 
     public void displayBanner (){
@@ -63,7 +64,7 @@ public class StartProgramView {
         input1 = keyboard.nextLine();
     }
     
-    public void startMenuDisplay(){
+    public char startMenuDisplay(){//change to return character for comparison in startProgram()
         char mainInput;
         System.out.println("Please select an option below"
                 + "\nHotkey - Description"
@@ -74,6 +75,7 @@ public class StartProgramView {
                 + "\n");
         mainInput = this.startMenuInput();
         this.startMenuChoice(mainInput);
+        return mainInput;//added this line
     }
     
     public char startMenuInput(){

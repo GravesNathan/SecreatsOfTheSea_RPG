@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class HelpMenuView {
     
     public  HelpMenuView(){
-    
+        
 }
  
     void displayMenu() {
@@ -33,31 +33,44 @@ public class HelpMenuView {
             this.displayMenuInput();
     }
     
-        public char displayMenuInput(){
+    /*Editted existing code so that the returnHelpMenu is called from the switch
+    Removed any call from the quitMenu option causing it to break.  This setup allows
+    the help menu to return to previous view instead of just to the startGameView.
+    Week 7 material has a nice layout once you get use to it.  I've implemented
+    with constructors in ExplorableAreas and GameMenuView.  it allows the Views
+    to return to previous view when they are done executing with ease.
+    */
+    public void displayMenuInput(){
         char helpMenuChoice;
         Scanner reader = new Scanner(System.in);
         helpMenuChoice = Character.toUpperCase(reader.next().charAt(0));
         switch (helpMenuChoice) {
             case 'G':
                 this.describeGameGoal();
+                this.returnHelpMenu();
                 break;
             case 'H':
                 this.healthExplained();
+                this.returnHelpMenu();
                 break;
             case 'M':
                 this.howToMove();
+                this.returnHelpMenu();
                 break;
             case 'R':
                 this.resourceTypes();
+                this.returnHelpMenu();
                 break;
             case 'S':
                 this.societyHelp();
+                this.returnHelpMenu();
                 break; 
             case 'T':
                 this.trustLevelsExplained();
+                this.returnHelpMenu();
                 break;                
             case 'Q':
-                this.quitMenu();
+                //this.quitMenu();
                 break;
             default:
                 System.out.println(helpMenuChoice + " is an invalid entry. Please select an option below:"
@@ -72,8 +85,6 @@ public class HelpMenuView {
                 + "\n ");
             this.displayMenuInput();
         }
-        return helpMenuChoice;
-        //do-while and while loops, continue if condition is true. Exit when false.
     }
 
     private void describeGameGoal() {
@@ -90,7 +101,6 @@ public class HelpMenuView {
                         + "\n swimming with the sharks."
                         + "\n "
         );
-        this.returnHelpMenu();
     }
 
     
@@ -106,7 +116,6 @@ public class HelpMenuView {
                         + "\n your ship as needed."
                         + "\n "
         );
-        this.returnHelpMenu();
     }
 
 
@@ -118,7 +127,6 @@ public class HelpMenuView {
                         + "\n"
                         + "\n"
         );
-        this.returnHelpMenu();
     }
 
     private void resourceTypes() {
@@ -128,7 +136,6 @@ public class HelpMenuView {
                         + "\n"
                         + "\n"
         );
-        this.returnHelpMenu();
     }
 
     private void societyHelp() {
@@ -138,7 +145,6 @@ public class HelpMenuView {
                         + "\n"
                         + "\n"
         );
-        this.returnHelpMenu();
     }
 
     private void trustLevelsExplained() {
@@ -147,13 +153,12 @@ public class HelpMenuView {
                         + "\n Enter Description Here."
                         + "\n"
                         + "\n"
-        );
-        this.returnHelpMenu();
+                            );
     }
     
         public void quitMenu() {
-        StartProgramView returnToStart = new StartProgramView();
-        returnToStart.startMenuDisplay();
+        //StartProgramView returnToStart = new StartProgramView();
+        //returnToStart.startMenuDisplay();
         //This will return the user to the main game menu but ends the program.  
         //Ideal action would be to return to calling menu (Main or Game)
         //Need help figuring this part out.
