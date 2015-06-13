@@ -44,7 +44,7 @@ public class ExplorableAreasView {
         char choice = ' ';
         boolean valid = false;
             //honestly, this just continues until the if is skipped and the break is executed.
-            //if it wasn't for that it woudl continue forever.
+            //if it wasn't for that it would continue forever.
         while(!valid){
             choice = Character.toUpperCase(keyboard.next().charAt(0));
             if ( !( choice == 'E' || choice == 'M' || choice =='B' || choice == 'W' || 
