@@ -53,7 +53,7 @@ public class ShipSelectionControlTest {
         //selectedShipInfo = instance.toString();
         //System.out.println(instance.toString());
         
-        System.out.println("Bad Choicem");
+        System.out.println("Bad Choice");
         playerChoice = 4;
         instance = new ShipSelectionControl(playerChoice);
         System.out.println(instance.getUserShip());
