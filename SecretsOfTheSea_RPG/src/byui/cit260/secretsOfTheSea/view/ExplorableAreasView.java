@@ -20,8 +20,8 @@ public class ExplorableAreasView {
                 System.out.println(menu);
 		selection = this.getInput(menu);
 		this.nextAction(selection);
-        }while ( !(selection =='B'));
-    }    //repeat until player Boards ship
+        }while ( !(selection =='X'));
+    }    //repeat until player looks to exchange resources
     
     
     public String displayOptions(){
@@ -63,6 +63,7 @@ public class ExplorableAreasView {
     
     public void onShipView(){
         System.out.println("onShipView method called");
+        //load OnShipView
     }
     
     public void moveAreaControl(){
@@ -94,7 +95,7 @@ public class ExplorableAreasView {
 		this.moveAreaControl();
 		break;
             case 'B':
-		this.onShipView();
+                OnShipView loadShipView = new OnShipView();
 		break;
             case 'W':
 		this.workOnShipControl();
@@ -112,7 +113,7 @@ public class ExplorableAreasView {
 		GameMenuView gameMenu = new GameMenuView();
 		break;
             default:
-                System.out.println("Invalid choice");
+                System.out.println("\n ***Invalid choice***");
         } 
     }
     

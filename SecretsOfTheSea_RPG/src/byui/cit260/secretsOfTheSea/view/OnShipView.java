@@ -57,10 +57,6 @@ public class OnShipView {
         System.out.println("launchShipControl stub");
     }
     
-    public void dockShipControl(){
-        System.out.println("dockShipControl stub");
-    }
-
     public void workOnShipControl(){
         System.out.println("workOnShip stub");
     }
@@ -80,7 +76,6 @@ public class OnShipView {
 		this.launchShipControl();
 		break;
             case 'D':
-		this.dockShipControl();
 		break;
             case 'W':
 		this.workOnShipControl();
