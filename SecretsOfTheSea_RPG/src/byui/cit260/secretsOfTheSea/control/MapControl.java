@@ -25,29 +25,31 @@ public class MapControl {
 
             
     public MapControl( char tempDifficulty ){
-        this.calcMapSize( tempDifficulty );
+        Boolean errorCheck = this.calcMapSize( tempDifficulty );
+        if (errorCheck)
         this.populateMap();
     }
     
-    public void calcMapSize ( char difficulty){
+    public Boolean calcMapSize ( char difficulty){
         mapOne.setDifficulty(difficulty);
         int xMax = 4;
         int yMax = 4;
         if (difficulty == 'E' || difficulty == 'e'){
             mapOne.setxMax(xMax * 1);
             mapOne.setyMax(yMax * 1);
-            return;
+            return true;
         }   
         else if (difficulty == 'N' || difficulty == 'n'){
             mapOne.setxMax(xMax * 2);
             mapOne.setyMax(yMax * 2);
-            return;
+            return true;
         }
         else if (difficulty == 'H' || difficulty == 'h'){
             mapOne.setxMax(xMax * 3);
             mapOne.setyMax(yMax * 3);
-            return;
+            return true;
         }
+        else return false;
     }
   
     public void populateMap(){
@@ -88,51 +90,10 @@ public class MapControl {
             case 'H':
                 return "Hard";
             default: 
-                return ("Invalid Input");
+                return "Invalid Input";
         }
 }
     
 }
-            /*
-            if (mapGrid[tempX][tempY] == 0) {
-                mapGrid[tempX][tempY] = 1;
-		switch (i) {
-                    case 1: {
-                        locationOne.setXCoordinate(tempX);
-                        locationOne.setYCoordinate(tempY);
-                    }
-                    case 2: {
-                        locationTwo.setXCoordinate(tempX);
-                        locationTwo.setYCoordinate(tempY);
-                    }
-                    case 3: {
-                        locationThree.setXCoordinate(tempX);
-                        locationThree.setYCoordinate(tempY);
-                    }
-                    case 4: {
-                        locationFour.setXCoordinate(tempX);
-                        locationFour.setYCoordinate(tempY);
-                    }
-                    case 5: {
-                        locationFive.setXCoordinate(tempX);
-                        locationFive.setYCoordinate(tempY);
-                    }
-                    case 6: {
-                        locationSix.setXCoordinate(tempX);
-                        locationSix.setYCoordinate(tempY);
-                    }
-                    case 7: {
-                        locationSeven.setXCoordinate(tempX);
-                        locationSeven.setYCoordinate(tempY);
-                    }
-                    case 8: {
-                        locationEight.setXCoordinate(tempX);
-                        locationEight.setYCoordinate(tempY);
-                    }
-                }
-            }
-            else i--;
-                    */
-        
 
 
