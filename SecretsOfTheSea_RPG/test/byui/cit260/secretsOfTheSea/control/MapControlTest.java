@@ -51,7 +51,7 @@ public class MapControlTest {
         /******************/
         /*****Case Invalid******/
         /*****************/
-        difficultyChoice = 'W';  //W is used as the example of an invalid character for this test
+        difficultyChoice = 'W';  
         instance =  new MapControl(difficultyChoice);
         System.out.println("chosen difficulty is " + instance.getUserDifficulty());
     }
