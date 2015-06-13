@@ -94,7 +94,7 @@ public class MapControl {
             default: 
                 return "Invalid Input";
         }
-}
+    }
     
 }
 
