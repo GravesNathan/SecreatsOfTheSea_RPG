@@ -30,6 +30,8 @@ public class MapControl {
         this.populateMap();
     }
     
+    //STEP 4 - Turn outline of solution into working code.
+    
     public Boolean calcMapSize ( char difficulty){
         mapOne.setDifficulty(difficulty);
         int xMax = 4;
