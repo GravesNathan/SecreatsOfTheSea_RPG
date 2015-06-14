@@ -19,7 +19,7 @@ public class ExchangeView {
                 System.out.println(menu);
                 selection = this.getInput(menu);
                 this.nextAction(selection);
-        }while (!(selection =='X'));
+        }while (!(selection =='C'));
     }   //repeat until player closes Exchange/Trading view
     
     public String displayOptions(){
@@ -73,29 +73,40 @@ public class ExchangeView {
         
     
     public void nextAction(char choice){
-        switch (choice) {
-            case 'O':
-		this.offerTradeControl();
-		break;
-            case 'X':
-		break;
-            case 'A':
-		this.acceptTradeControl();
-		break;
-            case 'C':
-		this.closeTradeControl();
-		break;
-            case 'I':
-		this.tempInvStub();
-		break;
-            case 'V':
-		this.tempStatusView();
-		break;
-            case 'G':
-		GameMenuView gameMenu = new GameMenuView();
-		break;
-            default:
-                System.out.println("Invalid choice");
-        } 
+//        switch (choice) {
+//            case 'O':
+//		this.offerTradeControl();
+//		break;
+//            case 'X':
+//		break;
+//            case 'A':
+//		this.acceptTradeControl();
+//		break;
+//            case 'C':
+//		this.closeTradeControl();
+//		break;
+//            case 'I':
+//		this.tempInvStub();
+//		break;
+//            case 'V':
+//		this.tempStatusView();
+//		break;
+//            case 'G':
+//		GameMenuView gameMenu = new GameMenuView();
+//		break;
+//            default:
+//                System.out.println("Invalid choice");
+        
+                if (choice == 'O')
+            this.offerTradeControl();
+            else if (choice == 'A'){
+                this.offerTradeControl();
+            }
+                else if (choice == 'C')
+                    this.closeTradeControl();
+                    else if (choice == 'I')
+                        this.tempInvStub();
+                        else if (choice == 'V')
+                            this.tempStatusView();
     }
 }
