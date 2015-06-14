@@ -74,7 +74,7 @@ public class ExplorableAreasView {
         System.out.println("workOnShipControl method called");
     }
     
-    public void exchangeViewStub(){
+    public void exchangeView(){
         System.out.println("exchangeViewStub called");
     }
     
@@ -101,7 +101,8 @@ public class ExplorableAreasView {
 		this.workOnShipControl();
 		break;
             case 'X':
-                this.exchangeViewStub();
+                ExchangeView exchangeView = new ExchangeView();
+                //this.exchangeViewStub();
                 break;
             case 'I':
 		this.tempInvStub();

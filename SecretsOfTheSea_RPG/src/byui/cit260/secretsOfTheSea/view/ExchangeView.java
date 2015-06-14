@@ -11,28 +11,27 @@ import java.util.Scanner;
  *
  * @author SDababneh
  */
-public class OnShipView {
- 
-    public OnShipView(){
+public class ExchangeView {
+    public ExchangeView(){
         String menu = this.displayOptions();
         char selection = ' ';
         do {
                 System.out.println(menu);
                 selection = this.getInput(menu);
                 this.nextAction(selection);
-        }while (!(selection =='D'));
-    }   //repeat until player leaves ship
+        }while (!(selection =='X'));
+    }   //repeat until player closes Exchange/Trading view
     
     public String displayOptions(){
         String tempMenu = null;
-        tempMenu = "You are now aboard your ship.  What would you like to do?"
+        tempMenu = "Exchanging / Trading Resouces can be tricky.  Make sure you know that those you trade with may not offer fair trades."
                 + "\n"
-                + "\n Please choose an option below:"
-                + "\n L - Launch the ship"
-                + "\n D - Dock/Leave the ship"
-                + "\n W - Work on(Repair) the ship"
-                + "\n I - View Inventory"
-                + "\n V - View all Statuses"
+                + "\n Please choose a trade option below:"
+                + "\n O - Offer Trade"
+                + "\n A - Accept Trade Terms"
+                + "\n C - Close Exchange Menu"
+                + "\n I - Inventory Menu"
+                + "\n V - View Status"
                 + "\n G - Game Menu \n";
                 return tempMenu;
     }
@@ -43,7 +42,7 @@ public class OnShipView {
         boolean valid = false;
         while(!valid){
             choice = Character.toUpperCase(keyboard.next().charAt(0));
-            if  ( !( choice == 'L' || choice == 'D' || choice =='W' || choice == 'I' || 
+            if  ( !( choice == 'O' || choice == 'A' || choice =='C' || choice == 'I' || 
                     choice=='V' || choice == 'G' )){
                 System.out.println( "Invalid entry\n" + menu );
             }
@@ -52,12 +51,16 @@ public class OnShipView {
         return choice;
 }
     
-    public void launchShipControl(){
-        System.out.println("launchShipControl stub");
+    public void offerTradeControl(){
+        System.out.println("offerTradeControl stub");
     }
     
-    public void workOnShipControl(){
-        System.out.println("workOnShip stub");
+    public void acceptTradeControl(){
+        System.out.println("acceptTradeControl stub");
+    }
+    
+    public void closeTradeControl(){
+        System.out.println("closeTradeControl stub");
     }
 
     public void tempInvStub(){
@@ -71,13 +74,16 @@ public class OnShipView {
     
     public void nextAction(char choice){
         switch (choice) {
-            case 'L':
-		this.launchShipControl();
+            case 'O':
+		this.offerTradeControl();
 		break;
-            case 'D':
+            case 'X':
 		break;
-            case 'W':
-		this.workOnShipControl();
+            case 'A':
+		this.acceptTradeControl();
+		break;
+            case 'C':
+		this.closeTradeControl();
 		break;
             case 'I':
 		this.tempInvStub();
