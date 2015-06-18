@@ -22,7 +22,7 @@ public class SecretsOfTheSea_RPG {
         /*Sample samepleOne = new Sample();
         *
         *sampleOne.setAttribute("Value");
-        *sampleOne.setIntAttribute(1);
+        *sampleOne.setIntAttribute(1); 
         *
         *String sampleInfo = sampleOne.toString();
         *System.out.println(sampleInfo);

@@ -5,54 +5,54 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Nathan
  */
-public class GameMenuView {
+public class GameMenuView extends View{
     
     public GameMenuView(){
-        String menu = this.displayGameMenu();
-        char selection = ' ';
-        do {
-                System.out.println(menu);
-		selection = this.getInput(menu);
-		this.nextAction(selection);
-        }while ( !( selection =='Q' || selection == 'C'  ));
-    }//Repeat until the player chooses to close the menu or quit the game.
+//        String menu = this.displayGameMenu();
+//        char selection = ' ';
+//        do {
+//                System.out.println(menu);
+//		selection = this.getInput(menu);
+//		this.nextAction(selection);
+//        }while ( !( selection =='Q' || selection == 'C'  ));
+//    }//Repeat until the player chooses to close the menu or quit the game.
     
     
-    public String displayGameMenu(){
-        String tempMenu = null;
-        tempMenu = "Game Menu Options"
-                + "\nS - Save Game"
-                + "\nH - Help"
-                + "\nQ - Quit Game"
-                + "\nC - Close Menu"
-                + "\nI - Inventory Manager"
-                + "\nV - View all Statuses\n";
-        return tempMenu;
+//    private String displayGameMenu(){
+//        String tempMenu = null;
+//        tempMenu = 
+                super("\n Game Menu Options"
+                + "\n S - Save Game"
+                + "\n H - Help"
+                + "\n Q - Quit Game"
+                + "\n C - Close Menu"
+                + "\n I - Inventory Manager"
+                + "\n V - View all Statuses\n");
+//        return tempMenu;
+//    }
     }
     
-    public char getInput(String menu){
-        Scanner keyboard = new Scanner(System.in);
-        char choice = ' ';
-        boolean valid = false;
-            //honestly, this just continues until the if is skipped and the break is executed.
-            //if it wasn't for that it woudl continue forever.
-        while(!valid){
-            choice = Character.toUpperCase(keyboard.next().charAt(0));
-            if ( !( choice == 'S' || choice == 'H' || choice =='Q' || choice == 'C' || 
-                    choice=='I' || choice=='V' )){
-                System.out.println( "Invalid entry\n" + menu );
-            }
-            break;
-        }
-        
-        return choice;
-    }
+//    public char getInput(String menu){
+//        Scanner keyboard = new Scanner(System.in);
+//        char choice = ' ';
+//        boolean valid = false;
+//            //honestly, this just continues until the if is skipped and the break is executed.
+//            //if it wasn't for that it woudl continue forever.
+//        while(!valid){
+//            choice = Character.toUpperCase(keyboard.next().charAt(0));
+//            if ( !( choice == 'S' || choice == 'H' || choice =='Q' || choice == 'C' || 
+//                    choice=='I' || choice=='V' )){
+//                System.out.println( "Invalid entry\n" + menu );
+//            }
+//            break;
+//        }
+//        
+//        return choice;
+//    }
 
     public void saveGame(){
         System.out.println("saveGame method called");
@@ -74,8 +74,11 @@ public class GameMenuView {
         System.out.println("holder for future statuses view");
     }
     
-    public void nextAction(char choice){
-/*        switch (choice) {
+    @Override
+    public boolean doAction(char entry){
+        char value = entry;
+        
+        switch (value) {
             case 'S':
 		this.saveGame();
 		break;
@@ -96,22 +99,10 @@ public class GameMenuView {
 		this.tempStatusView();
 		break;
             default:
-                System.out.println("Invalid choice");
+                System.out.println("Invalid choice.  Please try again.");
+                return false;
         } 
-Commented temporarily to fulfil the if else if ladder requirement*/
-        if (choice == 'S')
-            this.saveGame();
-            else if (choice == 'H'){
-                HelpMenuView helpMenu = new HelpMenuView();
-                helpMenu.displayMenu();
-            }
-                else if (choice == 'Q')
-                    this.quitGame();
-                    else if (choice == 'C')
-                        this.closeMenu();
-                        else if (choice == 'I')
-                            this.tempInvStub();
-                            else if (choice == 'V')
-                                this.tempStatusView();
+        
+        return true;
     }
 }
