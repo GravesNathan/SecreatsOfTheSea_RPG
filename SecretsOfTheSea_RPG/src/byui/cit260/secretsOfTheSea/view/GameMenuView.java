@@ -66,14 +66,6 @@ public class GameMenuView extends View{
         System.out.println("closeMenu method called");
     }
     
-    public void tempInvStub(){
-        System.out.println("holder for future inventory view");
-    }
-    
-    public void tempStatusView(){
-        System.out.println("holder for future statuses view");
-    }
-    
     @Override
     public boolean doAction(char entry){
         //return false to stay in same menu, return true to exit this view to previous view
@@ -95,10 +87,10 @@ public class GameMenuView extends View{
 		this.closeMenu();
 		return true;
             case 'I':
-		this.tempInvStub();
+		InventoryManagerView inventory = new InventoryManagerView();
 		return false;
             case 'V':
-		this.tempStatusView();
+		StatusesView status = new StatusesView();
 		return false;
             default:
                 System.out.println("Invalid choice.  Please try again.");

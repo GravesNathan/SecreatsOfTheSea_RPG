@@ -45,14 +45,7 @@ public class ExplorableAreasView extends View {
     public void exchangeView(){
         System.out.println("exchangeViewStub called");
     }
-    
-    public void tempInvStub(){
-        System.out.println("holder for future inventory view");
-    }
-    
-    public void tempStatusView(){
-        System.out.println("holder for future statuses view");
-    }
+
     @Override
     public boolean doAction(char entry){
         char value = entry;
@@ -75,10 +68,10 @@ public class ExplorableAreasView extends View {
                 //this.exchangeViewStub();
                 return false;
             case 'I':
-		this.tempInvStub();
+		InventoryManagerView inventory = new InventoryManagerView();
 		return false;
             case 'V':
-		this.tempStatusView();
+		StatusesView statuses = new StatusesView();
 		return false;
             case 'G':
 		GameMenuView gameMenu = new GameMenuView();

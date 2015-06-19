@@ -35,16 +35,7 @@ public class ExchangeView extends View {
     public void closeTradeControl(){
         System.out.println("closeTradeControl stub");
     }
-
-    public void tempInvStub(){
-        System.out.println("holder for future inventory view");
-    }
-    
-    public void tempStatusView(){
-        System.out.println("holder for future statuses view");
-    }  
-        
-    
+      
     @Override
     public boolean doAction(char entry){
         char value = entry;
@@ -62,10 +53,10 @@ public class ExchangeView extends View {
 		this.closeTradeControl();
 		return true;
             case 'I':
-		this.tempInvStub();
+		InventoryManagerView inventory = new InventoryManagerView();
 		return false;
             case 'V':
-		this.tempStatusView();
+		StatusesView status = new StatusesView();
 		return false;
             case 'G':
 		GameMenuView gameMenu = new GameMenuView();

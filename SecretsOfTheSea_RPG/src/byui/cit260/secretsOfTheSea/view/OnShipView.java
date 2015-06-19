@@ -30,15 +30,7 @@ public class OnShipView extends View{
     public void workOnShipControl(){
         System.out.println("workOnShip stub");
     }
-
-    public void tempInvStub(){
-        System.out.println("holder for future inventory view");
-    }
-    
-    public void tempStatusView(){
-        System.out.println("holder for future statuses view");
-    }  
-        
+  
     @Override
     public boolean doAction(char entry){
         char value = entry;
@@ -48,15 +40,16 @@ public class OnShipView extends View{
 		this.launchShipControl();
 		return false;
             case 'D':
+                ExplorableAreasView explorableareas = new ExplorableAreasView();
 		return true;
             case 'W':
 		this.workOnShipControl();
 		return false;
             case 'I':
-		this.tempInvStub();
+		InventoryManagerView inventory = new InventoryManagerView();
 		return false;
             case 'V':
-		this.tempStatusView();
+		StatusesView status = new StatusesView();
 		return false;
             case 'G':
 		GameMenuView gameMenu = new GameMenuView();
