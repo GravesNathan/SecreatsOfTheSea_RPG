@@ -84,7 +84,7 @@ public class GameMenuView extends View{
 		break;
             case 'H':
 		HelpMenuView helpMenu = new HelpMenuView();
-                helpMenu.displayMenu();
+//                helpMenu.displayMenu();
 		break;
             case 'Q':
 		this.quitGame();

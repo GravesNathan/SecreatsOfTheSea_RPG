@@ -5,27 +5,14 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author SDababneh
  */
-public class OnShipView {
+public class OnShipView extends View{
  
     public OnShipView(){
-        String menu = this.displayOptions();
-        char selection = ' ';
-        do {
-                System.out.println(menu);
-                selection = this.getInput(menu);
-                this.nextAction(selection);
-        }while (!(selection =='D'));
-    }   //repeat until player leaves ship
-    
-    public String displayOptions(){
-        String tempMenu = null;
-        tempMenu = "You are now aboard your ship.  What would you like to do?"
+        super("You are now aboard your ship.  What would you like to do?"
                 + "\n"
                 + "\n Please choose an option below:"
                 + "\n L - Launch the ship"
@@ -33,24 +20,8 @@ public class OnShipView {
                 + "\n W - Work on(Repair) the ship"
                 + "\n I - View Inventory"
                 + "\n V - View all Statuses"
-                + "\n G - Game Menu \n";
-                return tempMenu;
-    }
-                
-    public char getInput(String menu){
-        Scanner keyboard = new Scanner(System.in);
-        char choice = ' ';
-        boolean valid = false;
-        while(!valid){
-            choice = Character.toUpperCase(keyboard.next().charAt(0));
-            if  ( !( choice == 'L' || choice == 'D' || choice =='W' || choice == 'I' || 
-                    choice=='V' || choice == 'G' )){
-                System.out.println( "Invalid entry\n" + menu );
+                + "\n G - Game Menu \n");
             }
-            break;
-        }
-        return choice;
-}
     
     public void launchShipControl(){
         System.out.println("launchShipControl stub");
@@ -68,9 +39,11 @@ public class OnShipView {
         System.out.println("holder for future statuses view");
     }  
         
-    
-    public void nextAction(char choice){
-        switch (choice) {
+    @Override
+    public boolean doAction(char entry){
+        char value = entry;
+        
+        switch (value) {
             case 'L':
 		this.launchShipControl();
 		break;
@@ -90,6 +63,9 @@ public class OnShipView {
 		break;
             default:
                 System.out.println("Invalid choice");
+                return false;
         } 
+        
+        return true;
     }
 }

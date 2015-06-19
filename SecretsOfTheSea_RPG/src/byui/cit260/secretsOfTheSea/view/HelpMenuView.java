@@ -12,14 +12,10 @@ import java.util.Scanner;
  *
  * @author SDababneh
  */
-public class HelpMenuView {
+public class HelpMenuView extends View{
     
     public  HelpMenuView(){
-        
-}
- 
-    void displayMenu() {
-        System.out.println("\n****HELP MENU***"
+            super("\n****HELP MENU***"
                 + "\n"
                 + "\nHotkey - Description"
                 + "\n G - What is the Goal of the Game?"
@@ -29,8 +25,7 @@ public class HelpMenuView {
                 + "\n S - Societies"
                 + "\n T - Trust Levels"                
                 + "\n Q - Quit Menu"
-                + "\n ");
-            this.displayMenuInput();
+                + "\n ");            
     }
     
     /*Editted existing code so that the returnHelpMenu is called from the switch
@@ -40,11 +35,12 @@ public class HelpMenuView {
     with constructors in ExplorableAreas and GameMenuView.  it allows the Views
     to return to previous view when they are done executing with ease.
     */
-    public void displayMenuInput(){
-        char helpMenuChoice;
-        Scanner reader = new Scanner(System.in);
-        helpMenuChoice = Character.toUpperCase(reader.next().charAt(0));
-        switch (helpMenuChoice) {
+    
+    @Override
+    public boolean doAction(char entry){
+        char value = entry;
+        
+        switch (value) {
             case 'G':
                 this.describeGameGoal();
                 this.returnHelpMenu();
@@ -73,18 +69,11 @@ public class HelpMenuView {
                 //this.quitMenu();
                 break;
             default:
-                System.out.println(helpMenuChoice + " is an invalid entry. Please select an option below:"
-                + "\nHotkey - Description"
-                + "\n G - What is the Goal of the Game?"
-                + "\n H - Health Explained"
-                + "\n M - How to Move"
-                + "\n R - Resource Types"
-                + "\n S - Societies"
-                + "\n T - Trust Levels"                
-                + "\n Q - Quit Menu"
-                + "\n ");
-            this.displayMenuInput();
+                System.out.println(value + " is an invalid entry. Please select an option below:");
+            return false;
         }
+        
+        return true;
     }
 
     private void describeGameGoal() {
@@ -169,6 +158,7 @@ public class HelpMenuView {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Press ENTER to Proceed.");
         input1 = keyboard.nextLine();
-        this.displayMenu();
+//        this.displayMenu();
     }
+        
 }

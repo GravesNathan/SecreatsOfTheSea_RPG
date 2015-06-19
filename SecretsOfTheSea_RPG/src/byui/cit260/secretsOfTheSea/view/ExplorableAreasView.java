@@ -5,28 +5,14 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Nathan
  */
-public class ExplorableAreasView {
+public class ExplorableAreasView extends View {
     
     public ExplorableAreasView(){
-        String menu = this.displayOptions();
-        char selection = ' ';
-        do {
-                System.out.println(menu);
-		selection = this.getInput(menu);
-		this.nextAction(selection);
-        }while ( !(selection =='X'));
-    }    //repeat until player looks to exchange resources
-    
-    
-    public String displayOptions(){
-        String tempMenu = null;
-        tempMenu = "You are on the SocientName island in the AreaName."
+                super("You are on the SocientName island in the AreaName."
                 + "\nPlese select what you would like to do"
                 + "\nE - Explore the Area"
                 + "\nM - Move to new Area"
@@ -35,28 +21,10 @@ public class ExplorableAreasView {
                 + "\nX - Exchange Resources"
                 + "\nI - Inventory Manager"
                 + "\nV - View all Statuses"
-                + "\nG - Game Menu\n";
-        return tempMenu;
-    }
-    
-    public char getInput(String menu){
-        Scanner keyboard = new Scanner(System.in);
-        char choice = ' ';
-        boolean valid = false;
-            //honestly, this just continues until the if is skipped and the break is executed.
-            //if it wasn't for that it would continue forever.
-        while(!valid){
-            choice = Character.toUpperCase(keyboard.next().charAt(0));
-            if ( !( choice == 'E' || choice == 'M' || choice =='B' || choice == 'W' || 
-                    choice=='X' || choice == 'I' || choice=='V' || choice == 'G' )){
-                System.out.println( "Invalid entry\n" + menu );
+                + "\nG - Game Menu\n");
             }
-            break;
-        }
-        
-        return choice;
-    }
-
+    
+    
     public void exploreAreaControl(){
         System.out.println("exploreAreaControl method called");
     }
@@ -85,9 +53,11 @@ public class ExplorableAreasView {
     public void tempStatusView(){
         System.out.println("holder for future statuses view");
     }
-    
-    public void nextAction(char choice){
-        switch (choice) {
+    @Override
+    public boolean doAction(char entry){
+        char value = entry;
+        
+        switch (value) {
             case 'E':
 		this.exploreAreaControl();
 		break;
@@ -115,7 +85,10 @@ public class ExplorableAreasView {
 		break;
             default:
                 System.out.println("\n ***Invalid choice***");
+                return false;
         } 
+        
+        return true;
     }
     
 }
