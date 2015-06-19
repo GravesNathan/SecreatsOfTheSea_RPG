@@ -76,33 +76,33 @@ public class GameMenuView extends View{
     
     @Override
     public boolean doAction(char entry){
+        //return false to stay in same menu, return true to exit this view to previous view
+        //also return false for invalid input to repeat the view with the display function
         char value = entry;
         
         switch (value) {
             case 'S':
 		this.saveGame();
-		break;
+		return false;
             case 'H':
 		HelpMenuView helpMenu = new HelpMenuView();
 //                helpMenu.displayMenu();
 		break;
             case 'Q':
 		this.quitGame();
-		break;
+		return true;
             case 'C':
 		this.closeMenu();
-		break;
+		return true;
             case 'I':
 		this.tempInvStub();
-		break;
+		return false;
             case 'V':
 		this.tempStatusView();
-		break;
+		return false;
             default:
                 System.out.println("Invalid choice.  Please try again.");
                 return false;
         } 
-        
-        return true;
     }
 }
