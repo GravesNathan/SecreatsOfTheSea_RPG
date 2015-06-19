@@ -60,35 +60,34 @@ public class ExplorableAreasView extends View {
         switch (value) {
             case 'E':
 		this.exploreAreaControl();
-		break;
+		return false;
             case 'M':
 		this.moveAreaControl();
-		break;
+		return false;
             case 'B':
                 OnShipView loadShipView = new OnShipView();
-		break;
+		return true;
             case 'W':
 		this.workOnShipControl();
-		break;
+		return false;
             case 'X':
                 ExchangeView exchangeView = new ExchangeView();
                 //this.exchangeViewStub();
-                break;
+                return false;
             case 'I':
 		this.tempInvStub();
-		break;
+		return false;
             case 'V':
 		this.tempStatusView();
-		break;
+		return false;
             case 'G':
 		GameMenuView gameMenu = new GameMenuView();
-		break;
+		return false;
             default:
                 System.out.println("\n ***Invalid choice***");
                 return false;
         } 
         
-        return true;
     }
     
 }

@@ -46,26 +46,25 @@ public class OnShipView extends View{
         switch (value) {
             case 'L':
 		this.launchShipControl();
-		break;
+		return false;
             case 'D':
-		break;
+		return true;
             case 'W':
 		this.workOnShipControl();
-		break;
+		return false;
             case 'I':
 		this.tempInvStub();
-		break;
+		return false;
             case 'V':
 		this.tempStatusView();
-		break;
+		return false;
             case 'G':
 		GameMenuView gameMenu = new GameMenuView();
-		break;
+		return false;
             default:
                 System.out.println("Invalid choice");
                 return false;
         } 
         
-        return true;
     }
 }

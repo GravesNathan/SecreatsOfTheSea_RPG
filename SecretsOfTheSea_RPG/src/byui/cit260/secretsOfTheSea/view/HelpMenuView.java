@@ -44,36 +44,34 @@ public class HelpMenuView extends View{
             case 'G':
                 this.describeGameGoal();
                 this.returnHelpMenu();
-                break;
+                return false;
             case 'H':
                 this.healthExplained();
                 this.returnHelpMenu();
-                break;
+                return false;
             case 'M':
                 this.howToMove();
                 this.returnHelpMenu();
-                break;
+                return false;
             case 'R':
                 this.resourceTypes();
                 this.returnHelpMenu();
-                break;
+                return false;
             case 'S':
                 this.societyHelp();
                 this.returnHelpMenu();
-                break; 
+                return false; 
             case 'T':
                 this.trustLevelsExplained();
                 this.returnHelpMenu();
-                break;                
+                return false;                
             case 'Q':
-                //this.quitMenu();
-                break;
+                return true;
             default:
                 System.out.println(value + " is an invalid entry. Please select an option below:");
             return false;
         }
         
-        return true;
     }
 
     private void describeGameGoal() {

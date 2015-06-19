@@ -52,28 +52,27 @@ public class ExchangeView extends View {
         switch (value) {
             case 'O':
 		this.offerTradeControl();
-		break;
+		return false;
             case 'X':
-		break;
+		return false;
             case 'A':
 		this.acceptTradeControl();
-		break;
+		return false;
             case 'C':
 		this.closeTradeControl();
-		break;
+		return true;
             case 'I':
 		this.tempInvStub();
-		break;
+		return false;
             case 'V':
 		this.tempStatusView();
-		break;
+		return false;
             case 'G':
 		GameMenuView gameMenu = new GameMenuView();
-		break;
+		return false;
             default:
                 System.out.println("Invalid choice");
                 return false;
         }
-        return true;
     }
 }
