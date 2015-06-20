@@ -93,7 +93,7 @@ public class GameMenuView extends View{
 		StatusesView status = new StatusesView();
 		return false;
             default:
-                System.out.println("Invalid choice.  Please try again.");
+                System.out.println("\n Invalid choice.  Please try again.");
                 return false;
         } 
     }

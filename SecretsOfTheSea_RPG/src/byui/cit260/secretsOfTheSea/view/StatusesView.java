@@ -29,7 +29,7 @@ public class StatusesView extends View{
             case 'C'://closes inventory manager view
                 return true;                
             default:
-                System.out.println(value + " is an invalid entry. Please select an option below:");
+                System.out.println("\n" + value + " is an invalid entry. Please select an option below:");
                 return false;
         }
     }

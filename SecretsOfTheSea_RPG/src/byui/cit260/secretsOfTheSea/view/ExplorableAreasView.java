@@ -77,7 +77,7 @@ public class ExplorableAreasView extends View {
 		GameMenuView gameMenu = new GameMenuView();
 		return false;
             default:
-                System.out.println("\n ***Invalid choice***");
+                System.out.println("\n ***Invalid choice*** \n Please try again.");
                 return false;
         } 
         

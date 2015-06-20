@@ -55,7 +55,7 @@ public class OnShipView extends View{
 		GameMenuView gameMenu = new GameMenuView();
 		return false;
             default:
-                System.out.println("Invalid choice");
+                System.out.println("\n Invalid choice.  Please try again.");
                 return false;
         } 
         

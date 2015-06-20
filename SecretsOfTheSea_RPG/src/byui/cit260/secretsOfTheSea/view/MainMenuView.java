@@ -45,7 +45,7 @@ public class MainMenuView {
         Scanner difficultyReader = new Scanner(System.in);
         difficultyLevel = Character.toUpperCase(difficultyReader.next().charAt(0));
         if (!((difficultyLevel == 'E') || (difficultyLevel == 'N') || (difficultyLevel == 'H')))
-            System.out.println("Invalid Input.");
+            System.out.println("\n Invalid Input.  Please try again.");
          }while(!((difficultyLevel == 'E') || (difficultyLevel == 'N') || (difficultyLevel == 'H')));
         mainMap = new MapControl (difficultyLevel);
         
