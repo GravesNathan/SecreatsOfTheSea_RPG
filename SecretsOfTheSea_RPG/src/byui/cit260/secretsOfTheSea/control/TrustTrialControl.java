@@ -5,8 +5,9 @@
  */
 package byui.cit260.secretsOfTheSea.control;
 
-import byui.cit260.secretsOfTheSea.model.SocietyNPCs;
+import byui.cit260.secretsOfTheSea.model.Societies;
 import byui.cit260.secretsOfTheSea.model.CurrentStatus;
+import byui.cit260.secretsOfTheSea.model.SocietyNPCs;
 
 /**
  *
@@ -14,13 +15,14 @@ import byui.cit260.secretsOfTheSea.model.CurrentStatus;
  */
 public class TrustTrialControl {
     
-    public void compareTrustLevels (SocietyNPCs societyOneNPC, CurrentStatus status){
+    public void compareTrustLevels (SocietyNPCs leader, Societies societyOneNPC, CurrentStatus status){
+        
             int leaderTrustLevelTarget = societyOneNPC.getLeaderTrustLevelTarget();
             int leaderTrustLevel = societyOneNPC.getLeaderTrustLevel();
-            String leaderName = societyOneNPC.getLeaderName();
+            //String leaderName = Billy.get();
 //            System.out.println("Leader current trust level= " + leaderTrustLevel);
             if (leaderTrustLevel <= 0) {
-                status.setLifeStatus ("Game Over.  " + leaderName + " has thrown you in prison for life.");
+                status.setLifeStatus ("Game Over.  " + leader.getdescription() + " has thrown you in prison for life.");
                 //System.out.println("Trust is zero");
                 return;
             }

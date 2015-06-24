@@ -19,6 +19,10 @@ public class Societies implements Serializable{
     private String PositiveApproach;
     private String NeutralApproach;
     private String NegativeApproach;
+    private int LeaderTrustLevel;
+    private int LeaderTrustLevelTarget;
+    private String LeaderTrustStatus;
+    
 
     public Societies() {
     }
@@ -63,10 +67,30 @@ public class Societies implements Serializable{
         this.NegativeApproach = NegativeApproach;
     }
 
-    @Override
-    public String toString() {
-        return "Societies{" + "Name=" + Name + ", Description=" + Description + ", PositiveApproach=" + PositiveApproach + ", NeutralApproach=" + NeutralApproach + ", NegativeApproach=" + NegativeApproach + '}';
+        public int getLeaderTrustLevel() {
+        return LeaderTrustLevel;
     }
+
+    public void setLeaderTrustLevel(int LeaderTrustLevel) {
+        this.LeaderTrustLevel = LeaderTrustLevel;
+    }
+
+    public int getLeaderTrustLevelTarget() {
+        return LeaderTrustLevelTarget;
+    }
+
+    public void setLeaderTrustLevelTarget(int LeaderTrustLevelTarget) {
+        this.LeaderTrustLevelTarget = LeaderTrustLevelTarget;
+    }
+
+    public void setLeaderTrustStatus(String LeaderTrustStatus) {
+        this.LeaderTrustStatus = LeaderTrustStatus;
+    }
+    
+//    @Override
+//    public String toString() {
+//        return "Societies{" + "Name=" + Name + ", Description=" + Description + ", PositiveApproach=" + PositiveApproach + ", NeutralApproach=" + NeutralApproach + ", NegativeApproach=" + NegativeApproach + '}';
+//    }
 
     @Override
     public int hashCode() {
@@ -76,6 +100,9 @@ public class Societies implements Serializable{
         hash = 17 * hash + Objects.hashCode(this.PositiveApproach);
         hash = 17 * hash + Objects.hashCode(this.NeutralApproach);
         hash = 17 * hash + Objects.hashCode(this.NegativeApproach);
+        hash = 17 * hash + this.LeaderTrustLevel;
+        hash = 17 * hash + this.LeaderTrustLevelTarget;
+        hash = 17 * hash + Objects.hashCode(this.LeaderTrustStatus);
         return hash;
     }
 
@@ -101,6 +128,15 @@ public class Societies implements Serializable{
             return false;
         }
         if (!Objects.equals(this.NegativeApproach, other.NegativeApproach)) {
+            return false;
+        }
+        if (this.LeaderTrustLevel != other.LeaderTrustLevel) {
+            return false;
+        }
+        if (this.LeaderTrustLevelTarget != other.LeaderTrustLevelTarget) {
+            return false;
+        }
+        if (!Objects.equals(this.LeaderTrustStatus, other.LeaderTrustStatus)) {
             return false;
         }
         return true;

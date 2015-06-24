@@ -235,15 +235,15 @@ public class InitializeControl {
         //End Societies Class Set & Print
 
         //SocietyNPCs Class Set & Print
-        SocietyNPCs societyOneNPC = new SocietyNPCs();
+       // SocietyNPCs societyOneNPC = new SocietyNPCs();
         
-        societyOneNPC.setLeaderName("Achcauhtli");
-        societyOneNPC.setLeaderDescription("Achcauhtli stands 6 feet tall, is very thin and fit.  He shows no emotion on his face.");
-        societyOneNPC.setLeaderTrustLevel(0);
-        societyOneNPC.setLeaderTrustLevelTarget(4);
-        societyOneNPC.setLeaderTrustStatus("Untrusted");
+        //societyOneNPC.setLeaderName("Achcauhtli");
+        //societyOneNPC.setLeaderDescription("Achcauhtli stands 6 feet tall, is very thin and fit.  He shows no emotion on his face.");
+        //societyOneNPC.setLeaderTrustLevel(0);
+        //societyOneNPC.setLeaderTrustLevelTarget(4);
+        //societyOneNPC.setLeaderTrustStatus("Untrusted");
                 
-        String societyNPCInfo = societyOneNPC.toString();
+        //String societyNPCInfo = societyOneNPC.toString();
         //System.out.println(societyNPCInfo);
         //End SocietyNPCs Class Set & Print
         
