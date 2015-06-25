@@ -25,12 +25,18 @@ public class MapControl {
     private LocationDetails[] location = null;
     private Storms[] storms = null;
     private int numStorms = 0;
-            
+    private int[][] mapGrid = null;
+    private int diffMultiplier = 0;
+    private String tempWarning = null;
+    
     public MapControl( char tempDifficulty ){
         Boolean errorCheck = this.calcMapSize( tempDifficulty );
         if (errorCheck)
         this.populateMap();
         this.populateStorms();
+//        this.tempPrintMap();
+//        this.tempPrintMap2();
+//        this.tempPrintMap3();
     }
     
     //STEP 4 - Turn outline of solution into working code.
@@ -40,33 +46,25 @@ public class MapControl {
         int xMax = 4;
         int yMax = 4;
         if (difficulty == 'E' || difficulty == 'e'){
-            mapOne.setxMax(xMax * 1);
-            mapOne.setyMax(yMax * 1);
-            numStorms = 3;
-            storms = new Storms[numStorms];
-            for (int i=0; i<numStorms; i++)
-                storms[i] = new Storms();
-            return true;
+            diffMultiplier = 1;
+            tempWarning = "Mild storm ahead.  What would you like to do?";
         }   
         else if (difficulty == 'N' || difficulty == 'n'){
-            mapOne.setxMax(xMax * 2);
-            mapOne.setyMax(yMax * 2);
-            numStorms = 6;
-            storms = new Storms[numStorms];
-            for (int i=0; i<numStorms; i++)
-                storms[i] = new Storms();
-            return true;
+            diffMultiplier = 2;
+            tempWarning = "Moderate storm ahead.  What would you like to do?";
         }
         else if (difficulty == 'H' || difficulty == 'h'){
-            mapOne.setxMax(xMax * 3);
-            mapOne.setyMax(yMax * 3);
-            numStorms = 11;
-            storms = new Storms[numStorms];
-            for (int i=0; i<numStorms; i++)
-                storms[i] = new Storms();
-            return true;
+            diffMultiplier = 3;
+            tempWarning = "Severe storm ahead.  What would you like to do?";
         }
         else return false;
+        mapOne.setxMax(xMax * diffMultiplier);
+        mapOne.setyMax(yMax * diffMultiplier);
+        numStorms = 4 * diffMultiplier;
+        storms = new Storms[numStorms];
+        for (int i=0; i<numStorms; i++)
+            storms[i] = new Storms();
+        return true; 
     }
   
     public void populateMap(){
@@ -79,7 +77,7 @@ public class MapControl {
             int tempY;
             Random xRand = new Random();
             Random yRand = new Random();
-            int[][] mapGrid = new int[xMax][yMax];
+            mapGrid = new int[xMax][yMax];
         //Creates an array of size xMax, each of which holds an array of size Ymax.  it may help to think of arrays as list
         //The main list is broken into xMax categories.  The categories have yMax items each
             for (int i=0; i<8; i++){
@@ -88,6 +86,7 @@ public class MapControl {
                 if (mapGrid[tempX][tempY] == 0) {
                     location[i].setXCoordinate(tempX);
                     location[i].setYCoordinate(tempY);
+                    mapGrid[tempX][tempY] = 1;
                     ExplorableAreasControl setupAreas = new ExplorableAreasControl(i);
                 }
                 else i--; //offset increment when the island ends up stacked on another island.
@@ -102,17 +101,21 @@ public class MapControl {
             int yMax = mapOne.getyMax();
             Random xRand = new Random();
             Random yRand = new Random();
-            int[][] mapGrid = new int[xMax][yMax];
             for (int i=0; i<numStorms; i++){ // fix then change to for each, indiv assign required
                 tempX = xRand.nextInt(xMax);
                 tempY = yRand.nextInt(yMax);
                 if (mapGrid[tempX][tempY] == 0) {
                     storms[i].setXCoordinate(tempX);
                     storms[i].setYCoordinate(tempY);
+                    storms[i].setPowerLevel(3 * diffMultiplier);
+                    storms[i].setWarning(tempWarning);
+                    mapGrid[tempX][tempY] = 2;
                 }
-            else i--; //offset increment when the island ends up stacked on another island.
+                else i--; //offset increment when the island ends up stacked on another island.
             }
       }
+      
+      
     
     public String getUserDifficulty(){
         char nameDifficulty = mapOne.getDifficulty();
@@ -128,6 +131,32 @@ public class MapControl {
         }
     }
     
+//    
+//    public void tempPrintMap(){
+//        System.out.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
+//        for(int[] row : mapGrid){
+//            System.out.println();
+//            for(int column : row)
+//                System.out.print("  " + row[column] + "  ");
+//        }    
+//    }
+//    public void tempPrintMap2(){
+//        System.out.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
+//        for(int i=0; i<mapOne.getxMax(); i++){
+//            System.out.println();
+//            for(int j=0;j<mapOne.getyMax();j++)
+//                System.out.print("  " + mapGrid[i][j] + "  ");
+//        }    
+//    }
+//    
+//    public void tempPrintMap3(){
+//        System.out.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
+//        for(int i=0; i<mapOne.getxMax(); i++){
+//            System.out.println();
+//            for(int j=0;j<mapOne.getyMax();j++)
+//                System.out.print("  " + mapGrid[j][i] + "  ");
+//        }    
+//    }
 }
 
 

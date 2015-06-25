@@ -66,7 +66,7 @@ public class MainMenuView {
         }while(!( (shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3) ));
         assignPlayerShip = new ShipSelectionControl(shipChoice);
         
-        newUserSettings = new NewGameControl(userName); //...construcotr...?
+        newUserSettings = new NewGameControl(userName);
         System.out.println("Welcome " + newUserSettings.getPlayerName() +
                 ", let's begin your " + mainMap.getUserDifficulty() + " adventures in Secrets of the Sea."
                 + "\n Prepare to board your " + assignPlayerShip.getUserShip() +  " and set sails on the open seas.");
