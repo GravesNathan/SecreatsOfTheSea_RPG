@@ -36,6 +36,7 @@ public class MapControl {
         this.populateStorms();
 //        this.tempPrintMap();
 //        this.tempPrintMap2();
+//        this.verifyMap();
 //        this.tempPrintMap3();
     }
     
@@ -133,7 +134,7 @@ public class MapControl {
     
 //    
 //    public void tempPrintMap(){
-//        System.out.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
+//        System.out.println("\nfor-each bad Print, 0 = empty, 1 = island, 2 = storm");
 //        for(int[] row : mapGrid){
 //            System.out.println();
 //            for(int column : row)
@@ -141,14 +142,26 @@ public class MapControl {
 //        }    
 //    }
 //    public void tempPrintMap2(){
-//        System.out.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
+//        System.out.println("\nbasic for good Print, 0 = empty, 1 = island, 2 = storm");
 //        for(int i=0; i<mapOne.getxMax(); i++){
 //            System.out.println();
 //            for(int j=0;j<mapOne.getyMax();j++)
 //                System.out.print("  " + mapGrid[i][j] + "  ");
 //        }    
 //    }
-//    
+//
+//    public void verifyMap(){
+//        String mapList = " ";
+//        System.out.println("Note: first number reflects the row and the second number \nreflects the column."
+//                + "These are counted starting from 0, but 0 is on the top and left.  \nIt increases"
+//                + "going down and right.");
+//        for (int i=0; i<8; i++){
+//            mapList += ("\nIsland " + i + " location = " + location[i].getXCoordinate() + ", " + location[i].getYCoordinate());
+//        }
+//        for (int i=0; i<numStorms; i++)
+//            mapList += ("\nStorm " + i + " location = " + storms[i].getXCoordinate() + ", " + storms[i].getYCoordinate());
+//        System.out.println(mapList);
+//    }
 //    public void tempPrintMap3(){
 //        System.out.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
 //        for(int i=0; i<mapOne.getxMax(); i++){
