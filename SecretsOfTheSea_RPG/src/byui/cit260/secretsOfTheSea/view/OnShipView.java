@@ -24,6 +24,7 @@ public class OnShipView extends View{
                 + "\n W - Work on(Repair) the ship"
                 + "\n I - View Inventory"
                 + "\n V - View all Statuses"
+                + "\n M - View Map"
                 + "\n G - Game Menu \n", username, map, playerShip);
             }
     
@@ -55,6 +56,9 @@ public class OnShipView extends View{
             case 'V':
 		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip);
 		return false;
+            case 'M':
+                tempMap.PrintMap();
+                return false;
             case 'G':
 		GameMenuView gameMenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip);
 		return false;

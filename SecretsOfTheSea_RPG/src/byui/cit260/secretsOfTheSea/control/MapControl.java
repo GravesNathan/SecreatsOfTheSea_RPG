@@ -5,11 +5,11 @@
  */
 package byui.cit260.secretsOfTheSea.control;
 
-import byui.cit260.secretsOfTheSea.model.CurrentStatus;
-import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
+//import byui.cit260.secretsOfTheSea.model.CurrentStatus;
+//import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
 import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
-import byui.cit260.secretsOfTheSea.model.Ships;
+//import byui.cit260.secretsOfTheSea.model.Ships;
 import byui.cit260.secretsOfTheSea.model.Storms;
 
 import java.util.Random;
@@ -135,6 +135,7 @@ public class MapControl {
     
     public void PrintMap(){
         //System.out.println("\nfor-each bad Print, 0 = empty, 1 = island, 2 = storm");
+        System.out.println("\n");
         int emptySpaces = 0;
         int islands = 0;
         int storms = 0;

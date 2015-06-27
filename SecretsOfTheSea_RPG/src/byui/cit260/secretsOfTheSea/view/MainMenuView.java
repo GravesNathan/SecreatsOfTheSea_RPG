@@ -70,12 +70,7 @@ public class MainMenuView {
         System.out.println("Welcome " + newUserSettings.getPlayerName() +
                 ", let's begin your " + mainMap.getUserDifficulty() + " adventures in Secrets of the Sea."
                 + "\n Prepare to board your " + assignPlayerShip.getUserShip() +  " and set sails on the open seas.");
-        System.out.println("This is your Game Menu.  You may return here almost anytime with the letter G."
-                + "\nYou should look at your inventory and the current map with the options below.  Close the "
-                + "\nmenu when you are ready.");
-        GameMenuView gameMenu = new GameMenuView(newUserSettings, mainMap, assignPlayerShip);
-        //ExplorableAreasView beginExplore = new ExplorableAreasView();  Figured give 
-        //player a glance at menu before they begin
+        ExplorableAreasView beginExplore = new ExplorableAreasView(newUserSettings, mainMap, assignPlayerShip);
     }
     
     public void openHelp(){
