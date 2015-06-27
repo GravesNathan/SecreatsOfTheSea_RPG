@@ -34,7 +34,7 @@ public class MapControl {
         if (errorCheck)
         this.populateMap();
         this.populateStorms();
-//        this.tempPrintMap();
+        this.PrintMap();
 //        this.tempPrintMap2();
 //        this.verifyMap();
 //        this.tempPrintMap3();
@@ -132,15 +132,17 @@ public class MapControl {
         }
     }
     
-//    
-//    public void tempPrintMap(){
-//        System.out.println("\nfor-each bad Print, 0 = empty, 1 = island, 2 = storm");
-//        for(int[] row : mapGrid){
-//            System.out.println();
-//            for(int column : row)
-//                System.out.print("  " + row[column] + "  ");
-//        }    
-//    }
+    
+    public void PrintMap(){
+        System.out.println("\nfor-each bad Print, 0 = empty, 1 = island, 2 = storm");
+        for(int[] row : mapGrid){
+            
+            for(int i = 0; i < row.length ; i++){
+                System.out.print(row[i] + " ");
+            }
+            System.out.println();
+        }    
+    }
 //    public void tempPrintMap2(){
 //        System.out.println("\nbasic for good Print, 0 = empty, 1 = island, 2 = storm");
 //        for(int i=0; i<mapOne.getxMax(); i++){
