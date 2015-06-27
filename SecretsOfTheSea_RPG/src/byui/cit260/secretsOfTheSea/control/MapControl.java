@@ -34,7 +34,7 @@ public class MapControl {
         if (errorCheck)
         this.populateMap();
         this.populateStorms();
-        this.PrintMap();
+//        this.PrintMap();
 //        this.tempPrintMap2();
 //        this.verifyMap();
 //        this.tempPrintMap3();
@@ -134,14 +134,28 @@ public class MapControl {
     
     
     public void PrintMap(){
-        System.out.println("\nfor-each bad Print, 0 = empty, 1 = island, 2 = storm");
-        for(int[] row : mapGrid){
+        //System.out.println("\nfor-each bad Print, 0 = empty, 1 = island, 2 = storm");
+        int emptySpaces = 0;
+        int islands = 0;
+        int storms = 0;
+        for(int[] row : mapGrid){//for-each statement, mapGrid is double array
             
-            for(int i = 0; i < row.length ; i++){
-                System.out.print(row[i] + " ");
+            for(int i = 0; i < row.length ; i++){//coulnd't use second for-each...?
+                System.out.print(row[i] + "  ");//This is my "Sum" function for the week's assignment
+                switch (row[i]) {
+                    case 0:
+                        emptySpaces += 1;
+                    case 1:
+                        islands += row[i];
+                    case 2:
+                        storms += (row[i]/2);
+                }
             }
             System.out.println();
-        }    
+        } 
+        System.out.println("Total empty coordinates = " + emptySpaces
+        + "\nTotal island coordinates = " + islands
+        + "\nTotal storm coordinates = " + storms);
     }
 //    public void tempPrintMap2(){
 //        System.out.println("\nbasic for good Print, 0 = empty, 1 = island, 2 = storm");

@@ -5,13 +5,17 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.MapControl;
+import byui.cit260.secretsOfTheSea.control.NewGameControl;
+import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+
 /**
  *
  * @author SDababneh
  */
 public class TrustTrialView extends View{
     
-    public TrustTrialView(){
+    public TrustTrialView(NewGameControl username, MapControl map, ShipSelectionControl playerShip){
         super("\n Trust Trial"
                 + "\n D - Diplomatic Approach"
                 + "\n S - Scare Tactics/Intimidation Approach"
@@ -20,7 +24,7 @@ public class TrustTrialView extends View{
                 + "\n F - Flee the Island"
                 + "\n I - Inventory Manager"
                 + "\n V - View All Statuses"
-                + "\n G - Game Menu View");
+                + "\n G - Game Menu View", username, map, playerShip);
     }
     
     public void diplomaticApproach(){
@@ -64,13 +68,13 @@ public class TrustTrialView extends View{
                 this.fleeApproach();
                 return false;
             case 'I':
-		InventoryManagerView inventory = new InventoryManagerView();
+		InventoryManagerView inventory = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip);
 		return false;
             case 'V':
-		StatusesView status = new StatusesView();
+		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip);
 		return false;
             case 'G':
-                GameMenuView gamemenu = new GameMenuView();
+                GameMenuView gamemenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip);
                 return false; 
             default:
                 System.out.println("\n Invalid choice. Please try again.");

@@ -8,7 +8,7 @@ package byui.cit260.secretsOfTheSea.view;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
-import byui.cit260.secretsOfTheSea.model.Player;
+//import byui.cit260.secretsOfTheSea.model.Player;
 import java.util.Scanner;
 
 /**
@@ -20,11 +20,11 @@ public class MainMenuView {
     //brandon notes
     //start here
     //initialize here and it's accessible throughout class.
-   NewGameControl newUserSettings = null; //again why are we creating the memory later in line 30 instead of here?
-   MapControl mainMap = null; 
-   ShipSelectionControl userShip = null; 
+   private NewGameControl newUserSettings = null; //again why are we creating the memory later in line 30 instead of here?
+   private MapControl mainMap = null; 
+//   private ShipSelectionControl userShip = null; 
 //   MapControl createMap = null;
-   ShipSelectionControl assignPlayerShip = null; 
+   private ShipSelectionControl assignPlayerShip = null; 
     
     //combined two new game functions to get this single one.
     public void newGame(){
@@ -70,20 +70,13 @@ public class MainMenuView {
         System.out.println("Welcome " + newUserSettings.getPlayerName() +
                 ", let's begin your " + mainMap.getUserDifficulty() + " adventures in Secrets of the Sea."
                 + "\n Prepare to board your " + assignPlayerShip.getUserShip() +  " and set sails on the open seas.");
-        
-        ExplorableAreasView beginExplore = new ExplorableAreasView();
+        System.out.println("This is your Game Menu.  You may return here almost anytime with the letter G."
+                + "\nYou should look at your inventory and the current map with the options below.  Close the "
+                + "\nmenu when you are ready.");
+        GameMenuView gameMenu = new GameMenuView(newUserSettings, mainMap, assignPlayerShip);
+        //ExplorableAreasView beginExplore = new ExplorableAreasView();  Figured give 
+        //player a glance at menu before they begin
     }
-    
-    //public void chooseDifficulty(){
-    //    char difficultyLevel;
-        
-    //}
-    
-    /*public void selectShip(){
-        char shipChoice;
-        Scanner reader = new Scanner(System.in);
-        shipChoice = Character.toUpperCase(reader.next().charAt(0));
-    }*/
     
     public void openHelp(){
         System.out.println("openHelp fucntion called");
@@ -99,10 +92,6 @@ public class MainMenuView {
     
     public void quitGame(){
         System.out.println("quitGame fucntion called");
-    }
-
-    private void setPlayerName(String userName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

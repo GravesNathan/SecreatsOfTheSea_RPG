@@ -5,6 +5,9 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.MapControl;
+import byui.cit260.secretsOfTheSea.control.NewGameControl;
+import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 import java.util.Scanner;
 
 /**
@@ -14,8 +17,15 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     private String promptMessage;
+    protected NewGameControl tempUsername = null;
+    protected MapControl tempMap = null;
+    protected ShipSelectionControl tempPlayerShip= null;
     
-    public View(String promptMessage) {
+    public View(String promptMessage, NewGameControl username, MapControl map, ShipSelectionControl playerShip) {
+        tempUsername = username;  
+        tempMap = map;
+        tempPlayerShip= playerShip;
+        System.out.println("\n");
         this.promptMessage = promptMessage;
         this.display();
     }
@@ -62,30 +72,6 @@ public abstract class View implements ViewInterface {
     public void setPromptMessage(String promptMessage) {
         this.promptMessage = promptMessage;
     }
-    
-    
-//    @Override
-//        public GameMenuView(){
-//        String menu = this.displayGameMenu();
-//        char selection = ' ';
-//        do {
-//                System.out.println(menu);
-//		selection = this.getInput(menu);
-//		this.nextAction(selection);
-//        }while ( !( selection =='Q' || selection == 'C'  ));
-//    }//Repeat until the player chooses to close the menu or quit the game.
-   
-    
-//        String tempMenu = null;
-//        tempMenu = "Game Menu Options"
-//                + "\nS - Save Game"
-//                + "\nH - Help"
-//                + "\nQ - Quit Game"
-//                + "\nC - Close Menu"
-//                + "\nI - Inventory Manager"
-//                + "\nV - View all Statuses\n";
-//        return tempMenu;
-//    }
     
 }
 

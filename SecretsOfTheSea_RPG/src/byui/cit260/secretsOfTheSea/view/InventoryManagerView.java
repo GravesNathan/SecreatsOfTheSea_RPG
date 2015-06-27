@@ -5,20 +5,24 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.MapControl;
+import byui.cit260.secretsOfTheSea.control.NewGameControl;
+import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+
 /**
  *
  * @author Nathan
  */
 public class InventoryManagerView extends View{
     
-    public InventoryManagerView(){
+    public InventoryManagerView(NewGameControl username, MapControl map, ShipSelectionControl playerShip){
         super("\n Inventory Manager"
                 + "\nD - Drop Resource"
                 + "\nT - Take Resource"
                 + "\nV - View Resource"
                 + "\nU - Use Resource"
-                + "\nG - Game Menu View"
-                + "\nC - Close Inventory Manager");
+                //+ "\nG - Game Menu View" Took off so we don't have an endless loop of inventory, game menu
+                + "\nC - Close Inventory Manager", username, map, playerShip);
     }
     
     public void dropItem(){
@@ -55,9 +59,9 @@ public class InventoryManagerView extends View{
             case 'U':
                 this.useResource();
                 return false;
-            case 'G':
-                GameMenuView gamemenu = new GameMenuView();
-                return false; 
+//            case 'G':  Took off so we don't have an endless loop of inventory, game menu
+//                GameMenuView gamemenu = new GameMenuView();
+//                return false; 
             case 'C'://closes inventory manager view
                 return true;                
             default:

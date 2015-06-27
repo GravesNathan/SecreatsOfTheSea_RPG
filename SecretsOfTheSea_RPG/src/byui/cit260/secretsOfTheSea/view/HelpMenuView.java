@@ -6,6 +6,9 @@
 package byui.cit260.secretsOfTheSea.view;
 
 
+import byui.cit260.secretsOfTheSea.control.MapControl;
+import byui.cit260.secretsOfTheSea.control.NewGameControl;
+import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 import java.util.Scanner;
 
 /**
@@ -24,8 +27,8 @@ public class HelpMenuView extends View{
                 + "\n R - Resource Types"
                 + "\n S - Societies"
                 + "\n T - Trust Levels"                
-                + "\n Q - Quit Menu"
-                + "\n ");            
+                + "\n C - Close Menu"
+                + "\n ", null, null, null);            
     }
     
     /*Editted existing code so that the returnHelpMenu is called from the switch
@@ -65,7 +68,7 @@ public class HelpMenuView extends View{
                 this.trustLevelsExplained();
                 this.returnHelpMenu();
                 return false;                
-            case 'Q':
+            case 'C':
                 return true;
             default:
                 System.out.println(value + " is an invalid entry. Please select an option below:");

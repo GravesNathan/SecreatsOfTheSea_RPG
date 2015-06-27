@@ -5,13 +5,17 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.MapControl;
+import byui.cit260.secretsOfTheSea.control.NewGameControl;
+import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+
 /**
  *
  * @author Nathan
  */
 public class ExplorableAreasView extends View {
     
-    public ExplorableAreasView(){
+    public ExplorableAreasView(NewGameControl username, MapControl map, ShipSelectionControl playerShip){
                 super("You are on the SocientName island in the AreaName."
                 + "\nPlese select what you would like to do"
                 + "\nE - Explore the Area"
@@ -21,7 +25,7 @@ public class ExplorableAreasView extends View {
                 + "\nX - Exchange Resources"
                 + "\nI - Inventory Manager"
                 + "\nV - View all Statuses"
-                + "\nG - Game Menu\n");
+                + "\nG - Game Menu\n", username, map, playerShip);
             }
     
     
@@ -58,23 +62,23 @@ public class ExplorableAreasView extends View {
 		this.moveAreaControl();
 		return false;
             case 'B':
-                OnShipView loadShipView = new OnShipView();
+                OnShipView loadShipView = new OnShipView(tempUsername, tempMap, tempPlayerShip);
 		return true;
             case 'W':
 		this.workOnShipControl();
 		return false;
             case 'X':
-                ExchangeView exchangeView = new ExchangeView();
-                //this.exchangeViewStub();
+                ExchangeView exchangeView = new ExchangeView(tempUsername, tempMap, tempPlayerShip);
+
                 return false;
             case 'I':
-		InventoryManagerView inventory = new InventoryManagerView();
+		InventoryManagerView inventory = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip);
 		return false;
             case 'V':
-		StatusesView statuses = new StatusesView();
+		StatusesView statuses = new StatusesView(tempUsername, tempMap, tempPlayerShip);
 		return false;
             case 'G':
-		GameMenuView gameMenu = new GameMenuView();
+		GameMenuView gameMenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip);
 		return false;
             default:
                 System.out.println("\n ***Invalid choice*** \n Please try again.");

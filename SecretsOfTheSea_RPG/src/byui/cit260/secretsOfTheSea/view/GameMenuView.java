@@ -5,55 +5,36 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.MapControl;
+import byui.cit260.secretsOfTheSea.control.NewGameControl;
+import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+
 /**
  *
  * @author Nathan
  */
 public class GameMenuView extends View{
-    
-    public GameMenuView(){
-//        String menu = this.displayGameMenu();
-//        char selection = ' ';
-//        do {
-//                System.out.println(menu);
-//		selection = this.getInput(menu);
-//		this.nextAction(selection);
-//        }while ( !( selection =='Q' || selection == 'C'  ));
-//    }//Repeat until the player chooses to close the menu or quit the game.
-    
-    
-//    private String displayGameMenu(){
-//        String tempMenu = null;
-//        tempMenu = 
+
+
+        
+    public GameMenuView(NewGameControl username, MapControl map, ShipSelectionControl playerShip){
                 super("\n Game Menu Options"
-                + "\n S - Save Game"
-                + "\n H - Help"
-                + "\n Q - Quit Game"
-                + "\n C - Close Menu"
-                + "\n I - Inventory Manager"
-                + "\n V - View all Statuses\n");
-//        return tempMenu;
-//    }
+        + "\n S - Save Game"
+        + "\n H - Help"
+        + "\n Q - Quit Game"
+        + "\n C - Close Menu"
+        + "\n I - Inventory Manager"
+        + "\n M - View Map"
+        + "\n V - View all Statuses\n", username, map, playerShip);
+ //These aren't reachable here, but aren't assignable outside this constructor...
+ //Could possibly have these setup in super constructor before the prompt message...
+//        tempUsername = username;  
+//        tempMap = map;
+//        tempPlayerShip= playerShip;
+
+
     }
     
-//    public char getInput(String menu){
-//        Scanner keyboard = new Scanner(System.in);
-//        char choice = ' ';
-//        boolean valid = false;
-//            //honestly, this just continues until the if is skipped and the break is executed.
-//            //if it wasn't for that it woudl continue forever.
-//        while(!valid){
-//            choice = Character.toUpperCase(keyboard.next().charAt(0));
-//            if ( !( choice == 'S' || choice == 'H' || choice =='Q' || choice == 'C' || 
-//                    choice=='I' || choice=='V' )){
-//                System.out.println( "Invalid entry\n" + menu );
-//            }
-//            break;
-//        }
-//        
-//        return choice;
-//    }
-
     public void saveGame(){
         System.out.println("saveGame method called");
     }
@@ -71,14 +52,12 @@ public class GameMenuView extends View{
         //return false to stay in same menu, return true to exit this view to previous view
         //also return false for invalid input to repeat the view with the display function
         char value = entry;
-        
         switch (value) {
             case 'S':
 		this.saveGame();
 		return false;
             case 'H':
 		HelpMenuView helpMenu = new HelpMenuView();
-//                helpMenu.displayMenu();
 		return false;
             case 'Q':
 		this.quitGame();
@@ -87,14 +66,17 @@ public class GameMenuView extends View{
 		this.closeMenu();
 		return true;
             case 'I':
-		InventoryManagerView inventory = new InventoryManagerView();
+		InventoryManagerView inventory = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip);
 		return false;
+            case 'M':
+                tempMap.PrintMap();
+                return false;
             case 'V':
-		StatusesView status = new StatusesView();
+		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip);
 		return false;
             default:
                 System.out.println("\n Invalid choice.  Please try again.");
                 return false;
-        } 
+        }
     }
 }
