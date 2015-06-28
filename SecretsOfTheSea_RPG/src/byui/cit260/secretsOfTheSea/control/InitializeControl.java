@@ -221,16 +221,16 @@ public class InitializeControl {
         //System.out.println(playerInfo);
         //End Player Class Set & Print
 
-        //Societies Class Set & Print
-        Societies societyOne = new Societies();
-        
-        societyOne.setName("Aztecs");
-        societyOne.setDescription("The Aztec Society is the oldest society found.");
-        societyOne.setPositiveApproach("Bribery");
-        societyOne.setNeutralApproach("Diplomacy");
-        societyOne.setNegativeApproach("Intimidation");
-                
-        String societyInfo = societyOne.toString();
+//        //Societies Class Set & Print
+//        Societies societyOne = new Societies();
+//        
+//        societyOne.setName("Aztecs");
+//        societyOne.setDescription("The Aztec Society is the oldest society found.");
+//        societyOne.setPositiveApproach("Bribery");
+//        societyOne.setNeutralApproach("Diplomacy");
+//        societyOne.setNegativeApproach("Intimidation");
+//                
+//        String societyInfo = societyOne.toString();
         //System.out.println(societyInfo);
         //End Societies Class Set & Print
 

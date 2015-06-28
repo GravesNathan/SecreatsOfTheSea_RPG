@@ -12,10 +12,23 @@ import java.util.Objects;
  *
  * @author SDababneh
  */
-public class Societies implements Serializable{
+public enum Societies implements Serializable{
     
-    private String Name;
-    private String Description;
+    Privateer("Island of the Privateers"),
+    Barbarian("Island of the Barbarians"),
+    Aztec("Island of the Aztec"),
+    Buchaneers("Island of the Buchaneers"),
+    Carousers("Island of the Carousers"),
+    Corsairs("Island of the Corsairs"),
+    Turks("Island of the Turks");
+
+    private final String description;
+    
+    Societies(String description){
+        this.description = description;
+    }
+    
+    
     private String PositiveApproach;
     private String NeutralApproach;
     private String NegativeApproach;
@@ -24,23 +37,8 @@ public class Societies implements Serializable{
     private String LeaderTrustStatus;
     
 
-    public Societies() {
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String Name) {
-        this.Name = Name;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String Description) {
-        this.Description = Description;
+    public String getdescription() {
+        return description;
     }
 
     public String getPositiveApproach() {
@@ -87,60 +85,52 @@ public class Societies implements Serializable{
         this.LeaderTrustStatus = LeaderTrustStatus;
     }
     
+    @Override
+    public String toString() {
+        return "Societies{" + ", PositiveApproach=" + PositiveApproach + ", NeutralApproach=" + NeutralApproach + ", NegativeApproach=" + NegativeApproach + '}';
+    }
+
 //    @Override
-//    public String toString() {
-//        return "Societies{" + "Name=" + Name + ", Description=" + Description + ", PositiveApproach=" + PositiveApproach + ", NeutralApproach=" + NeutralApproach + ", NegativeApproach=" + NegativeApproach + '}';
+//    public int hashCode() {
+//        int hash = 5;
+//        hash = 17 * hash + Objects.hashCode(this.PositiveApproach);
+//        hash = 17 * hash + Objects.hashCode(this.NeutralApproach);
+//        hash = 17 * hash + Objects.hashCode(this.NegativeApproach);
+//        hash = 17 * hash + this.LeaderTrustLevel;
+//        hash = 17 * hash + this.LeaderTrustLevelTarget;
+//        hash = 17 * hash + Objects.hashCode(this.LeaderTrustStatus);
+//        return hash;
 //    }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 17 * hash + Objects.hashCode(this.Name);
-        hash = 17 * hash + Objects.hashCode(this.Description);
-        hash = 17 * hash + Objects.hashCode(this.PositiveApproach);
-        hash = 17 * hash + Objects.hashCode(this.NeutralApproach);
-        hash = 17 * hash + Objects.hashCode(this.NegativeApproach);
-        hash = 17 * hash + this.LeaderTrustLevel;
-        hash = 17 * hash + this.LeaderTrustLevelTarget;
-        hash = 17 * hash + Objects.hashCode(this.LeaderTrustStatus);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Societies other = (Societies) obj;
-        if (!Objects.equals(this.Name, other.Name)) {
-            return false;
-        }
-        if (!Objects.equals(this.Description, other.Description)) {
-            return false;
-        }
-        if (!Objects.equals(this.PositiveApproach, other.PositiveApproach)) {
-            return false;
-        }
-        if (!Objects.equals(this.NeutralApproach, other.NeutralApproach)) {
-            return false;
-        }
-        if (!Objects.equals(this.NegativeApproach, other.NegativeApproach)) {
-            return false;
-        }
-        if (this.LeaderTrustLevel != other.LeaderTrustLevel) {
-            return false;
-        }
-        if (this.LeaderTrustLevelTarget != other.LeaderTrustLevelTarget) {
-            return false;
-        }
-        if (!Objects.equals(this.LeaderTrustStatus, other.LeaderTrustStatus)) {
-            return false;
-        }
-        return true;
-    }
-    
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (getClass() != obj.getClass()) {
+//            return false;
+//        }
+//        final Societies other = (Societies) obj;
+//        if (!Objects.equals(this.PositiveApproach, other.PositiveApproach)) {
+//            return false;
+//        }
+//        if (!Objects.equals(this.NeutralApproach, other.NeutralApproach)) {
+//            return false;
+//        }
+//        if (!Objects.equals(this.NegativeApproach, other.NegativeApproach)) {
+//            return false;
+//        }
+//        if (this.LeaderTrustLevel != other.LeaderTrustLevel) {
+//            return false;
+//        }
+//        if (this.LeaderTrustLevelTarget != other.LeaderTrustLevelTarget) {
+//            return false;
+//        }
+//        if (!Objects.equals(this.LeaderTrustStatus, other.LeaderTrustStatus)) {
+//            return false;
+//        }
+//        return true;
+//    }
+//    
     
 }

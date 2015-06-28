@@ -20,7 +20,7 @@ public class ExchangeView extends View {
                 + "\n"
                 + "\n Please choose a trade option below:"
                 + "\n O - Offer Trade"
-                + "\n A - Accept Trade Terms"
+//                + "\n A - Accept Trade Terms"
                 + "\n C - Close Exchange Menu"
                 + "\n I - Inventory Menu"
                 + "\n V - View Status"
@@ -28,13 +28,13 @@ public class ExchangeView extends View {
     }
 
     
-    public void offerTradeControl(){
-        System.out.println("offerTradeControl stub");
+    public void ExchangeItemsControl(){
+        System.out.println("ExchangeItemsControl stub");
     }
     
-    public void acceptTradeControl(){
-        System.out.println("acceptTradeControl stub");
-    }
+//    public void acceptTradeControl(){
+//        System.out.println("acceptTradeControl stub");
+//    }
     
     public void closeTradeControl(){
         System.out.println("closeTradeControl stub");
@@ -46,13 +46,13 @@ public class ExchangeView extends View {
         
         switch (value) {
             case 'O':
-		this.offerTradeControl();
+		this.ExchangeItemsControl();
 		return false;
             case 'X':
 		return false;
-            case 'A':
-		this.acceptTradeControl();
-		return false;
+//            case 'A':
+//		this.acceptTradeControl();
+//		return false;
             case 'C':
 		this.closeTradeControl();
 		return true;
