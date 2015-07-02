@@ -37,7 +37,7 @@ public class TrustTrialControl {
 //                    System.out.println("Trust is matched");
             }
             else {
-                    status.setLifeStatus ("Invalid entry, please try again.");
+                    status.setLifeStatus ("Invalid entry, please try again.");//WEEK 10 IA
                     return;
                 }
         }

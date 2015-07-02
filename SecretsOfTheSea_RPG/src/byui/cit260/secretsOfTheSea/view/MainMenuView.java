@@ -9,6 +9,7 @@ import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 //import byui.cit260.secretsOfTheSea.model.Player;
+import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
 import java.util.Scanner;
 
 /**
@@ -46,12 +47,17 @@ public class MainMenuView {
         difficultyLevel = Character.toUpperCase(difficultyReader.next().charAt(0));
         if (!((difficultyLevel == 'E') || (difficultyLevel == 'N') || (difficultyLevel == 'H')))
             System.out.println("\n Invalid Input.  Please try again.");
-         }while(!((difficultyLevel == 'E') || (difficultyLevel == 'N') || (difficultyLevel == 'H')));
+         }while(!((difficultyLevel == 'E') || (difficultyLevel == 'N') || (difficultyLevel == 'H') || (difficultyLevel == 'S')));
+
+//Try - Catch test code
+        try{
         mainMap = new MapControl (difficultyLevel);
-        
+        } catch (MapControlException me) {
+            System.out.println(me.getMessage());
+        }
         
         //Choose Ship
-        char charShipChoice = '8';
+        String charShipChoice = "Raft";
         int shipChoice = -1;
         ShipSelectionControl tempShips = new ShipSelectionControl(8);
         
@@ -59,17 +65,32 @@ public class MainMenuView {
         System.out.println("\n Please select your ship with with options 0 through 3"
                 + tempShips.toString());
         Scanner shipReader = new Scanner(System.in);
-        charShipChoice = shipReader.next().charAt(0);
-        shipChoice = Character.getNumericValue(charShipChoice);
+        charShipChoice = shipReader.nextLine();
+        charShipChoice = charShipChoice.trim();
+        
+//Try - Catch test code
+        try {
+        shipChoice = Integer.parseInt(charShipChoice);
+        } catch (NumberFormatException nf) {
+            System.out.println("\n You must enter a valid number or we will give you a raft."
+            + " Try again, you won't survive on a raft.");
+        }
+        
         if (!((shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3)))
             System.out.println("Invalid Input.");
         }while(!( (shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3) ));
         assignPlayerShip = new ShipSelectionControl(shipChoice);
         
         newUserSettings = new NewGameControl(userName);
+        
+        try {
         System.out.println("Welcome " + newUserSettings.getPlayerName() +
                 ", let's begin your " + mainMap.getUserDifficulty() + " adventures in Secrets of the Sea."
                 + "\n Prepare to board your " + assignPlayerShip.getUserShip() +  " and set sails on the open seas.");
+        } catch (MapControlException me_difficulty) {
+            System.out.println(me_difficulty.getMessage());
+        }
+        
         ExplorableAreasView beginExplore = new ExplorableAreasView(newUserSettings, mainMap, assignPlayerShip);
     }
     

@@ -33,8 +33,14 @@ public class SecretsOfTheSea_RPG {
         //startup.initializeGame();
         
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.startProgram();
         
+        try {
+        startProgramView.startProgram();
+        } catch (Throwable te){ 
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.startProgram();
+        }
         
     }
     

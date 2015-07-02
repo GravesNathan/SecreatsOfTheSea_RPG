@@ -64,7 +64,7 @@ public class ExchangeItemsControl {
                     resource = "none";
                     return resource;
                 default:
-                    resource = "error loading resource";
+                    resource = "error loading resource";  //WEEK 10 IA
                     return resource;
             }
     }

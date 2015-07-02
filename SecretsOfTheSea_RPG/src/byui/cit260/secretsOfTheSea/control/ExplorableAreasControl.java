@@ -49,7 +49,7 @@ public class ExplorableAreasControl {
                         else areas[i][j].setHasStatue(0);
                         //used when testing System.out.println("Island " + i + " area " + j + ":  " +areas[i][j].toString());
                     }
-                else System.out.println("Error ocurred creating ExplorableAreas");
+                else System.out.println("Error ocurred creating ExplorableAreas"); //WEEK 10 IA
             }
     }
     
@@ -74,7 +74,7 @@ public class ExplorableAreasControl {
                     name = "Plains";
                     return name;
                 default:
-                    name = "error loading name";
+                    name = "error loading name"; //WEEK 10 IA
                     return name;
             }
     }
@@ -115,7 +115,7 @@ public class ExplorableAreasControl {
                     resource = "none";
                     return resource;
                 default:
-                    resource = "error loading resource";
+                    resource = "error loading resource"; //WEEK 10 IA
                     return resource;
             }
     }

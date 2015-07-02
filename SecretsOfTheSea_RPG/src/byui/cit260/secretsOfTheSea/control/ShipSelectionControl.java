@@ -124,7 +124,8 @@ public class ShipSelectionControl {
                 selectedShip.setIntimidation(ship[i].getIntimidation());
                 selectedShip.setBribery(ship[i].getBribery());
                 selectedShip.setShipHealth(ship[i].getHealth());
-                return;
+                return;  
+                //WEEK 10 IA
             }
         }
     }

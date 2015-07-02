@@ -26,43 +26,43 @@ import byui.cit260.secretsOfTheSea.model.Storage;
 public class InitializeControl {
     
     public void initializeGame(){
-        //Map Class Set & Print
-        Map mapOne = new Map();
-   
-        mapOne.setDifficulty('h');
-        mapOne.setxMax(4);
-        mapOne.setyMax(4);
-        
-        String mapInfo = mapOne.toString();
-        //System.out.println(mapInfo);
-        //End Map Class Set & Print
-        
-        //CurrentStatus Class Set & Print
-        CurrentStatus status = new CurrentStatus();
-        
-        status.setCurrentX(1);
-        status.setCurrentY(1);
-        status.setStatuesCount(1);
-        status.setLifeStatus("Alive and well");
-        status.setGameDifficulty("Normal");
-        status.setStatusMessage("Default Message");
-                
-        String statusInfo = status.toString();
-        //System.out.println(statusInfo);
-        //End CurrentStatus Class Set & Print
-        
-        //ExplorableAreas Class Set & Print
-        ExplorableAreas areaOne = new ExplorableAreas();
-        
-        areaOne.setDescription("Beach Front");
-        areaOne.setHasStatue(1);
-        areaOne.setResource1("Food");
-        areaOne.setResource2("Water");
-        areaOne.setResource1Quantity(3);
-        areaOne.setResource2Quantity(5);
-        areaOne.setTravelDistance(14);
-        
-        String areaInfo = areaOne.toString();
+//        //Map Class Set & Print
+//        Map mapOne = new Map();
+//   
+//        mapOne.setDifficulty('h');
+//        mapOne.setxMax(4);
+//        mapOne.setyMax(4);
+//        
+//        String mapInfo = mapOne.toString();
+//        //System.out.println(mapInfo);
+//        //End Map Class Set & Print
+//        
+//        //CurrentStatus Class Set & Print
+//        CurrentStatus status = new CurrentStatus();
+//        
+//        status.setCurrentX(1);
+//        status.setCurrentY(1);
+//        status.setStatuesCount(1);
+//        status.setLifeStatus("Alive and well");
+//        status.setGameDifficulty("Normal");
+//        status.setStatusMessage("Default Message");
+//                
+//        String statusInfo = status.toString();
+//        //System.out.println(statusInfo);
+//        //End CurrentStatus Class Set & Print
+//        
+//        //ExplorableAreas Class Set & Print
+//        ExplorableAreas areaOne = new ExplorableAreas();
+//        
+//        areaOne.setDescription("Beach Front");
+//        areaOne.setHasStatue(1);
+//        areaOne.setResource1("Food");
+//        areaOne.setResource2("Water");
+//        areaOne.setResource1Quantity(3);
+//        areaOne.setResource2Quantity(5);
+//        areaOne.setTravelDistance(14);
+//        
+//        String areaInfo = areaOne.toString();
         //System.out.println(areaInfo);
         //End ExplorableAreas Class Set & Print
        

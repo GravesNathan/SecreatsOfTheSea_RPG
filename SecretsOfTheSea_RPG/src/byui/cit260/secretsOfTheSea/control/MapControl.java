@@ -11,6 +11,7 @@ import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
 //import byui.cit260.secretsOfTheSea.model.Ships;
 import byui.cit260.secretsOfTheSea.model.Storms;
+import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
 
 import java.util.Random;
 
@@ -29,9 +30,10 @@ public class MapControl {
     private int diffMultiplier = 0;
     private String tempWarning = null;
     
-    public MapControl( char tempDifficulty ){
-        Boolean errorCheck = this.calcMapSize( tempDifficulty );
-        if (errorCheck)
+    public MapControl( char tempDifficulty )
+            throws MapControlException {
+        
+        this.calcMapSize( tempDifficulty );
         this.populateMap();
         this.populateStorms();
         this.PrintMap();
@@ -42,7 +44,9 @@ public class MapControl {
     
     //STEP 4 - Turn outline of solution into working code.
     
-    public Boolean calcMapSize ( char difficulty){
+    public void calcMapSize ( char difficulty) 
+            throws MapControlException {
+        
         mapOne.setDifficulty(difficulty);
         int xMax = 4;
         int yMax = 4;
@@ -58,14 +62,14 @@ public class MapControl {
             diffMultiplier = 3;
             tempWarning = "Severe storm ahead.  What would you like to do?";
         }
-        else return false;
+        else throw new MapControlException("Failed to create map size based on difficulty selection");
         mapOne.setxMax(xMax * diffMultiplier);
         mapOne.setyMax(yMax * diffMultiplier);
         numStorms = 4 * diffMultiplier;
         storms = new Storms[numStorms];
         for (int i=0; i<numStorms; i++)
             storms[i] = new Storms();
-        return true; 
+//        return true; 
     }
   
     public void populateMap(){
@@ -118,7 +122,8 @@ public class MapControl {
       
       
     
-    public String getUserDifficulty(){
+    public String getUserDifficulty()
+            throws MapControlException {
         char nameDifficulty = mapOne.getDifficulty();
         switch (nameDifficulty) {
             case 'E':
@@ -128,7 +133,7 @@ public class MapControl {
             case 'H':
                 return "Hard";
             default: 
-                return "Invalid Input";
+                throw new MapControlException ("Failed to read from set Difficulty"); 
         }
     }
     
