@@ -8,6 +8,7 @@ package byui.cit260.secretsOfTheSea.view;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import byui.cit260.secretsOfTheSea.exceptions.CharInputException;
 
 /**
  *
@@ -51,9 +52,9 @@ public class ExplorableAreasView extends View {
     }
 
     @Override
-    public boolean doAction(char entry){
+    public boolean doAction(char entry) {
         char value = entry;
-        
+        try{
         switch (value) {
             case 'E':
 		this.exploreAreaControl();
@@ -69,7 +70,6 @@ public class ExplorableAreasView extends View {
 		return false;
             case 'X':
                 ExchangeView exchangeView = new ExchangeView(tempUsername, tempMap, tempPlayerShip);
-
                 return false;
             case 'I':
 		InventoryManagerView inventory = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip);
@@ -81,10 +81,12 @@ public class ExplorableAreasView extends View {
 		GameMenuView gameMenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip);
 		return false;
             default:
-                System.out.println("\n ***Invalid choice*** \n Please try again.");
+                throw new CharInputException("\n\n" +entry + " is an invalid input at this time \n"
+                        + "Please provide acceptable input from the menu below.\n");
+        }
+        }catch (CharInputException cie){
+                System.out.println(cie.getMessage());
                 return false;
         } 
-        
     }
-    
 }

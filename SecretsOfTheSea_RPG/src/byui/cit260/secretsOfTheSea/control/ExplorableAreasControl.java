@@ -5,6 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.control;
 
+import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
 import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import java.util.Random;
@@ -18,11 +19,13 @@ public class ExplorableAreasControl {
     private ExplorableAreas[][] areas = null;
     
     
-    public ExplorableAreasControl(int islandNumber){
+    public ExplorableAreasControl(int islandNumber)
+                throws ExplorableAreasException {
         this.setupAreas(islandNumber);
     }
     
-    public void setupAreas(int i){
+    public void setupAreas(int i)
+                    throws ExplorableAreasException {
         areas = new ExplorableAreas[8][4];
         Random tempRand = new Random();
         int placeStatue = tempRand.nextInt(3) + 1;
@@ -49,7 +52,7 @@ public class ExplorableAreasControl {
                         else areas[i][j].setHasStatue(0);
                         //used when testing System.out.println("Island " + i + " area " + j + ":  " +areas[i][j].toString());
                     }
-                else System.out.println("Error ocurred creating ExplorableAreas"); //WEEK 10 IA
+                else throw new ExplorableAreasException("Error Populating Areas"); //WEEK 10 IA
             }
     }
     

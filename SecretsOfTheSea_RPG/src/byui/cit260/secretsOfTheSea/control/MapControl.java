@@ -7,6 +7,7 @@ package byui.cit260.secretsOfTheSea.control;
 
 //import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 //import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
+import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
 import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
 //import byui.cit260.secretsOfTheSea.model.Ships;
@@ -31,7 +32,8 @@ public class MapControl {
     private String tempWarning = null;
     
     public MapControl( char tempDifficulty )
-            throws MapControlException {
+            throws MapControlException, ArrayIndexOutOfBoundsException, 
+            ExplorableAreasException  {
         
         this.calcMapSize( tempDifficulty );
         this.populateMap();
@@ -68,16 +70,22 @@ public class MapControl {
         numStorms = 4 * diffMultiplier;
         storms = new Storms[numStorms];
         for (int i=0; i<numStorms; i++)
-            storms[i] = new Storms();
-//        return true; 
+            storms[i] = new Storms(); 
     }
   
-    public void populateMap(){
+    public void populateMap() 
+            throws ArrayIndexOutOfBoundsException, ExplorableAreasException{
         int xMax = mapOne.getxMax();
         int yMax = mapOne.getyMax();
         location = new LocationDetails[8];
-            for (int i=0; i<8; i++)
+            for (int i=0; i<8; i++){
+                if (i>=8)
+                    throw new ArrayIndexOutOfBoundsException ("Error, program trying to "
+                            + "create too many islands");
+                        //ArrayIndexOutOfBoundsException("Error creating islands.  Program attempting"
+                        // + "to create more islands than allowed.");
                 location[i] = new LocationDetails();
+            }
             int tempX;
             int tempY;
             Random xRand = new Random();
@@ -92,7 +100,7 @@ public class MapControl {
                     location[i].setXCoordinate(tempX);
                     location[i].setYCoordinate(tempY);
                     mapGrid[tempX][tempY] = 1;
-                    ExplorableAreasControl setupAreas = new ExplorableAreasControl(i);
+                    ExplorableAreasControl setupAreas = new ExplorableAreasControl(i);                   
                 }
                 else i--; //offset increment when the island ends up stacked on another island.
             }

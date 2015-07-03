@@ -8,6 +8,7 @@ package byui.cit260.secretsOfTheSea.view;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
 //import byui.cit260.secretsOfTheSea.model.Player;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
 import java.util.Scanner;
@@ -54,6 +55,19 @@ public class MainMenuView {
         mainMap = new MapControl (difficultyLevel);
         } catch (MapControlException me) {
             System.out.println(me.getMessage());
+        
+        
+        }catch  (IndexOutOfBoundsException oub) {
+                System.out.println(oub.getMessage() + "\n" + oub.getStackTrace() + "\n");
+        
+        }catch (ExplorableAreasException eae) {
+                System.out.println(eae.getMessage());
+            System.out.println("\nReturning to start program view.  Press Enter to Proceed");
+            String pressEnter = null;
+            Scanner keyboard = new Scanner(System.in);
+            pressEnter = keyboard.nextLine();
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.startProgram();//Does this only work with an independent executable?
         }
         
         //Choose Ship
@@ -76,8 +90,8 @@ public class MainMenuView {
             + " Try again, you won't survive on a raft.");
         }
         
-        if (!((shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3)))
-            System.out.println("Invalid Input.");
+        //if (!((shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3)))
+        //    System.out.println("Invalid Input.");
         }while(!( (shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3) ));
         assignPlayerShip = new ShipSelectionControl(shipChoice);
         

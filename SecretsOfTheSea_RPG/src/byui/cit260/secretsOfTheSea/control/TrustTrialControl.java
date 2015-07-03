@@ -5,6 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.control;
 
+import byui.cit260.secretsOfTheSea.exceptions.TrustTrialException;
 import byui.cit260.secretsOfTheSea.model.Societies;
 import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 import byui.cit260.secretsOfTheSea.model.SocietyNPCs;
@@ -15,7 +16,8 @@ import byui.cit260.secretsOfTheSea.model.SocietyNPCs;
  */
 public class TrustTrialControl {
     
-    public void compareTrustLevels (SocietyNPCs leader, Societies societyOneNPC, CurrentStatus status){
+    public void compareTrustLevels (SocietyNPCs leader, Societies societyOneNPC, CurrentStatus status)
+                throws TrustTrialException {
         
             int leaderTrustLevelTarget = societyOneNPC.getLeaderTrustLevelTarget();
             int leaderTrustLevel = societyOneNPC.getLeaderTrustLevel();
@@ -37,8 +39,8 @@ public class TrustTrialControl {
 //                    System.out.println("Trust is matched");
             }
             else {
-                    status.setLifeStatus ("Invalid entry, please try again.");//WEEK 10 IA
-                    return;
-                }
+                    throw new TrustTrialException("An error ocurred when comparing player's trust level"
+                            + "to the required trust level of the society leader.");
+                }//This is not yet called in out program.  When we get to it we will finish the throws.
         }
 }

@@ -39,8 +39,8 @@ public abstract class View implements ViewInterface {
 		value = this.getInput();
 		done = this.doAction(value);
                 //doAction in sub-class return true to stay in
-                //same view.  return false to end the view and return to previous view
-                //also return false from doAction when an invalid value is input.
+                //same view.  return false to remain in same view.  return true
+                //to exit view and return to previous view.
         }while (!done);
     }//Repeat until the player chooses to close the menu or quit the game.
     
