@@ -56,7 +56,7 @@ public class ExplorableAreasControl {
             }
     }
     
-    public String areaNameGenerator(){
+    public String areaNameGenerator() throws ExplorableAreasException{
         String name = null;
         Random number = new Random();
         int nameNumber = number.nextInt(5);
@@ -77,12 +77,13 @@ public class ExplorableAreasControl {
                     name = "Plains";
                     return name;
                 default:
-                    name = "error loading name"; //WEEK 10 IA
-                    return name;
+                    throw new ExplorableAreasException("Error Setting Area name");
+                    //name = "error loading name"; //WEEK 10 IA
+                    //return name;
             }
     }
         
-    public String randomResource(){
+    public String randomResource() throws ExplorableAreasException{
         String resource = null;
         Random number = new Random();
         int resourceNumber = number.nextInt(10);
@@ -118,8 +119,9 @@ public class ExplorableAreasControl {
                     resource = "none";
                     return resource;
                 default:
-                    resource = "error loading resource"; //WEEK 10 IA
-                    return resource;
+                    throw new ExplorableAreasException("Error assigning area resources");
+                    //resource = "error loading resource"; //WEEK 10 IA
+                    //return resource;
             }
     }
 }
