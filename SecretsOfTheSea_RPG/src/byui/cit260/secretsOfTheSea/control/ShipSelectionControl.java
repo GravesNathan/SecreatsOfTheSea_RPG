@@ -8,6 +8,7 @@ package byui.cit260.secretsOfTheSea.control;
 import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 import byui.cit260.secretsOfTheSea.model.SelectedShip;
 import byui.cit260.secretsOfTheSea.model.Ships;
+import byui.cit260.secretsOfTheSea.exceptions.ShipSelectionException;
 
 /**
  *
@@ -19,7 +20,8 @@ public class ShipSelectionControl {
     private Ships[] ship = null;
     int baseStats = 5;
             
-    public ShipSelectionControl(int tempShipChoice){
+    public ShipSelectionControl(int tempShipChoice)
+            throws ShipSelectionException{
     
         this.createShips();
         this.assignShip(tempShipChoice);
@@ -115,7 +117,8 @@ public class ShipSelectionControl {
             */
     }
     
-    public void assignShip(int tempShipChoice1){
+    public void assignShip(int tempShipChoice1)
+            throws ShipSelectionException{
         
         for (int i=0; i<4; i++){
             if ( i == tempShipChoice1){
@@ -131,8 +134,8 @@ public class ShipSelectionControl {
                 selectedShip.setBribery(baseStats + ship[i].getBribery());
                 selectedShip.setShipHealth(baseStats + ship[i].getHealth());
                 return;  
-                //WEEK 10 IA
             }
+            else throw new ShipSelectionException("Error Populating Ship Details");//WEEK 10 IA
         }
     }
     

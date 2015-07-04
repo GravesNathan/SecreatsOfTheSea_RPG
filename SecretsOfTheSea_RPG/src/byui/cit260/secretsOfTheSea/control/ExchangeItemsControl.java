@@ -5,6 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.control;
 
+import byui.cit260.secretsOfTheSea.exceptions.ExchangeItemsException;
 import byui.cit260.secretsOfTheSea.model.ExchangeItems;
 import java.util.Random;
 
@@ -17,18 +18,20 @@ public class ExchangeItemsControl {
     private ExchangeItems[][] items = null;
     
     
-    public ExchangeItemsControl(int islandLeader){
+    public ExchangeItemsControl(int islandLeader)
+        throws ExchangeItemsException {
         this.setupItems(islandLeader);
     }
     
-    public void setupItems(int i){
+    public void setupItems(int i)
+                throws ExchangeItemsException{
         items = new ExchangeItems[7][3];
             for (ExchangeItems leaderWants : items[i]){
                 leaderWants.setDescription(randomResource());
             }
     }
     
-    public String randomResource(){
+    public String randomResource() throws ExchangeItemsException{
         String resource = null;
         Random number = new Random();
         int resourceNumber = number.nextInt(10);
@@ -64,8 +67,9 @@ public class ExchangeItemsControl {
                     resource = "none";
                     return resource;
                 default:
-                    resource = "error loading resource";  //WEEK 10 IA
-                    return resource;
+                    throw new ExchangeItemsException("Error setting Resource in code.");
+                    //resource = "error loading resource";  //WEEK 10 IA
+                    //return resource;
             }
     }
 }

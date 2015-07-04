@@ -9,6 +9,7 @@ import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import byui.cit260.secretsOfTheSea.exceptions.CharInputException;
 
 /**
  *
@@ -45,7 +46,7 @@ public class ExchangeView extends View {
     @Override
     public boolean doAction(char entry){
         char value = entry;
-        
+        try{
         switch (value) {
             case 'O':
 		this.ExchangeItemsControl();
@@ -68,7 +69,13 @@ public class ExchangeView extends View {
 		GameMenuView gameMenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
             default:
-                System.out.println("\n Invalid choice. Please try again.");
+                throw new CharInputException("\n\n" +entry + " is an invalid input at this time \n"
+                        + "Please provide acceptable input from the menu below.\n");
+                //System.out.println("\n Invalid choice. Please try again.");
+                //return false;
+        }
+        }catch (CharInputException cie){
+                System.out.println(cie.getMessage());
                 return false;
         }
     }
