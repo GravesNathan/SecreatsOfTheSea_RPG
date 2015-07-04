@@ -12,6 +12,7 @@ import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
 //import byui.cit260.secretsOfTheSea.model.Player;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
+import byui.cit260.secretsOfTheSea.exceptions.ShipSelectionException;
 import java.util.Scanner;
 
 /**
@@ -74,8 +75,9 @@ public class MainMenuView {
         //Choose Ship
         String charShipChoice = "Raft";
         int shipChoice = -1;
+        try {
         ShipSelectionControl tempShips = new ShipSelectionControl(8);
-        
+
         do{
         System.out.println("\n Please select your ship with with options 0 through 3"
                 + tempShips.toString());
@@ -84,18 +86,24 @@ public class MainMenuView {
         charShipChoice = charShipChoice.trim();
         
 //Try - Catch test code
-        try {
+//        try {
         shipChoice = Integer.parseInt(charShipChoice);
-        } catch (NumberFormatException nf) {
-            System.out.println("\n You must enter a valid number or we will give you a raft."
-            + " Try again, you won't survive on a raft.");
-        }
+//        } catch (NumberFormatException nf) {
+//            System.out.println("\n You must enter a valid number or we will give you a raft."
+//            + " Try again, you won't survive on a raft.");
+//        }
         
         //if (!((shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3)))
         //    System.out.println("Invalid Input.");
         }while(!( (shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3) ));
+
         assignPlayerShip = new ShipSelectionControl(shipChoice);
-        
+            } catch (ShipSelectionException sse) {
+                    System.out.println(sse.getMessage());
+                System.out.println("\n You must enter a valid number or we will give you a raft."
+                + " Try again, you won't survive on a raft.");
+        }
+                
         newUserSettings = new NewGameControl(userName);
         inventory = new InventoryControl(assignPlayerShip);
         
