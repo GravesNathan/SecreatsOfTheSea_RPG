@@ -6,43 +6,85 @@
 package byui.cit260.secretsOfTheSea.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
  * @author Nathan
  */
-public enum Items implements Serializable{
-    //This enum only sets the base value.  It may vary based on societies trust level.
-    Food("Food", 20, 5),
-    Water("Water", 10, 5),
-    Fuel("Fuel", 30, 5),
-    Munitions("Munitions", 40, 15),
-    Coin("coin", 1, .1),
-    Artifacts("Artifacts", 50, 1),
-    Gems("Gems", 100, 1);
+public class Items implements Serializable{
+        
+    private char charName = ' ';
+    private String name =null;
+    private int quantity = 0;
     
-    
-    private final String name;
-    private final int value;
-    private final double weight;
-
-    Items (String name, int value, double weight){
-        this.name = name;
-        this.value = value;
-        this.weight = weight;
+    public Items(char charName, String name, int quantity){
+        this.setCharName(charName);
+        this.setName(name);
+        this.setQuantity(quantity);
     }
-    
+
     public String getName() {
         return name;
     }
 
-    public int getValue() {
-        return value;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public double getWeight() {
-        return weight;
+    public char getCharName() {
+        return charName;
     }
+
+    public void setCharName(char charName) {
+        this.charName = charName;
+    }
+
+    
+    
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "\n " + charName + " - "+ name + " :quantity = " + quantity;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 19 * hash + this.charName;
+        hash = 19 * hash + Objects.hashCode(this.name);
+        hash = 19 * hash + this.quantity;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Items other = (Items) obj;
+        if (this.charName != other.charName) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (this.quantity != other.quantity) {
+            return false;
+        }
+        return true;
+    }
+    
     
     
 }

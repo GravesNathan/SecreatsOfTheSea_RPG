@@ -35,7 +35,7 @@ public class ShipSelectionControl {
         //ship0
         ship[0].setName("Submersible");
         ship[0].setDescription("Sneak in, deceive leaders, slide away");
-        ship[0].setCargoCapSize(-1);
+        ship[0].setCargoCapSize(20);
         ship[0].setMorale(0);
         ship[0].setSpeed(0);
         ship[0].setDefense(1);
@@ -51,7 +51,7 @@ public class ShipSelectionControl {
         //ship1
         ship[1].setName("Ironclad");
         ship[1].setDescription("Highest Intimidation and defense of the game");
-        ship[1].setCargoCapSize(0);
+        ship[1].setCargoCapSize(60);
         ship[1].setMorale(0);
         ship[1].setSpeed(-1);
         ship[1].setDefense(1);
@@ -67,7 +67,7 @@ public class ShipSelectionControl {
         //ship2
         ship[2].setName("Galley");
         ship[2].setDescription("Higher Supplies, better trade opportunities");
-        ship[2].setCargoCapSize(1);
+        ship[2].setCargoCapSize(100);
         ship[2].setMorale(-1);
         ship[2].setSpeed(0);
         ship[2].setDefense(-1);
@@ -84,7 +84,7 @@ public class ShipSelectionControl {
         
         ship[3].setName("Clipper");
         ship[3].setDescription("Speed across the open sea, you'll with any race with this ship.");
-        ship[3].setCargoCapSize(0);
+        ship[3].setCargoCapSize(40);
         ship[3].setMorale(1);
         ship[3].setSpeed(1);
         ship[3].setDefense(-1);
@@ -121,7 +121,7 @@ public class ShipSelectionControl {
             if ( i == tempShipChoice1){
                 selectedShip.setName(ship[i].getName() );
                 selectedShip.setDescription(ship[i].getDescription());
-                selectedShip.setCargoCapSize(baseStats + ship[i].getCargoCapSize());
+                selectedShip.setCargoCapSize(baseStats *10 + ship[i].getCargoCapSize());
                 selectedShip.setMorale(baseStats + ship[i].getMorale());
                 selectedShip.setSpeed(baseStats + ship[i].getSpeed());
                 selectedShip.setDefense(baseStats + ship[i].getDefense());
@@ -164,6 +164,10 @@ public class ShipSelectionControl {
                     + ", bribery " + ship[i].getBribery());
         }
         return shipsPrint;
+    }
+    
+    public int getShipChoice(){
+        return selectedShip.getShipChoice();
     }
     
     public String getShipName(){

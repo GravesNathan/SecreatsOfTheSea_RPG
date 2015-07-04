@@ -16,7 +16,8 @@ public class Cargo extends Storage implements Serializable{
     private int size;
 
     public Cargo() {
-        this.setSize(100);
+        this.setSize(100);//Put this is selected ship
+        //Put these in a cargo and storage varaible which are an arrayList of Items.
         this.setFoodQuantity(25);
         this.setWaterQuantity(25);
         this.setFuelQuantity(25);

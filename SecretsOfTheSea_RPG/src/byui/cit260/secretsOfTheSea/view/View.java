@@ -54,18 +54,11 @@ public abstract class View implements ViewInterface {
     public char getInput(){
         Scanner keyboard = new Scanner(System.in);
         char value = ' ';
-        //boolean valid = false;
-            //honestly, this just continues until the if is skipped and the break is executed.
-            //if it wasn't for that it woudl continue forever.
-        //while(!valid){
-            value = Character.toUpperCase(keyboard.next().charAt(0));
-        //    if ( !( value == 'S' || value == 'H' || value =='Q' || value == 'C' || 
-        //            value=='I' || value=='V' )){
-        //        System.out.println( "Invalid entry. \n" );
-        //    }
-        //    break;
-        //}
         
+            value = Character.toUpperCase(keyboard.next().charAt(0));
+        //We need to add a throw here for invalid input.  Character class I created!
+            //Something like detecting if input is NOT NAN should do.
+
         return value;  //return the user input.
     }
 
@@ -77,5 +70,12 @@ public abstract class View implements ViewInterface {
         this.promptMessage = promptMessage;
     }
     
+    public void nextInput() {
+        System.out.println("\n");
+        this.promptMessage = promptMessage;
+        this.display();//This calls doAction which is overridden...How can I get it to detect... I can next the switches within a for/switch in doAction
+        //This can have 0 be 1st input, 1 second, and so on.  If they hit close at any time it closes
+        //If they select to cancel...can I call the default constructor again...
+    }
 }
 
