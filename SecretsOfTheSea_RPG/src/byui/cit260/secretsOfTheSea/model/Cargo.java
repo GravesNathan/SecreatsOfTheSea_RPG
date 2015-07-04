@@ -12,9 +12,18 @@ import java.io.Serializable;
  * @author Nathan
  */
 public class Cargo extends Storage implements Serializable{
+    
     private int size;
 
     public Cargo() {
+        this.setSize(100);
+        this.setFoodQuantity(25);
+        this.setWaterQuantity(25);
+        this.setFuelQuantity(25);
+        this.setMunitionsQuantity(5);
+        this.setCoinQuantity(200);
+        this.setArtifactsQuantity(1);
+        this.setGemsQuantity(1);
     }
 
     public int getSize() {
@@ -27,20 +36,20 @@ public class Cargo extends Storage implements Serializable{
 
     @Override
     public String toString() {
-        return "Cargo{" + "size=" + size + ", food=" + food + ", water=" + water + ", fuel=" + fuel + ", munitions=" + munitions + ", coin=" + coin + ", artifacts=" + artifacts + ", gems=" + gems + '}';
+        return "Cargo{" + "size=" + size + ", foodQuantity=" + foodQuantity + ", waterQuantity=" + waterQuantity + ", fuelQuantity=" + fuelQuantity + ", munitionsQuantity=" + munitionsQuantity + ", coinQuantity=" + coinQuantity + ", artifactsQuantity=" + artifactsQuantity + ", gemsQuantity=" + gemsQuantity + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 71 * hash + this.size;
-        hash = 71 * hash + this.food;
-        hash = 71 * hash + this.water;
-        hash = 71 * hash + this.fuel;
-        hash = 71 * hash + this.munitions;
-        hash = 71 * hash + this.coin;
-        hash = 71 * hash + this.artifacts;
-        hash = 71 * hash + this.gems;
+        hash = 71 * hash + this.foodQuantity;
+        hash = 71 * hash + this.waterQuantity;
+        hash = 71 * hash + this.fuelQuantity;
+        hash = 71 * hash + this.munitionsQuantity;
+        hash = 71 * hash + this.coinQuantity;
+        hash = 71 * hash + this.artifactsQuantity;
+        hash = 71 * hash + this.gemsQuantity;
         return hash;
     }
 
@@ -56,25 +65,25 @@ public class Cargo extends Storage implements Serializable{
         if (this.size != other.size) {
             return false;
         }
-        if (this.food != other.food) {
+        if (this.foodQuantity != other.foodQuantity) {
             return false;
         }
-        if (this.water != other.water) {
+        if (this.waterQuantity != other.waterQuantity) {
             return false;
         }
-        if (this.fuel != other.fuel) {
+        if (this.fuelQuantity != other.fuelQuantity) {
             return false;
         }
-        if (this.munitions != other.munitions) {
+        if (this.munitionsQuantity != other.munitionsQuantity) {
             return false;
         }
-        if (this.coin != other.coin) {
+        if (this.coinQuantity != other.coinQuantity) {
             return false;
         }
-        if (this.artifacts != other.artifacts) {
+        if (this.artifactsQuantity != other.artifactsQuantity) {
             return false;
         }
-        if (this.gems != other.gems) {
+        if (this.gemsQuantity != other.gemsQuantity) {
             return false;
         }
         return true;

@@ -5,6 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
@@ -27,7 +28,7 @@ public class MainMenuView {
 //   private ShipSelectionControl userShip = null; 
 //   MapControl createMap = null;
    private ShipSelectionControl assignPlayerShip = null; 
-    
+   private InventoryControl inventory = null; 
     //combined two new game functions to get this single one.
     public void newGame(){
         //Input Name
@@ -96,16 +97,17 @@ public class MainMenuView {
         assignPlayerShip = new ShipSelectionControl(shipChoice);
         
         newUserSettings = new NewGameControl(userName);
+        inventory = new InventoryControl(assignPlayerShip);
         
         try {
         System.out.println("Welcome " + newUserSettings.getPlayerName() +
                 ", let's begin your " + mainMap.getUserDifficulty() + " adventures in Secrets of the Sea."
-                + "\n Prepare to board your " + assignPlayerShip.getUserShip() +  " and set sails on the open seas.");
+                + "\n Prepare to board your " + assignPlayerShip.getShipName() +  " and set sails on the open seas.");
         } catch (MapControlException me_difficulty) {
             System.out.println(me_difficulty.getMessage());
         }
         
-        ExplorableAreasView beginExplore = new ExplorableAreasView(newUserSettings, mainMap, assignPlayerShip);
+        ExplorableAreasView beginExplore = new ExplorableAreasView(newUserSettings, mainMap, assignPlayerShip, inventory);
     }
     
     public void openHelp(){

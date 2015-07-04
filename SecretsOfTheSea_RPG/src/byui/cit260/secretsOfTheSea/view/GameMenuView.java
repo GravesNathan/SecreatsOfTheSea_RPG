@@ -5,6 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
@@ -17,7 +18,8 @@ public class GameMenuView extends View{
 
 
         
-    public GameMenuView(NewGameControl username, MapControl map, ShipSelectionControl playerShip){
+    public GameMenuView(NewGameControl username, MapControl map, ShipSelectionControl playerShip,
+            InventoryControl inventory){
                 super("\n Game Menu Options"
         + "\n S - Save Game"
         + "\n H - Help"
@@ -25,7 +27,7 @@ public class GameMenuView extends View{
         + "\n C - Close Menu"
         + "\n I - Inventory Manager"
         + "\n M - View Map"
-        + "\n V - View all Statuses\n", username, map, playerShip);
+        + "\n V - View all Statuses\n", username, map, playerShip, inventory);
  //These aren't reachable here, but aren't assignable outside this constructor...
  //Could possibly have these setup in super constructor before the prompt message...
 //        tempUsername = username;  
@@ -66,13 +68,13 @@ public class GameMenuView extends View{
 		this.closeMenu();
 		return true;
             case 'I':
-		InventoryManagerView inventory = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip);
+		InventoryManagerView inventory = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
             case 'M':
                 tempMap.PrintMap();
                 return false;
             case 'V':
-		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip);
+		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
             default:
                 System.out.println("\n Invalid choice.  Please try again.");

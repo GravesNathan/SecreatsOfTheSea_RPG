@@ -5,6 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
@@ -20,11 +21,14 @@ public abstract class View implements ViewInterface {
     protected NewGameControl tempUsername = null;
     protected MapControl tempMap = null;
     protected ShipSelectionControl tempPlayerShip= null;
+    protected InventoryControl tempInventory = null;
     
-    public View(String promptMessage, NewGameControl username, MapControl map, ShipSelectionControl playerShip) {
+    public View(String promptMessage, NewGameControl username, MapControl map, ShipSelectionControl playerShip,
+        InventoryControl inventory) {
         tempUsername = username;  
         tempMap = map;
         tempPlayerShip= playerShip;
+        tempInventory = inventory;
         System.out.println("\n");
         this.promptMessage = promptMessage;
         this.display();

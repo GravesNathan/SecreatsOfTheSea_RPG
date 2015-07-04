@@ -5,6 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
@@ -15,9 +16,10 @@ import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
  */
 public class StatusesView extends View{
     
-    public StatusesView(NewGameControl username, MapControl map, ShipSelectionControl playerShip){
+    public StatusesView(NewGameControl username, MapControl map, ShipSelectionControl playerShip,
+            InventoryControl inventory){
         super("\n Current Game Statuses"
-                + "\nC - Close Inventory Manager", null, null, null);
+                + "\nC - Close Inventory Manager", null, null, null, null);
                // + "\nG - Game Menu View", username, map, playerShip);
         //Took out so we don't have a loop of game menu and statuses view
     }

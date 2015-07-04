@@ -5,6 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
@@ -15,7 +16,8 @@ import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
  */
 public class ExchangeView extends View {
     
-    public ExchangeView(NewGameControl username, MapControl map, ShipSelectionControl playerShip){
+    public ExchangeView(NewGameControl username, MapControl map, ShipSelectionControl playerShip,
+            InventoryControl inventory){
                 super("Exchanging / Trading Resouces can be tricky.  Make sure you know that those you trade with may not offer fair trades."
                 + "\n"
                 + "\n Please choose a trade option below:"
@@ -24,7 +26,7 @@ public class ExchangeView extends View {
                 + "\n C - Close Exchange Menu"
                 + "\n I - Inventory Menu"
                 + "\n V - View Status"
-                + "\n G - Game Menu \n", username, map, playerShip);
+                + "\n G - Game Menu \n", username, map, playerShip, inventory);
     }
 
     
@@ -57,13 +59,13 @@ public class ExchangeView extends View {
 		this.closeTradeControl();
 		return true;
             case 'I':
-		InventoryManagerView inventory = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip);
+		InventoryManagerView inventory = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
             case 'V':
-		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip);
+		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
             case 'G':
-		GameMenuView gameMenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip);
+		GameMenuView gameMenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
             default:
                 System.out.println("\n Invalid choice. Please try again.");

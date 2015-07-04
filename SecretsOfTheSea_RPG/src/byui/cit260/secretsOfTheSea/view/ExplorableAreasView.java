@@ -5,6 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
@@ -16,7 +17,8 @@ import byui.cit260.secretsOfTheSea.exceptions.CharInputException;
  */
 public class ExplorableAreasView extends View {
     
-    public ExplorableAreasView(NewGameControl username, MapControl map, ShipSelectionControl playerShip){
+    public ExplorableAreasView(NewGameControl username, MapControl map, 
+            ShipSelectionControl playerShip, InventoryControl inventory){
                 super("You are on the SocientName island in the AreaName."
                 + "\nPlese select what you would like to do"
                 + "\nE - Explore the Area"
@@ -26,7 +28,7 @@ public class ExplorableAreasView extends View {
                 + "\nX - Exchange Resources"
                 + "\nI - Inventory Manager"
                 + "\nV - View all Statuses"
-                + "\nG - Game Menu\n", username, map, playerShip);
+                + "\nG - Game Menu\n", username, map, playerShip, inventory);
             }
     
     
@@ -63,22 +65,22 @@ public class ExplorableAreasView extends View {
 		this.moveAreaControl();
 		return false;
             case 'B':
-                OnShipView loadShipView = new OnShipView(tempUsername, tempMap, tempPlayerShip);
+                OnShipView loadShipView = new OnShipView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return true;
             case 'W':
 		this.workOnShipControl();
 		return false;
             case 'X':
-                ExchangeView exchangeView = new ExchangeView(tempUsername, tempMap, tempPlayerShip);
+                ExchangeView exchangeView = new ExchangeView(tempUsername, tempMap, tempPlayerShip, tempInventory);
                 return false;
             case 'I':
-		InventoryManagerView inventory = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip);
+		InventoryManagerView inventory = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
             case 'V':
-		StatusesView statuses = new StatusesView(tempUsername, tempMap, tempPlayerShip);
+		StatusesView statuses = new StatusesView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
             case 'G':
-		GameMenuView gameMenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip);
+		GameMenuView gameMenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
             default:
                 throw new CharInputException("\n\n" +entry + " is an invalid input at this time \n"
