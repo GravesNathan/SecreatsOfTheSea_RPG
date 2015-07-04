@@ -135,8 +135,8 @@ public class ShipSelectionControl {
                 selectedShip.setShipHealth(baseStats + ship[i].getHealth());
                 return;  
             }
-            else throw new ShipSelectionException("Error Populating Ship Details");//WEEK 10 IA
         }
+        throw new ShipSelectionException("Error Populating Ship Details");//WEEK 10 IA
     }
     
     @Override //Used to show the potential selected ships stats.  This is

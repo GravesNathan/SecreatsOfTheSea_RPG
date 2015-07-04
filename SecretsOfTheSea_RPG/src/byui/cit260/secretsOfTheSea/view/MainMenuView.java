@@ -75,9 +75,15 @@ public class MainMenuView {
         //Choose Ship
         String charShipChoice = "Raft";
         int shipChoice = -1;
+        
+        ShipSelectionControl tempShips = null;
         try {
-        ShipSelectionControl tempShips = new ShipSelectionControl(8);
-
+        tempShips = new ShipSelectionControl(0);
+                } catch (ShipSelectionException sse) {
+                    System.out.println(sse.getMessage());
+                System.out.println("\n You must enter a valid number or we will give you a raft."
+                + " Try again, you won't survive on a raft.");
+        }
         do{
         System.out.println("\n Please select your ship with with options 0 through 3"
                 + tempShips.toString());
@@ -96,7 +102,8 @@ public class MainMenuView {
         //if (!((shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3)))
         //    System.out.println("Invalid Input.");
         }while(!( (shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3) ));
-
+        
+        try {
         assignPlayerShip = new ShipSelectionControl(shipChoice);
             } catch (ShipSelectionException sse) {
                     System.out.println(sse.getMessage());
