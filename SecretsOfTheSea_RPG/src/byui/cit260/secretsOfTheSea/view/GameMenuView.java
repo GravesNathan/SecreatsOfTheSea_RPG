@@ -6,9 +6,11 @@
 package byui.cit260.secretsOfTheSea.view;
 
 import byui.cit260.secretsOfTheSea.control.InventoryControl;
+import byui.cit260.secretsOfTheSea.control.InventoryReport;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import java.io.Console;
 
 /**
  *
@@ -27,7 +29,8 @@ public class GameMenuView extends View{
         + "\n C - Close Menu"
         + "\n I - Inventory Manager"
         + "\n M - View Map"
-        + "\n V - View all Statuses\n", username, map, playerShip, inventory);
+        + "\n V - View all Statuses\n"
+        + "\n T - Temp Inventory Report", username, map, playerShip, inventory);
  //These aren't reachable here, but aren't assignable outside this constructor...
  //Could possibly have these setup in super constructor before the prompt message...
 //        tempUsername = username;  
@@ -68,7 +71,7 @@ public class GameMenuView extends View{
 		this.closeMenu();
 		return true;
             case 'I':
-		InventoryManagerView inventory = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip, tempInventory);
+		InventoryManagerView inventoryView = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
             case 'M':
                 tempMap.PrintMap();
@@ -76,6 +79,14 @@ public class GameMenuView extends View{
             case 'V':
 		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
+            case 'T'://Chose T for temporary report
+//               Console console = System.console();
+//                String outFileLocation = console.readLine("Enter the location where report should be stored");
+//                outFileLocation = outFileLocation.trim();
+
+                String outFileLocation = ("file.txt");
+                InventoryReport inventoryReport = new InventoryReport(tempInventory, outFileLocation);
+                return false;
             default:
                 System.out.println("\n Invalid choice.  Please try again.");
                 return false;
