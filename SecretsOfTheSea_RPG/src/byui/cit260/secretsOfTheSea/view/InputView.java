@@ -23,7 +23,7 @@ public class InputView {
 
         char value = ' ';
         try {
-            value = this.keyboard.readLine().charAt(0);
+            value = Character.toUpperCase(this.keyboard.readLine().charAt(0));
         //System.out.println("Invalid Character Input.  Plese try again.");
         //If possible check for valid character input. Otherwise probably handle
         //swith switch statement wherever this was called from

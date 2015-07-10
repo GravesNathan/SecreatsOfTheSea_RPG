@@ -61,8 +61,7 @@ public abstract class View implements ViewInterface {
         //Scanner keyboard = new Scanner(System.in);
         char value = ' ';
         try {
-        value = this.keyboard.readLine().charAt(0);
-        
+        value = Character.toUpperCase(this.keyboard.readLine().charAt(0));      
         //try {value = this.keyboard.readLine().charAt(0);
         //We need to add a throw here for invalid input.  Character class I created!
             //Something like detecting if input is NOT NAN should do.
