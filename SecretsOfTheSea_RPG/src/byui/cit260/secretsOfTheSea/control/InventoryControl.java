@@ -54,14 +54,14 @@ public class InventoryControl {
 //        int ship = playerShip.getShipChoice();            
 //    }
     
-    public String cargoToString(){
+    public String cargoToString(){//used to display a list of current cargo
         String cargoString = "";
             for (Items item: cargo)
                 cargoString += item.toString();
         return cargoString;
     }
     
-    public String storageToString(){
+    public String storageToString(){//Used to display a list of current storage
         String storageString = "";
             for (Items item: storage)
                 storageString += item.toString();
