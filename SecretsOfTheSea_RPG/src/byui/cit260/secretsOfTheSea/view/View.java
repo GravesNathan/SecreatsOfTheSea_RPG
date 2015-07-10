@@ -9,7 +9,10 @@ import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
 /**
  *
@@ -22,6 +25,9 @@ public abstract class View implements ViewInterface {
     protected MapControl tempMap = null;
     protected ShipSelectionControl tempPlayerShip= null;
     protected InventoryControl tempInventory = null;
+    
+    protected final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
+    protected final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
     
     public View(String promptMessage, NewGameControl username, MapControl map, ShipSelectionControl playerShip,
         InventoryControl inventory) {
@@ -52,13 +58,17 @@ public abstract class View implements ViewInterface {
     
     @Override
     public char getInput(){
-        Scanner keyboard = new Scanner(System.in);
+        //Scanner keyboard = new Scanner(System.in);
         char value = ' ';
+        try {
+        value = this.keyboard.readLine().charAt(0);
         
-            value = Character.toUpperCase(keyboard.next().charAt(0));
+        //try {value = this.keyboard.readLine().charAt(0);
         //We need to add a throw here for invalid input.  Character class I created!
             //Something like detecting if input is NOT NAN should do.
-
+        }catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
         return value;  //return the user input.
     }
 

@@ -81,8 +81,8 @@ public class GameMenuView extends View{
 		return false;
             case 'T'://Chose T for temporary report
 //               Console console = System.console();
-//                String outFileLocation = console.readLine("Enter the location where report should be stored");
-//                outFileLocation = outFileLocation.trim();
+//               String outFileLocation = console.readLine("Enter the location where report should be stored");
+//               outFileLocation = outFileLocation.trim();
 
                 String outFileLocation = ("file.txt");
                 InventoryReport inventoryReport = new InventoryReport(tempInventory, outFileLocation);

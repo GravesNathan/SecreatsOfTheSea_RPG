@@ -155,10 +155,11 @@ public class HelpMenuView extends View{
     }
        
         public void returnHelpMenu(){
-        String input1 = null;
-        Scanner keyboard = new Scanner(System.in);
+//        String input1 = null;
+        InputView input = new InputView();
+        input.stringInput();
         System.out.println("Press ENTER to Proceed.");
-        input1 = keyboard.nextLine();
+//        input1 = keyboard.nextLine();
 //        this.displayMenu();
     }
         

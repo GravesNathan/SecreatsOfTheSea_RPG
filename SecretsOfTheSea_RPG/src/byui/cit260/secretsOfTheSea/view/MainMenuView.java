@@ -13,7 +13,10 @@ import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
 //import byui.cit260.secretsOfTheSea.model.Player;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
 import byui.cit260.secretsOfTheSea.exceptions.ShipSelectionException;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Scanner;
+import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
 /**
  *
@@ -25,20 +28,20 @@ public class MainMenuView {
     //start here
     //initialize here and it's accessible throughout class.
    private NewGameControl newUserSettings = null; //again why are we creating the memory later in line 30 instead of here?
-   private MapControl mainMap = null; 
+   private MapControl mainMap = null;
+   protected final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
+
 //   private ShipSelectionControl userShip = null; 
 //   MapControl createMap = null;
    private ShipSelectionControl assignPlayerShip = null; 
    private InventoryControl inventory = null; 
+   InputView input = new InputView();
     //combined two new game functions to get this single one.
     public void newGame(){
         //Input Name
-        String userName;
-        Scanner nameReader = new Scanner(System.in);
-        System.out.println("Greetings Captain, welcome to the port-city of Rexburg, how shall we address you?");
-        userName = nameReader.nextLine();
-        userName = userName.trim();
-        
+        System.out.println("Greetings Captain, welcome to the port-city of Rexburg, "
+                + "how shall we address you?");
+        String userName = input.stringInput();
         //Choose difficulty
         char difficultyLevel;
         do{
@@ -46,8 +49,8 @@ public class MainMenuView {
                 + "\nE = Easy"
                 + "\nN = Normal"
                 + "\nH = Hard");
-        Scanner difficultyReader = new Scanner(System.in);
-        difficultyLevel = Character.toUpperCase(difficultyReader.next().charAt(0));
+        //difficultyLevel = Character.toUpperCase(difficultyReader.next().charAt(0));
+        difficultyLevel = input.charInput();
         if (!((difficultyLevel == 'E') || (difficultyLevel == 'N') || (difficultyLevel == 'H')))
             System.out.println("\n Invalid Input.  Please try again.");
          }while(!((difficultyLevel == 'E') || (difficultyLevel == 'N') || (difficultyLevel == 'H') || (difficultyLevel == 'S')));
@@ -66,8 +69,12 @@ public class MainMenuView {
                 System.out.println(eae.getMessage());
             System.out.println("\nReturning to start program view.  Press Enter to Proceed");
             String pressEnter = null;
-            Scanner keyboard = new Scanner(System.in);
-            pressEnter = keyboard.nextLine();
+            String value = " ";
+        try {
+            pressEnter = keyboard.readLine();
+        } catch (IOException ioe) {
+            System.out.println("\nError obtaining input\n");
+        }            
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.startProgram();//Does this only work with an independent executable?
         }
@@ -87,18 +94,8 @@ public class MainMenuView {
         do{
         System.out.println("\n Please select your ship with with options 0 through 3"
                 + tempShips.toString());
-        Scanner shipReader = new Scanner(System.in);
-        charShipChoice = shipReader.nextLine();
-        charShipChoice = charShipChoice.trim();
-        
-//Try - Catch test code
-//        try {
-        shipChoice = Integer.parseInt(charShipChoice);
-//        } catch (NumberFormatException nf) {
-//            System.out.println("\n You must enter a valid number or we will give you a raft."
-//            + " Try again, you won't survive on a raft.");
-//        }
-        
+        shipChoice = input.intInput();
+
         //if (!((shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3)))
         //    System.out.println("Invalid Input.");
         }while(!( (shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3) ));

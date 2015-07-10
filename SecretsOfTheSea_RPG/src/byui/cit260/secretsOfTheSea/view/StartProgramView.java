@@ -6,7 +6,10 @@
 package byui.cit260.secretsOfTheSea.view;
 
 import byui.cit260.secretsOfTheSea.control.InitializeControl;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Scanner;
+import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
 /**
  *
@@ -16,8 +19,10 @@ public class StartProgramView {
     
     public StartProgramView(){
         
-    }    
-        
+    }
+    private final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
+    InputView input = new InputView(); 
+    
     public void startProgram(){
         char mainInput;
         this.displayBanner();
@@ -61,9 +66,13 @@ public class StartProgramView {
     
     public void startupInput(){
         String input1 = null;
-        Scanner keyboard = new Scanner(System.in);
         System.out.println("Press ENTER to Proceed.");
-        input1 = keyboard.nextLine();
+
+        try {
+        input1 = keyboard.readLine();
+        } catch (IOException ioe) {
+            System.out.println("\nError obtaining input\n");
+        }
     }
     
     public char startMenuDisplay(){//change to return character for comparison in startProgram()
@@ -81,19 +90,18 @@ public class StartProgramView {
     }
     
     public char startMenuInput(){
-        char input;
-        Scanner reader = new Scanner(System.in);
-        input = Character.toUpperCase(reader.next().charAt(0));
-        while(!((input == 'G') || (input == 'H') || (input == 'L') || (input == 'Q'))){
-        System.out.println(input + " is an invalid entry. Please select an option below:"
+        char input1;
+        input1 = input.charInput();
+        while(!((input1 == 'G') || (input1 == 'H') || (input1 == 'L') || (input1 == 'Q'))){
+        System.out.println(input1 + " is an invalid entry. Please select an option below:"
             + "\nHotkey - Description"
             + "\n G - Start Game"
             + "\n H - Get Help"
             + "\n L - Load Game"
             + "\n Q - Quit Game");
-            input = Character.toUpperCase(reader.next().charAt(0));
+            input1 = input.charInput();
         }
-        return input;
+        return input1;
         //do-while and while loops, continue if condition is true. Exit when false.
     }
     
@@ -122,7 +130,7 @@ public class StartProgramView {
 /******** String Compare with compareTo  ************
       public void startMenuInput(){
         String input;
-        Scanner keyboard = new Scanner(System.in);
+        //Scanner keyboard = new Scanner(System.in);
     do {
         input = keyboard.nextLine();
         input = input.trim();

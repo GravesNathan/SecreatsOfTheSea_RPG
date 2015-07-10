@@ -6,7 +6,10 @@
 package byui.cit260.secretsOfTheSea.view;
 
 import byui.cit260.secretsOfTheSea.exceptions.CharInputException;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Scanner;
+import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
 /**
  *
@@ -14,25 +17,32 @@ import java.util.Scanner;
  */
 public class InputView {
     
-    
+    private final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
+   
     public char charInput(){
-        Scanner keyboard = new Scanner(System.in);
+
         char value = ' ';
-        value = Character.toUpperCase(keyboard.next().charAt(0));
+        try {
+            value = this.keyboard.readLine().charAt(0);
         //System.out.println("Invalid Character Input.  Plese try again.");
         //If possible check for valid character input. Otherwise probably handle
         //swith switch statement wherever this was called from
+        }catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
         return value;  //return the user input.
     }
     
     public int intInput(){
-        Scanner keyboard = new Scanner(System.in);
+        //Scanner keyboard = new Scanner(System.in);
         String input;
         int value = 0;
-        input = keyboard.next();
-        input = input.trim();
         try {
+        input = this.keyboard.readLine();
+        input = input.trim();
         value = Integer.parseInt(input);
+        } catch (IOException ioe) {
+            System.out.println("\nError obtaining input\n");
         } catch (NumberFormatException nf) {
             System.out.println("\n Please enter a valid whole number.\n");
             
@@ -41,10 +51,14 @@ public class InputView {
     }
     
         public String stringInput(){
-        Scanner keyboard = new Scanner(System.in);
+        //Scanner keyboard = new Scanner(System.in);
         String value = " ";
-        value = keyboard.nextLine();
+        try {
+        value = this.keyboard.readLine();
         value = value.trim();
-        return value;  //return the user input.
+        } catch (IOException ioe) {
+            System.out.println("\nError obtaining input\n");
+        }
+        return value;
     }
 }
