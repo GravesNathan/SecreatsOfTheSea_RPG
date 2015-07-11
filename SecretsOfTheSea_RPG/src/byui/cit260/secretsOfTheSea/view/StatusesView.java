@@ -37,7 +37,7 @@ public class StatusesView extends View{
             case 'C'://closes inventory manager view
                 return true;    
             case 'P':
-                //printReport.println(NewGameControl username, MapControl map, ShipSelectionControl playerShip, InventoryControl inventory);
+                ////printReport.println(NewGameControl username, MapControl map, ShipSelectionControl playerShip, InventoryControl inventory);
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(),"\n" + value + " is an invalid entry. Please select an option below:");
