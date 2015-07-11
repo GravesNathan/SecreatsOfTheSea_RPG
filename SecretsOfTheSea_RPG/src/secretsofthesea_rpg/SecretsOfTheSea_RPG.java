@@ -15,6 +15,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -53,6 +56,10 @@ public class SecretsOfTheSea_RPG {
         
         StartProgramView startProgramView = null;//= new StartProgramView();
         
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        //System.out.println(dateFormat.format(date)); 
+        
         try {
         //These lines open a stream for input and output for the console.
         //The 4th line creates and errorLog file in the specified directory.
@@ -69,6 +76,17 @@ public class SecretsOfTheSea_RPG {
         //true tells it to append to what exits instead of creating new one.
         //May create if does not exists, but of that I'm unsure.
 
+        String filePath = "errorLog.txt";
+        SecretsOfTheSea_RPG.errorLog = new PrintWriter(filePath);    
+        
+        //SecretsOfTheSea_RPG.statusReport = new PrintWriter(System.out, true);
+        String reportPath = "statusReport.txt";       
+        SecretsOfTheSea_RPG.statusReport = new PrintWriter(new BufferedWriter(new FileWriter (reportPath, true)));
+        statusReport.println(dateFormat.format(date) + " is your game start time");
+                statusReport.write("\n ************ \n");
+                statusReport.close();
+        
+        
         
         //StartProgramView
         startProgramView = new StartProgramView();
@@ -146,4 +164,12 @@ public class SecretsOfTheSea_RPG {
     public static void setErrorFile(File errorFile) {
         SecretsOfTheSea_RPG.errorFile = errorFile;
     }
+    public static PrintWriter getStatusReport() {
+        return statusReport;
+    }
+
+    public static void setStatusReport(PrintWriter statusReport) {
+        SecretsOfTheSea_RPG.statusReport = statusReport;
+    }
+    
 }

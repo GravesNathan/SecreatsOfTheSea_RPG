@@ -9,6 +9,12 @@ import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import secretsofthesea_rpg.SecretsOfTheSea_RPG;
+
 
 /**
  *
@@ -16,13 +22,22 @@ import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
  */
 public class StatusesView extends View{
     
+                private static final PrintWriter statusReport =
+            SecretsOfTheSea_RPG.getStatusReport();
+    
     public StatusesView(NewGameControl username, MapControl map, ShipSelectionControl playerShip,
             InventoryControl inventory){
         super("\n Current Game Statuses"
-                + "\nC - Close Inventory Manager", null, null, null, null);
+                + "\n C - Close Inventory Manager"
+                + "\n P - Print Status Report", null, null, null, null);
                // + "\nG - Game Menu View", username, map, playerShip);
         //Took out so we don't have a loop of game menu and statuses view
     }
+    
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        //System.out.println(dateFormat.format(date)); 
+    
     
         
     @Override
@@ -34,7 +49,12 @@ public class StatusesView extends View{
 //                GameMenuView gamemenu = new GameMenuView();
 //                return false; 
             case 'C'://closes inventory manager view
-                return true;                
+                return true;    
+            case 'P':
+                statusReport.println("\n" + dateFormat.format(date) + ": Enter User Status info here or pull from code sources");
+                statusReport.write("\n ************ \n");
+                statusReport.close();
+                return true;
             default:
                 ErrorView.display(this.getClass().getName(),"\n" + value + " is an invalid entry. Please select an option below:");
                 return false;
