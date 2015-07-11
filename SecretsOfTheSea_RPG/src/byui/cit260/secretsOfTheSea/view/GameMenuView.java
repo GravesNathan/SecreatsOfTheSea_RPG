@@ -29,7 +29,7 @@ public class GameMenuView extends View{
         + "\n C - Close Menu"
         + "\n I - Inventory Manager"
         + "\n M - View Map"
-        + "\n V - View all Statuses\n"
+        + "\n V - View all Statuses"
         + "\n T - Temp Inventory Report", username, map, playerShip, inventory);
  //These aren't reachable here, but aren't assignable outside this constructor...
  //Could possibly have these setup in super constructor before the prompt message...
@@ -84,7 +84,7 @@ public class GameMenuView extends View{
 //               String outFileLocation = console.readLine("Enter the location where report should be stored");
 //               outFileLocation = outFileLocation.trim();
 
-                String outFileLocation = ("file.txt");
+                String outFileLocation = ("InventoryReport.txt");
                 InventoryReport inventoryReport = new InventoryReport(tempInventory, outFileLocation);
                 return false;
             default:

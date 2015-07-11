@@ -9,6 +9,9 @@ package secretsofthesea_rpg;
 import byui.cit260.secretsOfTheSea.view.ErrorView;
 import byui.cit260.secretsOfTheSea.view.StartProgramView;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -26,9 +29,10 @@ public class SecretsOfTheSea_RPG {
 //    private static Game currentGame = null;
 //    private static Player player = null;
     
-    private static PrintWriter outFile = null;
+    private static PrintWriter outFile = null;//for Console
     private static BufferedReader inFile = null;
     private static PrintWriter errorLog = null;
+    private static File errorFile = new File("ErrorsLog.txt");//specify name and path of file here
     //private static ErrorView errorView = null;
     
     public static void main(String[] args) {
@@ -56,15 +60,20 @@ public class SecretsOfTheSea_RPG {
         //of the program
         SecretsOfTheSea_RPG.inFile = new BufferedReader(new InputStreamReader(System.in));
         SecretsOfTheSea_RPG.outFile = new PrintWriter(System.out, true);
-        String filePath = "errorLog.txt";
-        SecretsOfTheSea_RPG.errorLog = new PrintWriter(filePath);        
+        
+        
+        //*******Error Log Creation**********
+        if (!errorFile.exists())//Checks if errorFile exists.  Creates it if it does not.
+            errorFile.createNewFile();
+        errorLog = new PrintWriter(new BufferedWriter(new FileWriter(errorFile, true)));      
+        //true tells it to append to what exits instead of creating new one.
+        //May create if does not exists, but of that I'm unsure.
+
         
         //StartProgramView
         startProgramView = new StartProgramView();
         startProgramView.startProgram();
-
-        
-        
+       
         } catch (Throwable te){ 
 
             ErrorView.display("SecretsOfTheSea_RPG",te.getMessage());
@@ -83,7 +92,7 @@ public class SecretsOfTheSea_RPG {
                 if (SecretsOfTheSea_RPG.errorLog != null)
                     SecretsOfTheSea_RPG.errorLog.close();
             } catch (IOException ex) {
-                ErrorView.display("SecretsOfTheSea_RPG","BLAH ERROR");
+                ErrorView.display("SecretsOfTheSea_RPG","Error closing a stream.");
             }
         }
     }
@@ -104,6 +113,24 @@ public class SecretsOfTheSea_RPG {
         SecretsOfTheSea_RPG.inFile = inFile;
     }
 
+    
+//    public static FileWriter getErrorLog() {
+//        return errorLog;
+//    }
+//
+//    public static void setErrorLog(FileWriter errorLog) {
+//        SecretsOfTheSea_RPG.errorLog = errorLog;
+//    }
+//
+//    public static File getErrorFile() {
+//        return errorFile;
+//    }
+//
+//    public static void setErrorFile(File errorFile) {
+//        SecretsOfTheSea_RPG.errorFile = errorFile;
+//    }
+//    
+
     public static PrintWriter getErrorLog() {
         return errorLog;
     }
@@ -111,5 +138,12 @@ public class SecretsOfTheSea_RPG {
     public static void setErrorLog(PrintWriter errorLog) {
         SecretsOfTheSea_RPG.errorLog = errorLog;
     }
-    
+
+    public static File getErrorFile() {
+        return errorFile;
+    }
+
+    public static void setErrorFile(File errorFile) {
+        SecretsOfTheSea_RPG.errorFile = errorFile;
+    }
 }

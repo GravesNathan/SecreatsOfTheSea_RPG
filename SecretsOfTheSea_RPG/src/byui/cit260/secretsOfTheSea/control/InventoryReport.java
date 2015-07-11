@@ -36,15 +36,14 @@ public class InventoryReport {
             outFile.write("\nCurrent Storage\n");
             outFile.write(inventory.storageToString());
         } catch (IOException ex1){
-            ErrorView.display(this.getClass().getName(),"Temp Error Creating Inventory Report.");
+            ErrorView.display(this.getClass().getName(), ex1.getMessage() +"Error Creating Inventory Report.");
         } finally{
             if (outFile != null){
                 try {
                     outFile.close();
                 } catch (IOException ex2){
-                    ErrorView.display(this.getClass().getName(),"Temp Error closing file");
+                    ErrorView.display(this.getClass().getName(), ex2.getMessage() + "Error closing InventoryReport file");
                 }
-                
             }
         }
     }
