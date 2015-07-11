@@ -10,6 +10,9 @@ import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
 
@@ -31,6 +34,11 @@ public class StatusesView extends View{
         //Took out so we don't have a loop of game menu and statuses view
     }
     
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        //System.out.println(dateFormat.format(date)); 
+    
+    
         
     @Override
     public boolean doAction(char entry){
@@ -43,8 +51,8 @@ public class StatusesView extends View{
             case 'C'://closes inventory manager view
                 return true;    
             case 'P':
-                statusReport.println("Enter User Status info here or pull from code sources");
-                statusReport.write("\n ******* \n");
+                statusReport.println("\n" + dateFormat.format(date) + ": Enter User Status info here or pull from code sources");
+                statusReport.write("\n ************ \n");
                 statusReport.close();
                 return true;
             default:

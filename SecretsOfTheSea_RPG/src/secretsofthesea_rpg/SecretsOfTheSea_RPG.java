@@ -9,9 +9,14 @@ package secretsofthesea_rpg;
 import byui.cit260.secretsOfTheSea.view.ErrorView;
 import byui.cit260.secretsOfTheSea.view.StartProgramView;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -50,6 +55,10 @@ public class SecretsOfTheSea_RPG {
         
         StartProgramView startProgramView = null;//= new StartProgramView();
         
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        //System.out.println(dateFormat.format(date)); 
+        
         try {
         //These lines open a stream for input and output for the console.
         //The 4th line creates and errorLog file in the specified directory.
@@ -62,7 +71,10 @@ public class SecretsOfTheSea_RPG {
         
         //SecretsOfTheSea_RPG.statusReport = new PrintWriter(System.out, true);
         String reportPath = "statusReport.txt";       
-        SecretsOfTheSea_RPG.statusReport = new PrintWriter(reportPath);
+        SecretsOfTheSea_RPG.statusReport = new PrintWriter(new BufferedWriter(new FileWriter (reportPath, true)));
+        statusReport.println(dateFormat.format(date) + " is your game start time");
+                statusReport.write("\n ************ \n");
+                statusReport.close();
         
         
         
