@@ -13,14 +13,18 @@ import byui.cit260.secretsOfTheSea.model.LocationDetails;
 //import byui.cit260.secretsOfTheSea.model.Ships;
 import byui.cit260.secretsOfTheSea.model.Storms;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
+import java.io.PrintWriter;
 
 import java.util.Random;
+import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
 /**
  *
  * @author Nathan
  */
 public class MapControl {
+    
+    protected final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
     //MapControl will create the map, place islands and storms, all based on difficulty
     private char difficulty;
     private Map mapOne = new Map();
@@ -147,16 +151,16 @@ public class MapControl {
     
     
     public void PrintMap(){
-        //System.out.println("\nfor-each bad Print, 0 = empty, 1 = island, 2 = storm");
-        System.out.println("\n");
+        //this.console.println("\nfor-each bad Print, 0 = empty, 1 = island, 2 = storm");
+        this.console.println("\n");
         int emptySpaces = 0;
         int islands = 0;
         int storms = 0;
         
 
-        System.out.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
+        this.console.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
         for(int[] row : mapGrid){
-            System.out.println();
+            this.console.println();
             for(int column : row)
                 System.out.print("  " + column + "  ");
         }    
@@ -174,16 +178,16 @@ public class MapControl {
 //                        storms += (row[i]/2);
 //                }
 //            }
-//            System.out.println();
+//            this.console.println();
 //        } 
-        System.out.println("Total empty coordinates = " + emptySpaces
+        this.console.println("Total empty coordinates = " + emptySpaces
         + "\nTotal island coordinates = " + islands
         + "\nTotal storm coordinates = " + storms);
     }
 //    public void tempPrintMap2(){
-//        System.out.println("\nbasic for good Print, 0 = empty, 1 = island, 2 = storm");
+//        this.console.println("\nbasic for good Print, 0 = empty, 1 = island, 2 = storm");
 //        for(int i=0; i<mapOne.getxMax(); i++){
-//            System.out.println();
+//            this.console.println();
 //            for(int j=0;j<mapOne.getyMax();j++)
 //                System.out.print("  " + mapGrid[i][j] + "  ");
 //        }    
@@ -191,7 +195,7 @@ public class MapControl {
 //
 //    public void verifyMap(){
 //        String mapList = " ";
-//        System.out.println("Note: first number reflects the row and the second number \nreflects the column."
+//        this.console.println("Note: first number reflects the row and the second number \nreflects the column."
 //                + "These are counted starting from 0, but 0 is on the top and left.  \nIt increases"
 //                + "going down and right.");
 //        for (int i=0; i<8; i++){
@@ -199,12 +203,12 @@ public class MapControl {
 //        }
 //        for (int i=0; i<numStorms; i++)
 //            mapList += ("\nStorm " + i + " location = " + storms[i].getXCoordinate() + ", " + storms[i].getYCoordinate());
-//        System.out.println(mapList);
+//        this.console.println(mapList);
 //    }
 //    public void tempPrintMap3(){
-//        System.out.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
+//        this.console.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
 //        for(int i=0; i<mapOne.getxMax(); i++){
-//            System.out.println();
+//            this.console.println();
 //            for(int j=0;j<mapOne.getyMax();j++)
 //                System.out.print("  " + mapGrid[j][i] + "  ");
 //        }    

@@ -7,15 +7,20 @@ package byui.cit260.secretsOfTheSea.control;
 
 import byui.cit260.secretsOfTheSea.exceptions.CharInputException;
 import byui.cit260.secretsOfTheSea.view.InventoryManagerView;
+import byui.cit260.secretsOfTheSea.view.ErrorView;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
 /**
  *
  * @author Nathan
  */
 public class InventoryReport {
+    
+    protected final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
     
     public InventoryReport(InventoryControl inventory, String outFileLocation){
         printInventory(inventory, outFileLocation);
@@ -31,13 +36,13 @@ public class InventoryReport {
             outFile.write("\nCurrent Storage\n");
             outFile.write(inventory.storageToString());
         } catch (IOException ex1){
-            System.out.println("Temp Error Creating Inventory Report.");
+            ErrorView.display(this.getClass().getName(),"Temp Error Creating Inventory Report.");
         } finally{
             if (outFile != null){
                 try {
                     outFile.close();
                 } catch (IOException ex2){
-                    System.out.println("Temp Error closing file");
+                    ErrorView.display(this.getClass().getName(),"Temp Error closing file");
                 }
                 
             }

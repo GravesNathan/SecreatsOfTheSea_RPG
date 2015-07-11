@@ -34,7 +34,7 @@ public class InitializeControl {
 //        mapOne.setyMax(4);
 //        
 //        String mapInfo = mapOne.toString();
-//        //System.out.println(mapInfo);
+//        //this.console.println(mapInfo);
 //        //End Map Class Set & Print
 //        
 //        //CurrentStatus Class Set & Print
@@ -48,7 +48,7 @@ public class InitializeControl {
 //        status.setStatusMessage("Default Message");
 //                
 //        String statusInfo = status.toString();
-//        //System.out.println(statusInfo);
+//        //this.console.println(statusInfo);
 //        //End CurrentStatus Class Set & Print
 //        
 //        //ExplorableAreas Class Set & Print
@@ -63,7 +63,7 @@ public class InitializeControl {
 //        areaOne.setTravelDistance(14);
 //        
 //        String areaInfo = areaOne.toString();
-        //System.out.println(areaInfo);
+        //this.console.println(areaInfo);
         //End ExplorableAreas Class Set & Print
        
         /**************************************/ 
@@ -84,7 +84,7 @@ public class InitializeControl {
         locationOne.setYCoordinate(2);
         
         String locationOneInfo = locationOne.toString();
-        //System.out.println(locationOneInfo);
+        //this.console.println(locationOneInfo);
         /*  End of Location One ********/
         /*  Location Two Setup */
 /*        LocationDetails locationTwo = new LocationDetails();
@@ -101,7 +101,7 @@ public class InitializeControl {
         locationTwo.setYCoordinate(2);
         
         String locationTwoInfo = locationTwo.toString();
-        //System.out.println(locationTwoInfo);
+        //this.console.println(locationTwoInfo);
         /*  End of Location Two ********/
         /*  Location Three  Setup */
 /*        LocationDetails locationThree = new LocationDetails();
@@ -118,7 +118,7 @@ public class InitializeControl {
         locationThree.setYCoordinate(2);
         
         String locationThreeInfo = locationThree.toString();
-        //System.out.println(locationThreeInfo);
+        //this.console.println(locationThreeInfo);
         /*  End of Location Three ********/
         /*  Location Four Setup */
  /*       LocationDetails locationFour = new LocationDetails();
@@ -135,7 +135,7 @@ public class InitializeControl {
         locationFour.setYCoordinate(2);
         
         String locationFourInfo = locationFour.toString();
-        //System.out.println(locationFourInfo);
+        //this.console.println(locationFourInfo);
         /*  End of LocationFour  ********/
         /*  Location Five Setup */
  /*       LocationDetails locationFive = new LocationDetails();
@@ -152,7 +152,7 @@ public class InitializeControl {
         locationFive.setYCoordinate(2);
         
         String locationFiveInfo = locationFive.toString();
-        //System.out.println(locationFiveInfo);
+        //this.console.println(locationFiveInfo);
         /*  End of LocationFive  ********/
         /*  Location Six Setup */
  /*       LocationDetails locationSix = new LocationDetails();
@@ -169,7 +169,7 @@ public class InitializeControl {
         locationSix.setYCoordinate(2);
         
         String locationSixInfo = locationSix.toString();
-        //System.out.println(locationSixInfo);
+        //this.console.println(locationSixInfo);
         /*  End of LocationSix  ********/
         /*  Location Seven Setup */
 /*        LocationDetails locationSeven = new LocationDetails();
@@ -186,7 +186,7 @@ public class InitializeControl {
         locationSeven.setYCoordinate(2);
         
         String locationSevenInfo = locationSeven.toString();
-        //System.out.println(locationSevenInfo);
+        //this.console.println(locationSevenInfo);
         /*  End of LocationSeven  ********/
         /*  Location Eight Setup */
 /*        LocationDetails locationEight = new LocationDetails();
@@ -203,7 +203,7 @@ public class InitializeControl {
         locationEight.setYCoordinate(2);
         
         String locationEightInfo = locationEight.toString();
-        //System.out.println(locationEightInfo);
+        //this.console.println(locationEightInfo);
         /*  End of LocationEight  ********/
         
         
@@ -218,7 +218,7 @@ public class InitializeControl {
         //playerOne.setPlayerChoice('1');
         
         //String playerInfo = playerOne.toString();
-        //System.out.println(playerInfo);
+        //this.console.println(playerInfo);
         //End Player Class Set & Print
 
 //        //Societies Class Set & Print
@@ -231,7 +231,7 @@ public class InitializeControl {
 //        societyOne.setNegativeApproach("Intimidation");
 //                
 //        String societyInfo = societyOne.toString();
-        //System.out.println(societyInfo);
+        //this.console.println(societyInfo);
         //End Societies Class Set & Print
 
         //SocietyNPCs Class Set & Print
@@ -244,7 +244,7 @@ public class InitializeControl {
         //societyOneNPC.setLeaderTrustStatus("Untrusted");
                 
         //String societyNPCInfo = societyOneNPC.toString();
-        //System.out.println(societyNPCInfo);
+        //this.console.println(societyNPCInfo);
         //End SocietyNPCs Class Set & Print
         
         
@@ -253,7 +253,7 @@ public class InitializeControl {
 
         
  /*       String selectedShipInfo = selectedShip.toString();
-        //System.out.println(selectedShipInfo);
+        //this.console.println(selectedShipInfo);
         
         //Storage Set & Print
         Storage storage = new Storage();
@@ -267,7 +267,7 @@ public class InitializeControl {
         storage.setGems(7);
         
         String storageInfo = storage.toString();
-        //System.out.println(storageInfo);
+        //this.console.println(storageInfo);
         
         //Cargo Set & Print
         Cargo cargo = new Cargo();
@@ -281,13 +281,13 @@ public class InitializeControl {
         cargo.setGems(2);
         
         String cargoInfo = cargo.toString();
-        //System.out.println(cargoInfo);
+        //this.console.println(cargoInfo);
         
         //calcMapSize check
         //MapControl difficultyCon1 = new MapControl();
         //difficultyCon1.calcMapSize( mapOne);
         //mapInfo = mapOne.toString();
-        //System.out.println(mapInfo);
+        //this.console.println(mapInfo);
         
         
         //populateMap check
@@ -296,22 +296,22 @@ public class InitializeControl {
         //String allLocationInfo = locationOne.toString() + "\n" + locationTwo.toString() + "\n" 
         //        + locationThree.toString() + "\n" + locationFour.toString() + "\n" + locationFive.toString()
           //      + "\n" + locationSix.toString() + "\n" + locationSeven.toString() + "\n" + locationEight.toString();
-        //System.out.println(allLocationInfo);
+        //this.console.println(allLocationInfo);
 
         //compareTrustLevels check
         TrustTrialControl TrustNPC1 = new TrustTrialControl();
         TrustNPC1.compareTrustLevels( societyOneNPC, status );
         societyNPCInfo = societyOneNPC.toString();
-        //System.out.println(societyNPCInfo + " " + status.getStatusMessage());
+        //this.console.println(societyNPCInfo + " " + status.getStatusMessage());
         statusInfo = status.toString();
-        //System.out.println(statusInfo);
+        //this.console.println(statusInfo);
         
         //Check SelectedShip
         //playerOne.setPlayerChoice('0');
         //ShipSelectionControl chooseShip = new ShipSelectionControl();
         //chooseShip.assignShip(player.getPlayerChoice(), ship, selectedShip, status);
         //selectedShipInfo = selectedShip.toString();
-        //System.out.println(selectedShipInfo + "\n" + status.getStatusMessage());
+        //this.console.println(selectedShipInfo + "\n" + status.getStatusMessage());
          */
     }
          

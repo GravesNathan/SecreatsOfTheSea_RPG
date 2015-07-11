@@ -6,6 +6,7 @@
 package secretsofthesea_rpg;
 
 //import byui.cit260.secretsOfTheSea.control.StartControl;
+import byui.cit260.secretsOfTheSea.view.ErrorView;
 import byui.cit260.secretsOfTheSea.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import java.io.PrintWriter;
  * @author SDababneh
  */
 public class SecretsOfTheSea_RPG {
+    
 
     /**
      * @param args the command line arguments
@@ -27,6 +29,7 @@ public class SecretsOfTheSea_RPG {
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
     private static PrintWriter errorLog = null;
+    //private static ErrorView errorView = null;
     
     public static void main(String[] args) {
         //Sample Class Set & Print
@@ -36,7 +39,7 @@ public class SecretsOfTheSea_RPG {
         *sampleOne.setIntAttribute(1); 
         *
         *String sampleInfo = sampleOne.toString();
-        *System.out.println(sampleInfo);
+        *this.console.println(sampleInfo);
         */
         //End sample Class Set & Print
         
@@ -54,13 +57,18 @@ public class SecretsOfTheSea_RPG {
         SecretsOfTheSea_RPG.inFile = new BufferedReader(new InputStreamReader(System.in));
         SecretsOfTheSea_RPG.outFile = new PrintWriter(System.out, true);
         String filePath = "errorLog.txt";
-        SecretsOfTheSea_RPG.errorLog = new PrintWriter(filePath);
+        SecretsOfTheSea_RPG.errorLog = new PrintWriter(filePath);        
         
         //StartProgramView
         startProgramView = new StartProgramView();
         startProgramView.startProgram();
+
+        
+        
         } catch (Throwable te){ 
-            System.out.println(te.getMessage());
+
+            ErrorView.display("SecretsOfTheSea_RPG",te.getMessage());
+            
             te.printStackTrace();
             startProgramView.startProgram();
         }
@@ -75,8 +83,7 @@ public class SecretsOfTheSea_RPG {
                 if (SecretsOfTheSea_RPG.errorLog != null)
                     SecretsOfTheSea_RPG.errorLog.close();
             } catch (IOException ex) {
-                System.out.println("Error closing file");
-                return;
+                ErrorView.display("SecretsOfTheSea_RPG","BLAH ERROR");
             }
         }
     }

@@ -8,6 +8,7 @@ package byui.cit260.secretsOfTheSea.view;
 import byui.cit260.secretsOfTheSea.control.InitializeControl;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
@@ -21,6 +22,7 @@ public class StartProgramView {
         
     }
     private final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
+    protected final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
     InputView input = new InputView(); 
     
     public void startProgram(){
@@ -36,12 +38,12 @@ public class StartProgramView {
     }
 
     public void displayBanner (){
-        System.out.println("\n\n *********************************************");
-        System.out.println("\n        Secrets of the Sea");
-        System.out.println(" The Best Treasure hunting game ever!");
-        System.out.println("\n **********************************************");
+        this.console.println("\n\n *********************************************");
+        this.console.println("\n        Secrets of the Sea");
+        this.console.println(" The Best Treasure hunting game ever!");
+        this.console.println("\n **********************************************");
         
-        System.out.println(""
+        this.console.println(""
                 + "\n Secrets of the Sea is a text-based role playing adventure. In this game, you will be taking on the"
                 + "\n role as captain of a ship. You will navigate 7 ports and 22 excavation sites as you seek to acquire 8"
                 + "\n highly valuable statues. On each token there is a piece of an ancient inscription, and when all 8 are "
@@ -60,30 +62,31 @@ public class StartProgramView {
                 + "\n Those who preserve and work together are likely to unlock the mysteries awaiting on both sea and land."
                 + "\n");
         
-        System.out.println("\n Hope you have a fun time."
+        this.console.println("\n Hope you have a fun time."
         + "\n" );
     }
     
     public void startupInput(){
         String input1 = null;
-        System.out.println("Press ENTER to Proceed.");
+        this.console.println("Press ENTER to Proceed.");
 
         try {
         input1 = keyboard.readLine();
         } catch (IOException ioe) {
-            System.out.println("\nError obtaining input\n");
+            ErrorView.display(this.getClass().getName(),"\nError obtaining input\n");
         }
     }
     
     public char startMenuDisplay(){//change to return character for comparison in startProgram()
         char mainInput;
-        System.out.println("Please select an option below"
+        this.console.println("Please select an option below"
                 + "\nHotkey - Description"
                 + "\n G - Start Game"
                 + "\n H - Help Menu"
                 + "\n L - Load Game"
                 + "\n Q - Quit Game"
                 + "\n");
+        
         mainInput = this.startMenuInput();
         this.startMenuChoice(mainInput);
         return mainInput;//added this line
@@ -93,7 +96,7 @@ public class StartProgramView {
         char input1;
         input1 = input.charInput();
         while(!((input1 == 'G') || (input1 == 'H') || (input1 == 'L') || (input1 == 'Q'))){
-        System.out.println(input1 + " is an invalid entry. Please select an option below:"
+        ErrorView.display(this.getClass().getName(), " that is an invalid entry. Please select an option below:"
             + "\nHotkey - Description"
             + "\n G - Start Game"
             + "\n H - Get Help"
@@ -121,7 +124,7 @@ public class StartProgramView {
                 mMView.quitGame();
                 break;
             default:
-                System.out.println("\n Invalid Selection *** Try again \n");
+                ErrorView.display(this.getClass().getName(),"\n Invalid Selection *** Try again \n");
         }
     }
     
@@ -134,7 +137,7 @@ public class StartProgramView {
     do {
         input = keyboard.nextLine();
         input = input.trim();
-        System.out.println("Invalid Entry. Please select an option below"
+        this.console.println("Invalid Entry. Please select an option below"
             + "\nHotkey - Description"
             + "\nG - Start Game"
             + "\nH - Get Help"

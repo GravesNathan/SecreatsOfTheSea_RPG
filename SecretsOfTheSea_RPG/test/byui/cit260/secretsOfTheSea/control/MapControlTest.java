@@ -31,21 +31,21 @@ public class MapControlTest {
         /*****************/
         char difficultyChoice = 'H';
         MapControl instance = new MapControl(difficultyChoice);
-        System.out.println("chosen difficulty is " + instance.getUserDifficulty());
+        this.console.println("chosen difficulty is " + instance.getUserDifficulty());
         
         /******************/
         /*****Case N******/
         /*****************/
         difficultyChoice = 'N';
         instance =  new MapControl(difficultyChoice);
-        System.out.println("chosen difficulty is " + instance.getUserDifficulty());
+        this.console.println("chosen difficulty is " + instance.getUserDifficulty());
         
         /******************/
         /*****Case E******/
         /*****************/
         difficultyChoice = 'E';
         instance =  new MapControl(difficultyChoice);
-        System.out.println("chosen difficulty is " + instance.getUserDifficulty());
+        this.console.println("chosen difficulty is " + instance.getUserDifficulty());
 
         
         /******************/
@@ -53,7 +53,7 @@ public class MapControlTest {
         /*****************/
         difficultyChoice = 'W';  
         instance =  new MapControl(difficultyChoice);
-        System.out.println("chosen difficulty is " + instance.getUserDifficulty());
+        this.console.println("chosen difficulty is " + instance.getUserDifficulty());
     }
     
 }

@@ -30,23 +30,23 @@ public class TrustTrialView extends View{
     }
     
     public void diplomaticApproach(){
-        System.out.println("Diplomatic Approach function stub");
+        this.console.println("Diplomatic Approach function stub");
     }
 
     public void intimidationApproach(){
-        System.out.println("Intimidation Approach function stub");
+        this.console.println("Intimidation Approach function stub");
     }
         
     public void briberyApproach(){
-        System.out.println("Bribery Approach function stub");
+        this.console.println("Bribery Approach function stub");
     }
     
     public void deceitApproach(){
-        System.out.println("Deceit Approach function stub");
+        this.console.println("Deceit Approach function stub");
     }
     
     public void fleeApproach(){
-        System.out.println("Flee Approach function stub");
+        this.console.println("Flee Approach function stub");
     }
     
     @Override
@@ -80,7 +80,7 @@ public class TrustTrialView extends View{
                 GameMenuView gamemenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip, tempInventory);
                 return false; 
             default:
-                System.out.println("\n Invalid choice. Please try again.");
+                ErrorView.display(this.getClass().getName(),"\n Invalid choice. Please try again.");
                 return false;
         }
     }

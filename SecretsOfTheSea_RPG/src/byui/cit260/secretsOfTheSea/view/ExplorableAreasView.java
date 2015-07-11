@@ -33,24 +33,24 @@ public class ExplorableAreasView extends View {
     
     
     public void exploreAreaControl(){
-        System.out.println("exploreAreaControl method called");
+        this.console.println("exploreAreaControl method called");
     }
     
     public void onShipView(){
-        System.out.println("onShipView method called");
+        this.console.println("onShipView method called");
         //load OnShipView
     }
     
     public void moveAreaControl(){
-        System.out.println("moveAreaControl Stub");
+        this.console.println("moveAreaControl Stub");
     }
             
     public void workOnShipControl(){
-        System.out.println("workOnShipControl method called");
+        this.console.println("workOnShipControl method called");
     }
     
     public void exchangeView(){
-        System.out.println("exchangeViewStub called");
+        this.console.println("exchangeViewStub called");
     }
 
     @Override
@@ -87,7 +87,7 @@ public class ExplorableAreasView extends View {
                         + "Please provide acceptable input from the menu below.\n");
         }
         }catch (CharInputException cie){
-                System.out.println(cie.getMessage());
+                ErrorView.display(this.getClass().getName(),cie.getMessage());
                 return false;
         } 
     }

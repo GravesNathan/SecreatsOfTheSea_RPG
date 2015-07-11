@@ -31,11 +31,11 @@ public class OnShipView extends View{
             }
     
     public void launchShipControl(){
-        System.out.println("launchShipControl stub");
+        this.console.println("launchShipControl stub");
     }
     
     public void workOnShipControl(){
-        System.out.println("workOnShip stub");
+        this.console.println("workOnShip stub");
     }
   
     @Override
@@ -65,7 +65,7 @@ public class OnShipView extends View{
 		GameMenuView gameMenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
             default:
-                System.out.println("\n Invalid choice.  Please try again.");
+                ErrorView.display(this.getClass().getName(),"\n Invalid choice.  Please try again.");
                 return false;
         } 
         

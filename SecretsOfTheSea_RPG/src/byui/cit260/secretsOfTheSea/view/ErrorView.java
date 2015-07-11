@@ -13,6 +13,7 @@ import secretsofthesea_rpg.SecretsOfTheSea_RPG;
  * @author Nathan
  */
 public class ErrorView {
+    
     private static final PrintWriter errorFile = 
             SecretsOfTheSea_RPG.getOutFile();
     
@@ -20,7 +21,7 @@ public class ErrorView {
             SecretsOfTheSea_RPG.getErrorLog();
     
     public static void display (String className, String errorMessage){
-        
+
         errorFile.println("------------------------------"
                 + "\n- ERROR - " + errorMessage
                 + "\n--------------------------------------");

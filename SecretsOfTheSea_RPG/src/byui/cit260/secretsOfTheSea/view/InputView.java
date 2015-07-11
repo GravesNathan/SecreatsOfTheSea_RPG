@@ -8,6 +8,7 @@ package byui.cit260.secretsOfTheSea.view;
 import byui.cit260.secretsOfTheSea.exceptions.CharInputException;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
@@ -18,18 +19,18 @@ import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 public class InputView {
     
     private final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
-    //gets the existing inFile memory and assigns in here.  This allows the
-    //program to use the existing stream instead of opening more streams for input.
+    protected final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
+   
     public char charInput(){
 
         char value = ' ';
         try {
             value = Character.toUpperCase(this.keyboard.readLine().charAt(0));
-        //System.out.println("Invalid Character Input.  Plese try again.");
+        //this.console.println("Invalid Character Input.  Plese try again.");
         //If possible check for valid character input. Otherwise probably handle
         //swith switch statement wherever this was called from
         }catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
         }
         return value;  //return the user input.
     }
@@ -43,9 +44,9 @@ public class InputView {
         input = input.trim();
         value = Integer.parseInt(input);
         } catch (IOException ioe) {
-            System.out.println("\nError obtaining input\n");
+            ErrorView.display(this.getClass().getName(),"\nError obtaining input\n");
         } catch (NumberFormatException nf) {
-            System.out.println("\n Please enter a valid whole number.\n");
+            ErrorView.display(this.getClass().getName(),"\n Please enter a valid whole number.\n");
             
         }
         return value;  //return the user input.
@@ -58,7 +59,7 @@ public class InputView {
         value = this.keyboard.readLine();
         value = value.trim();
         } catch (IOException ioe) {
-            System.out.println("\nError obtaining input\n");
+            ErrorView.display(this.getClass().getName(),"\nError obtaining input\n");
         }
         return value;
     }

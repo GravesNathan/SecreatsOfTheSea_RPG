@@ -10,12 +10,16 @@ import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 import byui.cit260.secretsOfTheSea.model.Items;
+import java.io.PrintWriter;
+import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
 /**
  *
  * @author Nathan
  */
 public class InventoryManagerView{
+    
+    protected final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
     
     private String promptMessage;
 //    private NewGameControl tempUsername = null;
@@ -34,7 +38,7 @@ public class InventoryManagerView{
 //        tempMap = map;
 //        tempPlayerShip= playerShip;
         tempInventory = inventory;
-        System.out.println("\n");
+        this.console.println("\n");
         this.promptMessage = ("\n                   Inventory Manager"
                 +"\n Please select a resource or close the inventory manager."
                 + inventory.cargoToString()
@@ -47,24 +51,24 @@ public class InventoryManagerView{
         do {
                 do{
                 
-                System.out.println(this.promptMessage);
+                this.console.println(this.promptMessage);
 		item = getInput.charInput();
                 if (! ((item == 'F') || (item == 'W') ||(item == 'U') ||(item == 'M') 
                         ||(item == 'C') ||(item == 'A') ||(item == 'G')) ){
-                    System.out.println("Invalid Input.  Please select from the following inventory");
+                    ErrorView.display(this.getClass().getName(),"Invalid Input.  Please select from the following inventory");
                     continue;
                 }
                 }while (! ((item == 'F') || (item == 'W') ||(item == 'U') ||(item == 'M') 
                         ||(item == 'C') ||(item == 'A') ||(item == 'G')) );
                     
                 do{
-                System.out.println("What would you like to do with this item?"
+                this.console.println("What would you like to do with this item?"
                         + "\nD - Drop"
                         + "\nU - Use"
                         + "\nC - Close Inventory Manager");
                 action = getInput.charInput();
                 if (! ((action == 'D') || (action == 'U') ||(action == 'C')) ){
-                    System.out.println("Invalid Input.  Please choose actions to take"
+                    ErrorView.display(this.getClass().getName(),"Invalid Input.  Please choose actions to take"
                             + "\n from the list below.");
                     continue;
                 }
@@ -75,7 +79,7 @@ public class InventoryManagerView{
                 }while (! ((action == 'D') || (action == 'U') ||(action == 'C')) );
 
                 do{
-                System.out.println("Plese input the quantity to " + strAction);
+                this.console.println("Plese input the quantity to " + strAction);
                 quantity = getInput.intInput();
                 //Need to make this detect if quantity > currentItems.
                 //This may be easier handled by calling the control layer and
@@ -104,22 +108,22 @@ public class InventoryManagerView{
         }
 
     public void dropItem(){
-        System.out.println("dropItem function stub");
+        this.console.println("dropItem function stub");
     }
     
 
     public void useResource(){
-        System.out.println("useResource function called.");
+        this.console.println("useResource function called.");
     }
     
 }  
 //    public void takeItem(){
-//        System.out.println("takeItem function stub");
+//        this.console.println("takeItem function stub");
 //    }  Take not option in inventory, I picture this in explorableAreas
 //     after finding an item if player chooses to keep it.
 
 //    public void viewResource(){
-//        System.out.println("viewResourceView called (maybe in same view, separte output and prompt)");
+//        this.console.println("viewResourceView called (maybe in same view, separte output and prompt)");
 //    }  Don't see point in this anymore.
     
 
@@ -140,7 +144,7 @@ public class InventoryManagerView{
 //                    case 'C'://closes inventory manager view
 //                        return true;                
 //                    default:
-//                        System.out.println("\n" + value + " is an invalid entry. Please select an option below:");
+//                        this.console.println("\n" + value + " is an invalid entry. Please select an option below:");
 //                        return false;
 //                }
 //        }

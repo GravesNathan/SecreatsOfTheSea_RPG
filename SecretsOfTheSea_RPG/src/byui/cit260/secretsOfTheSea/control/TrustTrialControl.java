@@ -22,21 +22,21 @@ public class TrustTrialControl {
             int leaderTrustLevelTarget = societyOneNPC.getLeaderTrustLevelTarget();
             int leaderTrustLevel = societyOneNPC.getLeaderTrustLevel();
             //String leaderName = Billy.get();
-//            System.out.println("Leader current trust level= " + leaderTrustLevel);
+//            this.console.println("Leader current trust level= " + leaderTrustLevel);
             if (leaderTrustLevel <= 0) {
                 status.setLifeStatus ("Game Over.  " + leader.getdescription() + " has thrown you in prison for life.");
-                //System.out.println("Trust is zero");
+                //this.console.println("Trust is zero");
                 return;
             }
             else if (leaderTrustLevel < leaderTrustLevelTarget){
                     societyOneNPC.setLeaderTrustStatus("Untrusted");
                     status.setLifeStatus ("Alive and well");
-//                    System.out.println("Trust is 1-3");
+//                    this.console.println("Trust is 1-3");
             }
             else if (leaderTrustLevel >= leaderTrustLevelTarget){
                     societyOneNPC.setLeaderTrustStatus("Trusted"); 
                     status.setLifeStatus ("Alive and well");
-//                    System.out.println("Trust is matched");
+//                    this.console.println("Trust is matched");
             }
             else {
                     throw new TrustTrialException("An error ocurred when comparing player's trust level"
