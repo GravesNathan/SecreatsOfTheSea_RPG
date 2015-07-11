@@ -41,15 +41,15 @@ public class GameMenuView extends View{
     }
     
     public void saveGame(){
-        System.out.println("saveGame method called");
+        this.console.println("saveGame method called");
     }
     
     public void quitGame(){
-        System.out.println("quitGame method called");
+        this.console.println("quitGame method called");
     }
     
     public void closeMenu(){
-        System.out.println("closeMenu method called");
+        this.console.println("closeMenu method called");
     }
     
     @Override
@@ -88,7 +88,7 @@ public class GameMenuView extends View{
                 InventoryReport inventoryReport = new InventoryReport(tempInventory, outFileLocation);
                 return false;
             default:
-                System.out.println("\n Invalid choice.  Please try again.");
+                ErrorView.display(this.getClass().getName(),"\n Invalid choice.  Please try again.");
                 return false;
         }
     }

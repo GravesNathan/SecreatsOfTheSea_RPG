@@ -12,6 +12,7 @@ import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import byui.cit260.secretsOfTheSea.view.ErrorView;
 import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
 /**
@@ -35,7 +36,7 @@ public abstract class View implements ViewInterface {
         tempMap = map;
         tempPlayerShip= playerShip;
         tempInventory = inventory;
-        System.out.println("\n");
+        this.console.println("\n");
         this.promptMessage = promptMessage;
         this.display();
     }
@@ -45,7 +46,7 @@ public abstract class View implements ViewInterface {
         boolean done = false;
         char value = ' ';
         do {
-                System.out.println(this.promptMessage);
+                this.console.println(this.promptMessage);
 		value = this.getInput();
 		done = this.doAction(value);
                 //doAction in sub-class return true to stay in
@@ -66,7 +67,7 @@ public abstract class View implements ViewInterface {
         //We need to add a throw here for invalid input.  Character class I created!
             //Something like detecting if input is NOT NAN should do.
         }catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
         }
         return value;  //return the user input.
     }
@@ -80,7 +81,7 @@ public abstract class View implements ViewInterface {
     }
     
     public void nextInput() {
-        System.out.println("\n");
+        this.console.println("\n");
         this.promptMessage = promptMessage;
         this.display();//This calls doAction which is overridden...How can I get it to detect... I can next the switches within a for/switch in doAction
         //This can have 0 be 1st input, 1 second, and so on.  If they hit close at any time it closes

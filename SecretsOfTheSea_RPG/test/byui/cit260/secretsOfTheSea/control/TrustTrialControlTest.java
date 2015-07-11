@@ -24,11 +24,11 @@ public class TrustTrialControlTest {
      */
     @Test
     public void testCompareTrustLevels() {
-        System.out.println("compareTrustLevels");
+        this.console.println("compareTrustLevels");
         /******************/
         /****Zero Trust****/
         /*****************/        
-        System.out.println("compareTrustLevels of Zero Trust");
+        this.console.println("compareTrustLevels of Zero Trust");
         SocietyNPCs societyOneNPC = new SocietyNPCs();
         societyOneNPC.setLeaderTrustLevel(0);
         societyOneNPC.setLeaderTrustLevelTarget(5);
@@ -44,7 +44,7 @@ public class TrustTrialControlTest {
         /********************/
         /*Trust below Target*/
         /********************/        
-        System.out.println("compareTrustLevels of Zero Trust");
+        this.console.println("compareTrustLevels of Zero Trust");
         societyOneNPC.setLeaderTrustLevel(2);
         societyOneNPC.setLeaderTrustLevelTarget(5);
         
@@ -56,7 +56,7 @@ public class TrustTrialControlTest {
         /**********************/
         /*Trust Target Reached*/
         /**********************/        
-        System.out.println("compareTrustLevels of Zero Trust");
+        this.console.println("compareTrustLevels of Zero Trust");
         societyOneNPC.setLeaderTrustLevel(5);
         societyOneNPC.setLeaderTrustLevelTarget(5);
         

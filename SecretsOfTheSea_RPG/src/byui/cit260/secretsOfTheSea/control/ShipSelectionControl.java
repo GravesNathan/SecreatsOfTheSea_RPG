@@ -48,7 +48,7 @@ public class ShipSelectionControl {
         ship[0].setHealth(0);
         
         String ship0Info = ship[0].toString();
-        //System.out.println(ship0Info);
+        //this.console.println(ship0Info);
         
         //ship1
         ship[1].setName("Ironclad");
@@ -64,7 +64,7 @@ public class ShipSelectionControl {
         ship[1].setHealth(0);
         
         String ship1Info = ship[1].toString();
-        //System.out.println(ship1Info);
+        //this.console.println(ship1Info);
         
         //ship2
         ship[2].setName("Galley");
@@ -80,7 +80,7 @@ public class ShipSelectionControl {
         ship[2].setHealth(0);
         
         String ship2Info = ship[2].toString();
-        //System.out.println(ship2Info);
+        //this.console.println(ship2Info);
         
         //ship3
         
@@ -96,7 +96,7 @@ public class ShipSelectionControl {
         ship[3].setBribery(-1);
         ship[3].setHealth(0);
         String ship3Info = ship[3].toString();
-        //System.out.println(ship3Info);
+        //this.console.println(ship3Info);
         
     /*    
         //SelectedShip Set & Print

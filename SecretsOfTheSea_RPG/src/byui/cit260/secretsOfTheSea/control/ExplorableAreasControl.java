@@ -39,7 +39,7 @@ public class ExplorableAreasControl {
                     areas[i][j].setResource2Quantity(10);
                     areas[i][j].setTravelDistance(2);
                     areas[i][j].setHasStatue(0);
-                    //used when testing System.out.println("Island " + i + " area " + j + ":  " +areas[i][j].toString());
+                    //used when testing this.console.println("Island " + i + " area " + j + ":  " +areas[i][j].toString());
                 } else if(j==1 || j==2 || j==3){
                         areas[i][j].setDescription(this.areaNameGenerator());
                         areas[i][j].setResource1(this.randomResource());
@@ -50,7 +50,7 @@ public class ExplorableAreasControl {
                         if (j == placeStatue)
                             areas[i][j].setHasStatue(1);
                         else areas[i][j].setHasStatue(0);
-                        //used when testing System.out.println("Island " + i + " area " + j + ":  " +areas[i][j].toString());
+                        //used when testing this.console.println("Island " + i + " area " + j + ":  " +areas[i][j].toString());
                     }
                 else throw new ExplorableAreasException("Error Populating Areas"); //WEEK 10 IA
             }

@@ -32,15 +32,15 @@ public class ExchangeView extends View {
 
     
     public void ExchangeItemsControl(){
-        System.out.println("ExchangeItemsControl stub");
+        this.console.println("ExchangeItemsControl stub");
     }
     
 //    public void acceptTradeControl(){
-//        System.out.println("acceptTradeControl stub");
+//        this.console.println("acceptTradeControl stub");
 //    }
     
     public void closeTradeControl(){
-        System.out.println("closeTradeControl stub");
+        this.console.println("closeTradeControl stub");
     }
       
     @Override
@@ -71,11 +71,11 @@ public class ExchangeView extends View {
             default:
                 throw new CharInputException("\n\n" +entry + " is an invalid input at this time \n"
                         + "Please provide acceptable input from the menu below.\n");
-                //System.out.println("\n Invalid choice. Please try again.");
+                //this.console.println("\n Invalid choice. Please try again.");
                 //return false;
         }
         }catch (CharInputException cie){
-                System.out.println(cie.getMessage());
+                ErrorView.display(this.getClass().getName(),cie.getMessage());
                 return false;
         }
     }

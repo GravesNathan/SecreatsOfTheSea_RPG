@@ -26,11 +26,11 @@ public class EndGameView extends View{
     }
     
     public void viewCredits(){
-        System.out.println("View Credits function stub");
+        this.console.println("View Credits function stub");
     }
     
     public void exitGame(){
-        System.out.println("Exit Game function stub");
+        this.console.println("Exit Game function stub");
     }
     
   @Override
@@ -51,7 +51,7 @@ public class EndGameView extends View{
                 MainMenuView mainMenu = new MainMenuView();
                 return false; 
             default:
-                System.out.println("\n Invalid choice. Please try again.");
+                this.console.println("\n Invalid choice. Please try again.");
                 return false;
         }
     }

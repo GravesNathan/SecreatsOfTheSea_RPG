@@ -6,6 +6,7 @@
 package byui.cit260.secretsOfTheSea.control;
 
 
+import byui.cit260.secretsOfTheSea.view.ErrorView;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -27,36 +28,36 @@ public class ShipSelectionControlTest {
  
         
         /******** Start Testing ******/
-        System.out.println("assignShip");
-        System.out.println("Choice 0");
+        this.console.println("assignShip");
+        this.console.println("Choice 0");
         int playerChoice = 0;
         ShipSelectionControl instance = new ShipSelectionControl(playerChoice);
         //selectedShipInfo = instance.toString();
-        System.out.println(instance.getUserShip());
+        this.console.println(instance.getUserShip());
 
-        System.out.println("Choice 1");
+        this.console.println("Choice 1");
         playerChoice = 1;
         instance = new ShipSelectionControl(playerChoice);
-        System.out.println(instance.getUserShip());
+        this.console.println(instance.getUserShip());
         
-        System.out.println("Choice 2");
+        this.console.println("Choice 2");
         playerChoice = 2;
         instance = new ShipSelectionControl(playerChoice);
-        System.out.println(instance.getUserShip());
+        this.console.println(instance.getUserShip());
         
-        System.out.println("Choice 3");
+        this.console.println("Choice 3");
         playerChoice = 3;
         instance = new ShipSelectionControl(playerChoice);
-        System.out.println(instance.getUserShip());
+        this.console.println(instance.getUserShip());
 
         //instance.assignShip(playerChoice, selectedShip);
         //selectedShipInfo = instance.toString();
-        //System.out.println(instance.toString());
+        //this.console.println(instance.toString());
         
-        System.out.println("Bad Choice");
+        ErrorView.display(this.getClass().getName(),"Bad Choice");
         playerChoice = 4;
         instance = new ShipSelectionControl(playerChoice);
-        System.out.println(instance.getUserShip());
+        this.console.println(instance.getUserShip());
     }
     
 }

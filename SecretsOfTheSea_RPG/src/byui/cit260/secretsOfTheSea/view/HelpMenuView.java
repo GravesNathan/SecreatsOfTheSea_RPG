@@ -71,14 +71,14 @@ public class HelpMenuView extends View{
             case 'C':
                 return true;
             default:
-                System.out.println(value + " is an invalid entry. Please select an option below:");
+                ErrorView.display(this.getClass().getName(),value + " is an invalid entry. Please select an option below:");
             return false;
         }
         
     }
 
     private void describeGameGoal() {
-        System.out.println("\n *** What is the Goal of the Game: ***"
+        this.console.println("\n *** What is the Goal of the Game: ***"
                         + "\n"
                         + "\n The goal of the game is to gather up all of the 8 statues."
                         + "\n You have been given the first statue by your own people, you "
@@ -95,7 +95,7 @@ public class HelpMenuView extends View{
 
     
     private void healthExplained() {
-        System.out.println("\n *** HEALTH EXPLAINED ***"
+        this.console.println("\n *** HEALTH EXPLAINED ***"
                         + "\n"
                         + "\n As you travel through the game you and your crew will face ."
                         + "\n storms at sea, hunger, thirst, and the possibility of an "
@@ -111,7 +111,7 @@ public class HelpMenuView extends View{
 
 
     private void howToMove() {
-        System.out.println("\n *** HOW TO MOVE ***"
+        this.console.println("\n *** HOW TO MOVE ***"
                         + "\n"
                         + "\n Enter Description Here."
                         + "\n"
@@ -120,7 +120,7 @@ public class HelpMenuView extends View{
     }
 
     private void resourceTypes() {
-        System.out.println("\n *** RESOURCE TYPES ***"
+        this.console.println("\n *** RESOURCE TYPES ***"
                         + "\n"
                         + "\n Enter Description Here."
                         + "\n"
@@ -129,7 +129,7 @@ public class HelpMenuView extends View{
     }
 
     private void societyHelp() {
-        System.out.println("\n *** SOCIETIES EXPLAINED ***"
+        this.console.println("\n *** SOCIETIES EXPLAINED ***"
                         + "\n"
                         + "\n Enter Description Here."
                         + "\n"
@@ -138,7 +138,7 @@ public class HelpMenuView extends View{
     }
 
     private void trustLevelsExplained() {
-        System.out.println("\n *** TRUST LEVELS EXPLAINED ***"
+        this.console.println("\n *** TRUST LEVELS EXPLAINED ***"
                         + "\n"
                         + "\n Enter Description Here."
                         + "\n"
@@ -158,7 +158,7 @@ public class HelpMenuView extends View{
 //        String input1 = null;
         InputView input = new InputView();
         input.stringInput();
-        System.out.println("Press ENTER to Proceed.");
+        this.console.println("Press ENTER to Proceed.");
 //        input1 = keyboard.nextLine();
 //        this.displayMenu();
     }
