@@ -19,8 +19,11 @@ import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 public class InputView {
     
     private final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
-    protected final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
-   
+    private final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();//Changed to private
+    //InputView is not a super class so no need for inheritance.
+    //gets the existing inFile and outFile memory and assigns in here.  This allows the
+    //program to use the existing streams instead of opening more streams for each view.
+    
     public char charInput(){
 
         char value = ' ';
@@ -38,15 +41,16 @@ public class InputView {
     public int intInput(){
         //Scanner keyboard = new Scanner(System.in);
         String input;
-        int value = 0;
+        int value = -1;//Need invalid choice for when NumberFormatException is caught.
+        //This allows the loop prompting for valid input to continue where this is called from.
         try {
         input = this.keyboard.readLine();
         input = input.trim();
         value = Integer.parseInt(input);
         } catch (IOException ioe) {
-            ErrorView.display(this.getClass().getName(),"\nError obtaining input\n");
+            ErrorView.display(this.getClass().getName(),"Error obtaining input\n");
         } catch (NumberFormatException nf) {
-            ErrorView.display(this.getClass().getName(),"\n Please enter a valid whole number.\n");
+            ErrorView.display(this.getClass().getName(),"Please enter a valid whole number.\n");
             
         }
         return value;  //return the user input.
@@ -59,7 +63,7 @@ public class InputView {
         value = this.keyboard.readLine();
         value = value.trim();
         } catch (IOException ioe) {
-            ErrorView.display(this.getClass().getName(),"\nError obtaining input\n");
+            ErrorView.display(this.getClass().getName(),"Error obtaining input\n");
         }
         return value;
     }

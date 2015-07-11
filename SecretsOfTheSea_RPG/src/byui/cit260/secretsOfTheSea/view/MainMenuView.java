@@ -30,11 +30,16 @@ public class MainMenuView {
     //initialize here and it's accessible throughout class.
    private NewGameControl newUserSettings = null; //again why are we creating the memory later in line 30 instead of here?
    private MapControl mainMap = null;
-   protected final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
-   protected final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
-
+   
+   private final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
+   private final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
+    //InputView is not a super class so no need for inheritance.
+    //gets the existing inFile and outFile memory and assigns in here.  This allows the
+    //program to use the existing streams instead of opening more streams for each view.
+   
 //   private ShipSelectionControl userShip = null; 
 //   MapControl createMap = null;
+   
    private ShipSelectionControl assignPlayerShip = null; 
    private InventoryControl inventory = null; 
    InputView input = new InputView();
@@ -54,7 +59,7 @@ public class MainMenuView {
         //difficultyLevel = Character.toUpperCase(difficultyReader.next().charAt(0));
         difficultyLevel = input.charInput();
         if (!((difficultyLevel == 'E') || (difficultyLevel == 'N') || (difficultyLevel == 'H')))
-            ErrorView.display(this.getClass().getName(),"\n Invalid Input.  Please try again.");
+            ErrorView.display(this.getClass().getName(),"Invalid Input.  Please try again.");
          }while(!((difficultyLevel == 'E') || (difficultyLevel == 'N') || (difficultyLevel == 'H') || (difficultyLevel == 'S')));
 
 //Try - Catch test code
@@ -69,13 +74,13 @@ public class MainMenuView {
         
         }catch (ExplorableAreasException eae) {
                 this.console.println(eae.getMessage());
-            ErrorView.display(this.getClass().getName(),"\nReturning to start program view.  Press Enter to Proceed");
+            ErrorView.display(this.getClass().getName(),"Returning to start program view.  Press Enter to Proceed");
             String pressEnter = null;
             String value = " ";
         try {
             pressEnter = keyboard.readLine();
         } catch (IOException ioe) {
-            ErrorView.display(this.getClass().getName(),"\nError obtaining input\n");
+            ErrorView.display(this.getClass().getName(),"Error obtaining input\n");
         }            
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.startProgram();//Does this only work with an independent executable?
@@ -90,16 +95,16 @@ public class MainMenuView {
         tempShips = new ShipSelectionControl(0);
                 } catch (ShipSelectionException sse) {
                     this.console.println(sse.getMessage());
-                ErrorView.display(this.getClass().getName(),"\n You must enter a valid number or we will give you a raft."
-                + " Try again, you won't survive on a raft.");
+                ErrorView.display(this.getClass().getName(),"Error occured while creating ships"
+                        + "for player to select from.");
         }
         do{
         this.console.println("\n Please select your ship with with options 0 through 3"
                 + tempShips.toString());
         shipChoice = input.intInput();
 
-        //if (!((shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3)))
-        //    this.console.println("Invalid Input.");
+        if (!((shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3)))
+            ErrorView.display(this.getClass().getName(),"Invalid Input.  Please try again.");
         }while(!( (shipChoice == 0) || ( shipChoice == 1) || ( shipChoice == 2) || ( shipChoice ==3) ));
         
         try {
