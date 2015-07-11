@@ -28,7 +28,6 @@ public class SecretsOfTheSea_RPG {
     
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
-
     private static PrintWriter errorLog = null;
     private static PrintWriter printReport = null;
     //private static ErrorView errorView = null;
@@ -52,13 +51,16 @@ public class SecretsOfTheSea_RPG {
         StartProgramView startProgramView = null;//= new StartProgramView();
         
         try {
+        //These lines open a stream for input and output for the console.
+        //The 4th line creates and errorLog file in the specified directory.
+        //They are created in main so as to be referencable throughout the remainder
+        //of the program
         SecretsOfTheSea_RPG.inFile = new BufferedReader(new InputStreamReader(System.in));
         SecretsOfTheSea_RPG.outFile = new PrintWriter(System.out, true);
-        //StartProgramView
-        
         String filePath = "errorLog.txt";
         SecretsOfTheSea_RPG.errorLog = new PrintWriter(filePath);        
         
+        //StartProgramView
         startProgramView = new StartProgramView();
         startProgramView.startProgram();
 
@@ -110,13 +112,5 @@ public class SecretsOfTheSea_RPG {
     public static void setErrorLog(PrintWriter errorLog) {
         SecretsOfTheSea_RPG.errorLog = errorLog;
     }
-
-    public static PrintWriter getPrintReport() {
-        return printReport;
-    }
-
-    public static void setPrintReport(PrintWriter printReport) {
-        SecretsOfTheSea_RPG.printReport = printReport;
-    }
-
+    
 }

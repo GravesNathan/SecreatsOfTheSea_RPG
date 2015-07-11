@@ -22,7 +22,11 @@ public class StartProgramView {
         
     }
     private final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
-    protected final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
+    private final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
+    //InputView is not a super class so no need for inheritance.
+    //gets the existing inFile and outFile memory and assigns in here.  This allows the
+    //program to use the existing streams instead of opening more streams for each view.
+    
     InputView input = new InputView(); 
     
     public void startProgram(){
