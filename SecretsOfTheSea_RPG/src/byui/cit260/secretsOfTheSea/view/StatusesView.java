@@ -9,10 +9,14 @@ import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
 
@@ -43,7 +47,7 @@ public class StatusesView extends View{
     @Override
     public boolean doAction(char entry){
         char value = entry;
-        
+        try {
         switch (value) {
 //            case 'G':  Took out so we don't have a loop of game menu and statuses view
 //                GameMenuView gamemenu = new GameMenuView();
@@ -51,13 +55,36 @@ public class StatusesView extends View{
             case 'C'://closes inventory manager view
                 return true;    
             case 'P':
-                statusReport.println("\n" + dateFormat.format(date) + ": Enter User Status info here or pull from code sources");
+        {
+                statusReport.println("\n ********** \n");
+                        statusReport.write("\n Date & Time \n");
+                        statusReport.write(dateFormat.format(date));
+                        statusReport.write("\n Player Name \n");
+                        statusReport.write(tempUsername.getPlayerName());
+                        statusReport.write("\n Difficulty \n");
+                        statusReport.write( tempMap.getDifficulty());
+                        statusReport.write("\n");
+            
+        }
                 statusReport.write("\n ************ \n");
                 statusReport.close();
+                this.console.println("Your Status Report has been successfully written to disk.");
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(),"\n" + value + " is an invalid entry. Please select an option below:");
                 return false;
         }
+        } catch (Exception e){
+            ErrorView.display(this.getClass().getName(), e.getMessage() +"Error Creating Report.");
+        } finally{
+            if (statusReport != null){
+                try {
+                    statusReport.close();
+                } catch (Exception e){
+                    ErrorView.display("Error closing Report file",e.getMessage());
+                }
+            }
+        }
+                    return false;
     }
 }

@@ -59,3 +59,20 @@ public class GameControl {
         }
     }
 }
+//
+//    public static void loadGame(String filePathInput)
+//                throws GameControlException{
+//        
+//        Game game = null; 
+//
+//        try (FileInputStream fips = new FileInputStream(filepath)){
+//            ObjectInputStream output = new ObjectInputStream(fips);
+//            
+//            game = (Game) output.readObject();
+//        }
+//        catch(Exception e){
+//            throw new GameControlException(e.getMessage());
+//        }
+//        byui.cit260.secretsOfTheSea.model.setMapOne(game);
+//    }
+//}

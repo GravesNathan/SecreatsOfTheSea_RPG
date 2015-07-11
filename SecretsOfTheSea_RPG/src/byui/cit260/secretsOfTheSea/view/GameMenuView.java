@@ -73,6 +73,7 @@ public class GameMenuView extends View{
     
     public void loadGame(){
         this.console.println("loadGame method called");
+//                String filePathInput = pathInput.stringInput();
     }
         
     public void quitGame(){
