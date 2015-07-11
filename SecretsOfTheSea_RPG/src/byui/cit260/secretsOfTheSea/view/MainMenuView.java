@@ -133,7 +133,6 @@ public class MainMenuView {
         this.console.println("openHelp fucntion called");
             //load Help Menu into view
         HelpMenuView helpMenu = new HelpMenuView();
-//        helpMenu.displayMenu();
         
     }
     

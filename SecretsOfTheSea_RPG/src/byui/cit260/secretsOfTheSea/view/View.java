@@ -21,6 +21,7 @@ import secretsofthesea_rpg.SecretsOfTheSea_RPG;
  */
 public abstract class View implements ViewInterface {
     
+    protected InputView tempInput = new InputView();
     private String promptMessage;
     protected NewGameControl tempUsername = null;
     protected MapControl tempMap = null;

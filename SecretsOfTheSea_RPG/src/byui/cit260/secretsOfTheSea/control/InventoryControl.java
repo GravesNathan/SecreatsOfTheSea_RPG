@@ -67,4 +67,22 @@ public class InventoryControl {
                 storageString += item.toString();
         return storageString;
     }
+
+    public ArrayList<Items> getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(ArrayList<Items> cargo) {
+        this.cargo = cargo;
+    }
+
+    public ArrayList<Items> getStorage() {
+        return storage;
+    }
+
+    public void setStorage(ArrayList<Items> storage) {
+        this.storage = storage;
+    }
+    
+    
 }

@@ -58,7 +58,7 @@ public class InputView {
     
         public String stringInput(){
         //Scanner keyboard = new Scanner(System.in);
-        String value = " ";
+        String value = null;
         try {
         value = this.keyboard.readLine();
         value = value.trim();
