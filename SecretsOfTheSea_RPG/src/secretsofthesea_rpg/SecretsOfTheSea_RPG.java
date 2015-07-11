@@ -36,7 +36,7 @@ public class SecretsOfTheSea_RPG {
     private static BufferedReader inFile = null;
     private static PrintWriter errorLog = null;
     private static File errorFile = new File("ErrorsLog.txt");//specify name and path of file here
-    //private static ErrorView errorView = null;
+    private static PrintWriter statusReport = null;
     
     public static void main(String[] args) {
         //Sample Class Set & Print
@@ -130,24 +130,6 @@ public class SecretsOfTheSea_RPG {
     public static void setInFile(BufferedReader inFile) {
         SecretsOfTheSea_RPG.inFile = inFile;
     }
-
-    
-//    public static FileWriter getErrorLog() {
-//        return errorLog;
-//    }
-//
-//    public static void setErrorLog(FileWriter errorLog) {
-//        SecretsOfTheSea_RPG.errorLog = errorLog;
-//    }
-//
-//    public static File getErrorFile() {
-//        return errorFile;
-//    }
-//
-//    public static void setErrorFile(File errorFile) {
-//        SecretsOfTheSea_RPG.errorFile = errorFile;
-//    }
-//    
 
     public static PrintWriter getErrorLog() {
         return errorLog;

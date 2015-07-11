@@ -10,6 +10,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
 /**
@@ -31,14 +34,16 @@ public class ErrorView {
     
     //write to the errorlog
     public static void display (String className, String errorMessage){
-
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        
         errorFile.println("------------------------------"
                 + "\n- ERROR - " + errorMessage
                 + "\n--------------------------------------");
     
     //log the error to errorLog
         
-    localErrorLog.println(className + " - " + errorMessage);
+    localErrorLog.println(date + " - " + className + " - " + errorMessage);
     //close (to save)
     try{   
         if (localErrorLog != null)

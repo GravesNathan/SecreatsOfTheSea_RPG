@@ -1,0 +1,6 @@
+Sat Jul 11 14:19:19 CDT 2015byui.cit260.secretsOfTheSea.view.StartProgramView -  that is an invalid entry. Please select an option below:
+Hotkey - Description
+ G - Start Game
+ H - Get Help
+ L - Load Game
+ Q - Quit Game
