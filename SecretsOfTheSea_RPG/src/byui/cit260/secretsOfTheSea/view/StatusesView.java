@@ -56,7 +56,7 @@ public class StatusesView extends View{
                 return true;    
             case 'P':
         {
-                statusReport.println("\n ********** \n");
+                statusReport.println("\n ********** Game Status Report ********** \n");
                         statusReport.write("\n Date & Time \n");
                         statusReport.write(dateFormat.format(date));
                         statusReport.write("\n Player Name \n");
