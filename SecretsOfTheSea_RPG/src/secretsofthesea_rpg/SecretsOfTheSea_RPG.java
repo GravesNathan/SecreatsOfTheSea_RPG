@@ -60,8 +60,11 @@ public class SecretsOfTheSea_RPG {
         String filePath = "errorLog.txt";
         SecretsOfTheSea_RPG.errorLog = new PrintWriter(filePath);    
         
-        SecretsOfTheSea_RPG.statusReport = new PrintWriter(System.out, true);
+        //SecretsOfTheSea_RPG.statusReport = new PrintWriter(System.out, true);
         String reportPath = "statusReport.txt";       
+        SecretsOfTheSea_RPG.statusReport = new PrintWriter(reportPath);
+        
+        
         
         //StartProgramView
         startProgramView = new StartProgramView();

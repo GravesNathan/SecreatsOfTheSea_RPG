@@ -44,6 +44,7 @@ public class StatusesView extends View{
                 return true;    
             case 'P':
                 statusReport.println("Enter User Status info here or pull from code sources");
+                statusReport.write("\n ******* \n");
                 statusReport.close();
                 return true;
             default:
