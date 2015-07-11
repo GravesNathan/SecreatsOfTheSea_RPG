@@ -184,35 +184,72 @@ public class MapControl {
         + "\nTotal island coordinates = " + islands
         + "\nTotal storm coordinates = " + storms);
     }
-//    public void tempPrintMap2(){
-//        this.console.println("\nbasic for good Print, 0 = empty, 1 = island, 2 = storm");
-//        for(int i=0; i<mapOne.getxMax(); i++){
-//            this.console.println();
-//            for(int j=0;j<mapOne.getyMax();j++)
-//                System.out.print("  " + mapGrid[i][j] + "  ");
-//        }    
-//    }
-//
-//    public void verifyMap(){
-//        String mapList = " ";
-//        this.console.println("Note: first number reflects the row and the second number \nreflects the column."
-//                + "These are counted starting from 0, but 0 is on the top and left.  \nIt increases"
-//                + "going down and right.");
-//        for (int i=0; i<8; i++){
-//            mapList += ("\nIsland " + i + " location = " + location[i].getXCoordinate() + ", " + location[i].getYCoordinate());
-//        }
-//        for (int i=0; i<numStorms; i++)
-//            mapList += ("\nStorm " + i + " location = " + storms[i].getXCoordinate() + ", " + storms[i].getYCoordinate());
-//        this.console.println(mapList);
-//    }
-//    public void tempPrintMap3(){
-//        this.console.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
-//        for(int i=0; i<mapOne.getxMax(); i++){
-//            this.console.println();
-//            for(int j=0;j<mapOne.getyMax();j++)
-//                System.out.print("  " + mapGrid[j][i] + "  ");
-//        }    
-//    }
+
+    public char getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(char difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public Map getMapOne() {
+        return mapOne;
+    }
+
+    public void setMapOne(Map mapOne) {
+        this.mapOne = mapOne;
+    }
+
+    public LocationDetails[] getLocation() {
+        return location;
+    }
+
+    public void setLocation(LocationDetails[] location) {
+        this.location = location;
+    }
+
+    public Storms[] getStorms() {
+        return storms;
+    }
+
+    public void setStorms(Storms[] storms) {
+        this.storms = storms;
+    }
+
+    public int getNumStorms() {
+        return numStorms;
+    }
+
+    public void setNumStorms(int numStorms) {
+        this.numStorms = numStorms;
+    }
+
+    public int[][] getMapGrid() {
+        return mapGrid;
+    }
+
+    public void setMapGrid(int[][] mapGrid) {
+        this.mapGrid = mapGrid;
+    }
+
+    public int getDiffMultiplier() {
+        return diffMultiplier;
+    }
+
+    public void setDiffMultiplier(int diffMultiplier) {
+        this.diffMultiplier = diffMultiplier;
+    }
+
+    public String getTempWarning() {
+        return tempWarning;
+    }
+
+    public void setTempWarning(String tempWarning) {
+        this.tempWarning = tempWarning;
+    }
+    
+    
 }
 
 

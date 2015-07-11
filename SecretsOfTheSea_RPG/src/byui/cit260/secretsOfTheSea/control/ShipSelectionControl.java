@@ -231,4 +231,13 @@ public class ShipSelectionControl {
     public int getBribery(){
         return selectedShip.getBribery();
     }
+
+    public SelectedShip getSelectedShip() {
+        return selectedShip;
+    }
+
+    public void setSelectedShip(SelectedShip selectedShip) {
+        this.selectedShip = selectedShip;
+    }
+    
 }

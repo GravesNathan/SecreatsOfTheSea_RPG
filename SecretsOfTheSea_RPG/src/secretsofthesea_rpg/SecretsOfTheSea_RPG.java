@@ -92,12 +92,12 @@ public class SecretsOfTheSea_RPG {
         startProgramView = new StartProgramView();
         startProgramView.startProgram();
        
-        } catch (Throwable te){ 
+        } catch (Throwable ex){ 
 
-            ErrorView.display("SecretsOfTheSea_RPG",te.getMessage());
-            
-            te.printStackTrace();
+            ErrorView.display("SecretsOfTheSea_RPG", "The Program hit an unexpected Error.");
             startProgramView.startProgram();
+            
+            
         }
         finally {
             try{

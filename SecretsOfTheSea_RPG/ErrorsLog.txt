@@ -49,3 +49,23 @@ Hotkey - Description
  H - Get Help
  L - Load Game
  Q - Quit Game
+Sat Jul 11 15:10:24 CDT 2015 - byui.cit260.secretsOfTheSea.view.StartProgramView -  that is an invalid entry. Please select an option below:
+Hotkey - Description
+ G - Start Game
+ H - Get Help
+ L - Load Game
+ Q - Quit Game
+Sat Jul 11 15:11:31 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Error reading input: String index out of range: 0
+Sat Jul 11 15:11:37 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sat Jul 11 15:11:54 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Error reading input: String index out of range: 0
+Sat Jul 11 15:12:03 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sat Jul 11 15:12:27 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Please enter a valid whole number.
+
+Sat Jul 11 15:12:27 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sat Jul 11 15:12:27 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Please enter a valid whole number.
+
+Sat Jul 11 15:12:27 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sat Jul 11 15:12:27 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Please enter a valid whole number.
+
+Sat Jul 11 15:12:27 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sat Jul 11 15:42:46 CDT 2015 - SecretsOfTheSea_RPG - java.lang.NullPointerException

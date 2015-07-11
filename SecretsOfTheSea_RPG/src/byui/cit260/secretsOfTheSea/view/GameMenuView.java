@@ -5,11 +5,15 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.GameControl;
 import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.InventoryReport;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import byui.cit260.secretsOfTheSea.model.LocationDetails;
+import byui.cit260.secretsOfTheSea.model.Map;
+import byui.cit260.secretsOfTheSea.model.Storms;
 import java.io.Console;
 
 /**
@@ -18,12 +22,13 @@ import java.io.Console;
  */
 public class GameMenuView extends View{
 
-
+    //InputView input2 = new InputView();
         
     public GameMenuView(NewGameControl username, MapControl map, ShipSelectionControl playerShip,
             InventoryControl inventory){
                 super("\n Game Menu Options"
         + "\n S - Save Game"
+        + "\n L - Load Game"
         + "\n H - Help"
         + "\n Q - Quit Game"
         + "\n C - Close Menu"
@@ -41,9 +46,35 @@ public class GameMenuView extends View{
     }
     
     public void saveGame(){
-        this.console.println("saveGame method called");
+        this.console.println("\nEnter the file path whre you want to save your game");
+        String filePath = tempInput.stringInput();
+        //String userName = input.stringInput();
+        try{
+
+            GameControl.saveGame(
+                    tempUsername.getPlayerName(),  
+                    tempMap.getDiffMultiplier(),
+                    tempMap.getLocation(),
+                    tempMap.getMapGrid(), 
+                    tempMap.getMapOne(), 
+                    tempMap.getNumStorms(), 
+                    tempMap.getStorms(),
+                    tempMap.getTempWarning(),
+                    tempMap.getDifficulty(),
+                    tempPlayerShip.getSelectedShip(),
+                    tempInventory.getCargo(),
+                    tempInventory.getStorage(),
+                    filePath);
+            this.console.println("\nGame has been saved.\n");
+        } catch (Exception ex){
+            ErrorView.display("GameMenuView", ex.getMessage());
+        }
     }
     
+    public void loadGame(){
+        this.console.println("loadGame method called");
+    }
+        
     public void quitGame(){
         this.console.println("quitGame method called");
     }
@@ -60,6 +91,9 @@ public class GameMenuView extends View{
         switch (value) {
             case 'S':
 		this.saveGame();
+		return false;
+            case 'L':
+		this.loadGame();
 		return false;
             case 'H':
 		HelpMenuView helpMenu = new HelpMenuView();
