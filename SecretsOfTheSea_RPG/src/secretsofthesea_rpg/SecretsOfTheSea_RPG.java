@@ -30,6 +30,7 @@ public class SecretsOfTheSea_RPG {
     private static BufferedReader inFile = null;
 
     private static PrintWriter errorLog = null;
+    private static PrintWriter printReport = null;
     //private static ErrorView errorView = null;
     
     public static void main(String[] args) {
@@ -108,6 +109,14 @@ public class SecretsOfTheSea_RPG {
 
     public static void setErrorLog(PrintWriter errorLog) {
         SecretsOfTheSea_RPG.errorLog = errorLog;
+    }
+
+    public static PrintWriter getPrintReport() {
+        return printReport;
+    }
+
+    public static void setPrintReport(PrintWriter printReport) {
+        SecretsOfTheSea_RPG.printReport = printReport;
     }
 
 }
