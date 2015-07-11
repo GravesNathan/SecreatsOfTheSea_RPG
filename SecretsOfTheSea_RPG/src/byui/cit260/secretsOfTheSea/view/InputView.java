@@ -18,7 +18,8 @@ import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 public class InputView {
     
     private final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
-   
+    //gets the existing inFile memory and assigns in here.  This allows the
+    //program to use the existing stream instead of opening more streams for input.
     public char charInput(){
 
         char value = ' ';
