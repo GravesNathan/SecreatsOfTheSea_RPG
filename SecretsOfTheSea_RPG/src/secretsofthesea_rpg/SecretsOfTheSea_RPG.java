@@ -29,7 +29,7 @@ public class SecretsOfTheSea_RPG {
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
     private static PrintWriter errorLog = null;
-    private static PrintWriter printReport = null;
+    private static PrintWriter statusReport = null;
     //private static ErrorView errorView = null;
     
     public static void main(String[] args) {
@@ -58,7 +58,10 @@ public class SecretsOfTheSea_RPG {
         SecretsOfTheSea_RPG.inFile = new BufferedReader(new InputStreamReader(System.in));
         SecretsOfTheSea_RPG.outFile = new PrintWriter(System.out, true);
         String filePath = "errorLog.txt";
-        SecretsOfTheSea_RPG.errorLog = new PrintWriter(filePath);        
+        SecretsOfTheSea_RPG.errorLog = new PrintWriter(filePath);    
+        
+        SecretsOfTheSea_RPG.statusReport = new PrintWriter(System.out, true);
+        String reportPath = "statusReport.txt";       
         
         //StartProgramView
         startProgramView = new StartProgramView();
@@ -111,6 +114,14 @@ public class SecretsOfTheSea_RPG {
 
     public static void setErrorLog(PrintWriter errorLog) {
         SecretsOfTheSea_RPG.errorLog = errorLog;
+    }
+
+    public static PrintWriter getStatusReport() {
+        return statusReport;
+    }
+
+    public static void setStatusReport(PrintWriter statusReport) {
+        SecretsOfTheSea_RPG.statusReport = statusReport;
     }
     
 }

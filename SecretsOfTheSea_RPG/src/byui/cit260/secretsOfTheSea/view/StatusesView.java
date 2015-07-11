@@ -9,6 +9,9 @@ import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import java.io.PrintWriter;
+import secretsofthesea_rpg.SecretsOfTheSea_RPG;
+
 
 /**
  *
@@ -16,11 +19,14 @@ import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
  */
 public class StatusesView extends View{
     
+                private static final PrintWriter statusReport =
+            SecretsOfTheSea_RPG.getStatusReport();
+    
     public StatusesView(NewGameControl username, MapControl map, ShipSelectionControl playerShip,
             InventoryControl inventory){
         super("\n Current Game Statuses"
                 + "\n C - Close Inventory Manager"
-                + "\n P - Print Report of Your Status", null, null, null, null);
+                + "\n P - Print Status Report", null, null, null, null);
                // + "\nG - Game Menu View", username, map, playerShip);
         //Took out so we don't have a loop of game menu and statuses view
     }
@@ -37,7 +43,8 @@ public class StatusesView extends View{
             case 'C'://closes inventory manager view
                 return true;    
             case 'P':
-                ////printReport.println(NewGameControl username, MapControl map, ShipSelectionControl playerShip, InventoryControl inventory);
+                statusReport.println("Enter User Status info here or pull from code sources");
+                statusReport.close();
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(),"\n" + value + " is an invalid entry. Please select an option below:");
