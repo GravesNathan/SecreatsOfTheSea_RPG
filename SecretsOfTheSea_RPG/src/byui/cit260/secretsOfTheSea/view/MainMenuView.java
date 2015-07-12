@@ -5,6 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.GameControl;
 import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
@@ -88,7 +89,7 @@ public class MainMenuView {
         
         //Choose Ship
         String charShipChoice = "Raft";
-        int shipChoice = -1;
+        int shipChoice = 0;
         
         ShipSelectionControl tempShips = null;
         try {
@@ -134,10 +135,6 @@ public class MainMenuView {
             //load Help Menu into view
         HelpMenuView helpMenu = new HelpMenuView();
         
-    }
-    
-    public void loadGame(){
-        this.console.println("loadGame fucntion called");
     }
     
     public void quitGame(){
