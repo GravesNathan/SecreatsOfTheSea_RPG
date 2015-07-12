@@ -71,7 +71,7 @@ public class StatusesView extends View{
             }
             default:
                 ErrorView.display(this.getClass().getName(),"\n" + value + " is an invalid entry. Please select an option below:");
-               // return false;
+                return false;
         }
         } catch (Exception e){
             ErrorView.display(this.getClass().getName(), e.getMessage() +"Error Creating Report.");
@@ -84,6 +84,6 @@ public class StatusesView extends View{
                 }
             }
         }
-                    return false;
+                    return true;
     }
 }
