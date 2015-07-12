@@ -45,7 +45,13 @@ public class MainMenuView {
    private InventoryControl inventory = null; 
    InputView input = new InputView();
     //combined two new game functions to get this single one.
-    public void newGame(){
+   
+   public MainMenuView(){
+       
+   }
+   
+    public void newGame(NewGameControl tempGame, MapControl tempMap,
+            ShipSelectionControl tempShip, InventoryControl tempInventory){
         //Input Name
         this.console.println("Greetings Captain, welcome to the port-city of Rexburg, "
                 + "how shall we address you?");
@@ -84,7 +90,7 @@ public class MainMenuView {
             ErrorView.display(this.getClass().getName(),"Error obtaining input\n");
         }            
             StartProgramView startProgramView = new StartProgramView();
-            startProgramView.startProgram();//Does this only work with an independent executable?
+            startProgramView.startProgram(tempGame, tempMap, tempShip, tempInventory);//Does this only work with an independent executable?
         }
         
         //Choose Ship

@@ -72,7 +72,8 @@ public class GameControl {
     }
 
 
-    public static void loadGame(String filePathInput)
+    public static void loadGame(String filePathInput, NewGameControl tempGame, MapControl tempMap,
+            ShipSelectionControl tempShip, InventoryControl tempInventory)
                 throws GameControlException{
         
         String username = null;
@@ -92,10 +93,10 @@ public class GameControl {
         ExplorableAreas[][] areas = null;
 
         
-        NewGameControl tempGame = null;
-        MapControl tempMap = null;
-        ShipSelectionControl tempShip = null; 
-        InventoryControl tempInventory = null;
+//        NewGameControl tempGame = null;
+//        MapControl tempMap = null;
+//        ShipSelectionControl tempShip = null; 
+//        InventoryControl tempInventory = null;
         
         
         try (FileInputStream fips = new FileInputStream(filePathInput)){
@@ -154,7 +155,7 @@ public class GameControl {
         tempInventory.setStorage(storage);
         ExplorableAreasControl.setAreas(areas);
         
-//        GameMenuView gameMenu = new GameMenuView(tempGame, tempMap, tempShip, tempInventory);
+        GameMenuView gameMenu = new GameMenuView(tempGame, tempMap, tempShip, tempInventory);
         
     }
 

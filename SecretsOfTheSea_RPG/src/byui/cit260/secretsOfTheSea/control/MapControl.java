@@ -160,31 +160,31 @@ public class MapControl {
         int storms = 0;
         
 
-        this.console.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
-        for(int[] row : mapGrid){
-            this.console.println();
-            for(int column : row)
-                System.out.print("  " + column + "  ");
-        }    
-
-//        for(int[] row : mapGrid){//for-each statement, mapGrid is double array
-//            
-//            for(int i = 0; i < row.length ; i++){//coulnd't use second for-each...?
-//                System.out.print(row[i] + "  ");//This is my "Sum" function for the week's assignment
-//                switch (row[i]) {
-//                    case 0:
-//                        emptySpaces += 1;
-//                    case 1:
-//                        islands += row[i];
-//                    case 2:
-//                        storms += (row[i]/2);
-//                }
-//            }
+//        this.console.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
+//        for(int[] row : mapGrid){
 //            this.console.println();
-//        } 
-        this.console.println("Total empty coordinates = " + emptySpaces
-        + "\nTotal island coordinates = " + islands
-        + "\nTotal storm coordinates = " + storms);
+//            for(int column : row)
+//                System.out.print("  " + column + "  ");
+//        }    
+//
+////        for(int[] row : mapGrid){//for-each statement, mapGrid is double array
+////            
+////            for(int i = 0; i < row.length ; i++){//coulnd't use second for-each...?
+////                System.out.print(row[i] + "  ");//This is my "Sum" function for the week's assignment
+////                switch (row[i]) {
+////                    case 0:
+////                        emptySpaces += 1;
+////                    case 1:
+////                        islands += row[i];
+////                    case 2:
+////                        storms += (row[i]/2);
+////                }
+////            }
+////            this.console.println();
+////        } 
+//        this.console.println("Total empty coordinates = " + emptySpaces
+//        + "\nTotal island coordinates = " + islands
+//        + "\nTotal storm coordinates = " + storms);
     }
 
     public static char getDifficulty() {
