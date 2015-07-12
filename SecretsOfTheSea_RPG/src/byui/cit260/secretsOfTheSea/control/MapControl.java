@@ -188,7 +188,7 @@ public class MapControl {
     }
 
     public static char getDifficulty() {
-        return difficulty;
+        return Map.getDifficulty();
     }
 
     public static void setDifficulty(char storedifficulty) {

@@ -51,6 +51,7 @@ public class GameControl {
         
         try (FileOutputStream fops = new FileOutputStream(filepath)){
             ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(difficulty);
             output.writeObject(username);
             output.writeObject(diffMultiplier);
             output.writeObject(location);
@@ -59,7 +60,6 @@ public class GameControl {
             output.writeObject(numStorms);
             output.writeObject(storms);
             output.writeObject(tempWarning);
-            output.writeObject(difficulty);
             output.writeObject(selectedShip);
             output.writeObject(shipChoice);
             output.writeObject(cargo);
@@ -101,6 +101,7 @@ public class GameControl {
         try (FileInputStream fips = new FileInputStream(filePathInput)){
             ObjectInputStream inputData = new ObjectInputStream(fips);
             
+            difficulty = (char) inputData.readObject();
             username = (String) inputData.readObject();
             diffMultiplier = (int) inputData.readObject();
             location = (LocationDetails[]) inputData.readObject();
@@ -109,29 +110,36 @@ public class GameControl {
             numStorms = (int) inputData.readObject();
             storms = (Storms[]) inputData.readObject();
             tempWarning = (String) inputData.readObject();
-            difficulty = (char) inputData.readObject();
             selectedShip = (SelectedShip) inputData.readObject();
             shipChoice = (int) inputData.readObject();
             cargo = (ArrayList<Items>) inputData.readObject();
             storage = (ArrayList<Items>) inputData.readObject();
             areas = (ExplorableAreas[][]) inputData.readObject();
+            
+//            System.out.println("Loaded Values \n"
+//                    + "\nusername " + username
+//                    + "\ndiffMultiplier " + diffMultiplier
+//                    + "\nnumStorms " + numStorms
+//                    + "\ntempWarning " + tempWarning
+//                    + "\ndifficulty " + difficulty
+//                    + "\nshipChoice " + shipChoice);
         }
         catch(Exception e){
             throw new GameControlException(e.getMessage());
         }
-        try {//creating instances of the control.  My only concer is whether these will overwrite
-            //the read data because I had to make them static to support the set and gets each...
-            //Note that without this try - catch the GameMenu Load should have worked fine with
-            //The Lines below this try catch.
-        tempGame = new NewGameControl(username);
-        tempMap = new MapControl(difficulty);
-        tempShip = new ShipSelectionControl(shipChoice);
-        tempInventory = new InventoryControl(tempShip);
-        }catch (MapControlException | ExplorableAreasException | ShipSelectionException mce) { 
-            ErrorView.display("GameControl ",mce.getMessage());
-        }
+//        try {//creating instances of the control.  My only concer is whether these will overwrite
+//            //the read data because I had to make them static to support the set and gets each...
+//            //Note that without this try - catch the GameMenu Load should have worked fine with
+//            //The Lines below this try catch.
+//        tempGame = new NewGameControl(username);
+//        tempMap = new MapControl(difficulty);
+//        tempShip = new ShipSelectionControl(shipChoice);
+//        tempInventory = new InventoryControl(tempShip);
+//        }catch (MapControlException | ExplorableAreasException | ShipSelectionException mce) { 
+//            ErrorView.display("GameControl ",mce.getMessage());
+//        }
         
-        
+        tempMap.setDifficulty(difficulty);
         tempGame.setPlayerName(username);  
         tempMap.setDiffMultiplier(diffMultiplier);
         tempMap.setLocation(location);
@@ -140,28 +148,14 @@ public class GameControl {
         tempMap.setNumStorms(numStorms);
         tempMap.setStorms(storms);
         tempMap.setTempWarning(tempWarning);
-        tempMap.setDifficulty(difficulty);
         tempShip.setSelectedShip(selectedShip);
+        
         tempInventory.setCargo(cargo);
         tempInventory.setStorage(storage);
         ExplorableAreasControl.setAreas(areas);
         
-        GameMenuView gameMenu = new GameMenuView(tempGame, tempMap, tempShip, tempInventory);
+//        GameMenuView gameMenu = new GameMenuView(tempGame, tempMap, tempShip, tempInventory);
         
-//        NewGameControl.setPlayerName(username);  
-//        MapControl.setDiffMultiplier(diffMultiplier);
-//        MapControl.setLocation(location);
-//        MapControl.setMapGrid(mapGrid);
-//        MapControl.setMapOne(mapOne);
-//        MapControl.setNumStorms(numStorms);
-//        MapControl.setStorms(storms);
-//        MapControl.setTempWarning(tempWarning);
-//        MapControl.setDifficulty(difficulty);
-//        ShipSelectionControl.setSelectedShip(selectedShip);
-//        InventoryControl.setCargo(cargo);
-//        InventoryControl.setStorage(storage);
-//        ExplorableAreasControl.setAreas(areas);
-        //byui.cit260.secretsOfTheSea.model.setMapOne(game);
     }
 
 }

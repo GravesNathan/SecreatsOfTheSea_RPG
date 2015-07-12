@@ -89,7 +89,7 @@ public class MainMenuView {
         
         //Choose Ship
         String charShipChoice = "Raft";
-        int shipChoice = -1;
+        int shipChoice = 0;
         
         ShipSelectionControl tempShips = null;
         try {
