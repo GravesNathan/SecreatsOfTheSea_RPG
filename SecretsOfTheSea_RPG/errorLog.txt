@@ -1,1 +1,1 @@
-Sat Jul 11 23:35:24 CDT 2015 - byui.cit260.secretsOfTheSea.view.StatusesView - nullError Creating Report.
+Sun Jul 12 12:34:19 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.

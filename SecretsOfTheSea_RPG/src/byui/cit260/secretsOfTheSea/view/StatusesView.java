@@ -10,6 +10,8 @@ import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
@@ -26,9 +28,9 @@ import secretsofthesea_rpg.SecretsOfTheSea_RPG;
  */
 public class StatusesView extends View{
     
-                private static final PrintWriter statusReport =
+                protected final PrintWriter statusReport =
             SecretsOfTheSea_RPG.getStatusReport();
-    
+                
     public StatusesView(NewGameControl username, MapControl map, ShipSelectionControl playerShip,
             InventoryControl inventory){
         super("\n Current Game Statuses"
@@ -38,16 +40,18 @@ public class StatusesView extends View{
         //Took out so we don't have a loop of game menu and statuses view
     }
     
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        //System.out.println(dateFormat.format(date)); 
-    
+  
     
         
     @Override
     public boolean doAction(char entry){
         char value = entry;
-        try {
+        
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        //System.out.println(dateFormat.format(date)); 
+        
+//        try {
         switch (value) {
 //            case 'G':  Took out so we don't have a loop of game menu and statuses view
 //                GameMenuView gamemenu = new GameMenuView();
@@ -55,35 +59,36 @@ public class StatusesView extends View{
             case 'C'://closes inventory manager view
                 return true;    
             case 'P':
-        {
-                statusReport.println("\n ********** Game Status Report ********** \n");
-                        statusReport.write("\n Date & Time \n");
+                BufferedWriter statusReport = null;
+                try {
+                String reportPath = "statusReport.txt";       
+                statusReport = new BufferedWriter(new FileWriter(reportPath, true));
+//                statusReport = new PrintWriter(new BufferedWriter(new FileWriter (reportPath, true)));
+                        statusReport.write("\r\n *****STATUS REPORT***** \r\n");
+                        statusReport.write("\r\n Date & Time: ");
                         statusReport.write(dateFormat.format(date));
-                        statusReport.write("\n Player Name \n");
-                        statusReport.write(tempUsername.getPlayerName());
-                        statusReport.write("\n Difficulty \n");
-                        statusReport.write( tempMap.getDifficulty());
-                        statusReport.write("\n");
-                        statusReport.write("\n ************ \n");
-                        statusReport.close();
-                this.console.println("Your Status Report has been successfully written to disk.");
-                return true;
-            }
-            default:
-                ErrorView.display(this.getClass().getName(),"\n" + value + " is an invalid entry. Please select an option below:");
-                return false;
-        }
-        } catch (Exception e){
-            ErrorView.display(this.getClass().getName(), e.getMessage() +"Error Creating Report.");
+                        statusReport.write("\r\n Player Name: ");
+                        statusReport.write("\"" + tempUsername.getPlayerName() + "\"");
+                        statusReport.write("\r\n Difficulty: ");
+                        statusReport.write("\"" + tempMap.getDifficulty() + "\"");
+                        statusReport.write("\r\n");
+                        statusReport.write("\r\n ************ \r\n");
+                } catch (IOException ex1){
+            ErrorView.display(this.getClass().getName(), ex1.getMessage() +"- Error Creating Status Report.");
         } finally{
             if (statusReport != null){
                 try {
                     statusReport.close();
-                } catch (Exception e){
-                    ErrorView.display("Error closing Report file",e.getMessage());
+                } catch (IOException ex2){
+                    ErrorView.display(this.getClass().getName(), ex2.getMessage() + "- Error closing Status Report file");
                 }
             }
         }
-                    return true;
+                this.console.println("Your Status Report has been successfully written to disk.");
+                return true;
+            default:
+                ErrorView.display(this.getClass().getName(),"\n" + value + " is an invalid entry. Please select an option below:");
+                return false;
+        }
     }
 }

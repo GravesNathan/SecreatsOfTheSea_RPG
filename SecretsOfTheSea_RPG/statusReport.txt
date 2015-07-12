@@ -1,148 +1,24 @@
-2015/07/11 13:56:32 is your game start time
 
- ************ 
-2015/07/11 14:07:45 is your game start time
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/12 12:31:43 is your game start time. 
 
- ************ 
-2015/07/11 14:19:13 is your game start time
 
- ************ 
-2015/07/11 15:06:51 is your game start time
-2015/07/11 14:53:56 is your game start time
+ *****STATUS REPORT***** 
 
- ************ 
-2015/07/11 14:59:45 is your game start time
-
- ************ 
-2015/07/11 15:04:01 is your game start time
-
- ************ 
-2015/07/11 15:09:06 is your game start time
-
- ************ 
-2015/07/11 15:10:05 is your game start time
-
- ************ 
-2015/07/11 15:20:51 is your game start time
-
- ************ 
-2015/07/11 15:21:44 is your game start time
-
- ************ 
-2015/07/11 15:26:44 is your game start time
-
- ************ 
-2015/07/11 15:29:43 is your game start time
-
- ************ 
-2015/07/11 15:36:43 is your game start time
-
- ************ 
-2015/07/11 15:40:27 is your game start time
-
- ************ 
-2015/07/11 15:42:35 is your game start time
-
- ************ 
-2015/07/11 15:44:01 is your game start time
-
- ************ 
-2015/07/11 15:48:15 is your game start time
-
- ************ 
-2015/07/11 15:52:10 is your game start time
-
- ************ 
-2015/07/11 16:24:34 is your game start time
-
- ************ 
-2015/07/11 16:24:47 is your game start time
-
- ************ 
-2015/07/11 23:28:41 is your game start time
-
- ************ 
-2015/07/11 23:33:03 is your game start time
-
- ************ 
-2015/07/11 23:35:03 is your game start time
-2015/07/11 20:00:36 is your game start time
-
- ************ 
-2015/07/11 21:40:28 is your game start time
-
- ************ 
-2015/07/11 21:44:46 is your game start time
-
- ************ 
-2015/07/11 21:46:50 is your game start time
-
- ************ 
-2015/07/11 23:49:58 is your game start time
-
- ************ 
-2015/07/11 23:56:17 is your game start time
-
- ************ 
-2015/07/11 23:58:24 is your game start time
-
- ************ 
-2015/07/12 00:03:35 is your game start time
-
- ************ 
-2015/07/12 00:07:13 is your game start time
-
- ************ 
-2015/07/12 00:07:42 is your game start time
-
- ************ 
-2015/07/12 00:10:22 is your game start time
-
- ************ 
-2015/07/12 00:12:34 is your game start time
-
- ************ 
-2015/07/12 00:28:31 is your game start time
-
- ************ 
-2015/07/12 00:30:09 is your game start time
-
- ************ 
-2015/07/12 00:35:54 is your game start time
-
- ************ 
-2015/07/12 00:36:30 is your game start time
-
- ************ 
-2015/07/12 00:37:16 is your game start time
-
- ************ 
-2015/07/12 00:38:52 is your game start time
-
- ************ 
-2015/07/12 00:43:39 is your game start time
-
- ************ 
-2015/07/12 00:44:29 is your game start time
-
- ************ 
-2015/07/12 00:46:28 is your game start time
-
- ************ 
-2015/07/12 00:46:41 is your game start time
+ Date & Time: 
+ Player Name: "sdgfsdgfsdf"
+ Difficulty: "H"
 
  ************ 
 
- ************ 
-2015/07/12 01:16:25 is your game start time
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/12 12:34:12 is your game start time. 
 
- ************ 
-2015/07/12 01:18:53 is your game start time
 
- ************ 
-2015/07/12 01:20:34 is your game start time
+ *****STATUS REPORT***** 
 
- ************ 
-2015/07/12 01:20:53 is your game start time
+ Date & Time: 2015/07/12 12:34:22
+ Player Name: "asdfasdf"
+ Difficulty: "H"
 
  ************ 

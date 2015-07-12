@@ -94,8 +94,8 @@ public class SecretsOfTheSea_RPG {
         //SecretsOfTheSea_RPG.statusReport = new PrintWriter(System.out, true);
         String reportPath = "statusReport.txt";       
         SecretsOfTheSea_RPG.statusReport = new PrintWriter(new BufferedWriter(new FileWriter (reportPath, true)));
-        statusReport.println(dateFormat.format(date) + " is your game start time");
-                statusReport.write("\n ************ \n");
+        statusReport.println("\r\n ****PLAYER STATUS REPORT**** \r\n " + dateFormat.format(date) + " is your game start time. \r\n");
+//                statusReport.write("\n ************ \n");
                 statusReport.close();
         
         
