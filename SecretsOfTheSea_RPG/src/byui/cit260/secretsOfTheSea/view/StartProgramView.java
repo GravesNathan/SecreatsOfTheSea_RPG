@@ -124,7 +124,6 @@ public class StartProgramView {
         } catch (Exception ex){
             ErrorView.display("GameMenuView", ex.getMessage());
         }
-        GameMenuView gameMenu = new GameMenuView(null, null, null, null);
     }
     
     

@@ -16,6 +16,7 @@ import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.SelectedShip;
 import byui.cit260.secretsOfTheSea.model.Storms;
 import byui.cit260.secretsOfTheSea.view.ErrorView;
+import byui.cit260.secretsOfTheSea.view.GameMenuView;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -145,6 +146,7 @@ public class GameControl {
         tempInventory.setStorage(storage);
         ExplorableAreasControl.setAreas(areas);
         
+        GameMenuView gameMenu = new GameMenuView(tempGame, tempMap, tempShip, tempInventory);
         
 //        NewGameControl.setPlayerName(username);  
 //        MapControl.setDiffMultiplier(diffMultiplier);
