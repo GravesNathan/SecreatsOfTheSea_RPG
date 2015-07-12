@@ -46,9 +46,8 @@ public class GameMenuView extends View{
     }
     
     public void saveGame(){
-        this.console.println("\nEnter the file path whre you want to save your game");
+        this.console.println("\nEnter the file path wh3re you want to save your game");
         String filePath = tempInput.stringInput();
-        //String userName = input.stringInput();
         try{
 
             GameControl.saveGame(
@@ -72,17 +71,26 @@ public class GameMenuView extends View{
     }
     
     public void loadGame(){
-        this.console.println("loadGame method called");
-//                String filePathInput = pathInput.stringInput();
+        this.console.println("\nEnter the file path to load your saved data from.");
+        String filePath = tempInput.stringInput();
+        try{
+            //Load a Saved Game
+            GameControl.loadGame(filePath);
+            this.console.println("Saved data has been loaded.  Returning to Game Menu.");
+        } catch (Exception ex){
+            ErrorView.display("GameMenuView", ex.getMessage());
+        }
+        //From here the game would return to the game menu, no reason to re-call it.
+        //this is because the return is set to false.
     }
         
     public void quitGame(){
         this.console.println("quitGame method called");
     }
     
-    public void closeMenu(){
-        this.console.println("closeMenu method called");
-    }
+//    public void closeMenu(){
+//        this.console.println("closeMenu method called");
+//    }
     
     @Override
     public boolean doAction(char entry){
@@ -103,7 +111,7 @@ public class GameMenuView extends View{
 		this.quitGame();
 		return true;
             case 'C':
-		this.closeMenu();
+		//this.closeMenu();  Shouldn't need.  It just returns true and closes.
 		return true;
             case 'I':
 		InventoryManagerView inventoryView = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip, tempInventory);

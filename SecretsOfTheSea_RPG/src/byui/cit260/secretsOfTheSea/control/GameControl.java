@@ -11,8 +11,10 @@ import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.SelectedShip;
 import byui.cit260.secretsOfTheSea.model.Storms;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
@@ -34,8 +36,8 @@ public class GameControl {
             String tempWarning,
             char difficulty,
             SelectedShip selectedShip,
-            ArrayList<Items> Cargo,
-            ArrayList<Items> Storage,
+            ArrayList<Items> cargo,
+            ArrayList<Items> storage,
             String filepath)
             throws GameControlException, IOException {
         
@@ -51,28 +53,66 @@ public class GameControl {
             output.writeObject(tempWarning);
             output.writeObject(difficulty);
             output.writeObject(selectedShip);
-            output.writeObject(Cargo);
-            output.writeObject(Storage);
+            output.writeObject(cargo);
+            output.writeObject(storage);
         }
         catch(IOException e){
             throw new GameControlException(e.getMessage());
         }
     }
+
+
+    public static void loadGame(String filePathInput)
+                throws GameControlException{
+        
+        String username = null;
+        int diffMultiplier = -1;
+        LocationDetails[] location = null;
+        int[][] mapGrid = null;//May have an issue as it's not stored in model.
+        //should fix that.
+        Map mapOne = null;
+        int numStorms = -1;
+        Storms[] storms = null;
+        String tempWarning = null;
+        char difficulty = ' ';
+        SelectedShip selectedShip = null;
+        ArrayList<Items> cargo = null;
+        ArrayList<Items> storage = null; 
+
+        try (FileInputStream fips = new FileInputStream(filePathInput)){
+            ObjectInputStream inputData = new ObjectInputStream(fips);
+            
+            username = (String) inputData.readObject();
+            diffMultiplier = (int) inputData.readObject();
+            location = (LocationDetails[]) inputData.readObject();
+            mapGrid = (int[][]) inputData.readObject();
+            mapOne = (Map) inputData.readObject();
+            numStorms = (int) inputData.readObject();
+            storms = (Storms[]) inputData.readObject();
+            tempWarning = (String) inputData.readObject();
+            difficulty = (char) inputData.readObject();
+            selectedShip = (SelectedShip) inputData.readObject();
+            cargo = (ArrayList<Items>) inputData.readObject();
+            storage = (ArrayList<Items>) inputData.readObject();
+
+        }
+        catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+        NewGameControl.setPlayerName(username);  
+        MapControl.setDiffMultiplier(diffMultiplier);
+        MapControl.setLocation(location);
+        MapControl.setMapGrid(mapGrid);
+        MapControl.setMapOne(mapOne);
+        MapControl.setNumStorms(numStorms);
+        MapControl.setStorms(storms);
+        MapControl.setTempWarning(tempWarning);
+        MapControl.setDifficulty(difficulty);
+        ShipSelectionControl.setSelectedShip(selectedShip);
+        InventoryControl.setCargo(cargo);
+        InventoryControl.setStorage(storage);
+                
+        //byui.cit260.secretsOfTheSea.model.setMapOne(game);
+    }
+
 }
-//
-//    public static void loadGame(String filePathInput)
-//                throws GameControlException{
-//        
-//        Game game = null; 
-//
-//        try (FileInputStream fips = new FileInputStream(filepath)){
-//            ObjectInputStream output = new ObjectInputStream(fips);
-//            
-//            game = (Game) output.readObject();
-//        }
-//        catch(Exception e){
-//            throw new GameControlException(e.getMessage());
-//        }
-//        byui.cit260.secretsOfTheSea.model.setMapOne(game);
-//    }
-//}

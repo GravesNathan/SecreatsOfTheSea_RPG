@@ -16,7 +16,7 @@ import byui.cit260.secretsOfTheSea.exceptions.ShipSelectionException;
  */
 public class ShipSelectionControl {
     
-    private SelectedShip selectedShip = new SelectedShip();;
+    private static SelectedShip selectedShip = new SelectedShip();;
     private Ships[] ship = null;
     int baseStats = 5;
             
@@ -236,8 +236,8 @@ public class ShipSelectionControl {
         return selectedShip;
     }
 
-    public void setSelectedShip(SelectedShip selectedShip) {
-        this.selectedShip = selectedShip;
+    public static void setSelectedShip(SelectedShip storeSelectedShip) {
+        selectedShip = storeSelectedShip;
     }
     
 }

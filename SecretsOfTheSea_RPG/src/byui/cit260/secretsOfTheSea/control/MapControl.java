@@ -26,14 +26,14 @@ public class MapControl {
     
     protected final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
     //MapControl will create the map, place islands and storms, all based on difficulty
-    private char difficulty;
-    private Map mapOne = new Map();
-    private LocationDetails[] location = null;
-    private Storms[] storms = null;
-    private int numStorms = 0;
-    private int[][] mapGrid = null;
-    private int diffMultiplier = 0;
-    private String tempWarning = null;
+    private static char difficulty;
+    private static Map mapOne = new Map();
+    private static LocationDetails[] location = null;
+    private static Storms[] storms = null;
+    private static int numStorms = 0;
+    private static int[][] mapGrid = null;
+    private static int diffMultiplier = 0;
+    private static String tempWarning = null;
     
     public MapControl( char tempDifficulty )
             throws MapControlException, ArrayIndexOutOfBoundsException, 
@@ -189,64 +189,64 @@ public class MapControl {
         return difficulty;
     }
 
-    public void setDifficulty(char difficulty) {
-        this.difficulty = difficulty;
+    public static void setDifficulty(char storedifficulty) {
+        difficulty = storedifficulty;
     }
 
     public Map getMapOne() {
         return mapOne;
     }
 
-    public void setMapOne(Map mapOne) {
-        this.mapOne = mapOne;
+    public static void setMapOne(Map storeMapOne) {
+        mapOne = storeMapOne;
     }
 
     public LocationDetails[] getLocation() {
         return location;
     }
 
-    public void setLocation(LocationDetails[] location) {
-        this.location = location;
+    public static void setLocation(LocationDetails[] storeLocation) {
+        location = storeLocation;
     }
 
     public Storms[] getStorms() {
         return storms;
     }
 
-    public void setStorms(Storms[] storms) {
-        this.storms = storms;
+    public static void setStorms(Storms[] storeStorms) {
+        storms = storeStorms;
     }
 
     public int getNumStorms() {
         return numStorms;
     }
 
-    public void setNumStorms(int numStorms) {
-        this.numStorms = numStorms;
+    public static void setNumStorms(int storeNumStorms) {
+        numStorms = storeNumStorms;
     }
 
     public int[][] getMapGrid() {
         return mapGrid;
     }
 
-    public void setMapGrid(int[][] mapGrid) {
-        this.mapGrid = mapGrid;
+    public static void setMapGrid(int[][] storeMapGrid) {
+        mapGrid = storeMapGrid;
     }
 
     public int getDiffMultiplier() {
         return diffMultiplier;
     }
 
-    public void setDiffMultiplier(int diffMultiplier) {
-        this.diffMultiplier = diffMultiplier;
+    public static void setDiffMultiplier(int storeDiffMultiplier) {
+        diffMultiplier = storeDiffMultiplier;
     }
 
     public String getTempWarning() {
         return tempWarning;
     }
 
-    public void setTempWarning(String tempWarning) {
-        this.tempWarning = tempWarning;
+    public static void setTempWarning(String storeTempWarning) {
+        tempWarning = storeTempWarning;
     }
     
     

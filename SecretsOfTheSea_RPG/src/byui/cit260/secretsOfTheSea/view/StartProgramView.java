@@ -5,6 +5,7 @@
  */
 package byui.cit260.secretsOfTheSea.view;
 
+import byui.cit260.secretsOfTheSea.control.GameControl;
 import byui.cit260.secretsOfTheSea.control.InitializeControl;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -112,6 +113,21 @@ public class StartProgramView {
         //do-while and while loops, continue if condition is true. Exit when false.
     }
     
+    public void loadGame(){
+        this.console.println("\nEnter the file path to load your saved data from.");
+        String filePath = input.stringInput();
+        //****************Test Load from here and Game Menu**********
+        try{
+            //Load a Saved Game
+            GameControl.loadGame(filePath);
+            this.console.println("Saved data has been loaded.  Returning to Game Menu.");
+        } catch (Exception ex){
+            ErrorView.display("GameMenuView", ex.getMessage());
+        }
+        GameMenuView gameMenu = new GameMenuView(null, null, null, null);
+    }
+    
+    
     public void startMenuChoice(char userChoice){
         MainMenuView mMView = new MainMenuView();
         switch (userChoice) {
@@ -122,7 +138,7 @@ public class StartProgramView {
                 mMView.openHelp();
                 break;
             case 'L':
-                mMView.loadGame();
+                this.loadGame();
                 break;
             case 'Q':
                 mMView.quitGame();

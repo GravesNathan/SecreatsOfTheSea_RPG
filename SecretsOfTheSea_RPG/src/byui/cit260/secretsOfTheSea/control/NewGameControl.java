@@ -15,7 +15,7 @@ import byui.cit260.secretsOfTheSea.model.SelectedShip;
  */
 public class NewGameControl {
     
-    private Player player1 = null;//Initializeing here allows it's use throughout class refering to the same object for get and set
+    private static Player player1 = null;//Initializeing here allows it's use throughout class refering to the same object for get and set
     //private String tempUserName = null;  He lost me on the whole tempUserName thing.  Have some grasp of constructors, but not completely.
 
 
@@ -55,5 +55,10 @@ public class NewGameControl {
     public String getPlayerName(){
         return player1.getName();
     }
+
+    public static void setPlayerName(String playerName) {
+        player1.setName(playerName);
+    }
+    
     
 }

@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 public class InventoryControl {
     
-    ArrayList<Items> cargo = null;
-    ArrayList<Items> storage = null;
+    private static ArrayList<Items> cargo = null;
+    private static ArrayList<Items> storage = null;
     
     public InventoryControl(ShipSelectionControl playerShip){
         //Cargo and Storage constructors setup the baseline.  Not the adjusted values
@@ -72,16 +72,16 @@ public class InventoryControl {
         return cargo;
     }
 
-    public void setCargo(ArrayList<Items> cargo) {
-        this.cargo = cargo;
+    public static void setCargo(ArrayList<Items> storeCargo) {
+        cargo = storeCargo;
     }
 
     public ArrayList<Items> getStorage() {
         return storage;
     }
 
-    public void setStorage(ArrayList<Items> storage) {
-        this.storage = storage;
+    public static void setStorage(ArrayList<Items> storeStorage) {
+        storage = storeStorage;
     }
     
     
