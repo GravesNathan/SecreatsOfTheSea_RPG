@@ -6,6 +6,13 @@
 package secretsofthesea_rpg;
 
 //import byui.cit260.secretsOfTheSea.control.StartControl;
+import byui.cit260.secretsOfTheSea.control.InventoryControl;
+import byui.cit260.secretsOfTheSea.control.MapControl;
+import byui.cit260.secretsOfTheSea.control.NewGameControl;
+import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
+import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
+import byui.cit260.secretsOfTheSea.exceptions.ShipSelectionException;
 import byui.cit260.secretsOfTheSea.view.ErrorView;
 import byui.cit260.secretsOfTheSea.view.StartProgramView;
 import java.io.BufferedReader;
@@ -52,6 +59,11 @@ public class SecretsOfTheSea_RPG {
         
         //StartControl startup = new StartControl();
         //startup.initializeGame();
+        NewGameControl tempGame = null;
+        MapControl tempMap = null;
+        ShipSelectionControl tempShip = null; 
+        InventoryControl tempInventory = null;
+        
 
         
         StartProgramView startProgramView = null;//= new StartProgramView();
@@ -87,15 +99,26 @@ public class SecretsOfTheSea_RPG {
                 statusReport.close();
         
         
+        try {//creating instances of the control.  My only concer is whether these will overwrite
+            //the read data because I had to make them static to support the set and gets each...
+            //Note that without this try - catch the GameMenu Load should have worked fine with
+            //The Lines below this try catch.
+        tempGame = new NewGameControl("Default");
+        tempMap = new MapControl('E');
+        tempShip = new ShipSelectionControl(0);
+        tempInventory = new InventoryControl(tempShip);
+        }catch (MapControlException | ExplorableAreasException | ShipSelectionException mce) { 
+            ErrorView.display("GameControl ",mce.getMessage());
+        }
         
         //StartProgramView
         startProgramView = new StartProgramView();
-        startProgramView.startProgram();
+        startProgramView.startProgram(tempGame, tempMap, tempShip, tempInventory);
        
         } catch (Throwable ex){ 
 
             ErrorView.display("SecretsOfTheSea_RPG", "The Program hit an unexpected Error.");
-            startProgramView.startProgram();
+            startProgramView.startProgram(tempGame, tempMap, tempShip, tempInventory);
             
             
         }

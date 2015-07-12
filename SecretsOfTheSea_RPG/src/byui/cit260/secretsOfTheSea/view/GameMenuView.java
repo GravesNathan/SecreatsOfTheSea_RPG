@@ -77,7 +77,7 @@ public class GameMenuView extends View{
         String filePath = tempInput.stringInput();
         try{
             //Load a Saved Game
-            GameControl.loadGame(filePath);
+            GameControl.loadGame(filePath, tempUsername, tempMap, tempPlayerShip, tempInventory);
             this.console.println("Saved data has been loaded.  Returning to Game Menu.");
         } catch (Exception ex){
             ErrorView.display("GameMenuView", ex.getMessage());
