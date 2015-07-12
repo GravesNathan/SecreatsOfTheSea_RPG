@@ -64,15 +64,14 @@ public class StatusesView extends View{
                         statusReport.write("\n Difficulty \n");
                         statusReport.write( tempMap.getDifficulty());
                         statusReport.write("\n");
-            
-        }
-                statusReport.write("\n ************ \n");
-                statusReport.close();
+                        statusReport.write("\n ************ \n");
+                        statusReport.close();
                 this.console.println("Your Status Report has been successfully written to disk.");
                 return true;
+            }
             default:
                 ErrorView.display(this.getClass().getName(),"\n" + value + " is an invalid entry. Please select an option below:");
-                return false;
+               // return false;
         }
         } catch (Exception e){
             ErrorView.display(this.getClass().getName(), e.getMessage() +"Error Creating Report.");
