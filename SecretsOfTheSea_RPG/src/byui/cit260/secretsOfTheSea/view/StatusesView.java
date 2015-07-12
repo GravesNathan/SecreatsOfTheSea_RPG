@@ -51,7 +51,28 @@ public class StatusesView extends View{
         Date date = new Date();
         //System.out.println(dateFormat.format(date)); 
         
-//        try {
+//        String diffDisplay = new String();
+//                
+//            try {
+//                switch (tempMap.getUserDifficulty()) {
+//                    case "H":
+//                        diffDisplay = "Hard";
+//                        return true;
+//                    case "N":
+//                        diffDisplay = "Normal";
+//                        return true;
+//                    case "E":
+//                        diffDisplay = "Easy";
+//                        return true;
+//                    default:
+//                        diffDisplay = "Unknown";
+//                        return true;
+//                }           } catch (MapControlException ex) {
+//            ErrorView.display(this.getClass().getName(), ex.getMessage() +"- Error converting the difficulty character to a display name.");
+//            }
+        
+        
+
         switch (value) {
 //            case 'G':  Took out so we don't have a loop of game menu and statuses view
 //                GameMenuView gamemenu = new GameMenuView();

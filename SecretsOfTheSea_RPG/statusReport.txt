@@ -1,24 +1,20 @@
 
  ****PLAYER STATUS REPORT**** 
- 2015/07/12 12:31:43 is your game start time. 
+ 2015/07/12 12:46:14 is your game start time. 
 
-
- *****STATUS REPORT***** 
-
- Date & Time: 
- Player Name: "sdgfsdgfsdf"
- Difficulty: "H"
-
- ************ 
 
  ****PLAYER STATUS REPORT**** 
- 2015/07/12 12:34:12 is your game start time. 
+ 2015/07/12 12:50:24 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/12 12:51:22 is your game start time. 
 
 
  *****STATUS REPORT***** 
 
- Date & Time: 2015/07/12 12:34:22
- Player Name: "asdfasdf"
+ Date & Time: 2015/07/12 12:51:42
+ Player Name: "CaptN Crunch"
  Difficulty: "H"
 
  ************ 
