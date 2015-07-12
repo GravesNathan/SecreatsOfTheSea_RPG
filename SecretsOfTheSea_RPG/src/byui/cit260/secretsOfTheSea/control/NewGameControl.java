@@ -52,7 +52,7 @@ public class NewGameControl {
         //player1.setName(userName);//accepts value from view then pushes to the model layer
      //   }
     
-    public String getPlayerName(){
+    public static String getPlayerName(){
         return player1.getName();
     }
 

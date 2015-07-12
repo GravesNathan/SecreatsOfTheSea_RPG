@@ -16,7 +16,7 @@ import java.util.Random;
  */
 public class ExplorableAreasControl {
     
-    private ExplorableAreas[][] areas = null;
+    private static ExplorableAreas[][] areas = null;
     
     
     public ExplorableAreasControl(int islandNumber)
@@ -124,4 +124,13 @@ public class ExplorableAreasControl {
                     //return resource;
             }
     }
+
+    public static ExplorableAreas[][] getAreas() {
+        return areas;
+    }
+
+    public static void setAreas(ExplorableAreas[][] areas) {
+        ExplorableAreasControl.areas = areas;
+    }
+    
 }

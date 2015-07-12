@@ -68,7 +68,7 @@ public class InventoryControl {
         return storageString;
     }
 
-    public ArrayList<Items> getCargo() {
+    public static ArrayList<Items> getCargo() {
         return cargo;
     }
 
@@ -76,7 +76,7 @@ public class InventoryControl {
         cargo = storeCargo;
     }
 
-    public ArrayList<Items> getStorage() {
+    public static ArrayList<Items> getStorage() {
         return storage;
     }
 

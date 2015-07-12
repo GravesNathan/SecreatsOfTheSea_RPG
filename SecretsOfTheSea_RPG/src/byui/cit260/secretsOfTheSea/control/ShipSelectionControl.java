@@ -18,11 +18,13 @@ public class ShipSelectionControl {
     
     private static SelectedShip selectedShip = new SelectedShip();;
     private Ships[] ship = null;
+    private static int chozenShip = -1;
     int baseStats = 5;
-            
+   
+    
     public ShipSelectionControl(int tempShipChoice)
             throws ShipSelectionException{
-    
+        chozenShip = tempShipChoice;
         this.createShips();
         this.assignShip(tempShipChoice);
         selectedShip.setShipChoice(tempShipChoice);
@@ -232,12 +234,20 @@ public class ShipSelectionControl {
         return selectedShip.getBribery();
     }
 
-    public SelectedShip getSelectedShip() {
+    public static SelectedShip getSelectedShip() {
         return selectedShip;
     }
 
     public static void setSelectedShip(SelectedShip storeSelectedShip) {
         selectedShip = storeSelectedShip;
+    }
+
+    public static int getChozenShip() {
+        return chozenShip;
+    }
+
+    public static void setChozenShip(int chozenShip) {
+        ShipSelectionControl.chozenShip = chozenShip;
     }
     
 }

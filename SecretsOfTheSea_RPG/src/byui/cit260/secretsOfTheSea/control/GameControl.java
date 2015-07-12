@@ -5,12 +5,17 @@
  */
 package byui.cit260.secretsOfTheSea.control;
 
+import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
 import byui.cit260.secretsOfTheSea.exceptions.GameControlException;
+import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
+import byui.cit260.secretsOfTheSea.exceptions.ShipSelectionException;
+import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
 import byui.cit260.secretsOfTheSea.model.Items;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.SelectedShip;
 import byui.cit260.secretsOfTheSea.model.Storms;
+import byui.cit260.secretsOfTheSea.view.ErrorView;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -36,8 +41,10 @@ public class GameControl {
             String tempWarning,
             char difficulty,
             SelectedShip selectedShip,
+            int shipChoice,
             ArrayList<Items> cargo,
             ArrayList<Items> storage,
+            ExplorableAreas[][] areas,
             String filepath)
             throws GameControlException, IOException {
         
@@ -53,8 +60,10 @@ public class GameControl {
             output.writeObject(tempWarning);
             output.writeObject(difficulty);
             output.writeObject(selectedShip);
+            output.writeObject(shipChoice);
             output.writeObject(cargo);
             output.writeObject(storage);
+            output.writeObject(areas);
         }
         catch(IOException e){
             throw new GameControlException(e.getMessage());
@@ -76,9 +85,18 @@ public class GameControl {
         String tempWarning = null;
         char difficulty = ' ';
         SelectedShip selectedShip = null;
+        int shipChoice = -1;
         ArrayList<Items> cargo = null;
-        ArrayList<Items> storage = null; 
+        ArrayList<Items> storage = null;
+        ExplorableAreas[][] areas = null;
 
+        
+        NewGameControl tempGame = null;
+        MapControl tempMap = null;
+        ShipSelectionControl tempShip = null; 
+        InventoryControl tempInventory = null;
+        
+        
         try (FileInputStream fips = new FileInputStream(filePathInput)){
             ObjectInputStream inputData = new ObjectInputStream(fips);
             
@@ -92,26 +110,55 @@ public class GameControl {
             tempWarning = (String) inputData.readObject();
             difficulty = (char) inputData.readObject();
             selectedShip = (SelectedShip) inputData.readObject();
+            shipChoice = (int) inputData.readObject();
             cargo = (ArrayList<Items>) inputData.readObject();
             storage = (ArrayList<Items>) inputData.readObject();
-
+            areas = (ExplorableAreas[][]) inputData.readObject();
         }
         catch(Exception e){
             throw new GameControlException(e.getMessage());
         }
-        NewGameControl.setPlayerName(username);  
-        MapControl.setDiffMultiplier(diffMultiplier);
-        MapControl.setLocation(location);
-        MapControl.setMapGrid(mapGrid);
-        MapControl.setMapOne(mapOne);
-        MapControl.setNumStorms(numStorms);
-        MapControl.setStorms(storms);
-        MapControl.setTempWarning(tempWarning);
-        MapControl.setDifficulty(difficulty);
-        ShipSelectionControl.setSelectedShip(selectedShip);
-        InventoryControl.setCargo(cargo);
-        InventoryControl.setStorage(storage);
-                
+        try {//creating instances of the control.  My only concer is whether these will overwrite
+            //the read data because I had to make them static to support the set and gets each...
+            //Note that without this try - catch the GameMenu Load should have worked fine with
+            //The Lines below this try catch.
+        tempGame = new NewGameControl(username);
+        tempMap = new MapControl(difficulty);
+        tempShip = new ShipSelectionControl(shipChoice);
+        tempInventory = new InventoryControl(tempShip);
+        }catch (MapControlException | ExplorableAreasException | ShipSelectionException mce) { 
+            ErrorView.display("GameControl ",mce.getMessage());
+        }
+        
+        
+        tempGame.setPlayerName(username);  
+        tempMap.setDiffMultiplier(diffMultiplier);
+        tempMap.setLocation(location);
+        tempMap.setMapGrid(mapGrid);
+        tempMap.setMapOne(mapOne);
+        tempMap.setNumStorms(numStorms);
+        tempMap.setStorms(storms);
+        tempMap.setTempWarning(tempWarning);
+        tempMap.setDifficulty(difficulty);
+        tempShip.setSelectedShip(selectedShip);
+        tempInventory.setCargo(cargo);
+        tempInventory.setStorage(storage);
+        ExplorableAreasControl.setAreas(areas);
+        
+        
+//        NewGameControl.setPlayerName(username);  
+//        MapControl.setDiffMultiplier(diffMultiplier);
+//        MapControl.setLocation(location);
+//        MapControl.setMapGrid(mapGrid);
+//        MapControl.setMapOne(mapOne);
+//        MapControl.setNumStorms(numStorms);
+//        MapControl.setStorms(storms);
+//        MapControl.setTempWarning(tempWarning);
+//        MapControl.setDifficulty(difficulty);
+//        ShipSelectionControl.setSelectedShip(selectedShip);
+//        InventoryControl.setCargo(cargo);
+//        InventoryControl.setStorage(storage);
+//        ExplorableAreasControl.setAreas(areas);
         //byui.cit260.secretsOfTheSea.model.setMapOne(game);
     }
 

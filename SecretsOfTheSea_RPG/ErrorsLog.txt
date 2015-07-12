@@ -69,3 +69,12 @@ Sat Jul 11 15:12:27 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Plea
 
 Sat Jul 11 15:12:27 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
 Sat Jul 11 15:42:46 CDT 2015 - SecretsOfTheSea_RPG - java.lang.NullPointerException
+Sat Jul 11 21:43:30 CDT 2015 - byui.cit260.secretsOfTheSea.view.InventoryManagerView - Invalid Input.  Please choose actions to take
+ from the list below.
+Sat Jul 11 21:43:42 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Please enter a valid whole number.
+
+Sat Jul 11 21:43:44 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Please enter a valid whole number.
+
+Sat Jul 11 21:43:46 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Please enter a valid whole number.
+
+Sat Jul 11 21:47:47 CDT 2015 - SecretsOfTheSea_RPG - The Program hit an unexpected Error.

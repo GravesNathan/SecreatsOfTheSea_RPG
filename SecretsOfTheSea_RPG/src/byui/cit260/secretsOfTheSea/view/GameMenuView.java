@@ -61,8 +61,10 @@ public class GameMenuView extends View{
                     tempMap.getTempWarning(),
                     tempMap.getDifficulty(),
                     tempPlayerShip.getSelectedShip(),
+                    tempPlayerShip.getChozenShip(),
                     tempInventory.getCargo(),
                     tempInventory.getStorage(),
+                    tempMap.getSetupAreas(),
                     filePath);
             this.console.println("\nGame has been saved.\n");
         } catch (Exception ex){

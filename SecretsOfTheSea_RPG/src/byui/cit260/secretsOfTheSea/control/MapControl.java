@@ -13,6 +13,7 @@ import byui.cit260.secretsOfTheSea.model.LocationDetails;
 //import byui.cit260.secretsOfTheSea.model.Ships;
 import byui.cit260.secretsOfTheSea.model.Storms;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
+import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
 import java.io.PrintWriter;
 
 import java.util.Random;
@@ -34,6 +35,7 @@ public class MapControl {
     private static int[][] mapGrid = null;
     private static int diffMultiplier = 0;
     private static String tempWarning = null;
+    private static ExplorableAreasControl setupAreas = null;
     
     public MapControl( char tempDifficulty )
             throws MapControlException, ArrayIndexOutOfBoundsException, 
@@ -104,7 +106,7 @@ public class MapControl {
                     location[i].setXCoordinate(tempX);
                     location[i].setYCoordinate(tempY);
                     mapGrid[tempX][tempY] = 1;
-                    ExplorableAreasControl setupAreas = new ExplorableAreasControl(i);                   
+                    setupAreas = new ExplorableAreasControl(i);                   
                 }
                 else i--; //offset increment when the island ends up stacked on another island.
             }
@@ -185,7 +187,7 @@ public class MapControl {
         + "\nTotal storm coordinates = " + storms);
     }
 
-    public char getDifficulty() {
+    public static char getDifficulty() {
         return difficulty;
     }
 
@@ -193,7 +195,7 @@ public class MapControl {
         difficulty = storedifficulty;
     }
 
-    public Map getMapOne() {
+    public static Map getMapOne() {
         return mapOne;
     }
 
@@ -201,7 +203,7 @@ public class MapControl {
         mapOne = storeMapOne;
     }
 
-    public LocationDetails[] getLocation() {
+    public static LocationDetails[] getLocation() {
         return location;
     }
 
@@ -209,7 +211,7 @@ public class MapControl {
         location = storeLocation;
     }
 
-    public Storms[] getStorms() {
+    public static Storms[] getStorms() {
         return storms;
     }
 
@@ -217,7 +219,7 @@ public class MapControl {
         storms = storeStorms;
     }
 
-    public int getNumStorms() {
+    public static int getNumStorms() {
         return numStorms;
     }
 
@@ -225,7 +227,7 @@ public class MapControl {
         numStorms = storeNumStorms;
     }
 
-    public int[][] getMapGrid() {
+    public static int[][] getMapGrid() {
         return mapGrid;
     }
 
@@ -233,7 +235,7 @@ public class MapControl {
         mapGrid = storeMapGrid;
     }
 
-    public int getDiffMultiplier() {
+    public static int getDiffMultiplier() {
         return diffMultiplier;
     }
 
@@ -241,15 +243,22 @@ public class MapControl {
         diffMultiplier = storeDiffMultiplier;
     }
 
-    public String getTempWarning() {
+    public static String getTempWarning() {
         return tempWarning;
     }
 
     public static void setTempWarning(String storeTempWarning) {
         tempWarning = storeTempWarning;
     }
-    
-    
+
+    public static ExplorableAreas[][] getSetupAreas() {
+        return ExplorableAreasControl.getAreas();
+    }
+
+    public static void setSetupAreas(ExplorableAreasControl setupAreas) {
+        ExplorableAreasControl.setAreas(getSetupAreas());
+    }
+
 }
 
 
