@@ -52,7 +52,7 @@ public class Items implements Serializable{
 
     @Override
     public String toString() {
-        return "\n " + charName + " - "+ name + " :quantity = " + quantity;
+        return "\r\n " + charName + " - "+ name + " :quantity = " + quantity;
     }
 
     @Override

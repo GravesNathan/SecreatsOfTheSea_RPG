@@ -18,3 +18,27 @@
  Difficulty: "H"
 
  ************ 
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/13 18:01:31 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/13 18:02:36 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/13 18:05:18 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/13 18:07:08 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/13 18:08:05 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/13 18:09:05 is your game start time. 
+

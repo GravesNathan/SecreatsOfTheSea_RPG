@@ -31,6 +31,8 @@ public class ExchangeItemsControl {
             }
     }
     
+    //Refer to ItemEnum.java for list of resources and their weight / value
+    
     public String randomResource() throws ExchangeItemsException{
         String resource = null;
         Random number = new Random();
