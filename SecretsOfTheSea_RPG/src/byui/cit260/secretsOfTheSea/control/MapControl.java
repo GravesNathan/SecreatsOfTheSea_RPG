@@ -141,7 +141,7 @@ public class MapControl {
                 }
                 else i--; //offset increment when the island ends up stacked on another island.
             }
-            mapOne.setGrid(mapGrid);
+            mapOne.setGrid(mapGrid);//Initial set after Creation of map.
       }
       
     public void createVisibleMap(){
@@ -157,6 +157,7 @@ public class MapControl {
                 }
             }
         }
+        Map.setVisibleMap(visibleMap);//Initial set after creation of visual map.
     }  
     
     public void exploreMap(KeyEvent e)
@@ -171,6 +172,7 @@ public class MapControl {
                     visibleMap[x][y] = reDrawSpot(x,y);
                     CurrentStatus.setCurrentY(y-1);
                     visibleMap[x][y-1]='S';
+                    Map.setVisibleMap(visibleMap);
                 }
                 else throw new MapControlException ("That direction is out of bounds."
                         + "Please try a different menu selection");
@@ -180,6 +182,7 @@ public class MapControl {
                     visibleMap[x][y] = reDrawSpot(x,y);
                     CurrentStatus.setCurrentY(y+1);
                     visibleMap[x][y+1]='S';
+                    Map.setVisibleMap(visibleMap);
                 }
                 else throw new MapControlException ("That direction is out of bounds."
                         + "Please try a different menu selection"); 
@@ -189,6 +192,7 @@ public class MapControl {
                     visibleMap[x][y] = reDrawSpot(x,y);
                     CurrentStatus.setCurrentX(x-1);
                     visibleMap[x-1][y]='S';
+                    Map.setVisibleMap(visibleMap);
                 }
                 else throw new MapControlException ("That direction is out of bounds."
                         + "Please try a different menu selection");
@@ -198,6 +202,7 @@ public class MapControl {
                     visibleMap[x][y] = reDrawSpot(x,y);
                     CurrentStatus.setCurrentX(x+1);
                     visibleMap[x+1][y]='S';
+                    Map.setVisibleMap(visibleMap);
                 }
                 else throw new MapControlException ("That direction is out of bounds."
                         + "Please try a different menu selection"); 

@@ -20,7 +20,7 @@ public class Map implements Serializable{
     private int yMax;
     private static char Difficulty;
     private static int [][] grid;
-    private static int [][] visibleMap;
+    private static char [][] visibleMap;
     
     public Map() {
     }
@@ -93,11 +93,11 @@ public class Map implements Serializable{
         Map.grid = grid;
     }
 
-    public static int[][] getVisibleMap() {
+    public static char[][] getVisibleMap() {
         return visibleMap;
     }
 
-    public static void setVisibleMap(int[][] visibleMap) {
+    public static void setVisibleMap(char[][] visibleMap) {
         Map.visibleMap = visibleMap;
     }
 
