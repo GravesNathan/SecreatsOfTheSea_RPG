@@ -109,7 +109,7 @@ public class Map implements Serializable{
     public String toString() {
         return "Map{" + "xMax=" + xMax + ", yMax=" + yMax + ", Difficulty=" + Difficulty + '}';
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 7;

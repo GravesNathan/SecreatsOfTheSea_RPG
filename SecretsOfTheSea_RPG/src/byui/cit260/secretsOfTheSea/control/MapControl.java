@@ -144,13 +144,14 @@ public class MapControl {
             mapOne.setGrid(mapGrid);//Initial set after Creation of map.
       }
       
-    public void createVisibleMap(){
+    public void createVisibleMap()
+        throws MapControlException{
         int xMax = mapOne.getxMax();
         int yMax = mapOne.getyMax();
         visibleMap = new char[xMax][yMax];
         for ( int i=0;i<xMax;i++){
             for ( int j=0; j<yMax;j++){
-                visibleMap[i][j]='.';
+                reDrawSpot(i, j);
                 if (CurrentStatus.getCurrentX()==i &&
                         CurrentStatus.getCurrentY()==j){
                     visibleMap[i][j] = 'S';
@@ -223,6 +224,8 @@ public class MapControl {
             case 0:
                 return '.';
             case 1:
+                if (x==location[0].getXCoordinate()&& y==location[0].getYCoordinate())
+                    return 'H';//Returns H if the Island is a home island.
                 return 'O';
             case 2:
                 return '*';
@@ -249,39 +252,28 @@ public class MapControl {
     
     public void PrintMap(){
         //this.console.println("\nfor-each bad Print, 0 = empty, 1 = island, 2 = storm");
-//        this.console.println("\n");
-//        int emptySpaces = 0;
-//        int islands = 0;
-//        int storms = 0;
-//        
+        this.console.println("\n");
+               
 
-//        this.console.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
-//        for(int[] row : mapGrid){
-//            this.console.println();
-//            for(int column : row)
-//                System.out.print("  " + column + "  ");
-//        }    
-//
-////        for(int[] row : mapGrid){//for-each statement, mapGrid is double array
-////            
-////            for(int i = 0; i < row.length ; i++){//coulnd't use second for-each...?
-////                System.out.print(row[i] + "  ");//This is my "Sum" function for the week's assignment
-////                switch (row[i]) {
-////                    case 0:
-////                        emptySpaces += 1;
-////                    case 1:
-////                        islands += row[i];
-////                    case 2:
-////                        storms += (row[i]/2);
-////                }
-////            }
-////            this.console.println();
-////        } 
-//        this.console.println("Total empty coordinates = " + emptySpaces
-//        + "\nTotal island coordinates = " + islands
-//        + "\nTotal storm coordinates = " + storms);
+        this.console.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
+        for(int[] row : mapGrid){
+            this.console.println();
+            for(int column : row)
+                System.out.print("  " + column + "  ");
+        }    
     }
 
+    public String mapToString(){
+        String showUserMap = "\r\n";
+        for(char[] row : Map.getVisibleMap()){
+            showUserMap += "\r\n";
+            for(char column : row)
+                showUserMap += ("  " + column + "  ");
+        }
+        showUserMap += ("\r\n. = empty/unknown space, cont legend");
+        return showUserMap;
+    }
+    
     public static char getDifficulty() {
         return Map.getDifficulty();
     }
