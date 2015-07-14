@@ -17,8 +17,8 @@ public class CurrentStatus implements Serializable{
     //StatuesCount
     //LifeStatus
     
-    private int currentX;
-    private int currentY;
+    private static int currentX;
+    private static int currentY;
     private int StatuesCount;    
     private String LifeStatus;
     private String gameDifficulty;
@@ -27,20 +27,20 @@ public class CurrentStatus implements Serializable{
     public CurrentStatus() {
     }
 
-    public int getCurrentX() {
+    public static int getCurrentX() {
         return currentX;
     }
 
-    public void setCurrentX(int currentX) {
-        this.currentX = currentX;
+    public static void setCurrentX(int currentX) {
+        CurrentStatus.currentX = currentX;
     }
 
-    public int getCurrentY() {
+    public static int getCurrentY() {
         return currentY;
     }
 
-    public void setCurrentY(int currentY) {
-        this.currentY = currentY;
+    public static void setCurrentY(int currentY) {
+        CurrentStatus.currentY = currentY;
     }
    
     
@@ -113,8 +113,8 @@ public class CurrentStatus implements Serializable{
         hash = 23 * hash + Objects.hashCode(this.LifeStatus);
         hash = 23 * hash + Objects.hashCode(this.gameDifficulty);
         hash = 23 * hash + Objects.hashCode(this.statusMessage);
-        hash = 23 * hash + Objects.hashCode(this.currentX);
-        hash = 23 * hash + Objects.hashCode(this.currentY);
+        hash = 23 * hash + Objects.hashCode(CurrentStatus.currentX);
+        hash = 23 * hash + Objects.hashCode(CurrentStatus.currentY);
         return hash;
     }
 
@@ -139,12 +139,14 @@ public class CurrentStatus implements Serializable{
         if (!Objects.equals(this.statusMessage, other.statusMessage)) {
             return false;
         }
-        if (!Objects.equals(this.currentX, other.currentX)) {
-            return false;
-        }
-        if (!Objects.equals(this.currentY, other.currentY)) {
-            return false;
-        }
+        //Static variables shouldn't need this.  They are the same
+        //across all instances of the class.
+//        if (!Objects.equals(this.currentX, other.currentX)) {
+//            return false;
+//        }
+//        if (!Objects.equals(this.currentY, other.currentY)) {
+//            return false;
+//        }
         return true;
         
     

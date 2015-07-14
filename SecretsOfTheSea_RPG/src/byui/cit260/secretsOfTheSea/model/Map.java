@@ -6,6 +6,7 @@
 package byui.cit260.secretsOfTheSea.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -18,7 +19,9 @@ public class Map implements Serializable{
     private int xMax;
     private int yMax;
     private static char Difficulty;
-
+    private static int [][] grid;
+    private static int [][] visibleMap;
+    
     public Map() {
     }
     
@@ -82,6 +85,26 @@ public class Map implements Serializable{
         this.Difficulty = Difficulty;
     }
 
+    public static int[][] getGrid() {
+        return grid;
+    }
+
+    public static void setGrid(int[][] grid) {
+        Map.grid = grid;
+    }
+
+    public static int[][] getVisibleMap() {
+        return visibleMap;
+    }
+
+    public static void setVisibleMap(int[][] visibleMap) {
+        Map.visibleMap = visibleMap;
+    }
+
+    public static int getSpot(int x, int y){
+        return grid[x][y];
+    }
+    
     @Override
     public String toString() {
         return "Map{" + "xMax=" + xMax + ", yMax=" + yMax + ", Difficulty=" + Difficulty + '}';
@@ -90,9 +113,10 @@ public class Map implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 11 * hash + Objects.hashCode(this.xMax);
-        hash = 11 * hash + Objects.hashCode(this.yMax);
-        hash = 11 * hash + Objects.hashCode(this.Difficulty);
+        hash = 13 * hash + this.xMax;
+        hash = 13 * hash + this.yMax;
+        hash = 13 * hash + Arrays.deepHashCode(Map.grid);
+        hash = 13 * hash + Arrays.deepHashCode(Map.visibleMap);
         return hash;
     }
 
@@ -105,17 +129,16 @@ public class Map implements Serializable{
             return false;
         }
         final Map other = (Map) obj;
-        if (!Objects.equals(this.xMax, other.xMax)) {
+        if (this.xMax != other.xMax) {
             return false;
         }
-        if (!Objects.equals(this.yMax, other.yMax)) {
-            return false;
-        }
-        if (!Objects.equals(this.Difficulty, other.Difficulty)) {
+        if (this.yMax != other.yMax) {
             return false;
         }
         return true;
     }
+
+    
 
     
     

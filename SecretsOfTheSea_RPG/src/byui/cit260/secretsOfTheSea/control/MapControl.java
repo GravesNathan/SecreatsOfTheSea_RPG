@@ -13,7 +13,10 @@ import byui.cit260.secretsOfTheSea.model.LocationDetails;
 //import byui.cit260.secretsOfTheSea.model.Ships;
 import byui.cit260.secretsOfTheSea.model.Storms;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
+import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
+import byui.cit260.secretsOfTheSea.view.ErrorView;
+import java.awt.event.KeyEvent;
 import java.io.PrintWriter;
 
 import java.util.Random;
@@ -33,6 +36,7 @@ public class MapControl {
     private static Storms[] storms = null;
     private static int numStorms = 0;
     private static int[][] mapGrid = null;
+    private char [][] visibleMap = null;
     private static int diffMultiplier = 0;
     private static String tempWarning = null;
     private static ExplorableAreasControl setupAreas = null;
@@ -44,7 +48,8 @@ public class MapControl {
         this.calcMapSize( tempDifficulty );
         this.populateMap();
         this.populateStorms();
-        this.PrintMap();
+        this.createVisibleMap();
+//        this.PrintMap();
 //        this.tempPrintMap2();
 //        this.verifyMap();
 //        this.tempPrintMap3();
@@ -105,6 +110,10 @@ public class MapControl {
                 if (mapGrid[tempX][tempY] == 0) {
                     location[i].setXCoordinate(tempX);
                     location[i].setYCoordinate(tempY);
+                    if (i == 0){
+                        CurrentStatus.setCurrentX(tempX);
+                        CurrentStatus.setCurrentY(tempY);
+                    }
                     mapGrid[tempX][tempY] = 1;
                     setupAreas = new ExplorableAreasControl(i);                   
                 }
@@ -132,9 +141,90 @@ public class MapControl {
                 }
                 else i--; //offset increment when the island ends up stacked on another island.
             }
+            mapOne.setGrid(mapGrid);
       }
       
-      
+    public void createVisibleMap(){
+        int xMax = mapOne.getxMax();
+        int yMax = mapOne.getyMax();
+        visibleMap = new char[xMax][yMax];
+        for ( int i=0;i<xMax;i++){
+            for ( int j=0; j<yMax;j++){
+                visibleMap[i][j]='.';
+                if (CurrentStatus.getCurrentX()==i &&
+                        CurrentStatus.getCurrentY()==j){
+                    visibleMap[i][j] = 'S';
+                }
+            }
+        }
+    }  
+    
+    public void exploreMap(KeyEvent e)
+        throws MapControlException {
+    int key = e.getKeyCode();
+    int y = CurrentStatus.getCurrentY();
+    int x = CurrentStatus.getCurrentX();
+
+        switch( key ) { 
+            case KeyEvent.VK_UP:
+                if (y>0){
+                    visibleMap[x][y] = reDrawSpot(x,y);
+                    CurrentStatus.setCurrentY(y-1);
+                    visibleMap[x][y-1]='S';
+                }
+                else throw new MapControlException ("That direction is out of bounds."
+                        + "Please try a different menu selection");
+                break;
+            case KeyEvent.VK_DOWN:
+                if (y<mapOne.getyMax()){
+                    visibleMap[x][y] = reDrawSpot(x,y);
+                    CurrentStatus.setCurrentY(y+1);
+                    visibleMap[x][y+1]='S';
+                }
+                else throw new MapControlException ("That direction is out of bounds."
+                        + "Please try a different menu selection"); 
+                break;
+            case KeyEvent.VK_LEFT:
+                if (x>0){
+                    visibleMap[x][y] = reDrawSpot(x,y);
+                    CurrentStatus.setCurrentX(x-1);
+                    visibleMap[x-1][y]='S';
+                }
+                else throw new MapControlException ("That direction is out of bounds."
+                        + "Please try a different menu selection");
+                break;
+            case KeyEvent.VK_RIGHT :
+                if (x<mapOne.getxMax()){
+                    visibleMap[x][y] = reDrawSpot(x,y);
+                    CurrentStatus.setCurrentX(x+1);
+                    visibleMap[x+1][y]='S';
+                }
+                else throw new MapControlException ("That direction is out of bounds."
+                        + "Please try a different menu selection"); 
+                break;
+            default:
+                throw new MapControlException ("That direction is out of bounds."
+                        + "Please try a different menu selection");
+        }
+            
+    }
+
+
+    public char reDrawSpot(int x, int y)
+        throws MapControlException{//Puts original map character back onto
+        //visual map in place of ship.
+        
+        switch (Map.getSpot(x,y)){
+            case 0:
+                return '.';
+            case 1:
+                return 'O';
+            case 2:
+                return '*';
+            default:
+                throw new MapControlException("Failed to re-populate spot on map.");
+        }
+    }
     
     public String getUserDifficulty()
             throws MapControlException {
@@ -154,11 +244,11 @@ public class MapControl {
     
     public void PrintMap(){
         //this.console.println("\nfor-each bad Print, 0 = empty, 1 = island, 2 = storm");
-        this.console.println("\n");
-        int emptySpaces = 0;
-        int islands = 0;
-        int storms = 0;
-        
+//        this.console.println("\n");
+//        int emptySpaces = 0;
+//        int islands = 0;
+//        int storms = 0;
+//        
 
 //        this.console.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
 //        for(int[] row : mapGrid){
@@ -228,11 +318,11 @@ public class MapControl {
     }
 
     public static int[][] getMapGrid() {
-        return mapGrid;
+        return Map.getGrid();
     }
 
     public static void setMapGrid(int[][] storeMapGrid) {
-        mapGrid = storeMapGrid;
+        Map.setGrid(mapGrid);
     }
 
     public static int getDiffMultiplier() {
