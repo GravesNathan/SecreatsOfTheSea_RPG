@@ -22,7 +22,7 @@ public class OnShipView extends View{
                 + "\n"
                 + "\n Please choose an option below:"
                 + "\n L - Launch the ship"
-                + "\n D - Dock/Leave the ship"
+                + "\n D - Disembark (Leave the ship)"
                 + "\n W - Work on(Repair) the ship"
                 + "\n I - View Inventory"
                 + "\n V - View all Statuses"

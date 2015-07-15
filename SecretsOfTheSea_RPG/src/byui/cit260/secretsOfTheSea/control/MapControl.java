@@ -270,7 +270,8 @@ public class MapControl {
             for(char column : row)
                 showUserMap += ("  " + column + "  ");
         }
-        showUserMap += ("\r\n. = empty/unknown space, cont legend");
+        showUserMap += ("\r\n. = empty or unknown space, H = home island, S = Ship \n"
+                + "* = Storm, O = Island");
         return showUserMap;
     }
     
