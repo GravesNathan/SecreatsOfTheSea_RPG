@@ -112,3 +112,6 @@ Wed Jul 15 21:47:23 CDT 2015 - byui.cit260.secretsOfTheSea.view.InventoryManager
 Wed Jul 15 21:54:08 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
 Wed Jul 15 21:56:06 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
 Wed Jul 15 22:01:09 CDT 2015 - byui.cit260.secretsOfTheSea.view.InventoryManagerView - Invalid Input.  Please inputa positive whole number
+Wed Jul 15 22:46:28 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Wed Jul 15 22:54:42 CDT 2015 - byui.cit260.secretsOfTheSea.view.InventoryManagerView - Invalid Input.  Please choose actions to take
+ from the list below.

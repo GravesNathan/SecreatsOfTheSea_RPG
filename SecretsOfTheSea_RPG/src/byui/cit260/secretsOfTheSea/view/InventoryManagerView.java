@@ -68,6 +68,7 @@ public class InventoryManagerView{
                 }
                 }while (! ((item == 'F') || (item == 'W') ||(item == 'U') ||(item == 'M') 
                         ||(item == 'C') ||(item == 'A') ||(item == 'G') || (item == 'E')) );
+                
                 if( item == 'E')//Exit Inventory manager if E is selected.
                      break;
                 
@@ -90,8 +91,9 @@ public class InventoryManagerView{
                 else if (action == 'U')
                     strAction = "use";
                 }while (! ((action == 'D') || (action == 'U') ||(action == 'E')) );
-                if( item == 'E')//Exit Inventory manager if E is selected.
+                if( action == 'E'){//Exit Inventory manager if E is selected.
                      break;
+                }
                 //Why didn't this exit!!!!!!!!!!!!!!!!!!???????????????????
                 do{
                 this.console.println("Plese input the quantity to " + strAction);
@@ -116,11 +118,11 @@ public class InventoryManagerView{
             try {
                 switch (action) {
                     case 'D':
-                        tempInventory.removeItem(item, quantity);
+                        this.console.println(tempInventory.removeItem(item, quantity));
                         return false;
                     case 'U':
                         this.useResource();//This one may be complicated, but after use remove what was used.
-                        tempInventory.removeItem(item, quantity);
+                        this.console.println(tempInventory.removeItem(item, quantity));
                         return false;
                         //Option E is handled twice in above giant do-while to exit inventory upon inputo of E
                     default:
