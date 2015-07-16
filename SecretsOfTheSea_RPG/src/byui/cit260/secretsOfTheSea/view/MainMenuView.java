@@ -123,7 +123,7 @@ public class MainMenuView {
         }
                 
         newUserSettings = new NewGameControl(userName);
-        inventory = new InventoryControl(assignPlayerShip);
+        inventory = new InventoryControl();
         
         try {
         this.console.println("Welcome " + newUserSettings.getPlayerName() +

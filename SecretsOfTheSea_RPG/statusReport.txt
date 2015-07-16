@@ -54,3 +54,35 @@
  Difficulty: "N"
 
  ************ 
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/15 21:46:48 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/15 21:53:43 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/15 21:55:59 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/15 21:59:50 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/15 22:00:42 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/15 22:09:58 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/15 22:10:22 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/15 22:14:54 is your game start time. 
+

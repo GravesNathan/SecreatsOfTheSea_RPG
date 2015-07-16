@@ -106,7 +106,8 @@ public class SecretsOfTheSea_RPG {
         tempGame = new NewGameControl("Default");
         tempMap = new MapControl('E');
         tempShip = new ShipSelectionControl(0);
-        tempInventory = new InventoryControl(tempShip);
+        tempInventory = new InventoryControl();
+        tempInventory.startupInventory();
         }catch (MapControlException | ExplorableAreasException | ShipSelectionException mce) { 
             ErrorView.display("GameControl ",mce.getMessage());
         }

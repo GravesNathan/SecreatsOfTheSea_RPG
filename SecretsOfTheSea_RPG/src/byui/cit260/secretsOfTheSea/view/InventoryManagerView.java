@@ -9,8 +9,10 @@ import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import byui.cit260.secretsOfTheSea.exceptions.InventoryControlException;
 import byui.cit260.secretsOfTheSea.model.Items;
 import java.io.PrintWriter;
+import java.util.InputMismatchException;
 import secretsofthesea_rpg.SecretsOfTheSea_RPG;
 
 /**
@@ -42,32 +44,43 @@ public class InventoryManagerView{
         this.promptMessage = ("\n                   Inventory Manager"
                 +"\n Please select a resource or close the inventory manager."
                 + inventory.cargoToString()
-                + "\n\nC - Close Inventory Manager");
+                + "\n\nE - Exit Inventory Manager");
         this.display();
     }
     
     public void display(){
         boolean done = false;
+        
         do {
+            try {
                 do{
+                this.promptMessage = ("\n                   Inventory Manager"
+                +"\n Please select a resource or close the inventory manager."
+                + tempInventory.cargoToString()
+                + "\n\nE - Exit Inventory Manager");
                 
                 this.console.println(this.promptMessage);
 		item = getInput.charInput();
                 if (! ((item == 'F') || (item == 'W') ||(item == 'U') ||(item == 'M') 
-                        ||(item == 'C') ||(item == 'A') ||(item == 'G')) ){
+                        ||(item == 'C') ||(item == 'A') ||(item == 'G') || (item == 'E')) ){
                     ErrorView.display(this.getClass().getName(),"Invalid Input.  Please select from the following inventory");
                     continue;
                 }
                 }while (! ((item == 'F') || (item == 'W') ||(item == 'U') ||(item == 'M') 
-                        ||(item == 'C') ||(item == 'A') ||(item == 'G')) );
-                    
+                        ||(item == 'C') ||(item == 'A') ||(item == 'G') || (item == 'E')) );
+                if( item == 'E')//Exit Inventory manager if E is selected.
+                     break;
+                
+                /********************************
+                 * Above checks need to make dynamic for existing inventory somehow
+                 ************************************/    
                 do{
                 this.console.println("What would you like to do with this item?"
                         + "\nD - Drop"
                         + "\nU - Use"
-                        + "\nC - Close Inventory Manager");
+                        + "\nE - Exit Inventory Manager");
                 action = getInput.charInput();
-                if (! ((action == 'D') || (action == 'U') ||(action == 'C')) ){
+                if (! ((action == 'D') || (action == 'U') || (action == 'E')) ){
                     ErrorView.display(this.getClass().getName(),"Invalid Input.  Please choose actions to take"
                             + "\n from the list below.");
                     continue;
@@ -76,41 +89,48 @@ public class InventoryManagerView{
                     strAction = "drop";
                 else if (action == 'U')
                     strAction = "use";
-                }while (! ((action == 'D') || (action == 'U') ||(action == 'C')) );
-
+                }while (! ((action == 'D') || (action == 'U') ||(action == 'E')) );
+                if( item == 'E')//Exit Inventory manager if E is selected.
+                     break;
+                //Why didn't this exit!!!!!!!!!!!!!!!!!!???????????????????
                 do{
                 this.console.println("Plese input the quantity to " + strAction);
                 quantity = getInput.intInput();
+                if (quantity<=0) {
+                    ErrorView.display(this.getClass().getName(),"Invalid Input.  Please input"
+                            + "a positive whole number");
+                }
                 //Need to make this detect if quantity > currentItems.
                 //This may be easier handled by calling the control layer and
                 //making a function to check here.  Instead of below
                 }while ((quantity<=0));//||(quantity > ))
 
 		done = this.doAction(item, action, quantity);
-                
+            }catch (InputMismatchException ime) {
+                this.console.println("Invalid input type.  Please follow instructions.");
+            }
         }while (!done);
     }
     
         public boolean doAction(char item, char action, int quantity){
-            
+            try {
                 switch (action) {
                     case 'D':
-                        this.dropItem();
+                        tempInventory.removeItem(item, quantity);
                         return false;
                     case 'U':
-                        this.useResource();
+                        this.useResource();//This one may be complicated, but after use remove what was used.
+                        tempInventory.removeItem(item, quantity);
                         return false;
-                    case 'C':
-                        return true;
+                        //Option E is handled twice in above giant do-while to exit inventory upon inputo of E
                     default:
                         return true;//change to a throw later.
                 }
+            }catch (InventoryControlException ice){
+                this.console.println(ice.getMessage());
+                return false;
+            }
         }
-
-    public void dropItem(){
-        this.console.println("dropItem function stub");
-    }
-    
 
     public void useResource(){
         this.console.println("useResource function called.");

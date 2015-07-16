@@ -5,9 +5,13 @@
  */
 package byui.cit260.secretsOfTheSea.control;
 
+import byui.cit260.secretsOfTheSea.exceptions.InventoryControlException;
 import byui.cit260.secretsOfTheSea.model.Cargo;
 import byui.cit260.secretsOfTheSea.model.Items;
+import byui.cit260.secretsOfTheSea.model.ItemsEnum;
+import byui.cit260.secretsOfTheSea.model.SelectedShip;
 import byui.cit260.secretsOfTheSea.model.Storage;
+import byui.cit260.secretsOfTheSea.view.ErrorView;
 import java.util.ArrayList;
 
 /**
@@ -18,16 +22,12 @@ public class InventoryControl {
     
     private static ArrayList<Items> cargo = null;
     private static ArrayList<Items> storage = null;
+    private SelectedShip playerShip = ShipSelectionControl.getSelectedShip();
+    private int cargoCap = playerShip.getCargoCapSize();
     
-    public InventoryControl(ShipSelectionControl playerShip){
-        //Cargo and Storage constructors setup the baseline.  Not the adjusted values
-        //based on ship.  For now diff cargo size, perhaps adjustments to startup
-        //cargo and storage supplies as well.
-        startupInventory();
-        
-        
-        //shipAdjustments(playerShip); Use if diff startup inventory per ship 
-
+    public InventoryControl(){
+        //Decided to keep empty constructor so ExchangeControl class can
+        //use the inventory control functions for exhanging items.
     }
     
     public void startupInventory(){
@@ -39,7 +39,7 @@ public class InventoryControl {
         cargo.add(new Items('C', "Coin", 200));
         cargo.add(new Items('A', "Artifacts", 1));
         cargo.add(new Items('G', "Gems", 1));
-            
+        
         storage = new ArrayList<>();
         storage.add(new Items('F', "Food", 25));
         storage.add(new Items('W', "Water", 25));
@@ -50,6 +50,73 @@ public class InventoryControl {
         storage.add(new Items('G', "Gems", 1));
     }
     
+    public String charToString(char cName)
+            throws InventoryControlException{
+        switch (cName){
+            case 'F':
+                return "Food";
+            case 'W':
+                return "Water";
+            case 'U':
+                return "Fuel";
+            case 'M':
+                return "Munitions";
+            case 'C':
+                return "Coin";
+            case 'A':
+                return "Artifacts";
+            case 'G':
+                return "Gems";
+            default:
+                throw new InventoryControlException ("Failed to convert character input to String");  
+        }    
+    }    
+    public String addItem(char charItem, int quantity)
+            throws InventoryControlException{//call for picking up or otherwise adding item to inventory
+        for (Items item : cargo){
+            if (charItem == item.getCharName()){
+                item.setQuantity(quantity + item.getQuantity());
+                return (quantity + item.getName() + "have been added to your inventory");
+            }
+            
+        }
+        String itemName = charToString(charItem);
+        Items newItem = new Items(charItem, itemName, quantity);
+        cargo.add(newItem);
+        return (quantity + itemName + "have been added to your inventory");
+    }
+        
+    
+    public String removeItem(char charItem, int quantity)
+            throws InventoryControlException{//call for dropping or otherwise removing item from inventory
+        for (Items item : cargo){
+            if (charItem == item.getCharName()){
+                if (!(item.getQuantity() - quantity < 0))//make sure not removing too many items.
+                    item.setQuantity(item.getQuantity() - quantity);
+                if (item.getQuantity() == 0)
+                    cargo.remove(item);
+                return (quantity + item.getName() + "have been removed from your inventory");
+            }
+            
+        }
+        throw new InventoryControlException ("You don't have that many " + charToString(charItem) + "available");
+    }
+    
+    public void buyItem(char charItem, int quantity, int value)//Calculate value of purchase with Exchange function
+            //Then pass the charItem, quantity, and value here.
+            throws InventoryControlException{
+        removeItem( ItemsEnum.Coin.getCName(), value);//character for coin and value.
+        //removeItem checks for to much being spent so it goes first.
+        addItem(charItem, quantity);
+    }
+    
+    public void sellItem(char charItem, int quantity, int value)
+            throws InventoryControlException{
+        removeItem(charItem , quantity);
+        //removeItem checks for to much being sold so it goes first.
+        addItem(ItemsEnum.Coin.getCName(), value);//character for coin and value.
+        
+    }
 //    public void shipAdjustments(ShipSelectionControl playerShip){
 //        int ship = playerShip.getShipChoice();            
 //    }
