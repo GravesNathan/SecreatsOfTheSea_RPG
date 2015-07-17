@@ -44,7 +44,8 @@ public class OnShipView extends View{
         
         switch (value) {
             case 'L':
-		this.launchShipControl();
+		//this.launchShipControl();
+                MapV mapView = new MapV(tempUsername, tempMap, tempPlayerShip, tempInventory);
 		return false;
             case 'D':
                 ExplorableAreasView explorableareas = new ExplorableAreasView(tempUsername, tempMap, tempPlayerShip, tempInventory);

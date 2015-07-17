@@ -6,6 +6,7 @@
 package byui.cit260.secretsOfTheSea.control;
 
 import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
+import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import java.util.Random;
@@ -18,7 +19,6 @@ public class ExplorableAreasControl {
     
     private static ExplorableAreas[][] areas = null;
     
-    
     public ExplorableAreasControl(int islandNumber)
                 throws ExplorableAreasException {
         this.setupAreas(islandNumber);
@@ -26,6 +26,7 @@ public class ExplorableAreasControl {
     
     public void setupAreas(int i)
                     throws ExplorableAreasException {
+        //******Players default area at home is set in MapControl before this call.
         areas = new ExplorableAreas[8][4];
         Random tempRand = new Random();
         int placeStatue = tempRand.nextInt(3) + 1;
@@ -125,6 +126,21 @@ public class ExplorableAreasControl {
             }
     }
 
+    /**************************
+     * Throughout this class.  Can find the exact areas by first comparing the players
+     * current X and Y to that of the location details currentX and Y.  When they match
+     * you can get the island number from the location details and set that to the players 
+     * island number.  Once that's set this will represent the letter i for the island number
+     * that was used when the explorableAreas were created.  From there can find the exact resources
+     * for each area.  I'd like to set it up so the check for which island only occurs when docking
+     * and remains until they launch.
+     */
+    
+    
+    public void moveArea(int areaChosen){
+        CurrentStatus.setCurrentArea(areaChosen);
+    }
+    
     public static ExplorableAreas[][] getAreas() {
         return areas;
     }

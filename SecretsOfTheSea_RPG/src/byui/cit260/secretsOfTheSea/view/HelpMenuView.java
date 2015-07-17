@@ -28,7 +28,7 @@ public class HelpMenuView extends View{
                 + "\n S - Societies"
                 + "\n T - Trust Levels"                
                 + "\n C - Close Menu"
-                + "\n ", null, null, null, null);            
+                + "\n ", null, null, null, null);
     }
     
     /*Editted existing code so that the returnHelpMenu is called from the switch

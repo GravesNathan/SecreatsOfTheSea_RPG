@@ -115,3 +115,6 @@ Wed Jul 15 22:01:09 CDT 2015 - byui.cit260.secretsOfTheSea.view.InventoryManager
 Wed Jul 15 22:46:28 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
 Wed Jul 15 22:54:42 CDT 2015 - byui.cit260.secretsOfTheSea.view.InventoryManagerView - Invalid Input.  Please choose actions to take
  from the list below.
+Thu Jul 16 22:45:07 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapV - Error reading input: String index out of range: 0
+Thu Jul 16 22:45:10 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapV - Error reading input: String index out of range: 0
+Thu Jul 16 22:45:13 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapV - Error reading input: String index out of range: 0

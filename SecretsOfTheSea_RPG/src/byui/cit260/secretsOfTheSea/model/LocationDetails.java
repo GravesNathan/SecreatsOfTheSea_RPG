@@ -16,6 +16,7 @@ public class LocationDetails extends Storage implements Serializable{
     private int XCoordinate;
     private int YCoordinate;
     private float distance;
+    private int islandNumber;//For use in Explorable Areas.
     
     public LocationDetails() {
     }
@@ -52,6 +53,14 @@ public class LocationDetails extends Storage implements Serializable{
         this.distance = distance;
     }
 
+    public int getIslandNumber() {
+        return islandNumber;
+    }
+
+    public void setIslandNumber(int islandNumber) {
+        this.islandNumber = islandNumber;
+    }
+
     
     //@Override
     public String toString() {
@@ -65,6 +74,7 @@ public class LocationDetails extends Storage implements Serializable{
         hash = 29 * hash + this.Statue;
         hash = 29 * hash + this.XCoordinate;
         hash = 29 * hash + this.YCoordinate;
+        hash = 29 * hash + this.islandNumber;
         hash = (int) (29 * hash + this.distance);//That's what netbeans suggested for the long...
         return hash;
     }
@@ -85,6 +95,9 @@ public class LocationDetails extends Storage implements Serializable{
             return false;
         }
         if (this.YCoordinate != other.YCoordinate) {
+            return false;
+        }
+        if (this.islandNumber != other.islandNumber) {
             return false;
         }
         if (this.distance != other.distance){

@@ -15,7 +15,9 @@ import byui.cit260.secretsOfTheSea.model.Storms;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
 import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
+import byui.cit260.secretsOfTheSea.model.SelectedShip;
 import byui.cit260.secretsOfTheSea.view.ErrorView;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.PrintWriter;
 
@@ -110,9 +112,12 @@ public class MapControl {
                 if (mapGrid[tempX][tempY] == 0) {
                     location[i].setXCoordinate(tempX);
                     location[i].setYCoordinate(tempY);
+                    location[i].setIslandNumber(i);
                     if (i == 0){
                         CurrentStatus.setCurrentX(tempX);
                         CurrentStatus.setCurrentY(tempY);
+                        CurrentStatus.setCurrentIsland(i);
+                        CurrentStatus.setCurrentArea(0);
                     }
                     mapGrid[tempX][tempY] = 1;
                     setupAreas = new ExplorableAreasControl(i);                   
@@ -161,12 +166,13 @@ public class MapControl {
         Map.setVisibleMap(visibleMap);//Initial set after creation of visual map.
     }  
     
-    public void exploreMap(KeyEvent e)
+
+    public void exploreMap(KeyEvent e, SelectedShip tempShip)
         throws MapControlException {
     int key = e.getKeyCode();
     int y = CurrentStatus.getCurrentY();
     int x = CurrentStatus.getCurrentX();
-
+    int tempHealth = 0;
         switch( key ) { 
             case KeyEvent.VK_UP:
                 if (y>0){
@@ -212,7 +218,13 @@ public class MapControl {
                 throw new MapControlException ("That direction is out of bounds."
                         + "Please try a different menu selection");
         }
-            
+        if (mapGrid[CurrentStatus.getCurrentX()][CurrentStatus.getCurrentY()] == 2){
+            tempHealth = tempShip.getHealth()-storms[0].getPowerLevel(); //Currently all storms are the same.
+            //Will need to keep better track of these on the grid to call correct one if that's changed.
+            tempShip.setHealth(tempHealth);
+            //if (tempHealth <= 0)
+                //Call EndGameView with status of Game Over here.
+        }
     }
 
 
@@ -251,6 +263,7 @@ public class MapControl {
     
     
     public void PrintMap(){
+        //backend Map
         //this.console.println("\nfor-each bad Print, 0 = empty, 1 = island, 2 = storm");
         this.console.println("\n");
                

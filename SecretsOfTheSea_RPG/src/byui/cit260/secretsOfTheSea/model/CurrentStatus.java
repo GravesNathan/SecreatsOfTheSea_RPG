@@ -19,6 +19,8 @@ public class CurrentStatus implements Serializable{
     
     private static int currentX;
     private static int currentY;
+    private static int currentArea;
+    private static int currentIsland;//set which island they are on for explorableAreas.
     private int StatuesCount;    
     private String LifeStatus;
     private String gameDifficulty;
@@ -41,6 +43,22 @@ public class CurrentStatus implements Serializable{
 
     public static void setCurrentY(int currentY) {
         CurrentStatus.currentY = currentY;
+    }
+
+    public static int getCurrentArea() {
+        return currentArea;
+    }
+
+    public static void setCurrentArea(int currentArea) {
+        CurrentStatus.currentArea = currentArea;
+    }
+
+    public static int getCurrentIsland() {
+        return currentIsland;
+    }
+
+    public static void setCurrentIsland(int currentIsland) {
+        CurrentStatus.currentIsland = currentIsland;
     }
    
     
@@ -115,6 +133,8 @@ public class CurrentStatus implements Serializable{
         hash = 23 * hash + Objects.hashCode(this.statusMessage);
         hash = 23 * hash + Objects.hashCode(CurrentStatus.currentX);
         hash = 23 * hash + Objects.hashCode(CurrentStatus.currentY);
+        hash = 23 * hash + Objects.hashCode(CurrentStatus.currentArea);
+        hash = 23 * hash + Objects.hashCode(CurrentStatus.currentIsland);
         return hash;
     }
 
