@@ -19,7 +19,8 @@ public class ShipSelectionControl {
     private static SelectedShip selectedShip = new SelectedShip();;
     private Ships[] ship = null;
     private static int chozenShip = -1;
-    int baseStats = 5;
+    private int baseStats = 5;
+    private int baseHealth = 10;
    
     
     public ShipSelectionControl(int tempShipChoice)
@@ -40,14 +41,14 @@ public class ShipSelectionControl {
         ship[0].setName("Submersible");
         ship[0].setDescription("Sneak in, deceive leaders, slide away");
         ship[0].setCargoCapSize(20);
-        ship[0].setMorale(0);
-        ship[0].setSpeed(0);
-        ship[0].setDefense(1);
+        ship[0].setMorale(-1);
+        ship[0].setSpeed(-2);
+        ship[0].setDefense(4);
         ship[0].setDeceit(1);
         ship[0].setDiplomacy(1);
         ship[0].setIntimidation(0);
         ship[0].setBribery(0);
-        ship[0].setHealth(0);
+        ship[0].setHealth(8);
         
         String ship0Info = ship[0].toString();
         //this.console.println(ship0Info);
@@ -56,14 +57,14 @@ public class ShipSelectionControl {
         ship[1].setName("Ironclad");
         ship[1].setDescription("Highest Intimidation and defense of the game");
         ship[1].setCargoCapSize(60);
-        ship[1].setMorale(0);
-        ship[1].setSpeed(-1);
-        ship[1].setDefense(1);
+        ship[1].setMorale(-2);
+        ship[1].setSpeed(-3);
+        ship[1].setDefense(5);
         ship[1].setDeceit(-1);
         ship[1].setDiplomacy(0);
         ship[1].setIntimidation(1);
         ship[1].setBribery(0);
-        ship[1].setHealth(0);
+        ship[1].setHealth(10);
         
         String ship1Info = ship[1].toString();
         //this.console.println(ship1Info);
@@ -72,14 +73,14 @@ public class ShipSelectionControl {
         ship[2].setName("Galley");
         ship[2].setDescription("Higher Supplies, better trade opportunities");
         ship[2].setCargoCapSize(100);
-        ship[2].setMorale(-1);
+        ship[2].setMorale(0);
         ship[2].setSpeed(0);
-        ship[2].setDefense(-1);
+        ship[2].setDefense(1);
         ship[2].setDeceit(0);
         ship[2].setDiplomacy(0);
         ship[2].setIntimidation(-1);
         ship[2].setBribery(1);
-        ship[2].setHealth(0);
+        ship[2].setHealth(6);
         
         String ship2Info = ship[2].toString();
         //this.console.println(ship2Info);
@@ -89,14 +90,14 @@ public class ShipSelectionControl {
         ship[3].setName("Clipper");
         ship[3].setDescription("Speed across the open sea, you'll with any race with this ship.");
         ship[3].setCargoCapSize(40);
-        ship[3].setMorale(1);
-        ship[3].setSpeed(1);
+        ship[3].setMorale(2);
+        ship[3].setSpeed(4);
         ship[3].setDefense(-1);
         ship[3].setDeceit(0);
         ship[3].setDiplomacy(1);
         ship[3].setIntimidation(0);
         ship[3].setBribery(-1);
-        ship[3].setHealth(0);
+        ship[3].setHealth(4);
         String ship3Info = ship[3].toString();
         //this.console.println(ship3Info);
         
@@ -109,7 +110,7 @@ public class ShipSelectionControl {
             ship[i].setDiplomacy(baseStats + ship[i].getDiplomacy());
             ship[i].setIntimidation(baseStats + ship[i].getIntimidation());
             ship[i].setBribery(baseStats + ship[i].getBribery());
-            ship[i].setHealth(baseStats + ship[i].getHealth());
+            ship[i].setHealth(baseHealth + ship[i].getHealth());
         }
     /*    
         //SelectedShip Set & Print
@@ -160,15 +161,16 @@ public class ShipSelectionControl {
         for (int i=0; i<4; i++){          
             shipsPrint += ("\n\nPress " + i + " to select this ship:"
                     + "\nname= " + ship[i].getName()
-                    + "\ndescription= " + ship[i].getDescription() 
-                    + "\nMax Cargo= " + ship[i].getCargoCapSize() 
+                    + "\ndescription= " + ship[i].getDescription()
+                    + "\nhealth= " + ship[i].getHealth()
+                    //+ "\nMax Cargo= " + ship[i].getCargoCapSize() 
                     + ", morale= " + ship[i].getMorale()
                     + ", speed= " + ship[i].getSpeed()
-                    + ", defense " + ship[i].getDefense()
-                    + "\ndeceit= " + ship[i].getDeceit()
-                    + ", Diplomacy= " + ship[i].getDiplomacy()
-                    + ", intimidation= " + ship[i].getIntimidation()
-                    + ", bribery " + ship[i].getBribery());
+                    + ", defense " + ship[i].getDefense());
+                    //+ "\ndeceit= " + ship[i].getDeceit()
+                    //+ ", Diplomacy= " + ship[i].getDiplomacy()
+                    //+ ", intimidation= " + ship[i].getIntimidation()
+                   // + ", bribery " + ship[i].getBribery());
         }
         return shipsPrint;
     }
