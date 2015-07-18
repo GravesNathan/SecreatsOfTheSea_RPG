@@ -330,3 +330,39 @@
  ****PLAYER STATUS REPORT**** 
  2015/07/18 13:34:49 is your game start time. 
 
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/18 13:55:40 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/18 13:58:08 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/18 13:59:54 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/18 14:03:20 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/18 14:06:38 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/18 14:09:07 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/18 14:11:03 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/18 14:18:59 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/18 14:21:15 is your game start time. 
+

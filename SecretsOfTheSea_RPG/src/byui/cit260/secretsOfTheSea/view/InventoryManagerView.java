@@ -55,19 +55,25 @@ public class InventoryManagerView{
             try {
                 do{
                 this.promptMessage = ("\n                   Inventory Manager"
-                +"\n Please select a resource or close the inventory manager."
+                +"\n\n Please select a resource or exit the inventory manager."
                 + tempInventory.cargoToString()
                 + "\n\nE - Exit Inventory Manager");
                 
                 this.console.println(this.promptMessage);
 		item = getInput.charInput();
-                if (! ((item == 'F') || (item == 'W') ||(item == 'U') ||(item == 'M') 
-                        ||(item == 'C') ||(item == 'A') ||(item == 'G') || (item == 'E')) ){
+                if (! ((item == 'F') || (item == 'W') 
+                        //||(item == 'U') ||(item == 'M') 
+                        ||(item == 'C') || (item == 'L') 
+                        //||(item == 'A') ||(item == 'G') 
+                        || (item == 'E')) ){
                     ErrorView.display(this.getClass().getName(),"Invalid Input.  Please select from the following inventory");
                     continue;
                 }
-                }while (! ((item == 'F') || (item == 'W') ||(item == 'U') ||(item == 'M') 
-                        ||(item == 'C') ||(item == 'A') ||(item == 'G') || (item == 'E')) );
+                }while (! ((item == 'F') || (item == 'W') 
+                        //||(item == 'U') ||(item == 'M') 
+                        ||(item == 'C') || (item == 'L') 
+                        //||(item == 'A') ||(item == 'G') 
+                        || (item == 'E')) );
                 
                 if( item == 'E')//Exit Inventory manager if E is selected.
                      break;

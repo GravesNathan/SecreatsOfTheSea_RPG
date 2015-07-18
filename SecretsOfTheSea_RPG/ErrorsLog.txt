@@ -268,3 +268,24 @@ Hotkey - Description
  H - Get Help
  L - Load Game
  Q - Quit Game
+Sat Jul 18 13:55:47 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sat Jul 18 14:00:17 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 14:00:18 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Sat Jul 18 14:00:18 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 14:00:18 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Sat Jul 18 14:00:18 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 14:00:19 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Sat Jul 18 14:00:19 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 14:00:19 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Sat Jul 18 14:00:19 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 14:00:20 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Sat Jul 18 14:00:20 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 14:00:24 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 14:19:19 CDT 2015 - byui.cit260.secretsOfTheSea.view.InventoryManagerView - Invalid Input.  Please select from the following inventory

@@ -24,7 +24,7 @@ public class CurrentStatus implements Serializable{
     private int StatuesCount;    
     private String LifeStatus;
     private String gameDifficulty;
-    private String statusMessage;
+    private static String statusMessage;
     
     public CurrentStatus() {
     }
@@ -108,12 +108,12 @@ public class CurrentStatus implements Serializable{
         this.gameDifficulty = gameDifficulty;
     }
 
-    public String getStatusMessage() {
+    public static String getStatusMessage() {
         return statusMessage;
     }
 
-    public void setStatusMessage(String statusMessage) {
-        this.statusMessage = statusMessage;
+    public static void setStatusMessage(String tempStatusMessage) {
+        statusMessage = tempStatusMessage;
     }
 
     

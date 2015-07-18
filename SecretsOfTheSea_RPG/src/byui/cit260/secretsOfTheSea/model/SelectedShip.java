@@ -20,13 +20,15 @@ public class SelectedShip extends Ships implements Serializable{
     public SelectedShip() {
     }
 
-    public int getHealth() {
-        return shipHealth;
-    }
-
-    public void setHealth(int shipHealth) {
-        this.shipHealth = shipHealth;
-    }
+//    I changed all getShipHealth and setShipHealth to getHealth and setHealth.
+//    These are taken from the Ships class so no need for declaration here.
+//    public int getHealth() {
+//        return shipHealth;
+//    }
+//
+//    public void setHealth(int shipHealth) {
+//        this.shipHealth = shipHealth;
+//    }
 
     public int getShipChoice() {
         return shipChoice;

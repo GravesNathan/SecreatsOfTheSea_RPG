@@ -34,20 +34,21 @@ public class InventoryControl {
         cargo = new ArrayList<>();
         cargo.add(new Items('F', "Food", 25));
         cargo.add(new Items('W', "Water", 25));
-        cargo.add(new Items('U', "Fuel", 25));
-        cargo.add(new Items('M', "Munitions", 5));
+        //cargo.add(new Items('U', "Fuel", 25));
+        //cargo.add(new Items('M', "Munitions", 5));
         cargo.add(new Items('C', "Coin", 200));
-        cargo.add(new Items('A', "Artifacts", 1));
-        cargo.add(new Items('G', "Gems", 1));
+        cargo.add(new Items('L', "Lumber", 10));
+        //cargo.add(new Items('A', "Artifacts", 1));
+        //cargo.add(new Items('G', "Gems", 1));
         
-        storage = new ArrayList<>();
-        storage.add(new Items('F', "Food", 25));
-        storage.add(new Items('W', "Water", 25));
-        storage.add(new Items('U', "Fuel", 25));
-        storage.add(new Items('M', "Munitions", 5));
-        storage.add(new Items('C', "Coin", 100));
-        storage.add(new Items('A', "Artifacts", 1));
-        storage.add(new Items('G', "Gems", 1));
+//        storage = new ArrayList<>();
+//        storage.add(new Items('F', "Food", 25));
+//        storage.add(new Items('W', "Water", 25));
+//        storage.add(new Items('U', "Fuel", 25));
+//        storage.add(new Items('M', "Munitions", 5));
+//        storage.add(new Items('C', "Coin", 100));
+//        storage.add(new Items('A', "Artifacts", 1));
+//        storage.add(new Items('G', "Gems", 1));
     }
     
     public String charToString(char cName)
@@ -57,16 +58,18 @@ public class InventoryControl {
                 return "Food";
             case 'W':
                 return "Water";
-            case 'U':
-                return "Fuel";
-            case 'M':
-                return "Munitions";
+//            case 'U':
+//                return "Fuel";
+//            case 'M':
+//                return "Munitions";
             case 'C':
                 return "Coin";
-            case 'A':
-                return "Artifacts";
-            case 'G':
-                return "Gems";
+            case 'L':
+                return "Lumber";
+//            case 'A':
+//                return "Artifacts";
+//            case 'G':
+//                return "Gems";
             default:
                 throw new InventoryControlException ("Failed to convert character input to String");  
         }    

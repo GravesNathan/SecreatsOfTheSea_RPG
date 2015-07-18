@@ -1,1 +1,0 @@
-Sat Jul 18 13:34:52 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Error reading input: String index out of range: 0

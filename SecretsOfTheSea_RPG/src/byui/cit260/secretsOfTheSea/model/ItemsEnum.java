@@ -15,11 +15,12 @@ public enum ItemsEnum implements Serializable{
     //This enum only sets the base value.  It may vary based on societies trust level.
     Food('F', "Food", 20, 5),
     Water('W', "Water", 10, 5),
-    Fuel('U', "Fuel", 30, 5),
-    Munitions('M', "Munitions", 40, 15),
-    Coin('C', "coin", 1, .1),
-    Artifacts('A', "Artifacts", 50, 1),
-    Gems('G', "Gems", 100, 1);
+    //Fuel('U', "Fuel", 30, 5),
+    //Munitions('M', "Munitions", 40, 15),
+    Lumber('L', "Lumber", 30, 10),
+    Coin('C', "coin", 1, .1);
+    //Artifacts('A', "Artifacts", 50, 1),
+    //Gems('G', "Gems", 100, 1);
     
     private final char cName;
     private final String name;

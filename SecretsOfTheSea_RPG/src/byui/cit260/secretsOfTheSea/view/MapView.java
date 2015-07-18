@@ -10,6 +10,7 @@ import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
+import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -57,19 +58,21 @@ public class MapView extends View{
     
     public MapView( NewGameControl username, MapControl map, ShipSelectionControl playerShip,
             InventoryControl inventory){
-        super( "This is the current map of the Sea \n\n" + map.mapToString() + "\n\n\n"
-                + "Please enter an option below."
+        super( "************Move Ship View*****************"
+                + "\n\n"
+                + "\n\nShip Health = " + playerShip.getHealth()
+                + "\nShip Defense = " + playerShip.getDefense()
+                + "\nShip Speed = " + playerShip.getSpeed()
+                + "\nCurrent Morale = " + playerShip.getMorale()
+                + "\n\nMap of the Sea \n\n" + map.mapToString()
+                + "\nPlease enter an option below."
                 + "\n D - Dock ship"
                 + "\n W - Work on(Repair) ship"
                 + "\n I - View Inventory"
                 + "\n V - View all Statuses"
                 + "\n G - Game Menu"
-                + "\n\nUse the E, R, T, and 4 keys to move your ship"
-                + "\nLeft, Down, Right, and Up respectively."
-                + "\n\nShip Health = " + playerShip.getHealth()
-                + "\nShip Defense = " + playerShip.getDefense()
-                + "\nShip Speed = " + playerShip.getSpeed()
-                + "\nCurrent Morale = " + playerShip.getMorale() , username, map, playerShip, inventory);
+                + "\n\n Or Use the E, R, T, and 4 keys to move your ship"
+                + "\nLeft, Down, Right, and Up respectively.", username, map, playerShip, inventory);
     }
 
     
@@ -79,11 +82,17 @@ public class MapView extends View{
         char value = entry;
         if (value == 'E' || value == 'R' || value == 'T' || value == '4'){
             try {
-                console.println(tempMap.moveShip(entry, ShipSelectionControl.getSelectedShip()));
+                tempMap.moveShip(entry, ShipSelectionControl.getSelectedShip());
                 } catch (MapControlException ex) {
                 ErrorView.display("MapView", ex.getMessage());
                 }
-                this.setPromptMessage("\nMap of the Sea \n\n" + tempMap.mapToString() + "\n\n\n"
+                this.setPromptMessage("\n\n************Move Ship View*****************"
+                + "\nSTATUS\n" + CurrentStatus.getStatusMessage()
+                + "\n\nShip Health = " + tempPlayerShip.getHealth()
+                + "\nShip Defense = " + tempPlayerShip.getDefense()
+                + "\nShip Speed = " + tempPlayerShip.getSpeed()
+                + "\nCurrent Morale = " + tempPlayerShip.getMorale()
+                + "\nMap of the Sea \n\n" + tempMap.mapToString() + "\n\n\n"
                 + "Please enter an option below."
                 + "\n D - Dock ship"
                 + "\n W - Work on(Repair) ship"
@@ -91,11 +100,7 @@ public class MapView extends View{
                 + "\n V - View all Statuses"
                 + "\n G - Game Menu"
                 + "\n\nUse the E, R, T, and 4 keys to move your ship"
-                + "\nLeft, Down, Right, and Up respectively."
-                + "\n\nShip Health = " + tempPlayerShip.getHealth()
-                + "\nShip Defense = " + tempPlayerShip.getDefense()
-                + "\nShip Speed = " + tempPlayerShip.getSpeed()
-                + "\nCurrent Morale = " + tempPlayerShip.getMorale());
+                + "\nLeft, Down, Right, and Up respectively.");
                 return false;
         }
         switch (value) {
