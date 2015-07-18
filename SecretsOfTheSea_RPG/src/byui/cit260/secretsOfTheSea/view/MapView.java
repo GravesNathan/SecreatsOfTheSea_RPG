@@ -67,6 +67,8 @@ public class MapView extends View{
                 + "\n\nUse the E, R, T, and 4 keys to move your ship"
                 + "\nLeft, Down, Right, and Up respectively."
                 + "\n\nShip Health = " + playerShip.getHealth()
+                + "\nShip Defense = " + playerShip.getDefense()
+                + "\nShip Speed = " + playerShip.getSpeed()
                 + "\nCurrent Morale = " + playerShip.getMorale() , username, map, playerShip, inventory);
     }
 
@@ -77,11 +79,11 @@ public class MapView extends View{
         char value = entry;
         if (value == 'E' || value == 'R' || value == 'T' || value == '4'){
             try {
-                tempMap.moveShip(entry, ShipSelectionControl.getSelectedShip());
+                console.println(tempMap.moveShip(entry, ShipSelectionControl.getSelectedShip()));
                 } catch (MapControlException ex) {
                 ErrorView.display("MapView", ex.getMessage());
                 }
-                this.setPromptMessage("This is the current map of the Sea \n\n" + tempMap.mapToString() + "\n\n\n"
+                this.setPromptMessage("\nMap of the Sea \n\n" + tempMap.mapToString() + "\n\n\n"
                 + "Please enter an option below."
                 + "\n D - Dock ship"
                 + "\n W - Work on(Repair) ship"
@@ -91,6 +93,8 @@ public class MapView extends View{
                 + "\n\nUse the E, R, T, and 4 keys to move your ship"
                 + "\nLeft, Down, Right, and Up respectively."
                 + "\n\nShip Health = " + tempPlayerShip.getHealth()
+                + "\nShip Defense = " + tempPlayerShip.getDefense()
+                + "\nShip Speed = " + tempPlayerShip.getSpeed()
                 + "\nCurrent Morale = " + tempPlayerShip.getMorale());
                 return false;
         }

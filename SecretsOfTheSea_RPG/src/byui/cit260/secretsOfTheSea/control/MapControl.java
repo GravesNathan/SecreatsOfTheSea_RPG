@@ -168,7 +168,7 @@ public class MapControl {
         Map.setVisibleMap(visibleMap);//Initial set after creation of visual map.
     }  
     
-    public void moveShip(char direction, SelectedShip tempShip)
+    public String moveShip(char direction, SelectedShip tempShip)
         throws MapControlException {
         int y = CurrentStatus.getCurrentY();
     int x = CurrentStatus.getCurrentX();
@@ -217,12 +217,20 @@ public class MapControl {
                 throw new MapControlException ("Unexpected Error ocurred when moving ship.");
         }
         if (mapGrid[CurrentStatus.getCurrentX()][CurrentStatus.getCurrentY()] == 2){
-            tempShip.setHealth(storms[0].getPowerLevel()); //Currently all storms are the same.
+            int damage = storms[0].getPowerLevel() - tempShip.getDefense();
+            if (damage > 0){//damage is positive if sustained.
+                tempShip.setHealth(tempShip.getHealth() - damage); //Currently all storms are the same.
+                return ("You ran into a storm.  Your ship sustained " + damage + " damage. \n");
+            }
+            return ("You ran into a storm.  Your defense held firm, no damage was sustained.");
             //Will need to keep better track of these on the grid to call correct one if that's changed.
-            
+        }
+            else if (mapGrid[CurrentStatus.getCurrentX()][CurrentStatus.getCurrentY()] == 1)
+                return ("You arrived at an island.  What would you like to do now?");
+            else return ("You moved, but nothing exciting happend");
             //if (tempHealth <= 0)
                 //Call EndGameView with status of Game Over here.
-        }
+        
     }
     
     /*Not use currently because can't get arrow keys working with key listeners.

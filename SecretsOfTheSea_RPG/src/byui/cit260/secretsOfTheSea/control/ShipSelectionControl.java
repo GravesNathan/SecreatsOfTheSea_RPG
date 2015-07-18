@@ -100,6 +100,17 @@ public class ShipSelectionControl {
         String ship3Info = ship[3].toString();
         //this.console.println(ship3Info);
         
+        for (int i=0; i<4; i++){//Adjust stats per ship in preparation to print
+            ship[i].setCargoCapSize(baseStats + ship[i].getCargoCapSize());
+            ship[i].setMorale(baseStats + ship[i].getMorale());
+            ship[i].setSpeed(baseStats + ship[i].getSpeed());
+            ship[i].setDefense(baseStats + ship[i].getDefense());
+            ship[i].setDeceit(baseStats + ship[i].getDeceit());
+            ship[i].setDiplomacy(baseStats + ship[i].getDiplomacy());
+            ship[i].setIntimidation(baseStats + ship[i].getIntimidation());
+            ship[i].setBribery(baseStats + ship[i].getBribery());
+            ship[i].setHealth(baseStats + ship[i].getHealth());
+        }
     /*    
         //SelectedShip Set & Print
         selectedShip = new SelectedShip();
@@ -115,26 +126,27 @@ public class ShipSelectionControl {
         selectedShip.setDiplomacy(baseStats);
         selectedShip.setIntimidation(baseStats);
         selectedShip.setBribery(baseStats);
-        selectedShip.setShipHealth(baseStats);
+        selectedShip.setHealth(baseStats);
             */
     }
     
     public void assignShip(int tempShipChoice1)
-            throws ShipSelectionException{
+            throws ShipSelectionException{//Players choice is made the assigned ship for
+        //this play through.
         
         for (int i=0; i<4; i++){
             if ( i == tempShipChoice1){
                 selectedShip.setName(ship[i].getName() );
                 selectedShip.setDescription(ship[i].getDescription());
-                selectedShip.setCargoCapSize(baseStats *10 + ship[i].getCargoCapSize());
-                selectedShip.setMorale(baseStats + ship[i].getMorale());
-                selectedShip.setSpeed(baseStats + ship[i].getSpeed());
-                selectedShip.setDefense(baseStats + ship[i].getDefense());
+                selectedShip.setCargoCapSize(ship[i].getCargoCapSize());
+                selectedShip.setMorale(ship[i].getMorale());
+                selectedShip.setSpeed(ship[i].getSpeed());
+                selectedShip.setDefense(ship[i].getDefense());
                 selectedShip.setDeceit(baseStats + ship[i].getDeceit());
-                selectedShip.setDiplomacy(baseStats + ship[i].getDiplomacy());
-                selectedShip.setIntimidation(baseStats + ship[i].getIntimidation());
-                selectedShip.setBribery(baseStats + ship[i].getBribery());
-                selectedShip.setShipHealth(baseStats + ship[i].getHealth());
+                selectedShip.setDiplomacy(ship[i].getDiplomacy());
+                selectedShip.setIntimidation(ship[i].getIntimidation());
+                selectedShip.setBribery(ship[i].getBribery());
+                selectedShip.setHealth(ship[i].getHealth());
                 return;  
             }
         }
@@ -145,17 +157,7 @@ public class ShipSelectionControl {
     //printed to the user before choosing the ship.
     public String toString() {
         String shipsPrint = "\n";
-        for (int i=0; i<4; i++){
-                ship[i].setCargoCapSize(baseStats + ship[i].getCargoCapSize());
-                ship[i].setMorale(baseStats + ship[i].getMorale());
-                ship[i].setSpeed(baseStats + ship[i].getSpeed());
-                ship[i].setDefense(baseStats + ship[i].getDefense());
-                ship[i].setDeceit(baseStats + ship[i].getDeceit());
-                ship[i].setDiplomacy(baseStats + ship[i].getDiplomacy());
-                ship[i].setIntimidation(baseStats + ship[i].getIntimidation());
-                ship[i].setBribery(baseStats + ship[i].getBribery());
-                ship[i].setHealth(baseStats + ship[i].getHealth());
-                
+        for (int i=0; i<4; i++){          
             shipsPrint += ("\n\nPress " + i + " to select this ship:"
                     + "\nname= " + ship[i].getName()
                     + "\ndescription= " + ship[i].getDescription() 
@@ -187,29 +189,29 @@ public class ShipSelectionControl {
         return selectedShip.getCargoCapSize();
     }
     
-    //These we plan to get and set as the game goes on.
     public int getMorale(){
         return selectedShip.getMorale();
     }
     
-    public void setMorale(int change){
-        selectedShip.setMorale(selectedShip.getMorale() + change);
+    public void setMorale(int newMorale){
+        selectedShip.setMorale(newMorale);
     }
     
     public int getSpeed(){
         return selectedShip.getSpeed();
     }
     
-    public void setSpeed(int change){
-        selectedShip.setSpeed(selectedShip.getSpeed() + change);
-    }
-        
-    public int getHealth(){
-        return selectedShip.getShipHealth();
+    public void setSpeed(int newSpeed){
+        selectedShip.setSpeed(newSpeed);
     }
     
-    public void setHealth(int change){
-        selectedShip.setHealth(selectedShip.getShipHealth() + change);
+    //may not need this as I'm working directly with model layer from MapControl
+    public int getHealth(){
+        return selectedShip.getHealth();
+    }
+    
+    public void setHealth(int newHealth){
+        selectedShip.setHealth(newHealth);
     }
     
     //*****************************************

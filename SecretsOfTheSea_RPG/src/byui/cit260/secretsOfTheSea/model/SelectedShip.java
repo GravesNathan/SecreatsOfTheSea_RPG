@@ -20,11 +20,11 @@ public class SelectedShip extends Ships implements Serializable{
     public SelectedShip() {
     }
 
-    public int getShipHealth() {
+    public int getHealth() {
         return shipHealth;
     }
 
-    public void setShipHealth(int shipHealth) {
+    public void setHealth(int shipHealth) {
         this.shipHealth = shipHealth;
     }
 

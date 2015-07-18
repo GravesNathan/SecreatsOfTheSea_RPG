@@ -236,3 +236,35 @@ Fri Jul 17 22:09:28 CDT 2015 - MapView - Down is out of bounds.Please try a diff
 Fri Jul 17 22:09:29 CDT 2015 - MapView - Down is out of bounds.Please try a different menu selection
 Fri Jul 17 22:09:33 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
 Fri Jul 17 22:09:34 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
+Sat Jul 18 12:24:00 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 12:28:45 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Please enter a valid whole number.
+
+Sat Jul 18 12:28:45 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sat Jul 18 12:28:47 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Please enter a valid whole number.
+
+Sat Jul 18 12:28:47 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sat Jul 18 12:28:48 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Please enter a valid whole number.
+
+Sat Jul 18 12:28:48 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sat Jul 18 12:35:15 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sat Jul 18 12:35:16 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Please enter a valid whole number.
+
+Sat Jul 18 12:35:16 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sat Jul 18 12:35:17 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Please enter a valid whole number.
+
+Sat Jul 18 12:35:17 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sat Jul 18 13:05:36 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 13:34:52 CDT 2015 - byui.cit260.secretsOfTheSea.view.StartProgramView -  that is an invalid entry. Please select an option below:
+Hotkey - Description
+ G - Start Game
+ H - Get Help
+ L - Load Game
+ Q - Quit Game
+Sat Jul 18 13:34:54 CDT 2015 - byui.cit260.secretsOfTheSea.view.StartProgramView -  that is an invalid entry. Please select an option below:
+Hotkey - Description
+ G - Start Game
+ H - Get Help
+ L - Load Game
+ Q - Quit Game
