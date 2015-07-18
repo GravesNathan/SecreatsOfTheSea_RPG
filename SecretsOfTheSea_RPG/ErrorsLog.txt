@@ -118,3 +118,121 @@ Wed Jul 15 22:54:42 CDT 2015 - byui.cit260.secretsOfTheSea.view.InventoryManager
 Thu Jul 16 22:45:07 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapV - Error reading input: String index out of range: 0
 Thu Jul 16 22:45:10 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapV - Error reading input: String index out of range: 0
 Thu Jul 16 22:45:13 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapV - Error reading input: String index out of range: 0
+Fri Jul 17 19:43:04 CDT 2015 - byui.cit260.secretsOfTheSea.view.OnShipView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 19:43:06 CDT 2015 - byui.cit260.secretsOfTheSea.view.InventoryManagerView - Invalid Input.  Please select from the following inventory
+Fri Jul 17 19:54:51 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Fri Jul 17 19:54:51 CDT 2015 - SecretsOfTheSea_RPG - The Program hit an unexpected Error.
+Fri Jul 17 20:15:21 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Fri Jul 17 20:17:48 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Please enter a valid whole number.
+
+Fri Jul 17 20:17:48 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Fri Jul 17 20:24:26 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Fri Jul 17 20:26:25 CDT 2015 - byui.cit260.secretsOfTheSea.view.InputView - Error reading input: String index out of range: 0
+Fri Jul 17 20:47:52 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Fri Jul 17 21:05:24 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:05:25 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Fri Jul 17 21:05:25 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:05:26 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:05:27 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:05:28 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:05:28 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:05:29 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:05:30 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:05:33 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:05:34 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:05:34 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:05:35 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:10:00 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:04 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:06 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:07 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:08 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:09 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:10 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:10 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:11 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:12 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:12 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Fri Jul 17 21:10:12 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:10:14 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:17 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:17 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:18 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:19 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:19 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:21 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:10:22 CDT 2015 - MapView - 
+ An error ocurred while moving the ship.
+Fri Jul 17 21:14:53 CDT 2015 - SecretsOfTheSea_RPG - The Program hit an unexpected Error.
+Fri Jul 17 21:17:38 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Fri Jul 17 21:18:52 CDT 2015 - MapView - That direction is out of bounds.Please try a different menu selection
+Fri Jul 17 21:18:58 CDT 2015 - MapView - That direction is out of bounds.Please try a different menu selection
+Fri Jul 17 21:18:59 CDT 2015 - MapView - That direction is out of bounds.Please try a different menu selection
+Fri Jul 17 21:19:10 CDT 2015 - MapView - Up is out of bounds.Please try a different menu selection
+Fri Jul 17 21:19:13 CDT 2015 - MapView - That direction is out of bounds.Please try a different menu selection
+Fri Jul 17 21:19:15 CDT 2015 - MapView - Up is out of bounds.Please try a different menu selection
+Fri Jul 17 21:19:16 CDT 2015 - MapView - That direction is out of bounds.Please try a different menu selection
+Fri Jul 17 21:19:18 CDT 2015 - MapView - That direction is out of bounds.Please try a different menu selection
+Fri Jul 17 21:19:18 CDT 2015 - MapView - That direction is out of bounds.Please try a different menu selection
+Fri Jul 17 21:21:14 CDT 2015 - SecretsOfTheSea_RPG - The Program hit an unexpected Error.
+Fri Jul 17 21:45:04 CDT 2015 - SecretsOfTheSea_RPG - The Program hit an unexpected Error.
+Fri Jul 17 21:48:11 CDT 2015 - MapView - Up is out of bounds.Please try a different menu selection
+Fri Jul 17 21:48:13 CDT 2015 - MapView - Up is out of bounds.Please try a different menu selection
+Fri Jul 17 21:48:24 CDT 2015 - SecretsOfTheSea_RPG - The Program hit an unexpected Error.
+Fri Jul 17 21:59:24 CDT 2015 - SecretsOfTheSea_RPG - The Program hit an unexpected Error.
+Fri Jul 17 22:04:29 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
+Fri Jul 17 22:04:52 CDT 2015 - SecretsOfTheSea_RPG - The Program hit an unexpected Error.
+Fri Jul 17 22:05:16 CDT 2015 - MapView - Up is out of bounds.Please try a different menu selection
+Fri Jul 17 22:09:05 CDT 2015 - byui.cit260.secretsOfTheSea.view.ExplorableAreasView - 
+
+L is an invalid input at this time 
+Please provide acceptable input from the menu below.
+
+Fri Jul 17 22:09:06 CDT 2015 - byui.cit260.secretsOfTheSea.view.ExplorableAreasView - 
+
+D is an invalid input at this time 
+Please provide acceptable input from the menu below.
+
+Fri Jul 17 22:09:07 CDT 2015 - byui.cit260.secretsOfTheSea.view.ExplorableAreasView - 
+
+L is an invalid input at this time 
+Please provide acceptable input from the menu below.
+
+Fri Jul 17 22:09:17 CDT 2015 - MapView - Up is out of bounds.Please try a different menu selection
+Fri Jul 17 22:09:24 CDT 2015 - MapView - Right is out of bounds.Please try a different menu selection
+Fri Jul 17 22:09:28 CDT 2015 - MapView - Down is out of bounds.Please try a different menu selection
+Fri Jul 17 22:09:29 CDT 2015 - MapView - Down is out of bounds.Please try a different menu selection
+Fri Jul 17 22:09:33 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
+Fri Jul 17 22:09:34 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection

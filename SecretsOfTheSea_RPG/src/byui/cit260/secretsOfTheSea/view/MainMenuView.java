@@ -132,7 +132,6 @@ public class MainMenuView {
         } catch (MapControlException me_difficulty) {
             ErrorView.display(this.getClass().getName(),me_difficulty.getMessage());
         }
-        
         ExplorableAreasView beginExplore = new ExplorableAreasView(newUserSettings, mainMap, assignPlayerShip, inventory);
     }
     

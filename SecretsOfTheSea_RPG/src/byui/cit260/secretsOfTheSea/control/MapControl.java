@@ -52,6 +52,7 @@ public class MapControl {
         this.populateStorms();
         this.createVisibleMap();
 //        this.PrintMap();
+//        System.out.println(this.mapToString());
 //        this.tempPrintMap2();
 //        this.verifyMap();
 //        this.tempPrintMap3();
@@ -156,17 +157,75 @@ public class MapControl {
         visibleMap = new char[xMax][yMax];
         for ( int i=0;i<xMax;i++){
             for ( int j=0; j<yMax;j++){
-                reDrawSpot(i, j);
+                visibleMap[i][j] = reDrawSpot(i, j);
                 if (CurrentStatus.getCurrentX()==i &&
                         CurrentStatus.getCurrentY()==j){
                     visibleMap[i][j] = 'S';
                 }
             }
         }
+        
         Map.setVisibleMap(visibleMap);//Initial set after creation of visual map.
     }  
     
-
+    public void moveShip(char direction, SelectedShip tempShip)
+        throws MapControlException {
+        int y = CurrentStatus.getCurrentY();
+    int x = CurrentStatus.getCurrentX();
+        switch( direction ) { 
+            case 'E'://Left Movement
+                if (y>0){
+                    visibleMap[x][y] = reDrawSpot(x,y);
+                    CurrentStatus.setCurrentY(y-1);
+                    visibleMap[x][y-1]='S';
+                    Map.setVisibleMap(visibleMap);
+                }
+                else throw new MapControlException ("Left is out of bounds."
+                        + "Please try a different menu selection");
+                break;
+            case 'T'://Right Movement
+                if (y<mapOne.getyMax()-1){//minus 1 to match end of array
+                    visibleMap[x][y] = reDrawSpot(x,y);
+                    CurrentStatus.setCurrentY(y+1);
+                    visibleMap[x][y+1]='S';
+                    Map.setVisibleMap(visibleMap);
+                }
+                else throw new MapControlException ("Right is out of bounds."
+                        + "Please try a different menu selection"); 
+                break;
+            case '4': //Up Movement
+                if (x>0){
+                    visibleMap[x][y] = reDrawSpot(x,y);
+                    CurrentStatus.setCurrentX(x-1);
+                    visibleMap[x-1][y]='S';
+                    Map.setVisibleMap(visibleMap);
+                }
+                else throw new MapControlException ("Up is out of bounds."
+                        + "Please try a different menu selection");
+                break;
+            case 'R'://Down Movement
+                if (x<mapOne.getxMax()-1){//minus 1 to match end of array
+                    visibleMap[x][y] = reDrawSpot(x,y);
+                    CurrentStatus.setCurrentX(x+1);
+                    visibleMap[x+1][y]='S';
+                    Map.setVisibleMap(visibleMap);
+                }
+                else throw new MapControlException ("Down is out of bounds."
+                        + "Please try a different menu selection"); 
+                break;
+            default:
+                throw new MapControlException ("Unexpected Error ocurred when moving ship.");
+        }
+        if (mapGrid[CurrentStatus.getCurrentX()][CurrentStatus.getCurrentY()] == 2){
+            tempShip.setHealth(storms[0].getPowerLevel()); //Currently all storms are the same.
+            //Will need to keep better track of these on the grid to call correct one if that's changed.
+            
+            //if (tempHealth <= 0)
+                //Call EndGameView with status of Game Over here.
+        }
+    }
+    
+    /*Not use currently because can't get arrow keys working with key listeners.
     public void exploreMap(KeyEvent e, SelectedShip tempShip)
         throws MapControlException {
     int key = e.getKeyCode();
@@ -225,13 +284,13 @@ public class MapControl {
             //if (tempHealth <= 0)
                 //Call EndGameView with status of Game Over here.
         }
-    }
+    }*/
 
 
     public char reDrawSpot(int x, int y)
         throws MapControlException{//Puts original map character back onto
         //visual map in place of ship.
-        
+        //System.out.println("MapSpot " + x + " " + y + " holds " + Map.getSpot(x, y));
         switch (Map.getSpot(x,y)){
             case 0:
                 return '.';
@@ -267,7 +326,7 @@ public class MapControl {
         //this.console.println("\nfor-each bad Print, 0 = empty, 1 = island, 2 = storm");
         this.console.println("\n");
                
-
+        System.out.println("Test Print Map function");
         this.console.println("\nTemporary Map Print, 0 = empty, 1 = island, 2 = storm");
         for(int[] row : mapGrid){
             this.console.println();
@@ -283,8 +342,8 @@ public class MapControl {
             for(char column : row)
                 showUserMap += ("  " + column + "  ");
         }
-        showUserMap += ("\r\n. = empty or unknown space, H = home island, S = Ship \n"
-                + "* = Storm, O = Island");
+        showUserMap += ("\r\n\r\n. = empty or unknown space,  H = home island,  S = Ship \n"
+                + "* = Storm,  O = Island");
         return showUserMap;
     }
     

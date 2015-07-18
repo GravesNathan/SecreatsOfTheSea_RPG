@@ -34,7 +34,7 @@ public class StatusesView extends View{
     public StatusesView(NewGameControl username, MapControl map, ShipSelectionControl playerShip,
             InventoryControl inventory){
         super("\n Current Game Statuses"
-                + "\n C - Close Inventory Manager"
+                + "\n C - Close Status View"
                 + "\n P - Print Status Report", null, null, null, null);
                // + "\nG - Game Menu View", username, map, playerShip);
         //Took out so we don't have a loop of game menu and statuses view

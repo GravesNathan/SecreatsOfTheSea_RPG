@@ -205,11 +205,11 @@ public class ShipSelectionControl {
     }
         
     public int getHealth(){
-        return selectedShip.getHealth();
+        return selectedShip.getShipHealth();
     }
     
     public void setHealth(int change){
-        selectedShip.setHealth(selectedShip.getHealth() + change);
+        selectedShip.setHealth(selectedShip.getShipHealth() + change);
     }
     
     //*****************************************

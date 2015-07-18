@@ -30,12 +30,12 @@ public class GameMenuView extends View{
         + "\n S - Save Game"
         + "\n L - Load Game"
         + "\n H - Help"
-        + "\n Q - Quit Game"
-        + "\n C - Close Menu"
         + "\n I - Inventory Manager"
         + "\n M - View Map"
         + "\n V - View all Statuses"
-        + "\n T - Temp Inventory Report", username, map, playerShip, inventory);
+        + "\n T - Temp Inventory Report"
+        + "\n\n C - Close Menu"
+        + "\n Q - Quit Game", username, map, playerShip, inventory);
  //These aren't reachable here, but aren't assignable outside this constructor...
  //Could possibly have these setup in super constructor before the prompt message...
 //        tempUsername = username;  
