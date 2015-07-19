@@ -22,7 +22,7 @@ public class ExplorableAreasView extends View {
     
     public ExplorableAreasView(NewGameControl username, MapControl map, 
             ShipSelectionControl playerShip, InventoryControl inventory, LocationDetails island){
-                super("Welcome to the" + island.getSocietyName() +" island."//customize island number, if possible name.
+                super("Welcome to the island."//customize island number, if possible name.  " + island.getSocietyName() +"  problems
                         //or calculate in OnShipView, passing to this view
                 + "\nPlese select what you would like to do"
                 //+ "\nE - Explore the Area"
@@ -103,15 +103,15 @@ public class ExplorableAreasView extends View {
         //Determine if they've already obtained statue from this island.
         //If they have not give it to them.  If they have just say hi.
         if (tempIsland.getStatue()==1){
-            this.console.println("Hello" + Player.getName() + ", I've heard much"
+            this.console.println("Hello" + Player.getName() + ",\nI've heard much"
                 + "of your travails at sea.  Here, I'll give you my piece"
-                + "of the puzzle.  In return I expect a small portion of"
-                + "the treasure so that my people can prosper too.");
+                + "\nof the puzzle.  In return I expect a small portion of"
+                + "\nthe treasure so that my people can prosper too.");
             CurrentStatus.setStatuesCount(CurrentStatus.getStatuesCount()+1);
             tempIsland.setStatue(0);
         } else this.console.println("Hello there " + Player.getName()
-                + "It's good to see you again.  I hope you find some rest"
-                + "during your stay with us.  Good luck with the rest"
+                + "\nIt's good to see you again.  I hope you find some rest"
+                + "\nduring your stay with us.  Good luck with the rest"
                 + "of the statue collecting.");
     }
 }

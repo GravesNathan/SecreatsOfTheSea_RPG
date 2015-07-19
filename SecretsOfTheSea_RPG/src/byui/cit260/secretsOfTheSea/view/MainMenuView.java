@@ -15,6 +15,7 @@ import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
 import byui.cit260.secretsOfTheSea.exceptions.ShipSelectionException;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
+import byui.cit260.secretsOfTheSea.model.Player;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -127,7 +128,7 @@ public class MainMenuView {
         inventory = new InventoryControl();
         
         try {
-        this.console.println("Welcome " + newUserSettings.getPlayerName() +
+        this.console.println("Welcome " + Player.getName() +
                 ", let's begin your " + mainMap.getUserDifficulty() + " adventures in Secrets of the Sea."
                 + "\n Prepare to board your " + assignPlayerShip.getShipName() +  " and set sails on the open seas.");
         } catch (MapControlException me_difficulty) {

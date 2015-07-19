@@ -116,8 +116,7 @@ public class SecretsOfTheSea_RPG {
         LocationDetails locations[] = MapControl.getLocation();
                 for (int i=0; i<8;i++){
                     if(CurrentStatus.getCurrentX()==locations[i].getXCoordinate() &&
-                       CurrentStatus.getCurrentY()==
-                       locations[i].getYCoordinate()){
+                       CurrentStatus.getCurrentY()==locations[i].getYCoordinate()){
                         tempIsland = locations[i];
                         tempIsland.setIslandNumber(0);
                         tempIsland.setSocietyName("Home");

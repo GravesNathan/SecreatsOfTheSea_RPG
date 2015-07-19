@@ -329,3 +329,8 @@ Sat Jul 18 20:43:54 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView -
 Sat Jul 18 20:43:55 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
 Sat Jul 18 20:43:55 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
  Invalid choice.  Please try again.
+Sun Jul 19 00:07:42 CDT 2015 - SecretsOfTheSea_RPG - The Program hit an unexpected Error.
+Sun Jul 19 00:11:27 CDT 2015 - SecretsOfTheSea_RPG - The Program hit an unexpected Error.
+Sun Jul 19 00:11:47 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sun Jul 19 00:11:49 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.
+Sun Jul 19 00:11:50 CDT 2015 - byui.cit260.secretsOfTheSea.view.MainMenuView - Invalid Input.  Please try again.

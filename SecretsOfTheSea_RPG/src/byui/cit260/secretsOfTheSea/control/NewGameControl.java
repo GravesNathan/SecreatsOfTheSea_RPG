@@ -53,11 +53,11 @@ public class NewGameControl {
      //   }
     
     public static String getPlayerName(){
-        return player1.getName();
+        return Player.getName();
     }
 
     public static void setPlayerName(String playerName) {
-        player1.setName(playerName);
+        Player.setName(playerName);
     }
     
     
