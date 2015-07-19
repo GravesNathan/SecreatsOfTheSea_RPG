@@ -234,7 +234,7 @@ public class MapControl {
                     Map.setVisibleMap(visibleMap);
                     moveResourceUsage(tempShip, tempInventory);
                 }
-                else throw new MapControlException ("Up is out of bounds."
+                else throw new MapControlException ("Up is out of bounds. "
                         + "Please try a different menu selection");
                 break;
             case 'R'://Down Movement
@@ -245,7 +245,7 @@ public class MapControl {
                     Map.setVisibleMap(visibleMap);
                     moveResourceUsage(tempShip, tempInventory);
                 }
-                else throw new MapControlException ("Down is out of bounds."
+                else throw new MapControlException ("Down is out of bounds. "
                         + "Please try a different menu selection"); 
                 break;
             default:
@@ -265,11 +265,11 @@ public class MapControl {
             else CurrentStatus.setStatusMessage("You moved, but nothing exciting happend");
         
         if (tempShip.getHealth()<=0){
-            CurrentStatus.setStatusMessage("Your Ship has been Destroyed, you and your crew"
+            CurrentStatus.setStatusMessage("Your Ship has been Destroyed, you and your crew "
                     + "were lost at sea and never found.  Be sure to watch your health next time.");
             System.out.println("EndGameControlStub");//Will need to Call new EndGameControl Instead
         }else if (tempShip.getMorale()<=0){
-            CurrentStatus.setStatusMessage("Your crew rebelled against you and threw you off the ship."
+            CurrentStatus.setStatusMessage("Your crew rebelled against you and threw you off the ship. "
                     + "\nBe sure to keep their Morale higher next time.");
             System.out.println("EndGameControlStub");//Will need to Call new EndGameControl Instead
         }

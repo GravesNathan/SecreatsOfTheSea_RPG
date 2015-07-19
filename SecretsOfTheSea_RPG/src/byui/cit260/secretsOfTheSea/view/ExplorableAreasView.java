@@ -107,15 +107,16 @@ public class ExplorableAreasView extends View {
         }
         else {
         if (tempIsland.getStatue()==1){
-            this.console.println("Hello" + Player.getName() + ",\nI've heard much"
-                + "of your travails at sea.  Here, I'll give you my piece"
-                + "\nof the puzzle.  In return I expect a small portion of"
+            this.console.println("Hello" + Player.getName() + ",\nI've heard much "
+                + "of your travails at sea.  Here, I'll give you my piece "
+                + "\nof the puzzle.  In return I expect a small portion of "
                 + "\nthe treasure so that my people can prosper too.");
             CurrentStatus.setStatuesCount(CurrentStatus.getStatuesCount()+1);
             tempIsland.setStatue(0);
+            //Call endGameControl to offer up game progress messages.
         } else this.console.println("Hello there " + Player.getName()
-                + "\nIt's good to see you again.  I hope you find some rest"
-                + "\nduring your stay with us.  Good luck with the rest"
+                + "\nIt's good to see you again.  I hope you find some rest "
+                + "\nduring your stay with us.  Good luck with the rest "
                 + "of the statue collecting.");
         }
     }

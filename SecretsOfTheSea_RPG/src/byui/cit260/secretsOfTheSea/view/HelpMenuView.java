@@ -113,8 +113,8 @@ public class HelpMenuView extends View{
     private void howToMove() {
         this.console.println("\n *** HOW TO MOVE ***"
                         + "\n"
-                        + "\n Enter Description Here."
-                        + "\n"
+                        + "\n While navigating the seas you can steer your vessel by using the "
+                        + "\n E, R, T, & 4 keys.  E = Right, T = Left, R = Down & 4 = Up."
                         + "\n"
         );
     }

@@ -1,1 +1,2 @@
-Sun Jul 19 00:30:38 CDT 2015 - SecretsOfTheSea_RPG - The Program hit an unexpected Error.
+Sun Jul 19 00:56:47 CDT 2015 - byui.cit260.secretsOfTheSea.view.GameMenuView - 
+ Invalid choice.  Please try again.
