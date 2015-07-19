@@ -11,6 +11,7 @@ import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 import byui.cit260.secretsOfTheSea.exceptions.InventoryControlException;
 import byui.cit260.secretsOfTheSea.model.Items;
+import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import secretsofthesea_rpg.SecretsOfTheSea_RPG;
@@ -28,6 +29,7 @@ public class InventoryManagerView{
 //    private MapControl tempMap = null;
 //    private ShipSelectionControl tempPlayerShip= null;
     private InventoryControl tempInventory = null;
+    private ShipSelectionControl tempShip = null;
     private InputView getInput = new InputView();
     char item;
     char action ;
@@ -35,11 +37,12 @@ public class InventoryManagerView{
     String strAction = "";
     
     public InventoryManagerView(NewGameControl username, MapControl map, 
-            ShipSelectionControl playerShip, InventoryControl inventory){
+            ShipSelectionControl playerShip, InventoryControl inventory, LocationDetails island){
 //        tempUsername = username;  
 //        tempMap = map;
 //        tempPlayerShip= playerShip;
         tempInventory = inventory;
+        tempShip = playerShip;
         this.console.println("\n");
         this.promptMessage = ("\n                   Inventory Manager"
                 +"\n Please select a resource or close the inventory manager."
@@ -127,8 +130,7 @@ public class InventoryManagerView{
                         this.console.println(tempInventory.removeItem(item, quantity));
                         return false;
                     case 'U':
-                        this.useResource();//This one may be complicated, but after use remove what was used.
-                        this.console.println(tempInventory.removeItem(item, quantity));
+                        this.console.println(tempInventory.useItem(item, quantity, tempShip));//This one may be complicated, but after use remove what was used.
                         return false;
                         //Option E is handled twice in above giant do-while to exit inventory upon inputo of E
                     default:
@@ -140,10 +142,6 @@ public class InventoryManagerView{
             }
         }
 
-    public void useResource(){
-        this.console.println("useResource function called.");
-    }
-    
 }  
 //    public void takeItem(){
 //        this.console.println("takeItem function stub");

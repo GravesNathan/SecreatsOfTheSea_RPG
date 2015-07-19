@@ -9,6 +9,7 @@ import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -27,16 +28,17 @@ public abstract class View implements ViewInterface {
     protected MapControl tempMap = null;
     protected ShipSelectionControl tempPlayerShip= null;
     protected InventoryControl tempInventory = null;
-    
+    protected LocationDetails tempIsland = null;
     protected final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
     protected final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
     
     public View(String promptMessage, NewGameControl username, MapControl map, ShipSelectionControl playerShip,
-        InventoryControl inventory) {
+        InventoryControl inventory, LocationDetails island) {
         tempUsername = username;  
         tempMap = map;
         tempPlayerShip= playerShip;
         tempInventory = inventory;
+        tempIsland = island;
         this.console.println("\n");
         this.promptMessage = promptMessage;
         this.display();

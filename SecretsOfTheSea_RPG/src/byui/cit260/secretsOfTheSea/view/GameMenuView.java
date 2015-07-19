@@ -25,7 +25,7 @@ public class GameMenuView extends View{
     //InputView input2 = new InputView();
         
     public GameMenuView(NewGameControl username, MapControl map, ShipSelectionControl playerShip,
-            InventoryControl inventory){
+            InventoryControl inventory, LocationDetails island){
                 super("\n Game Menu Options"
         + "\n S - Save Game"
         + "\n L - Load Game"
@@ -35,7 +35,7 @@ public class GameMenuView extends View{
         + "\n V - View all Statuses"
         + "\n T - Temp Inventory Report"
         + "\n\n C - Close Menu"
-        + "\n Q - Quit Game", username, map, playerShip, inventory);
+        + "\n Q - Quit Game", username, map, playerShip, inventory, island);
  //These aren't reachable here, but aren't assignable outside this constructor...
  //Could possibly have these setup in super constructor before the prompt message...
 //        tempUsername = username;  
@@ -65,6 +65,7 @@ public class GameMenuView extends View{
                     tempInventory.getCargo(),
                     tempInventory.getStorage(),
                     tempMap.getSetupAreas(),
+                    
                     filePath);
             this.console.println("\nGame has been saved.\n");
         } catch (Exception ex){
@@ -77,7 +78,7 @@ public class GameMenuView extends View{
         String filePath = tempInput.stringInput();
         try{
             //Load a Saved Game
-            GameControl.loadGame(filePath, tempUsername, tempMap, tempPlayerShip, tempInventory);
+            GameControl.loadGame(filePath, tempUsername, tempMap, tempPlayerShip, tempInventory, tempIsland);
             this.console.println("Saved data has been loaded.  Returning to Game Menu.");
         } catch (Exception ex){
             ErrorView.display("GameMenuView", ex.getMessage());
@@ -116,13 +117,13 @@ public class GameMenuView extends View{
 		//this.closeMenu();  Shouldn't need.  It just returns true and closes.
 		return true;
             case 'I':
-		InventoryManagerView inventoryView = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip, tempInventory);
+		InventoryManagerView inventoryView = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip, tempInventory, tempIsland);
 		return false;
             case 'M':
                 tempMap.PrintMap();
                 return false;
             case 'V':
-		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip, tempInventory);
+		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip, tempInventory, tempIsland);
 		return false;
             case 'T'://Chose T for temporary report
 //               Console console = System.console();

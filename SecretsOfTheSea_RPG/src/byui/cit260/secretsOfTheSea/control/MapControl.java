@@ -92,7 +92,7 @@ public class MapControl {
     }
   
     public void populateMap() 
-            throws ArrayIndexOutOfBoundsException, ExplorableAreasException{
+            throws ArrayIndexOutOfBoundsException, ExplorableAreasException, MapControlException{
         int xMax = mapOne.getxMax();
         int yMax = mapOne.getyMax();
         location = new LocationDetails[8];
@@ -118,11 +118,15 @@ public class MapControl {
                     location[i].setXCoordinate(tempX);
                     location[i].setYCoordinate(tempY);
                     location[i].setIslandNumber(i);
+                    location[i].setStatue(1);
+                    //You already have one in CurrentStatus
+                    location[i].setSocietyName(locationNumToString(i));
                     if (i == 0){
                         CurrentStatus.setCurrentX(tempX);
                         CurrentStatus.setCurrentY(tempY);
                         CurrentStatus.setCurrentIsland(i);
                         CurrentStatus.setCurrentArea(0);
+                        location[i].setStatue(0);//Set Home Island count to 0
                     }
                     mapGrid[tempX][tempY] = 1;
                     setupAreas = new ExplorableAreasControl(i);                   
@@ -132,7 +136,7 @@ public class MapControl {
         //Create Locations has finished here
     }
         //This section populates Storms
-      public void populateStorms(){
+    public void populateStorms(){
             int tempX = 0;
             int tempY = 0;
             int xMax = mapOne.getxMax();
@@ -153,6 +157,29 @@ public class MapControl {
             }
             mapOne.setGrid(mapGrid);//Initial set after Creation of map.
       }
+    
+    public String locationNumToString(int number) throws MapControlException{
+        switch (number){
+            case 0:
+                return "Home";
+            case 1:
+                return "Privateer";
+            case 2:
+                return "Barbarian";
+            case 3:
+                return "Aztec";
+            case 4:
+                return "Buchaneers";
+            case 5:
+                return "Carousuers";
+            case 6:
+                return "Corsairs";
+            case 7:
+                return "Turks";
+            default:
+                throw new MapControlException ("Error converting island number to String");
+        }
+    }  
       
     public void createVisibleMap()
         throws MapControlException{
@@ -551,6 +578,8 @@ public class MapControl {
         location = storeLocation;
     }
 
+    //Get Location Number here
+    
     public static Storms[] getStorms() {
         return storms;
     }

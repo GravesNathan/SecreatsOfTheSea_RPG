@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class Player implements Serializable{
     // class instance variables
-    private String name;
+    private static String name;
     private int approachChoice;
     private String help;
     private char playerChoice;
@@ -23,7 +23,7 @@ public class Player implements Serializable{
         this.setName(tempName);
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
@@ -31,8 +31,8 @@ public class Player implements Serializable{
         return approachChoice;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public static void setName(String tempName) {
+        name = tempName;
     }
 
     public void setApproachChoice(int approachChoice) {

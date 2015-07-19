@@ -6,6 +6,7 @@
 package byui.cit260.secretsOfTheSea.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -17,6 +18,7 @@ public class LocationDetails extends Storage implements Serializable{
     private int YCoordinate;
     private float distance;
     private int islandNumber;//For use in Explorable Areas.
+    private String societyName;
     
     public LocationDetails() {
     }
@@ -61,25 +63,35 @@ public class LocationDetails extends Storage implements Serializable{
         this.islandNumber = islandNumber;
     }
 
+    public String getSocietyName() {
+        return societyName;
+    }
+
+    public void setSocietyName(String societyName) {
+        this.societyName = societyName;
+    }
+
     
-    //@Override
+    
+    @Override
     public String toString() {
         return "LocationDetails{" + ", Statue=" + Statue + ", XCoordinate=" + XCoordinate + ", YCoordinate="
                 + YCoordinate + ", distance = " + distance + '}';
     }
 
-    //@Override
+    @Override
     public int hashCode() {
         int hash = 7;
         hash = 29 * hash + this.Statue;
         hash = 29 * hash + this.XCoordinate;
         hash = 29 * hash + this.YCoordinate;
+        hash = 29 * hash + Float.floatToIntBits(this.distance);
         hash = 29 * hash + this.islandNumber;
-        hash = (int) (29 * hash + this.distance);//That's what netbeans suggested for the long...
+        hash = 29 * hash + Objects.hashCode(this.societyName);
         return hash;
     }
 
-    //@Override
+    @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
@@ -97,14 +109,17 @@ public class LocationDetails extends Storage implements Serializable{
         if (this.YCoordinate != other.YCoordinate) {
             return false;
         }
+        if (Float.floatToIntBits(this.distance) != Float.floatToIntBits(other.distance)) {
+            return false;
+        }
         if (this.islandNumber != other.islandNumber) {
             return false;
         }
-        if (this.distance != other.distance){
+        if (!Objects.equals(this.societyName, other.societyName)) {
             return false;
         }
         return true;
     }
+
    
-    
 }

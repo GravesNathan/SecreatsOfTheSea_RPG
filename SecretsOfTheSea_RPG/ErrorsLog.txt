@@ -309,3 +309,23 @@ Sat Jul 18 19:41:05 CDT 2015 - MapView - Left is out of bounds.Please try a diff
 Sat Jul 18 19:41:05 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
 Sat Jul 18 19:41:06 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
 Sat Jul 18 19:41:06 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
+Sat Jul 18 20:43:16 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 20:43:50 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Sat Jul 18 20:43:50 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 20:43:52 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Sat Jul 18 20:43:52 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 20:43:54 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Sat Jul 18 20:43:54 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 20:43:54 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Sat Jul 18 20:43:54 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 20:43:54 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Sat Jul 18 20:43:54 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 20:43:55 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Sat Jul 18 20:43:55 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.

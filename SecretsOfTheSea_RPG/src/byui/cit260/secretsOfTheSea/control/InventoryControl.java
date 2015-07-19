@@ -12,6 +12,7 @@ import byui.cit260.secretsOfTheSea.model.ItemsEnum;
 import byui.cit260.secretsOfTheSea.model.SelectedShip;
 import byui.cit260.secretsOfTheSea.model.Storage;
 import byui.cit260.secretsOfTheSea.view.ErrorView;
+import static java.lang.Math.floor;
 import java.util.ArrayList;
 
 /**
@@ -124,6 +125,24 @@ public class InventoryControl {
 //    public void shipAdjustments(ShipSelectionControl playerShip){
 //        int ship = playerShip.getShipChoice();            
 //    }
+    
+    public String useItem(char charItem, int quantity, ShipSelectionControl tempShip)
+        throws InventoryControlException{
+        removeItem( charItem, quantity);//If it throws, will it continue or go back... may need to fix by checking quantity before applying
+        //item affect.  But it should keep throwing back to the try catch and continue there so we should be good.  I need to remember
+        //how these work.
+        if (charItem == ItemsEnum.Lumber.getCName()){
+            tempShip.setHealth(tempShip.getHealth()+ quantity);
+            return ("\nUsed " + quantity + " Lumber and gained " + quantity + " health.\n");
+        } else if (charItem == ItemsEnum.Water.getCName() || charItem == ItemsEnum.Food.getCName()) {
+            tempShip.setMorale(tempShip.getMorale()+ quantity);
+            return ("\nUsed " + quantity + " "+ charToString(charItem) +" and boosted morale by " + quantity + "\n");
+        } else if (charItem == ItemsEnum.Coin.getCName()){
+            tempShip.setMorale((int)(tempShip.getMorale()+ floor(quantity/50)) );//round down to nearest whole divisible number.
+            return ("\nUsed " + quantity + " " +charToString(charItem) +" and boosted morale by " + quantity + "\n");
+        } else throw new InventoryControlException ("Problem detecting the item chosen to use.");
+    }
+    
     
     public String cargoToString(){//used to display a list of current cargo
         String cargoString = "";

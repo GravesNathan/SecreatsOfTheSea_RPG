@@ -13,7 +13,10 @@ import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
 import byui.cit260.secretsOfTheSea.exceptions.ShipSelectionException;
+import byui.cit260.secretsOfTheSea.model.CurrentStatus;
+import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import byui.cit260.secretsOfTheSea.view.ErrorView;
+import byui.cit260.secretsOfTheSea.view.ExplorableAreasView;
 import byui.cit260.secretsOfTheSea.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -63,6 +66,7 @@ public class SecretsOfTheSea_RPG {
         MapControl tempMap = null;
         ShipSelectionControl tempShip = null; 
         InventoryControl tempInventory = null;
+        LocationDetails tempIsland = null;
         
 
         
@@ -108,18 +112,32 @@ public class SecretsOfTheSea_RPG {
         tempShip = new ShipSelectionControl(0);
         tempInventory = new InventoryControl();
         tempInventory.startupInventory();
+        CurrentStatus.setStatuesCount(1);
+        LocationDetails locations[] = MapControl.getLocation();
+                for (int i=0; i<8;i++){
+                    if(CurrentStatus.getCurrentX()==locations[i].getXCoordinate() &&
+                       CurrentStatus.getCurrentY()==
+                       locations[i].getYCoordinate()){
+                        tempIsland = locations[i];
+                        tempIsland.setIslandNumber(0);
+                        tempIsland.setSocietyName("Home");
+                        tempIsland.setStatue(0);
+                    }
+                }
+//Start with 1 statue from home island.
+        
         }catch (MapControlException | ExplorableAreasException | ShipSelectionException mce) { 
             ErrorView.display("GameControl ",mce.getMessage());
         }
         
         //StartProgramView
         startProgramView = new StartProgramView();
-        startProgramView.startProgram(tempGame, tempMap, tempShip, tempInventory);
+        startProgramView.startProgram(tempGame, tempMap, tempShip, tempInventory, tempIsland);
        
         } catch (Throwable ex){ 
 
             ErrorView.display("SecretsOfTheSea_RPG", "The Program hit an unexpected Error.");
-            startProgramView.startProgram(tempGame, tempMap, tempShip, tempInventory);
+            startProgramView.startProgram(tempGame, tempMap, tempShip, tempInventory, tempIsland);
             
             
         }

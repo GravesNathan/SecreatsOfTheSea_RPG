@@ -9,6 +9,7 @@ import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import byui.cit260.secretsOfTheSea.model.LocationDetails;
 
 /**
  *
@@ -17,7 +18,7 @@ import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 public class TrustTrialView extends View{
     
     public TrustTrialView(NewGameControl username, MapControl map, ShipSelectionControl playerShip,
-            InventoryControl inventory){
+            InventoryControl inventory, LocationDetails island){
         super("\n Trust Trial"
                 + "\n D - Diplomatic Approach"
                 + "\n S - Scare Tactics/Intimidation Approach"
@@ -26,7 +27,7 @@ public class TrustTrialView extends View{
                 + "\n F - Flee the Island"
                 + "\n I - Inventory Manager"
                 + "\n V - View All Statuses"
-                + "\n G - Game Menu View", username, map, playerShip, inventory);
+                + "\n G - Game Menu View", username, map, playerShip, inventory, island);
     }
     
     public void diplomaticApproach(){
@@ -71,13 +72,13 @@ public class TrustTrialView extends View{
                 return false;
             case 'I':
 		InventoryManagerView inventory = new InventoryManagerView(tempUsername, tempMap, tempPlayerShip,
-                        tempInventory);
+                        tempInventory, tempIsland);
 		return false;
             case 'V':
-		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip, tempInventory);
+		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip, tempInventory, tempIsland);
 		return false;
             case 'G':
-                GameMenuView gamemenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip, tempInventory);
+                GameMenuView gamemenu = new GameMenuView(tempUsername, tempMap, tempPlayerShip, tempInventory, tempIsland);
                 return false; 
             default:
                 ErrorView.display(this.getClass().getName(),"\n Invalid choice. Please try again.");

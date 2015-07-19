@@ -14,6 +14,7 @@ import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
 //import byui.cit260.secretsOfTheSea.model.Player;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
 import byui.cit260.secretsOfTheSea.exceptions.ShipSelectionException;
+import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -31,7 +32,7 @@ public class MainMenuView {
     //initialize here and it's accessible throughout class.
    private NewGameControl newUserSettings = null; //again why are we creating the memory later in line 30 instead of here?
    private MapControl mainMap = null;
-   
+   private LocationDetails island = null;
    private final BufferedReader keyboard = SecretsOfTheSea_RPG.getInFile();
    private final PrintWriter console = SecretsOfTheSea_RPG.getOutFile();
     //InputView is not a super class so no need for inheritance.
@@ -51,7 +52,7 @@ public class MainMenuView {
    }
    
     public void newGame(NewGameControl tempGame, MapControl tempMap,
-            ShipSelectionControl tempShip, InventoryControl tempInventory){
+            ShipSelectionControl tempShip, InventoryControl tempInventory, LocationDetails tempIsland){
         //Input Name
         this.console.println("Greetings Captain, welcome to the port-city of Rexburg, "
                 + "how shall we address you?");
@@ -90,7 +91,7 @@ public class MainMenuView {
             ErrorView.display(this.getClass().getName(),"Error obtaining input\n");
         }            
             StartProgramView startProgramView = new StartProgramView();
-            startProgramView.startProgram(tempGame, tempMap, tempShip, tempInventory);//Does this only work with an independent executable?
+            startProgramView.startProgram(tempGame, tempMap, tempShip, tempInventory, tempIsland);//Does this only work with an independent executable?
         }
         
         //Choose Ship
@@ -132,7 +133,7 @@ public class MainMenuView {
         } catch (MapControlException me_difficulty) {
             ErrorView.display(this.getClass().getName(),me_difficulty.getMessage());
         }
-        ExplorableAreasView beginExplore = new ExplorableAreasView(newUserSettings, mainMap, assignPlayerShip, inventory);
+        ExplorableAreasView beginExplore = new ExplorableAreasView(newUserSettings, mainMap, assignPlayerShip, inventory, island);
     }
     
     public void openHelp(){

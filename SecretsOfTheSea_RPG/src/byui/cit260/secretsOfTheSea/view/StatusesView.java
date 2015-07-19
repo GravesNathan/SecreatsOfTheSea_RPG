@@ -10,6 +10,9 @@ import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
+import byui.cit260.secretsOfTheSea.model.CurrentStatus;
+import byui.cit260.secretsOfTheSea.model.LocationDetails;
+import byui.cit260.secretsOfTheSea.model.Player;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -32,12 +35,19 @@ public class StatusesView extends View{
             SecretsOfTheSea_RPG.getStatusReport();
                 
     public StatusesView(NewGameControl username, MapControl map, ShipSelectionControl playerShip,
-            InventoryControl inventory){
-        super("\n Current Game Statuses"
+            InventoryControl inventory, LocationDetails island){
+        super( "************Current Game Status*****************"
+                + "\n\n"
+                + "\nPlayer Name = " + Player.getName()
+                + "\nStatue Count =" + CurrentStatus.getStatuesCount()
+                + "\n\nShip Health = " + playerShip.getHealth()
+                + "\nShip Defense = " + playerShip.getDefense()
+                + "\nShip Speed = " + playerShip.getSpeed()
+                + "\nCurrent Morale = " + playerShip.getMorale()
+                + "\n" + inventory.cargoMapString()
+                + "\n\nMap of the Sea \n\n" + map.mapToString()
                 + "\n C - Close Status View"
-                + "\n P - Print Status Report", null, null, null, null);
-               // + "\nG - Game Menu View", username, map, playerShip);
-        //Took out so we don't have a loop of game menu and statuses view
+                + "\n P - Print Status Report", username, map, playerShip, inventory, island);
     }
     
   

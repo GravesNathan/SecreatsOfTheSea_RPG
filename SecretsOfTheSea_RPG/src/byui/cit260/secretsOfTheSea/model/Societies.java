@@ -14,18 +14,22 @@ import java.util.Objects;
  */
 public enum Societies implements Serializable{
     
-    Privateer("Island of the Privateers"),
-    Barbarian("Island of the Barbarians"),
-    Aztec("Island of the Aztec"),
-    Buchaneers("Island of the Buchaneers"),
-    Carousers("Island of the Carousers"),
-    Corsairs("Island of the Corsairs"),
-    Turks("Island of the Turks");
+    Home("Your Home island", 0),
+    Privateer("Island of the Privateers", 1),
+    Barbarian("Island of the Barbarians", 2),
+    Aztec("Island of the Aztec", 3),
+    Buchaneers("Island of the Buchaneers", 4),
+    Carousers("Island of the Carousers", 5),
+    Corsairs("Island of the Corsairs", 6),
+    Turks("Island of the Turks", 7);
 
-    private final String description;
     
-    Societies(String description){
+    private final String description;
+    private final int islandNum;
+    
+    Societies(String description, int islandNum){
         this.description = description;
+        this.islandNum = islandNum;
     }
     
     
@@ -41,54 +45,54 @@ public enum Societies implements Serializable{
         return description;
     }
 
-    public String getPositiveApproach() {
-        return PositiveApproach;
-    }
-
-    public void setPositiveApproach(String PositiveApproach) {
-        this.PositiveApproach = PositiveApproach;
-    }
-
-    public String getNeutralApproach() {
-        return NeutralApproach;
-    }
-
-    public void setNeutralApproach(String NeutralApproach) {
-        this.NeutralApproach = NeutralApproach;
-    }
-
-    public String getNegativeApproach() {
-        return NegativeApproach;
-    }
-
-    public void setNegativeApproach(String NegativeApproach) {
-        this.NegativeApproach = NegativeApproach;
-    }
-
-        public int getLeaderTrustLevel() {
-        return LeaderTrustLevel;
-    }
-
-    public void setLeaderTrustLevel(int LeaderTrustLevel) {
-        this.LeaderTrustLevel = LeaderTrustLevel;
-    }
-
-    public int getLeaderTrustLevelTarget() {
-        return LeaderTrustLevelTarget;
-    }
-
-    public void setLeaderTrustLevelTarget(int LeaderTrustLevelTarget) {
-        this.LeaderTrustLevelTarget = LeaderTrustLevelTarget;
-    }
-
-    public void setLeaderTrustStatus(String LeaderTrustStatus) {
-        this.LeaderTrustStatus = LeaderTrustStatus;
-    }
-    
-    @Override
-    public String toString() {
-        return "Societies{" + ", PositiveApproach=" + PositiveApproach + ", NeutralApproach=" + NeutralApproach + ", NegativeApproach=" + NegativeApproach + '}';
-    }
+//    public String getPositiveApproach() {
+//        return PositiveApproach;
+//    }
+//
+//    public void setPositiveApproach(String PositiveApproach) {
+//        this.PositiveApproach = PositiveApproach;
+//    }
+//
+//    public String getNeutralApproach() {
+//        return NeutralApproach;
+//    }
+//
+//    public void setNeutralApproach(String NeutralApproach) {
+//        this.NeutralApproach = NeutralApproach;
+//    }
+//
+//    public String getNegativeApproach() {
+//        return NegativeApproach;
+//    }
+//
+//    public void setNegativeApproach(String NegativeApproach) {
+//        this.NegativeApproach = NegativeApproach;
+//    }
+//
+//        public int getLeaderTrustLevel() {
+//        return LeaderTrustLevel;
+//    }
+//
+//    public void setLeaderTrustLevel(int LeaderTrustLevel) {
+//        this.LeaderTrustLevel = LeaderTrustLevel;
+//    }
+//
+//    public int getLeaderTrustLevelTarget() {
+//        return LeaderTrustLevelTarget;
+//    }
+//
+//    public void setLeaderTrustLevelTarget(int LeaderTrustLevelTarget) {
+//        this.LeaderTrustLevelTarget = LeaderTrustLevelTarget;
+//    }
+//
+//    public void setLeaderTrustStatus(String LeaderTrustStatus) {
+//        this.LeaderTrustStatus = LeaderTrustStatus;
+//    }
+//    
+//    @Override
+//    public String toString() {
+//        return "Societies{" + ", PositiveApproach=" + PositiveApproach + ", NeutralApproach=" + NeutralApproach + ", NegativeApproach=" + NegativeApproach + '}';
+//    }
 
 //    @Override
 //    public int hashCode() {

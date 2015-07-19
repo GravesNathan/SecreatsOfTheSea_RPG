@@ -9,6 +9,7 @@ import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
 import byui.cit260.secretsOfTheSea.exceptions.GameControlException;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
 import byui.cit260.secretsOfTheSea.exceptions.ShipSelectionException;
+import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
 import byui.cit260.secretsOfTheSea.model.Items;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
@@ -33,7 +34,7 @@ public class GameControl {
     public static void saveGame(
             String username,
             int diffMultiplier,
-            LocationDetails[] location,
+            LocationDetails[] locations,
             int[][] mapGrid,//May have an issue as it's not stored in model.
             //should fix that.
             Map mapOne,
@@ -54,7 +55,7 @@ public class GameControl {
             output.writeObject(difficulty);
             output.writeObject(username);
             output.writeObject(diffMultiplier);
-            output.writeObject(location);
+            output.writeObject(locations);
             output.writeObject(mapGrid);
             output.writeObject(mapOne);
             output.writeObject(numStorms);
@@ -73,12 +74,12 @@ public class GameControl {
 
 
     public static void loadGame(String filePathInput, NewGameControl tempGame, MapControl tempMap,
-            ShipSelectionControl tempShip, InventoryControl tempInventory)
+            ShipSelectionControl tempShip, InventoryControl tempInventory, LocationDetails tempIsland)
                 throws GameControlException{
         
         String username = null;
         int diffMultiplier = -1;
-        LocationDetails[] location = null;
+        LocationDetails[] locations = null;
         int[][] mapGrid = null;//May have an issue as it's not stored in model.
         //should fix that.
         Map mapOne = null;
@@ -91,7 +92,7 @@ public class GameControl {
         ArrayList<Items> cargo = null;
         ArrayList<Items> storage = null;
         ExplorableAreas[][] areas = null;
-
+        //LocationDetails island = null;
         
 //        NewGameControl tempGame = null;
 //        MapControl tempMap = null;
@@ -105,7 +106,7 @@ public class GameControl {
             difficulty = (char) inputData.readObject();
             username = (String) inputData.readObject();
             diffMultiplier = (int) inputData.readObject();
-            location = (LocationDetails[]) inputData.readObject();
+            locations = (LocationDetails[]) inputData.readObject();
             mapGrid = (int[][]) inputData.readObject();
             mapOne = (Map) inputData.readObject();
             numStorms = (int) inputData.readObject();
@@ -116,7 +117,7 @@ public class GameControl {
             cargo = (ArrayList<Items>) inputData.readObject();
             storage = (ArrayList<Items>) inputData.readObject();
             areas = (ExplorableAreas[][]) inputData.readObject();
-            
+            //island = (LocationDetails) inputData.readObject();
 //            System.out.println("Loaded Values \n"
 //                    + "\nusername " + username
 //                    + "\ndiffMultiplier " + diffMultiplier
@@ -143,7 +144,7 @@ public class GameControl {
         tempMap.setDifficulty(difficulty);
         tempGame.setPlayerName(username);  
         tempMap.setDiffMultiplier(diffMultiplier);
-        tempMap.setLocation(location);
+        tempMap.setLocation(locations);
         tempMap.setMapGrid(mapGrid);
         tempMap.setMapOne(mapOne);
         tempMap.setNumStorms(numStorms);
@@ -154,8 +155,14 @@ public class GameControl {
         tempInventory.setCargo(cargo);
         tempInventory.setStorage(storage);
         ExplorableAreasControl.setAreas(areas);
-        
-        GameMenuView gameMenu = new GameMenuView(tempGame, tempMap, tempShip, tempInventory);
+        for (int i=0; i<8;i++){//setup current Island before loading gameMenu
+                    if(CurrentStatus.getCurrentX()==locations[i].getXCoordinate() &&
+                       CurrentStatus.getCurrentY()==
+                       locations[i].getYCoordinate()){
+                        tempIsland = locations[i];
+                    }
+        }
+        GameMenuView gameMenu = new GameMenuView(tempGame, tempMap, tempShip, tempInventory, tempIsland);
         
     }
 

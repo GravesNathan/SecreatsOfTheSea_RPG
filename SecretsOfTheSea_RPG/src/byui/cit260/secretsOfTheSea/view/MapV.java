@@ -54,7 +54,7 @@
 //    
 //    
 //    public MapV( NewGameControl username, MapControl map, ShipSelectionControl playerShip,
-//            InventoryControl inventory){
+//            InventoryControl inventory, LocationDetails island){
 //        //super("Map View");
 //        KeyEventDemo keyDetect = new KeyEventDemo("Map View");
 //        char tempInput = 'Z';

@@ -21,7 +21,7 @@ public class CurrentStatus implements Serializable{
     private static int currentY;
     private static int currentArea;
     private static int currentIsland;//set which island they are on for explorableAreas.
-    private int StatuesCount;    
+    private static int StatuesCount;    
     private String LifeStatus;
     private String gameDifficulty;
     private static String statusMessage;
@@ -67,7 +67,7 @@ public class CurrentStatus implements Serializable{
      *
      * @return the value of StatuesCount
      */
-    public int getStatuesCount() {
+    public static int getStatuesCount() {
         return StatuesCount;
     }
 
@@ -76,8 +76,8 @@ public class CurrentStatus implements Serializable{
      *
      * @param StatuesCount new value of StatuesCount
      */
-    public void setStatuesCount(int StatuesCount) {
-        this.StatuesCount = StatuesCount;
+    public static void setStatuesCount(int tempStatuesCount) {
+        StatuesCount = tempStatuesCount;
     }
 
 

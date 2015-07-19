@@ -13,6 +13,9 @@ import java.io.Serializable;
  */
 public enum ItemsEnum implements Serializable{
     //This enum only sets the base value.  It may vary based on societies trust level.
+    
+    //Adjust Prices as needed to make game fair.  Same goes for ship stats
+    //which are located in ShipSelectionControl
     Food('F', "Food", 20, 5),
     Water('W', "Water", 10, 5),
     //Fuel('U', "Fuel", 30, 5),

@@ -9,6 +9,7 @@ import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import byui.cit260.secretsOfTheSea.model.LocationDetails;
 
 /**
  *
@@ -17,12 +18,12 @@ import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
 public class EndGameView extends View{
     
     public EndGameView(NewGameControl username, MapControl map, ShipSelectionControl playerShip,
-            InventoryControl inventory){
+            InventoryControl inventory, LocationDetails island){
         super("\n Game Over"
                 + "\n C - View Credits"
                 + "\n V - View All Statuses"
                 + "\n E - Exit Game"
-                + "\n S - Start New Game", username, map, playerShip, inventory);
+                + "\n S - Start New Game", username, map, playerShip, inventory, island);
     }
     
     public void viewCredits(){
@@ -45,7 +46,7 @@ public class EndGameView extends View{
                 this.exitGame();
                 return false;
             case 'V':
-		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip, tempInventory);
+		StatusesView status = new StatusesView(tempUsername, tempMap, tempPlayerShip, tempInventory, tempIsland);
 		return false;
             case 'S':
                 MainMenuView mainMenu = new MainMenuView();

@@ -11,6 +11,7 @@ import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import byui.cit260.secretsOfTheSea.model.LocationDetails;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,14 +36,14 @@ public class StartProgramView {
     InputView input = new InputView(); 
     
     public void startProgram(NewGameControl tempGame, MapControl tempMap,
-            ShipSelectionControl tempShip, InventoryControl tempInventory){
+            ShipSelectionControl tempShip, InventoryControl tempInventory, LocationDetails tempIsland){
         char mainInput;
         this.displayBanner();
         InitializeControl initialize = new InitializeControl();
         initialize.initializeGame();
         this.startupInput();
         do {//Followed this week's paturn to make this continue when help is the option.  Stops otherwise.
-            mainInput = this.startMenuDisplay(tempGame, tempMap, tempShip, tempInventory);
+            mainInput = this.startMenuDisplay(tempGame, tempMap, tempShip, tempInventory, tempIsland);
         }while (!((mainInput == 'G') || (mainInput == 'L') || (mainInput == 'Q')));
 
     }
@@ -88,7 +89,7 @@ public class StartProgramView {
     }
     
     public char startMenuDisplay(NewGameControl tempGame, MapControl tempMap,
-            ShipSelectionControl tempShip, InventoryControl tempInventory){//change to return character for comparison in startProgram()
+            ShipSelectionControl tempShip, InventoryControl tempInventory, LocationDetails tempIsland){//change to return character for comparison in startProgram()
         char mainInput;
         this.console.println("Please select an option below"
                 + "\nHotkey - Description"
@@ -99,7 +100,7 @@ public class StartProgramView {
                 + "\n");
         
         mainInput = this.startMenuInput();
-        this.startMenuChoice(mainInput, tempGame, tempMap, tempShip, tempInventory);
+        this.startMenuChoice(mainInput, tempGame, tempMap, tempShip, tempInventory, tempIsland);
         return mainInput;//added this line
     }
     
@@ -120,13 +121,13 @@ public class StartProgramView {
     }
     
     public void loadGame(NewGameControl tempGame, MapControl tempMap,
-            ShipSelectionControl tempShip, InventoryControl tempInventory){
+            ShipSelectionControl tempShip, InventoryControl tempInventory, LocationDetails tempIsland){
         this.console.println("\nEnter the file path to load your saved data from.");
         String filePath = input.stringInput();
         //****************Test Load from here and Game Menu**********
         try{
             //Load a Saved Game
-            GameControl.loadGame(filePath, tempGame, tempMap, tempShip, tempInventory);
+            GameControl.loadGame(filePath, tempGame, tempMap, tempShip, tempInventory, tempIsland);
             this.console.println("Saved data has been loaded.  Returning to Game Menu.");
         } catch (Exception ex){
             ErrorView.display("GameMenuView", ex.getMessage());
@@ -135,17 +136,17 @@ public class StartProgramView {
     
     
     public void startMenuChoice(char userChoice, NewGameControl tempGame, MapControl tempMap,
-            ShipSelectionControl tempShip, InventoryControl tempInventory){
+            ShipSelectionControl tempShip, InventoryControl tempInventory, LocationDetails tempIsland){
         MainMenuView mMView = new MainMenuView();
         switch (userChoice) {
             case 'G':
-                mMView.newGame(tempGame, tempMap, tempShip, tempInventory);
+                mMView.newGame(tempGame, tempMap, tempShip, tempInventory, tempIsland);
                 break;
             case 'H':
                 mMView.openHelp();
                 break;
             case 'L':
-                this.loadGame(tempGame, tempMap, tempShip, tempInventory);
+                this.loadGame(tempGame, tempMap, tempShip, tempInventory, tempIsland);
                 break;
             case 'Q':
                 mMView.quitGame();
