@@ -289,3 +289,23 @@ Sat Jul 18 14:00:20 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView -
 Sat Jul 18 14:00:24 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
  Invalid choice.  Please try again.
 Sat Jul 18 14:19:19 CDT 2015 - byui.cit260.secretsOfTheSea.view.InventoryManagerView - Invalid Input.  Please select from the following inventory
+Sat Jul 18 15:42:57 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 18:42:55 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 18:50:56 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 18:50:59 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - Error reading input: String index out of range: 0
+Sat Jul 18 18:50:59 CDT 2015 - byui.cit260.secretsOfTheSea.view.MapView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 19:04:52 CDT 2015 - byui.cit260.secretsOfTheSea.view.GameMenuView - 
+ Invalid choice.  Please try again.
+Sat Jul 18 19:41:04 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
+Sat Jul 18 19:41:04 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
+Sat Jul 18 19:41:04 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
+Sat Jul 18 19:41:05 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
+Sat Jul 18 19:41:05 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
+Sat Jul 18 19:41:05 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
+Sat Jul 18 19:41:05 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
+Sat Jul 18 19:41:06 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection
+Sat Jul 18 19:41:06 CDT 2015 - MapView - Left is out of bounds.Please try a different menu selection

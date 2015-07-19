@@ -9,6 +9,7 @@ import byui.cit260.secretsOfTheSea.control.InventoryControl;
 import byui.cit260.secretsOfTheSea.control.MapControl;
 import byui.cit260.secretsOfTheSea.control.NewGameControl;
 import byui.cit260.secretsOfTheSea.control.ShipSelectionControl;
+import byui.cit260.secretsOfTheSea.exceptions.InventoryControlException;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
 import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 import java.awt.BorderLayout;
@@ -64,6 +65,7 @@ public class MapView extends View{
                 + "\nShip Defense = " + playerShip.getDefense()
                 + "\nShip Speed = " + playerShip.getSpeed()
                 + "\nCurrent Morale = " + playerShip.getMorale()
+                + "\n" + inventory.cargoMapString()
                 + "\n\nMap of the Sea \n\n" + map.mapToString()
                 + "\nPlease enter an option below."
                 + "\n D - Dock ship"
@@ -82,16 +84,17 @@ public class MapView extends View{
         char value = entry;
         if (value == 'E' || value == 'R' || value == 'T' || value == '4'){
             try {
-                tempMap.moveShip(entry, ShipSelectionControl.getSelectedShip());
-                } catch (MapControlException ex) {
+                tempMap.moveShip(entry, ShipSelectionControl.getSelectedShip(), tempInventory);
+                } catch (MapControlException | InventoryControlException ex) {
                 ErrorView.display("MapView", ex.getMessage());
                 }
                 this.setPromptMessage("\n\n************Move Ship View*****************"
-                + "\nSTATUS\n" + CurrentStatus.getStatusMessage()
+                + "\nCURRENT STATUS\n" + CurrentStatus.getStatusMessage()
                 + "\n\nShip Health = " + tempPlayerShip.getHealth()
                 + "\nShip Defense = " + tempPlayerShip.getDefense()
                 + "\nShip Speed = " + tempPlayerShip.getSpeed()
                 + "\nCurrent Morale = " + tempPlayerShip.getMorale()
+                + "\n" + tempInventory.cargoMapString()
                 + "\nMap of the Sea \n\n" + tempMap.mapToString() + "\n\n\n"
                 + "Please enter an option below."
                 + "\n D - Dock ship"

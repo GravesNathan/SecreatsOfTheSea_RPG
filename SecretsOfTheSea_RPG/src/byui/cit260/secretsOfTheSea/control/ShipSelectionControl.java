@@ -42,7 +42,7 @@ public class ShipSelectionControl {
         ship[0].setDescription("Sneak in, deceive leaders, slide away");
         ship[0].setCargoCapSize(20);
         ship[0].setMorale(-1);
-        ship[0].setSpeed(-2);
+        ship[0].setSpeed(-1);
         ship[0].setDefense(4);
         ship[0].setDeceit(1);
         ship[0].setDiplomacy(1);
@@ -90,7 +90,7 @@ public class ShipSelectionControl {
         ship[3].setName("Clipper");
         ship[3].setDescription("Speed across the open sea, you'll with any race with this ship.");
         ship[3].setCargoCapSize(40);
-        ship[3].setMorale(2);
+        ship[3].setMorale(3);
         ship[3].setSpeed(4);
         ship[3].setDefense(-1);
         ship[3].setDeceit(0);

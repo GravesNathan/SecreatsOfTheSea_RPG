@@ -132,6 +132,14 @@ public class InventoryControl {
         return cargoString;
     }
     
+    public String cargoMapString(){
+        String cargoMap = "";
+        for (Items item : cargo){
+            cargoMap += item.getName() + ": " + item.getQuantity() + "\n";
+            }
+        return cargoMap;
+    }
+    
     public String storageToString(){//Used to display a list of current storage
         String storageString = "";
             for (Items item: storage)

@@ -8,6 +8,7 @@ package byui.cit260.secretsOfTheSea.control;
 //import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 //import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
 import byui.cit260.secretsOfTheSea.exceptions.ExplorableAreasException;
+import byui.cit260.secretsOfTheSea.exceptions.InventoryControlException;
 import byui.cit260.secretsOfTheSea.model.Map;
 import byui.cit260.secretsOfTheSea.model.LocationDetails;
 //import byui.cit260.secretsOfTheSea.model.Ships;
@@ -15,11 +16,14 @@ import byui.cit260.secretsOfTheSea.model.Storms;
 import byui.cit260.secretsOfTheSea.exceptions.MapControlException;
 import byui.cit260.secretsOfTheSea.model.CurrentStatus;
 import byui.cit260.secretsOfTheSea.model.ExplorableAreas;
+import byui.cit260.secretsOfTheSea.model.Items;
 import byui.cit260.secretsOfTheSea.model.SelectedShip;
-import byui.cit260.secretsOfTheSea.view.ErrorView;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+//import byui.cit260.secretsOfTheSea.view.ErrorView;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+//import java.util.Hashtable;
 
 import java.util.Random;
 import secretsofthesea_rpg.SecretsOfTheSea_RPG;
@@ -168,8 +172,8 @@ public class MapControl {
         Map.setVisibleMap(visibleMap);//Initial set after creation of visual map.
     }  
     
-    public void moveShip(char direction, SelectedShip tempShip)
-        throws MapControlException {
+    public void moveShip(char direction, SelectedShip tempShip, InventoryControl tempInventory)
+        throws MapControlException, InventoryControlException {
         int y = CurrentStatus.getCurrentY();
     int x = CurrentStatus.getCurrentX();
         switch( direction ) { 
@@ -179,6 +183,7 @@ public class MapControl {
                     CurrentStatus.setCurrentY(y-1);
                     visibleMap[x][y-1]='S';
                     Map.setVisibleMap(visibleMap);
+                    moveResourceUsage(tempShip, tempInventory);
                 }
                 else throw new MapControlException ("Left is out of bounds."
                         + "Please try a different menu selection");
@@ -189,6 +194,7 @@ public class MapControl {
                     CurrentStatus.setCurrentY(y+1);
                     visibleMap[x][y+1]='S';
                     Map.setVisibleMap(visibleMap);
+                    moveResourceUsage(tempShip, tempInventory);
                 }
                 else throw new MapControlException ("Right is out of bounds."
                         + "Please try a different menu selection"); 
@@ -199,6 +205,7 @@ public class MapControl {
                     CurrentStatus.setCurrentX(x-1);
                     visibleMap[x-1][y]='S';
                     Map.setVisibleMap(visibleMap);
+                    moveResourceUsage(tempShip, tempInventory);
                 }
                 else throw new MapControlException ("Up is out of bounds."
                         + "Please try a different menu selection");
@@ -209,6 +216,7 @@ public class MapControl {
                     CurrentStatus.setCurrentX(x+1);
                     visibleMap[x+1][y]='S';
                     Map.setVisibleMap(visibleMap);
+                    moveResourceUsage(tempShip, tempInventory);
                 }
                 else throw new MapControlException ("Down is out of bounds."
                         + "Please try a different menu selection"); 
@@ -228,11 +236,175 @@ public class MapControl {
             else if (mapGrid[CurrentStatus.getCurrentX()][CurrentStatus.getCurrentY()] == 1)
                 CurrentStatus.setStatusMessage("You arrived at an island.  What would you like to do now?");
             else CurrentStatus.setStatusMessage("You moved, but nothing exciting happend");
-            //if (tempHealth <= 0)
-                //Call EndGameView with status of Game Over here.
         
+        if (tempShip.getHealth()<=0){
+            CurrentStatus.setStatusMessage("Your Ship has been Destroyed, you and your crew"
+                    + "were lost at sea and never found.  Be sure to watch your health next time.");
+            System.out.println("EndGameControlStub");//Will need to Call new EndGameControl Instead
+        }else if (tempShip.getMorale()<=0){
+            CurrentStatus.setStatusMessage("Your crew rebelled against you and threw you off the ship."
+                    + "\nBe sure to keep their Morale higher next time.");
+            System.out.println("EndGameControlStub");//Will need to Call new EndGameControl Instead
+        }
+
     }
     
+    public void moveResourceUsage(SelectedShip tempShip,  InventoryControl tempInventory ) 
+            throws InventoryControlException{
+        int speed = tempShip.getSpeed();
+        int moral = tempShip.getMorale();
+        ArrayList<Items> tempCargo = InventoryControl.getCargo();
+        //Hashtable<String, ArrayList<Items>> cargoHash = new Hashtable<>();
+        //cargohash.put("Food",)Not finished, but I think we can create a nice hash table
+        //In a model, enum, or separate class to easly search the correct inventory.
+        //I'm thinking the hash will need to be created when the inventory is initially created.
+        //Then it would be the primary source to access and adjust the array list.
+        boolean foodExists = false;
+        boolean waterExists = false;
+        int foodQuantity = -1;
+        int waterQuantity = -1;
+        for (Items item : tempCargo)
+            if ("Food" == item.getName()){
+                foodExists = true;
+                foodQuantity = item.getQuantity();
+            }
+        for (Items item : tempCargo){
+            //System.out.println("check for water");
+            if ("Water" == item.getName()){
+                waterExists = true;
+                waterQuantity = item.getQuantity();
+            }
+        }
+        
+        if (speed >= 8){//Don't need removing too many check since only removing 1
+            if (!foodExists && !waterExists){//If player out of both food and water
+                tempShip.setMorale(tempShip.getMorale()-1);
+            } else if( !foodExists){//If player is out of food or water, but not both
+                tempShip.setMorale(tempShip.getMorale()-1);
+                tempInventory.removeItem('W', 1);//Must be capital
+            } else if( !waterExists){//If player is out of food or water, but not both
+                tempShip.setMorale(tempShip.getMorale()-1);
+                tempInventory.removeItem('F', 1);//Must be capital
+            } else {
+                tempInventory.removeItem('W', 1);//Must be capital
+                tempInventory.removeItem('F', 1);//Must be capital
+            }
+        } else if (speed >= 6){
+            if (!foodExists && !waterExists){//If player out of both food and water
+                tempShip.setMorale(tempShip.getMorale()-2);
+            } else if( !foodExists){//If player is out of food or water, but not both
+                tempShip.setMorale(tempShip.getMorale()-1);
+                if (waterQuantity >=2)//Make sure not removing too many.
+                    tempInventory.removeItem('W', 2);//Must be capital
+                else //If above line was going to remove too many instead remove what's left.
+                    tempInventory.removeItem('W', waterQuantity);
+            } else if( !waterExists){//If player is out of food or water, but not both
+                tempShip.setMorale(tempShip.getMorale()-1);
+                if (foodQuantity >=2)//Make sure not removing too many.
+                    tempInventory.removeItem('F', 2);//Must be capital
+                else //If above line was going to remove too many instead remove what's left.
+                    tempInventory.removeItem('F', foodQuantity);
+            } else {
+                if (waterQuantity >=2)//Make sure not removing too many.
+                    tempInventory.removeItem('W', 2);//Must be capital
+                else //If above line was going to remove too many instead remove what's left.
+                    tempInventory.removeItem('W', waterQuantity);
+                if (foodQuantity >=2)//Make sure not removing too many.
+                    tempInventory.removeItem('F', 2);//Must be capital
+                else //If above line was going to remove too many instead remove what's left.
+                    tempInventory.removeItem('F', foodQuantity);
+            }
+        } else if (speed >= 4){
+            //System.out.println("Spped>=4 Test ");
+            if (!foodExists && !waterExists){//If player out of both food and water
+                tempShip.setMorale(tempShip.getMorale()-3);
+            } else if( !foodExists){//If player is out of food or water, but not both
+                tempShip.setMorale(tempShip.getMorale()-2);
+                if (waterQuantity >=3)//Make sure not removing too many.
+                    tempInventory.removeItem('W', 3);//Must be capital
+                else //If above line was going to remove too many instead remove what's left.
+                    tempInventory.removeItem('W', waterQuantity);
+            } else if( !waterExists){//If player is out of food or water, but not both
+                tempShip.setMorale(tempShip.getMorale()-2);
+                if (foodQuantity >=3)//Make sure not removing too many.
+                    tempInventory.removeItem('F', 3);//Must be capital
+                else //If above line was going to remove too many instead remove what's left.
+                    tempInventory.removeItem('F', foodQuantity);
+            } else {
+                //System.out.println(" have both food and water ");
+                if (waterQuantity >=3){//Make sure not removing too many.
+                    //System.out.println("\nremove water, waterQuantity " + waterQuantity);
+                    tempInventory.removeItem('W', 3);//Must be capital
+                } else {//If above line was going to remove too many instead remove what's left.
+                    tempInventory.removeItem('W', waterQuantity);
+                    //System.out.println("\nLast Of Water, waterQuantity " + waterQuantity);
+                }
+                if (foodQuantity >=3){//Make sure not removing too many.
+                    tempInventory.removeItem('F', 3);//Must be capital
+                   // System.out.println("\nremove food, food Quantity " + foodQuantity);
+                } else {//If above line was going to remove too many instead remove what's left.
+                    tempInventory.removeItem('F', foodQuantity);
+                    //System.out.println("Last of Food, food Quantity " + foodQuantity);
+                }
+            }
+            //Old if speed >= 4, before added checks for quantity.  was needed to avoid errors
+            //of removing too many.
+//            if (!foodExists && !waterExists){//If player out of both food and water
+//                tempShip.setMorale(tempShip.getMorale()-3);
+//            } else if( !foodExists){//If player is out of food or water, but not both
+//                tempShip.setMorale(tempShip.getMorale()-2);
+//                tempInventory.removeItem('W', 3);//Must be capital
+//            } else if( !waterExists){//If player is out of food or water, but not both
+//                tempShip.setMorale(tempShip.getMorale()-2);
+//                tempInventory.removeItem('F', 3);//Must be capital
+//            } else {
+//                tempInventory.removeItem('W', 3);//Must be capital
+//                tempInventory.removeItem('F', 3);//Must be capital
+//            }
+        }else {
+            if (!foodExists && !waterExists){//If player out of both food and water
+                tempShip.setMorale(tempShip.getMorale()-4);
+            } else if( !foodExists){//If player is out of food or water, but not both
+                tempShip.setMorale(tempShip.getMorale()-2);
+                if (waterQuantity >=4)//Make sure not removing too many.
+                    tempInventory.removeItem('W', 4);//Must be capital
+                else //If above line was going to remove too many instead remove what's left.
+                    tempInventory.removeItem('W', waterQuantity);
+            } else if( !waterExists){//If player is out of food or water, but not both
+                tempShip.setMorale(tempShip.getMorale()-2);
+                if (foodQuantity >=4)//Make sure not removing too many.
+                    tempInventory.removeItem('F', 4);//Must be capital
+                else //If above line was going to remove too many instead remove what's left.
+                    tempInventory.removeItem('F', foodQuantity);
+            } else {
+                if (waterQuantity >=4)//Make sure not removing too many.
+                    tempInventory.removeItem('W', 4);//Must be capital
+                else //If above line was going to remove too many instead remove what's left.
+                    tempInventory.removeItem('W', waterQuantity);
+                if (foodQuantity >=4)//Make sure not removing too many.
+                    tempInventory.removeItem('F', 4);//Must be capital
+                else //If above line was going to remove too many instead remove what's left.
+                    tempInventory.removeItem('F', foodQuantity);
+            }
+            
+            
+            
+//            if (!foodExists && !waterExists){//If player out of both food and water
+//                tempShip.setMorale(tempShip.getMorale()-4);
+//            } else if( !foodExists){//If player is out of food or water, but not both
+//                tempShip.setMorale(tempShip.getMorale()-2);
+//                tempInventory.removeItem('W', 4);//Must be capital
+//            } else if( !waterExists){//If player is out of food or water, but not both
+//                tempShip.setMorale(tempShip.getMorale()-2);
+//                tempInventory.removeItem('F', 4);//Must be capital
+//            } else {
+//                tempInventory.removeItem('W', 4);//Must be capital
+//                tempInventory.removeItem('F', 4);//Must be capital
+//            }
+        }
+    }
+        
+        
     /*Not use currently because can't get arrow keys working with key listeners.
     public void exploreMap(KeyEvent e, SelectedShip tempShip)
         throws MapControlException {
