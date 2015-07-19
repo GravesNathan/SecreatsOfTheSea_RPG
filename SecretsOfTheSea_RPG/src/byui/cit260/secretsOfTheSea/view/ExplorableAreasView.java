@@ -102,6 +102,10 @@ public class ExplorableAreasView extends View {
     public void meetLeader(){
         //Determine if they've already obtained statue from this island.
         //If they have not give it to them.  If they have just say hi.
+        if (tempIsland.getIslandNumber() == 0){
+            this.console.println("\nYou already know yourself.  This is your island.");
+        }
+        else {
         if (tempIsland.getStatue()==1){
             this.console.println("Hello" + Player.getName() + ",\nI've heard much"
                 + "of your travails at sea.  Here, I'll give you my piece"
@@ -113,5 +117,6 @@ public class ExplorableAreasView extends View {
                 + "\nIt's good to see you again.  I hope you find some rest"
                 + "\nduring your stay with us.  Good luck with the rest"
                 + "of the statue collecting.");
+        }
     }
 }
