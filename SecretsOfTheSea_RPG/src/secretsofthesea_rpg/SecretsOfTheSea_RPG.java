@@ -135,7 +135,7 @@ public class SecretsOfTheSea_RPG {
        
         } catch (Throwable ex){ 
 
-            ErrorView.display("SecretsOfTheSea_RPG", "The Program hit an unexpected Error.");
+            ErrorView.display("SecretsOfTheSea_RPG", "Invalid Entry, please try again.");
             startProgramView.startProgram(tempGame, tempMap, tempShip, tempInventory, tempIsland);
             
             
