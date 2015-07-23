@@ -33,8 +33,8 @@ public class InventoryReport {
             outFile = new BufferedWriter(new FileWriter(outFileLocation));
             outFile.write("Current Cargo\r\n");
             outFile.write(inventory.cargoToString());
-            outFile.write("\r\n \r\nCurrent Storage\r\n");
-            outFile.write(inventory.storageToString());
+            //outFile.write("\r\n \r\nCurrent Storage\r\n");
+            //outFile.write(inventory.storageToString());
         } catch (IOException ex1){
             ErrorView.display(this.getClass().getName(), ex1.getMessage() +"Error Creating Inventory Report.");
         } finally{

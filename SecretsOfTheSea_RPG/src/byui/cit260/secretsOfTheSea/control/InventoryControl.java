@@ -96,7 +96,7 @@ public class InventoryControl {
         for (Items item : cargo){
             if (charItem == item.getCharName()){
                 if (item.getQuantity() - quantity < 0)//make sure not removing too many items.
-                    return ("You Don't have that many " + item.getName() + " in your inventory.");
+                    throw new InventoryControlException ("You Don't have that many " + item.getName() + " in your inventory.");
                 else item.setQuantity(item.getQuantity() - quantity);
                 if (item.getQuantity() == 0)
                     cargo.remove(item);

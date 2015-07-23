@@ -1,2 +1,1 @@
-Sun Jul 19 00:56:47 CDT 2015 - byui.cit260.secretsOfTheSea.view.GameMenuView - 
- Invalid choice.  Please try again.
+Wed Jul 22 21:41:53 CDT 2015 - SecretsOfTheSea_RPG - Invalid Entry, please try again.
