@@ -44,7 +44,7 @@ public class ErrorView {
     //log the error to errorLog
         
     localErrorLog.println(date + " - " + className + " - " + errorMessage);
-    //close (to save)
+    //close (to save) and then re-open for future error
     try{   
         if (localErrorLog != null)
             localErrorLog.close();

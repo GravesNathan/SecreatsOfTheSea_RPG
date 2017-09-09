@@ -502,3 +502,35 @@
  ****PLAYER STATUS REPORT**** 
  2015/07/22 21:41:41 is your game start time. 
 
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/22 21:49:33 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2015/07/22 21:56:18 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2016/01/01 13:03:57 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2016/10/29 13:17:48 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2017/09/05 21:48:31 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2017/09/08 14:14:10 is your game start time. 
+
+
+ *****STATUS REPORT***** 
+
+ Date & Time: 2017/09/08 14:16:37
+ Player Name: "nate"
+ Difficulty: "E"
+
+ ************ 

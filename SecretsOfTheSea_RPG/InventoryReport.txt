@@ -1,8 +1,6 @@
 Current Cargo
 
- F - Food :quantity = 25
- W - Water :quantity = 25
+ F - Food :quantity = 1
+ W - Water :quantity = 1
  C - Coin :quantity = 200
- L - Lumber :quantity = 10
- 
-Current Storage
+ L - Lumber :quantity = 5
