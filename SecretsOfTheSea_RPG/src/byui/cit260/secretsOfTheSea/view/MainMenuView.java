@@ -73,7 +73,7 @@ public class MainMenuView {
 
 //Try - Catch test code
         try{
-        mainMap = new MapControl (difficultyLevel);
+        mainMap = new MapControl (difficultyLevel); //calls MapControl constructor
         } catch (MapControlException me) {
             this.console.println(me.getMessage());
         
@@ -94,7 +94,7 @@ public class MainMenuView {
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.startProgram(tempGame, tempMap, tempShip, tempInventory, tempIsland);//Does this only work with an independent executable?
         }
-        
+       //Map finishes and returns up here 
         //Choose Ship
         String charShipChoice = "Raft";
         int shipChoice = 0;

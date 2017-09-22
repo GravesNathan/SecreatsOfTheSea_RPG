@@ -47,7 +47,7 @@ public class MapControl {
     private static String tempWarning = null;
     private static ExplorableAreasControl setupAreas = null;
     
-    public MapControl( char tempDifficulty )
+    public MapControl( char tempDifficulty ) //Map Control Constructor
             throws MapControlException, ArrayIndexOutOfBoundsException, 
             ExplorableAreasException  {
         

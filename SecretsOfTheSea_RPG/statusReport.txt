@@ -534,3 +534,11 @@
  Difficulty: "E"
 
  ************ 
+
+ ****PLAYER STATUS REPORT**** 
+ 2017/09/19 18:46:32 is your game start time. 
+
+
+ ****PLAYER STATUS REPORT**** 
+ 2017/09/21 20:36:01 is your game start time. 
+
